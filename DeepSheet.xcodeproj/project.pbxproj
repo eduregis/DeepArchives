@@ -19,6 +19,7 @@
 		2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EF1C2567F33300BE0644 /* CustomColors.swift */; };
 		2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EF222567F3A700BE0644 /* CharacteristicView.swift */; };
 		2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */; };
+		2EF1EF362567F6E400BE0644 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF352567F6E400BE0644 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2EF1EF1C2567F33300BE0644 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		2EF1EF222567F3A700BE0644 /* CharacteristicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicView.swift; sourceTree = "<group>"; };
 		2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributesView.swift; sourceTree = "<group>"; };
+		2EF1EF352567F6E400BE0644 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		2EF1EEC72567EDE300BE0644 = {
 			isa = PBXGroup;
 			children = (
+				2EF1EF352567F6E400BE0644 /* .gitignore */,
 				2EF1EF132567F13500BE0644 /* .swiftlint.yml */,
 				2EF1EED22567EDE300BE0644 /* DeepSheet */,
 				2EF1EEEC2567EDE400BE0644 /* DeepSheetTests */,
@@ -300,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF1EF362567F6E400BE0644 /* .gitignore in Resources */,
 				2EF1EF142567F13500BE0644 /* .swiftlint.yml in Resources */,
 				2EF1EEE32567EDE400BE0644 /* LaunchScreen.storyboard in Resources */,
 				2EF1EEE02567EDE400BE0644 /* Assets.xcassets in Resources */,
