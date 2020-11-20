@@ -10,12 +10,12 @@
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EED82567EDE300BE0644 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED72567EDE300BE0644 /* ViewController.swift */; };
-		2EF1EEDB2567EDE300BE0644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EED92567EDE300BE0644 /* Main.storyboard */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
 		2EF1EEE02567EDE400BE0644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDF2567EDE400BE0644 /* Assets.xcassets */; };
 		2EF1EEE32567EDE400BE0644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EEE12567EDE400BE0644 /* LaunchScreen.storyboard */; };
 		2EF1EEEE2567EDE400BE0644 /* DeepSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEED2567EDE400BE0644 /* DeepSheetTests.swift */; };
 		2EF1EEF92567EDE400BE0644 /* DeepSheetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEF82567EDE400BE0644 /* DeepSheetUITests.swift */; };
+		2EF1EF142567F13500BE0644 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF132567F13500BE0644 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED72567EDE300BE0644 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2EF1EEDA2567EDE300BE0644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EF1EEDD2567EDE300BE0644 /* DeepSheet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeepSheet.xcdatamodel; sourceTree = "<group>"; };
 		2EF1EEDF2567EDE400BE0644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EF1EEE22567EDE400BE0644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		2EF1EEF42567EDE400BE0644 /* DeepSheetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepSheetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EEF82567EDE400BE0644 /* DeepSheetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepSheetUITests.swift; sourceTree = "<group>"; };
 		2EF1EEFA2567EDE400BE0644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EF1EF132567F13500BE0644 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +81,7 @@
 		2EF1EEC72567EDE300BE0644 = {
 			isa = PBXGroup;
 			children = (
+				2EF1EF132567F13500BE0644 /* .swiftlint.yml */,
 				2EF1EED22567EDE300BE0644 /* DeepSheet */,
 				2EF1EEEC2567EDE400BE0644 /* DeepSheetTests */,
 				2EF1EEF72567EDE400BE0644 /* DeepSheetUITests */,
@@ -101,10 +102,15 @@
 		2EF1EED22567EDE300BE0644 /* DeepSheet */ = {
 			isa = PBXGroup;
 			children = (
+				2EF1EF112567EEEA00BE0644 /* DataSource */,
+				2EF1EF102567EEE500BE0644 /* View */,
+				2EF1EF0F2567EEDE00BE0644 /* Extensions */,
+				2EF1EF0E2567EED600BE0644 /* Helpers */,
+				2EF1EF0D2567EED000BE0644 /* Presenter */,
+				2EF1EF0C2567EEC300BE0644 /* Model */,
 				2EF1EED32567EDE300BE0644 /* AppDelegate.swift */,
 				2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */,
 				2EF1EED72567EDE300BE0644 /* ViewController.swift */,
-				2EF1EED92567EDE300BE0644 /* Main.storyboard */,
 				2EF1EEDF2567EDE400BE0644 /* Assets.xcassets */,
 				2EF1EEE12567EDE400BE0644 /* LaunchScreen.storyboard */,
 				2EF1EEE42567EDE400BE0644 /* Info.plist */,
@@ -131,6 +137,48 @@
 			path = DeepSheetUITests;
 			sourceTree = "<group>";
 		};
+		2EF1EF0C2567EEC300BE0644 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2EF1EF0D2567EED000BE0644 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2EF1EF0E2567EED600BE0644 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2EF1EF0F2567EEDE00BE0644 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2EF1EF102567EEE500BE0644 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EF1EF112567EEEA00BE0644 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +189,7 @@
 				2EF1EECC2567EDE300BE0644 /* Sources */,
 				2EF1EECD2567EDE300BE0644 /* Frameworks */,
 				2EF1EECE2567EDE300BE0644 /* Resources */,
+				2EF1EF182567F1A500BE0644 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -234,9 +283,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF1EF142567F13500BE0644 /* .swiftlint.yml in Resources */,
 				2EF1EEE32567EDE400BE0644 /* LaunchScreen.storyboard in Resources */,
 				2EF1EEE02567EDE400BE0644 /* Assets.xcassets in Resources */,
-				2EF1EEDB2567EDE300BE0644 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +304,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2EF1EF182567F1A500BE0644 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2EF1EECC2567EDE300BE0644 /* Sources */ = {
@@ -300,14 +369,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2EF1EED92567EDE300BE0644 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2EF1EEDA2567EDE300BE0644 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2EF1EEE12567EDE400BE0644 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
