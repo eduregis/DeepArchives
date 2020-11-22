@@ -21,6 +21,7 @@
 		2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */; };
 		2EF1EF362567F6E400BE0644 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF352567F6E400BE0644 /* .gitignore */; };
 		2EF1EF462567F84500BE0644 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF1EF452567F84500BE0644 /* CloudKit.framework */; };
+		2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EF982569A37200BE0644 /* DiceAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		2EF1EF352567F6E400BE0644 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2EF1EF402567F83C00BE0644 /* DeepSheet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeepSheet.entitlements; sourceTree = "<group>"; };
 		2EF1EF452567F84500BE0644 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		2EF1EF982569A37200BE0644 /* DiceAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		2EF1EF102567EEE500BE0644 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EF1EF972569A19200BE0644 /* Alerts */,
 				2EF1EF212567F37400BE0644 /* Components */,
 			);
 			path = View;
@@ -211,6 +214,14 @@
 				2EF1EF452567F84500BE0644 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2EF1EF972569A19200BE0644 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				2EF1EF982569A37200BE0644 /* DiceAlert.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +383,7 @@
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
+				2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

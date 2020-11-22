@@ -15,6 +15,23 @@ class ViewController: UIViewController {
         return attributes
     }()
     
+    lazy var dimmingOverlay: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .black
+        view.layer.opacity = 0.6
+        self.view.addSubview(view)
+        return view
+    }()
+    
+    lazy var diceAlert: DiceAlert = {
+        let alert = DiceAlert(test: "Destreza (Atributo)", roll: "d100")
+        alert.translatesAutoresizingMaskIntoConstraints = false
+        alert.layer.backgroundColor = UIColor.backgroundBlack.cgColor
+        self.view.addSubview(alert)
+        return alert
+    }()
+    
     override func viewDidLoad() {
             super.viewDidLoad()
         additionalConfigurations()
@@ -22,16 +39,34 @@ class ViewController: UIViewController {
     
     private func additionalConfigurations() {
         configureLayout()
-        //Change background color
         view.backgroundColor = .backgroundBlack
-        //Navigation configuration
+        diceAlert.okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+    }
+    
+    @objc func dismissAlert() {
+        UIView.animate(withDuration: 0.2, delay: 0, animations: {
+            self.diceAlert.layer.opacity = 0
+            self.dimmingOverlay.layer.opacity = 0
+        })
+    }
+    
+    @objc func triggerAlert() {
+        
     }
     
     private func configureLayout() {
         NSLayoutConstraint.activate([
             attributesInformation.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 32),
             attributesInformation.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            attributesInformation.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+            attributesInformation.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            dimmingOverlay.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            dimmingOverlay.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            dimmingOverlay.topAnchor.constraint(equalTo: self.view.topAnchor),
+            dimmingOverlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            
+            diceAlert.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            diceAlert.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
     }
 }
