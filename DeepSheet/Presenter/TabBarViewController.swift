@@ -25,19 +25,23 @@ class TabBarViewController: UITabBarController {
         
         let statsViewController = ViewController()
         statsViewController.title = ("Stats")
-        statsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        statsViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "characteristic-icon"),
+                                       selectedImage: UIImage(named: "characteristic-icon"))
         
         let skillsViewController = ViewController()
         skillsViewController.title = ("Skills")
-        skillsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 2)
+        skillsViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "skill-icon"),
+                                       selectedImage: UIImage(named: "skill-icon"))
         
         let combatViewController = ViewController()
         combatViewController.title = ("Combat")
-        combatViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 3)
+        combatViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "combat-icon"),
+                                       selectedImage: UIImage(named: "combat-icon"))
         
         let bioViewController = ViewController()
         bioViewController.title = ("Bio")
-        bioViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 4)
+        bioViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "book.fill"),
+                                       selectedImage: UIImage(systemName: "book.fill"))
 
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
         profileNavigationController.overrideUserInterfaceStyle = .dark
@@ -50,7 +54,6 @@ class TabBarViewController: UITabBarController {
         let bioNavigationController = UINavigationController(rootViewController: bioViewController)
         bioNavigationController.overrideUserInterfaceStyle = .dark
         
-
         profileNavigationController.navigationBar.setNavigationBarStyle()
         skillsNavigationController.navigationBar.setNavigationBarStyle()
         statsNavigationController.navigationBar.setNavigationBarStyle()
