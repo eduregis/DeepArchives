@@ -15,8 +15,8 @@ class ViewController: UIViewController {
         return attributes
     }()
     
-    lazy var dimmingOverlay: UIView = {
-        let view = UIView()
+    lazy var dimmingOverlay: UIButton = {
+        let view = UIButton()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .black
         view.layer.opacity = 0
@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         configureLayout()
         view.backgroundColor = .backgroundBlack
         diceAlert.okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        dimmingOverlay.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         attributesInformation.strView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
         attributesInformation.dexView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
         attributesInformation.intView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
