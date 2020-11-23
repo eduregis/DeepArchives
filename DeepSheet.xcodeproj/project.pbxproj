@@ -63,6 +63,7 @@
 		2EF1EF8B25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
 		2EF1EF8C25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
 		2EF1EF8D25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
+		2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		2EF1EF6125680FE500BE0644 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		2EF1EF6225680FE500BE0644 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
 		2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Italic.ttf"; sourceTree = "<group>"; };
+		2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				2EF1EF1C2567F33300BE0644 /* CustomColors.swift */,
+				2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
+				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
