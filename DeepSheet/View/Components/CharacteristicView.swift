@@ -12,7 +12,7 @@ class CharacteristicView: UIButton {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.josefinSansBold()
         label.textAlignment = .center
         label.textColor = .ivory
         return label
@@ -31,7 +31,7 @@ class CharacteristicView: UIButton {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.font = UIFont.josefinSansBold()
         label.textAlignment = .center
         label.textColor = .lightSeaGreen
         return label
@@ -41,7 +41,7 @@ class CharacteristicView: UIButton {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        label.font = UIFont.josefinSansRegular()
         label.textAlignment = .center
         label.textColor = .ivory
         label.backgroundColor = .darkSeaGreen
@@ -52,7 +52,7 @@ class CharacteristicView: UIButton {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        label.font = UIFont.josefinSansRegular()
         label.textAlignment = .center
         label.textColor = .ivory
         label.backgroundColor = .darkSeaGreen
@@ -80,7 +80,7 @@ class CharacteristicView: UIButton {
         configureLayout()
         characteristicLabel.text = characteristic
         
-        diceImage.image = UIImage(named: "d10-small-green")
+        diceImage.image = UIImage(named: "d10-green")
         
         valueLabel.text = preValue + "\(value)"
         
@@ -114,8 +114,8 @@ class CharacteristicView: UIButton {
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: 117),
             
-            characteristicLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 9),
-            characteristicLabel.bottomAnchor.constraint(equalTo: valueLabel.topAnchor, constant: -13),
+            characteristicLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 7),
+            characteristicLabel.bottomAnchor.constraint(equalTo: valueLabel.topAnchor, constant: -9),
             characteristicLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             diceImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),

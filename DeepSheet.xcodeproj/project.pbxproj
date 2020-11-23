@@ -22,6 +22,49 @@
 		2EF1EF362567F6E400BE0644 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF352567F6E400BE0644 /* .gitignore */; };
 		2EF1EF462567F84500BE0644 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF1EF452567F84500BE0644 /* CloudKit.framework */; };
 		2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EF982569A37200BE0644 /* DiceAlert.swift */; };
+		2EF1EF6425680FE500BE0644 /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5625680FE500BE0644 /* JosefinSans-BoldItalic.ttf */; };
+		2EF1EF6525680FE500BE0644 /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5625680FE500BE0644 /* JosefinSans-BoldItalic.ttf */; };
+		2EF1EF6625680FE500BE0644 /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5625680FE500BE0644 /* JosefinSans-BoldItalic.ttf */; };
+		2EF1EF6725680FE500BE0644 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5725680FE500BE0644 /* JosefinSans-Light.ttf */; };
+		2EF1EF6825680FE500BE0644 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5725680FE500BE0644 /* JosefinSans-Light.ttf */; };
+		2EF1EF6925680FE500BE0644 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5725680FE500BE0644 /* JosefinSans-Light.ttf */; };
+		2EF1EF6A25680FE500BE0644 /* JosefinSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5825680FE500BE0644 /* JosefinSans-Medium.ttf */; };
+		2EF1EF6B25680FE500BE0644 /* JosefinSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5825680FE500BE0644 /* JosefinSans-Medium.ttf */; };
+		2EF1EF6C25680FE500BE0644 /* JosefinSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5825680FE500BE0644 /* JosefinSans-Medium.ttf */; };
+		2EF1EF6D25680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5925680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf */; };
+		2EF1EF6E25680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5925680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf */; };
+		2EF1EF6F25680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5925680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf */; };
+		2EF1EF7025680FE500BE0644 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5A25680FE500BE0644 /* JosefinSans-ThinItalic.ttf */; };
+		2EF1EF7125680FE500BE0644 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5A25680FE500BE0644 /* JosefinSans-ThinItalic.ttf */; };
+		2EF1EF7225680FE500BE0644 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5A25680FE500BE0644 /* JosefinSans-ThinItalic.ttf */; };
+		2EF1EF7325680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5B25680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf */; };
+		2EF1EF7425680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5B25680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf */; };
+		2EF1EF7525680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5B25680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf */; };
+		2EF1EF7625680FE500BE0644 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5C25680FE500BE0644 /* JosefinSans-Thin.ttf */; };
+		2EF1EF7725680FE500BE0644 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5C25680FE500BE0644 /* JosefinSans-Thin.ttf */; };
+		2EF1EF7825680FE500BE0644 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5C25680FE500BE0644 /* JosefinSans-Thin.ttf */; };
+		2EF1EF7925680FE500BE0644 /* JosefinSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5D25680FE500BE0644 /* JosefinSans-MediumItalic.ttf */; };
+		2EF1EF7A25680FE500BE0644 /* JosefinSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5D25680FE500BE0644 /* JosefinSans-MediumItalic.ttf */; };
+		2EF1EF7B25680FE500BE0644 /* JosefinSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5D25680FE500BE0644 /* JosefinSans-MediumItalic.ttf */; };
+		2EF1EF7C25680FE500BE0644 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5E25680FE500BE0644 /* JosefinSans-LightItalic.ttf */; };
+		2EF1EF7D25680FE500BE0644 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5E25680FE500BE0644 /* JosefinSans-LightItalic.ttf */; };
+		2EF1EF7E25680FE500BE0644 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5E25680FE500BE0644 /* JosefinSans-LightItalic.ttf */; };
+		2EF1EF7F25680FE500BE0644 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5F25680FE500BE0644 /* JosefinSans-Bold.ttf */; };
+		2EF1EF8025680FE500BE0644 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5F25680FE500BE0644 /* JosefinSans-Bold.ttf */; };
+		2EF1EF8125680FE500BE0644 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF5F25680FE500BE0644 /* JosefinSans-Bold.ttf */; };
+		2EF1EF8225680FE500BE0644 /* JosefinSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6025680FE500BE0644 /* JosefinSans-ExtraLight.ttf */; };
+		2EF1EF8325680FE500BE0644 /* JosefinSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6025680FE500BE0644 /* JosefinSans-ExtraLight.ttf */; };
+		2EF1EF8425680FE500BE0644 /* JosefinSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6025680FE500BE0644 /* JosefinSans-ExtraLight.ttf */; };
+		2EF1EF8525680FE500BE0644 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6125680FE500BE0644 /* JosefinSans-SemiBold.ttf */; };
+		2EF1EF8625680FE500BE0644 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6125680FE500BE0644 /* JosefinSans-SemiBold.ttf */; };
+		2EF1EF8725680FE500BE0644 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6125680FE500BE0644 /* JosefinSans-SemiBold.ttf */; };
+		2EF1EF8825680FE500BE0644 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6225680FE500BE0644 /* JosefinSans-Regular.ttf */; };
+		2EF1EF8925680FE500BE0644 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6225680FE500BE0644 /* JosefinSans-Regular.ttf */; };
+		2EF1EF8A25680FE500BE0644 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6225680FE500BE0644 /* JosefinSans-Regular.ttf */; };
+		2EF1EF8B25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
+		2EF1EF8C25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
+		2EF1EF8D25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
+		2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +107,21 @@
 		2EF1EF402567F83C00BE0644 /* DeepSheet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeepSheet.entitlements; sourceTree = "<group>"; };
 		2EF1EF452567F84500BE0644 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2EF1EF982569A37200BE0644 /* DiceAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceAlert.swift; sourceTree = "<group>"; };
+		2EF1EF5625680FE500BE0644 /* JosefinSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2EF1EF5725680FE500BE0644 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
+		2EF1EF5825680FE500BE0644 /* JosefinSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Medium.ttf"; sourceTree = "<group>"; };
+		2EF1EF5925680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		2EF1EF5A25680FE500BE0644 /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		2EF1EF5B25680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		2EF1EF5C25680FE500BE0644 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
+		2EF1EF5D25680FE500BE0644 /* JosefinSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		2EF1EF5E25680FE500BE0644 /* JosefinSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		2EF1EF5F25680FE500BE0644 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
+		2EF1EF6025680FE500BE0644 /* JosefinSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		2EF1EF6125680FE500BE0644 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		2EF1EF6225680FE500BE0644 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
+		2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Italic.ttf"; sourceTree = "<group>"; };
+		2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +176,7 @@
 		2EF1EED22567EDE300BE0644 /* DeepSheet */ = {
 			isa = PBXGroup;
 			children = (
+				2EF1EF5225680E6100BE0644 /* Fonts */,
 				2EF1EF402567F83C00BE0644 /* DeepSheet.entitlements */,
 				2EF1EF112567EEEA00BE0644 /* DataSource */,
 				2EF1EF102567EEE500BE0644 /* View */,
@@ -179,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				2EF1EF1C2567F33300BE0644 /* CustomColors.swift */,
+				2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +282,27 @@
 				2EF1EF982569A37200BE0644 /* DiceAlert.swift */,
 			);
 			path = Alerts;
+			sourceTree = "<group>";
+		};
+		2EF1EF5225680E6100BE0644 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2EF1EF5F25680FE500BE0644 /* JosefinSans-Bold.ttf */,
+				2EF1EF5625680FE500BE0644 /* JosefinSans-BoldItalic.ttf */,
+				2EF1EF6025680FE500BE0644 /* JosefinSans-ExtraLight.ttf */,
+				2EF1EF5925680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf */,
+				2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */,
+				2EF1EF5725680FE500BE0644 /* JosefinSans-Light.ttf */,
+				2EF1EF5E25680FE500BE0644 /* JosefinSans-LightItalic.ttf */,
+				2EF1EF5825680FE500BE0644 /* JosefinSans-Medium.ttf */,
+				2EF1EF5D25680FE500BE0644 /* JosefinSans-MediumItalic.ttf */,
+				2EF1EF6225680FE500BE0644 /* JosefinSans-Regular.ttf */,
+				2EF1EF6125680FE500BE0644 /* JosefinSans-SemiBold.ttf */,
+				2EF1EF5B25680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf */,
+				2EF1EF5C25680FE500BE0644 /* JosefinSans-Thin.ttf */,
+				2EF1EF5A25680FE500BE0644 /* JosefinSans-ThinItalic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,10 +409,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF1EF7C25680FE500BE0644 /* JosefinSans-LightItalic.ttf in Resources */,
+				2EF1EF8225680FE500BE0644 /* JosefinSans-ExtraLight.ttf in Resources */,
 				2EF1EF362567F6E400BE0644 /* .gitignore in Resources */,
+				2EF1EF8825680FE500BE0644 /* JosefinSans-Regular.ttf in Resources */,
+				2EF1EF8525680FE500BE0644 /* JosefinSans-SemiBold.ttf in Resources */,
+				2EF1EF7325680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
 				2EF1EF142567F13500BE0644 /* .swiftlint.yml in Resources */,
+				2EF1EF7025680FE500BE0644 /* JosefinSans-ThinItalic.ttf in Resources */,
+				2EF1EF8B25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */,
+				2EF1EF6425680FE500BE0644 /* JosefinSans-BoldItalic.ttf in Resources */,
+				2EF1EF6725680FE500BE0644 /* JosefinSans-Light.ttf in Resources */,
+				2EF1EF7625680FE500BE0644 /* JosefinSans-Thin.ttf in Resources */,
+				2EF1EF7925680FE500BE0644 /* JosefinSans-MediumItalic.ttf in Resources */,
+				2EF1EF6D25680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf in Resources */,
+				2EF1EF6A25680FE500BE0644 /* JosefinSans-Medium.ttf in Resources */,
 				2EF1EEE32567EDE400BE0644 /* LaunchScreen.storyboard in Resources */,
 				2EF1EEE02567EDE400BE0644 /* Assets.xcassets in Resources */,
+				2EF1EF7F25680FE500BE0644 /* JosefinSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +434,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF1EF6E25680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf in Resources */,
+				2EF1EF7D25680FE500BE0644 /* JosefinSans-LightItalic.ttf in Resources */,
+				2EF1EF6525680FE500BE0644 /* JosefinSans-BoldItalic.ttf in Resources */,
+				2EF1EF6825680FE500BE0644 /* JosefinSans-Light.ttf in Resources */,
+				2EF1EF8C25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */,
+				2EF1EF7725680FE500BE0644 /* JosefinSans-Thin.ttf in Resources */,
+				2EF1EF7425680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
+				2EF1EF8325680FE500BE0644 /* JosefinSans-ExtraLight.ttf in Resources */,
+				2EF1EF8625680FE500BE0644 /* JosefinSans-SemiBold.ttf in Resources */,
+				2EF1EF6B25680FE500BE0644 /* JosefinSans-Medium.ttf in Resources */,
+				2EF1EF7125680FE500BE0644 /* JosefinSans-ThinItalic.ttf in Resources */,
+				2EF1EF7A25680FE500BE0644 /* JosefinSans-MediumItalic.ttf in Resources */,
+				2EF1EF8025680FE500BE0644 /* JosefinSans-Bold.ttf in Resources */,
+				2EF1EF8925680FE500BE0644 /* JosefinSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +455,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF1EF6F25680FE500BE0644 /* JosefinSans-ExtraLightItalic.ttf in Resources */,
+				2EF1EF7E25680FE500BE0644 /* JosefinSans-LightItalic.ttf in Resources */,
+				2EF1EF6625680FE500BE0644 /* JosefinSans-BoldItalic.ttf in Resources */,
+				2EF1EF6925680FE500BE0644 /* JosefinSans-Light.ttf in Resources */,
+				2EF1EF8D25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */,
+				2EF1EF7825680FE500BE0644 /* JosefinSans-Thin.ttf in Resources */,
+				2EF1EF7525680FE500BE0644 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
+				2EF1EF8425680FE500BE0644 /* JosefinSans-ExtraLight.ttf in Resources */,
+				2EF1EF8725680FE500BE0644 /* JosefinSans-SemiBold.ttf in Resources */,
+				2EF1EF6C25680FE500BE0644 /* JosefinSans-Medium.ttf in Resources */,
+				2EF1EF7225680FE500BE0644 /* JosefinSans-ThinItalic.ttf in Resources */,
+				2EF1EF7B25680FE500BE0644 /* JosefinSans-MediumItalic.ttf in Resources */,
+				2EF1EF8125680FE500BE0644 /* JosefinSans-Bold.ttf in Resources */,
+				2EF1EF8A25680FE500BE0644 /* JosefinSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +507,7 @@
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
 				2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */,
+				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
