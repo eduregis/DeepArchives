@@ -84,7 +84,7 @@ class DiceAlert: UIView {
         super.init(frame: .zero)
         diceImage.image = UIImage(named: "d10-green")
         
-        testNameLabel.text = "Test: \(test)"
+        testNameLabel.text = "Teste: \(test)"
         diceTypeLabel.text = "Rolagem: \(roll)"
         
         let resultValue = Int.random(in: 1...100)
@@ -97,6 +97,44 @@ class DiceAlert: UIView {
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIColor.lightSeaGreen.cgColor
+    }
+    
+    func rollDice (tag: Int) {
+        
+        let resultValue = Int.random(in: 1...100)
+        resultLabel.text = "\(resultValue)"
+        
+        switch tag {
+        case 0:
+            testNameLabel.text = "Teste: Força (Atributo)"
+            diceTypeLabel.text = "Rolagem: d100"
+        case 1:
+            testNameLabel.text = "Teste: Destreza (Atributo)"
+            diceTypeLabel.text = "Rolagem: d100"
+        case 2:
+            testNameLabel.text = "Teste: Inteligência (Atributo)"
+            diceTypeLabel.text = "Rolagem: d100"
+        case 3:
+            testNameLabel.text = "Teste: Constituição (Atributo)"
+            diceTypeLabel.text = "Rolagem: d100"
+        case 4:
+            testNameLabel.text = "Teste: Aparência (Atributo)"
+            diceTypeLabel.text = "Rolagem: d100"
+        case 5:
+            testNameLabel.text = "Teste: Poder (Atributo)"
+            diceTypeLabel.text = "Rolagem: d100"
+        case 6:
+            testNameLabel.text = "Teste: Tamanho (Atributo)"
+            diceTypeLabel.text = "Rolagem: d100"
+        case 7:
+            testNameLabel.text = "Teste: Educação (Atributo)"
+            diceTypeLabel.text = "Rolagem: d100"
+        case 8:
+            testNameLabel.text = "Teste: Movimentação (Atributo)"
+            diceTypeLabel.text = "Rolagem: d100"
+        default:
+            break
+        }
     }
     
     func updateFonts(value: UIFont, characteristic: UIFont) {

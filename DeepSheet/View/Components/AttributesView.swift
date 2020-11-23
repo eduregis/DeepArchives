@@ -12,18 +12,21 @@ class AttributesView: UIView {
     let strView: CharacteristicView = {
         let view = CharacteristicView(characteristic: "FOR", value: 50)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 0
         return view
     }()
     
     let dexView: CharacteristicView = {
         let view = CharacteristicView(characteristic: "DES", value: 55)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 1
         return view
     }()
     
     let intView: CharacteristicView = {
         let view = CharacteristicView(characteristic: "INT", value: 55, preValue: "")
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 2
         return view
     }()
     
@@ -42,18 +45,21 @@ class AttributesView: UIView {
     let conView: CharacteristicView = {
         let view = CharacteristicView(characteristic: "CON", value: 75)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 3
         return view
     }()
     
     let appView: CharacteristicView = {
         let view = CharacteristicView(characteristic: "APA", value: 45)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 4
         return view
     }()
     
     let powView: CharacteristicView = {
         let view = CharacteristicView(characteristic: "POD", value: 50, preValue: "")
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 5
         return view
     }()
     
@@ -72,18 +78,21 @@ class AttributesView: UIView {
     let sizView: CharacteristicView = {
         let view = CharacteristicView(characteristic: "TAM", value: 80)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 6
         return view
     }()
     
     let eduView: CharacteristicView = {
         let view = CharacteristicView(characteristic: "EDU", value: 61)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 7
         return view
     }()
     
     let movView: CharacteristicView = {
         let view = CharacteristicView(characteristic: "MOV", value: 8, preValue: "", valueBy2: "-1", valueBy5: "+1")
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 8
         return view
     }()
     

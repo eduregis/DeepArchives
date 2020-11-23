@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .black
-        view.layer.opacity = 0.6
+        view.layer.opacity = 0
         self.view.addSubview(view)
         return view
     }()
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         let alert = DiceAlert(test: "Destreza (Atributo)", roll: "d100")
         alert.translatesAutoresizingMaskIntoConstraints = false
         alert.layer.backgroundColor = UIColor.backgroundBlack.cgColor
+        alert.layer.opacity = 0
         self.view.addSubview(alert)
         return alert
     }()
@@ -41,6 +42,15 @@ class ViewController: UIViewController {
         configureLayout()
         view.backgroundColor = .backgroundBlack
         diceAlert.okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        attributesInformation.strView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
+        attributesInformation.dexView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
+        attributesInformation.intView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
+        attributesInformation.conView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
+        attributesInformation.appView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
+        attributesInformation.powView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
+        attributesInformation.sizView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
+        attributesInformation.eduView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
+        attributesInformation.movView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
     }
     
     @objc func dismissAlert() {
@@ -50,8 +60,13 @@ class ViewController: UIViewController {
         })
     }
     
-    @objc func triggerAlert() {
-        
+    @objc func triggerAlert(sender: UIButton) {
+        print(sender.tag)
+        diceAlert.rollDice(tag: sender.tag)
+        UIView.animate(withDuration: 0.2, delay: 0, animations: {
+            self.diceAlert.layer.opacity = 1
+            self.dimmingOverlay.layer.opacity = 0.6
+        })
     }
     
     private func configureLayout() {

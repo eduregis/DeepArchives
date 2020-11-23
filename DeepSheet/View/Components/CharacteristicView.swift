@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class CharacteristicView: UIView {
+class CharacteristicView: UIButton {
     
     lazy var characteristicLabel: UILabel = {
         let label = UILabel()
