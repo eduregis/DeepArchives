@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.backgroundColor = .white
-        window?.rootViewController = ViewController()
+        window?.rootViewController = TabBarViewController()
         window?.makeKeyAndVisible()
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
