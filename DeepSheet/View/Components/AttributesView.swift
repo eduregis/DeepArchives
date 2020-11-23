@@ -10,7 +10,7 @@ class AttributesView: UIView {
     
     // MARK: - Primeira linha
     let strView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: "FOR", value: 50)
+        let view = CharacteristicView(characteristic: LocalizedStrings.strAttribute, value: 50)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
