@@ -67,6 +67,7 @@
 		2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */; };
 		5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */; };
 		5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */; };
+		9237DFD4256D853D00EEAE80 /* GroupPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD3256D853D00EEAE80 /* GroupPointsView.swift */; };
 		92D3ABA5256D2B6000C49FAB /* IndvPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */; };
 		92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABAF256D45A400C49FAB /* CustomImages.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,7 @@
 		2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarGradient.swift; sourceTree = "<group>"; };
+		9237DFD3256D853D00EEAE80 /* GroupPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPointsView.swift; sourceTree = "<group>"; };
 		92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvPointsView.swift; sourceTree = "<group>"; };
 		92D3ABAF256D45A400C49FAB /* CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -276,6 +278,7 @@
 				2EF1EF222567F3A700BE0644 /* CharacteristicView.swift */,
 				2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */,
 				92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */,
+				9237DFD3256D853D00EEAE80 /* GroupPointsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				2EF1EED82567EDE300BE0644 /* ViewController.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
+				9237DFD4256D853D00EEAE80 /* GroupPointsView.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
