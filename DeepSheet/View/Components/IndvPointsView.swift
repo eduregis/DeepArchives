@@ -62,6 +62,7 @@ class IndvPointsView: UIView {
 		field.layer.borderWidth = 1
 		field.layer.cornerRadius = 5
 		field.layer.borderColor = UIColor.systemGray3.cgColor
+		field.keyboardType = .numberPad
 		return field
 	}()
 	
@@ -152,7 +153,7 @@ class IndvPointsView: UIView {
 	
 	// MARK: - Logic
 	@objc func callDiceRoll(sender: UIButton) {
-		print("Test")
+		print("Call Roll for \(pointLabel.text!)")
 	}
 	
 	required init?(coder: NSCoder) {
