@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
-            super.viewDidLoad()
+        super.viewDidLoad()
         additionalConfigurations()
     }
     
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
     
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            attributesInformation.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 32),
+            attributesInformation.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32),
             attributesInformation.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             attributesInformation.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             

@@ -12,7 +12,7 @@ class DiceAlert: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        label.font = UIFont.josefinSansBold()
         label.textAlignment = .center
         label.textColor = .ivory
         label.text = "Rolar Dados"
@@ -23,7 +23,7 @@ class DiceAlert: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .ivory
         label.text = "Test:"
@@ -34,7 +34,7 @@ class DiceAlert: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .ivory
         label.text = "Roll:"
@@ -56,6 +56,7 @@ class DiceAlert: UIView {
         button.clipsToBounds = false
         button.contentMode = .scaleAspectFit
         button.setTitle("Ok", for: .normal)
+        button.titleLabel?.font = UIFont.josefinSansRegular()
         button.setTitleColor(.lightSeaGreen, for: .normal)
         self.addSubview(button)
         return button
@@ -65,7 +66,7 @@ class DiceAlert: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        label.font = UIFont.systemFont(ofSize: 70, weight: .bold)
+        label.font = UIFont.josefinSansResult()
         label.textAlignment = .center
         label.textColor = .ivory
         label.text = "55"

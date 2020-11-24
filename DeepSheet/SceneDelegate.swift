@@ -20,8 +20,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.backgroundColor = .white
-        window?.rootViewController = ViewController()
+        window?.rootViewController = TabBarViewController()
         window?.makeKeyAndVisible()
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        if launchedBefore {
+            print("Not first launch.")
+        } else {
+            print("First launch.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UserDefaults.standard.setValue("PT", forKey: "Language")
+            UserDefaults.standard.synchronize()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
