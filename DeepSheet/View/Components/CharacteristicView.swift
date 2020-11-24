@@ -6,9 +6,9 @@
 //
 import UIKit
 
-
-
 class CharacteristicView: UIView {
+    
+    var isEditable: Bool = false
     
     lazy var characteristicLabel: UILabel = {
         let label = UILabel()
@@ -37,6 +37,16 @@ class CharacteristicView: UIView {
         label.textAlignment = .center
         label.textColor = .lightSeaGreen
         return label
+    }()
+    
+    lazy var valueTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textField)
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
+        textField.font = UIFont.josefinSansBold()
+        textField.keyboardType = UIKeyboardType.numberPad
+        return textField
     }()
     
     lazy var valueBy2Label: UILabel = {
@@ -86,6 +96,9 @@ class CharacteristicView: UIView {
         
         valueLabel.text = preValue + "\(value)"
         
+        valueTextField.text = "\(value)"
+        valueTextField.isHidden = false
+        
         if let valueBy2Text = valueBy2 {
             valueBy2Label.text = valueBy2Text
         } else {
@@ -98,6 +111,16 @@ class CharacteristicView: UIView {
             valueBy5Label.text = "\(Int(value/5))"
         }
 
+    }
+    
+    func beEditable() {
+        isEditable = true
+        valueTextField.isHidden = false
+    }
+    
+    func beUneditable() {
+        isEditable = false
+        valueTextField.isHidden = true
     }
     
     override func draw(_ rect: CGRect) {
@@ -127,6 +150,9 @@ class CharacteristicView: UIView {
             
             valueLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             valueLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -3),
+            
+            valueTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            valueTextField.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -3),
             
             valueBy2Label.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             valueBy2Label.leadingAnchor.constraint(equalTo: self.leadingAnchor),
