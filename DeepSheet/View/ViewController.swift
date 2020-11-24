@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }()
 	
 	lazy var pointsView: IndvPointsView = {
-		let points = IndvPointsView(pointName: "SORTE", diceToggle: true)
+		let points = IndvPointsView(pointName: "SORTE", diceToggle: true, maxValue: 888)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.view.addSubview(points)
 		return points

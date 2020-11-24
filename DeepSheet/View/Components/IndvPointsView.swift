@@ -39,6 +39,17 @@ class IndvPointsView: UIView {
 		return label
 	}()
 	
+	lazy var maxValueLabel: UILabel = {
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(label)
+		label.font = UIFont.josefinSansRegular()
+		label.textAlignment = .center
+		label.textColor = .ivory
+		label.backgroundColor = .clear
+		return label
+	}()
+	
 	lazy var pointBarIndicator: UIImageView = {
 		let bar = UIImageView()
 		var barColor = UIImage.imageWithColor(color: .shockingPink)
@@ -48,14 +59,19 @@ class IndvPointsView: UIView {
 		return bar
 	}()
 	
-	init(pointName: String, diceToggle: Bool) {
+	init(pointName: String, diceToggle: Bool, maxValue: Int) {
 		super.init(frame: .zero)
+		
 		isDiceEnabled = diceToggle
 		configureLayout()
 		
 		diceImage.image = UIImage(named: "d10-purple")
-		
 		pointLabel.text = pointName
+		if maxValue > 999 {
+			maxValueLabel.text = "/999"
+		} else {
+			maxValueLabel.text = "/\(maxValue)"
+		}
 	}
 	
 	override func draw(_ rect: CGRect) {
@@ -77,7 +93,14 @@ class IndvPointsView: UIView {
 			pointTextBackground.topAnchor.constraint(equalTo: self.topAnchor),
 			pointTextBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 			pointTextBackground.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 3),
-			pointTextBackground.rightAnchor.constraint(equalTo: self.leftAnchor, constant: 156)
+			pointTextBackground.rightAnchor.constraint(equalTo: self.leftAnchor, constant: 156),
+			
+			pointLabel.topAnchor.constraint(equalTo: self.topAnchor),
+			pointLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+			pointLabel.centerXAnchor.constraint(equalTo: self.leftAnchor, constant: 57),
+			
+			maxValueLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+			maxValueLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15)
 		])
 			
 		if isDiceEnabled {
@@ -90,12 +113,6 @@ class IndvPointsView: UIView {
 				diceImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 110)
 			])
 		}
-			
-		NSLayoutConstraint.activate([
-			pointLabel.topAnchor.constraint(equalTo: self.topAnchor),
-			pointLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-			pointLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30)
-		])
 	}
 	
 	required init?(coder: NSCoder) {
