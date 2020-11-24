@@ -50,6 +50,20 @@ class IndvPointsView: UIView {
 		return label
 	}()
 	
+	lazy var valueField: UITextField = {
+		let field = UITextField()
+		field.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(field)
+		field.font = UIFont.josefinSansRegular()
+		field.textColor = .ivory
+		field.textAlignment = .center
+		field.backgroundColor = .systemGray6
+		field.layer.borderWidth = 1
+		field.layer.cornerRadius = 5
+		field.layer.borderColor = UIColor.systemGray3.cgColor
+		return field
+	}()
+	
 	lazy var pointBarIndicator: UIImageView = {
 		let bar = UIImageView()
 		var barColor = UIImage.imageWithColor(color: .shockingPink)
@@ -72,6 +86,7 @@ class IndvPointsView: UIView {
 		} else {
 			maxValueLabel.text = "/\(maxValue)"
 		}
+		valueField.text = "\(maxValue)"
 	}
 	
 	override func draw(_ rect: CGRect) {
@@ -100,7 +115,11 @@ class IndvPointsView: UIView {
 			pointLabel.centerXAnchor.constraint(equalTo: self.leftAnchor, constant: 57),
 			
 			maxValueLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-			maxValueLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15)
+			maxValueLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15),
+			
+			valueField.topAnchor.constraint(equalTo: self.topAnchor, constant: 7),
+			valueField.widthAnchor.constraint(equalToConstant: 50),
+			valueField.rightAnchor.constraint(equalTo: maxValueLabel.leftAnchor, constant: -3)
 		])
 			
 		if isDiceEnabled {
