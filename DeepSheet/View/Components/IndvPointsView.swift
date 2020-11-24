@@ -9,6 +9,7 @@ import UIKit
 
 class IndvPointsView: UIView {
 	
+	// MARK: - Components
 	var isDiceEnabled: Bool = false
 	
 	lazy var pointTextBackground: UIImageView = {
@@ -73,6 +74,14 @@ class IndvPointsView: UIView {
 		return bar
 	}()
 	
+	lazy var diceButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(self.callDiceRoll), for: .touchUpInside)
+		button.backgroundColor = .none
+		return button
+	}()
+	
 	init(pointName: String, diceToggle: Bool, maxValue: Int) {
 		super.init(frame: .zero)
 		
@@ -96,6 +105,7 @@ class IndvPointsView: UIView {
 		self.backgroundColor = .clear
 	}
 	
+	// MARK: - Layout Constraints
 	private func configureLayout() {
 		NSLayoutConstraint.activate([
 			self.heightAnchor.constraint(equalToConstant: 44),
@@ -124,14 +134,25 @@ class IndvPointsView: UIView {
 			
 		if isDiceEnabled {
 			self.addSubview(diceImage)
+			self.addSubview(diceButton)
+			
 			NSLayoutConstraint.activate([
-				diceImage.topAnchor.constraint(equalTo: self.topAnchor),
-				diceImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+				diceImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 3),
 				diceImage.widthAnchor.constraint(equalToConstant: 35),
 				diceImage.heightAnchor.constraint(equalToConstant: 35),
-				diceImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 110)
+				diceImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 110),
+				
+				diceButton.topAnchor.constraint(equalTo: self.topAnchor),
+				diceButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+				diceButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 3),
+				diceButton.rightAnchor.constraint(equalTo: self.leftAnchor, constant: 156)
 			])
 		}
+	}
+	
+	// MARK: - Logic
+	@objc func callDiceRoll(sender: UIButton) {
+		print("Test")
 	}
 	
 	required init?(coder: NSCoder) {
