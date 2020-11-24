@@ -10,7 +10,8 @@ import UIKit
 class IndvPointsView: UIView {
 	
 	// MARK: - Components
-	var isDiceEnabled: Bool = false
+	var pointsValue: (current: Int, maximum: Int) = (0, 0)
+	var hasDiceButton: Bool = false
 	
 	lazy var pointTextBackground: UIImageView = {
 		let background = UIImageView()
@@ -83,20 +84,16 @@ class IndvPointsView: UIView {
 		return button
 	}()
 	
-	init(pointName: String, diceToggle: Bool, maxValue: Int) {
+	init(pointName: String, diceButton: Bool) {
 		super.init(frame: .zero)
 		
-		isDiceEnabled = diceToggle
+		hasDiceButton = diceButton
 		configureLayout()
 		
 		diceImage.image = UIImage(named: "d10-purple")
 		pointLabel.text = pointName
-		if maxValue > 999 {
-			maxValueLabel.text = "/999"
-		} else {
-			maxValueLabel.text = "/\(maxValue)"
-		}
-		valueField.text = "\(maxValue)"
+		
+		updatePointValues()
 	}
 	
 	override func draw(_ rect: CGRect) {
@@ -133,7 +130,7 @@ class IndvPointsView: UIView {
 			valueField.rightAnchor.constraint(equalTo: maxValueLabel.leftAnchor, constant: -3)
 		])
 			
-		if isDiceEnabled {
+		if hasDiceButton {
 			self.addSubview(diceImage)
 			self.addSubview(diceButton)
 			
@@ -152,6 +149,24 @@ class IndvPointsView: UIView {
 	}
 	
 	// MARK: - Logic
+	func updatePointValues() {
+		//Later call Presenter to get data from Model
+		pointsValue.current = 888
+		pointsValue.maximum = 888
+		
+		valueField.text = "\(pointsValue.current)"
+		maxValueLabel.text = "/\(pointsValue.maximum)"
+	}
+	
+	//To be used in Edit Mode as to not allow rolling dice
+	func toggleDiceButton() {
+		
+		if hasDiceButton {
+			diceImage.isHidden = !diceImage.isHidden
+			diceButton.isEnabled = !diceButton.isEnabled
+		}
+	}
+	
 	@objc func callDiceRoll(sender: UIButton) {
 		print("Call Roll for \(pointLabel.text!)")
 	}

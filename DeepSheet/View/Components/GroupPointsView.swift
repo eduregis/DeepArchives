@@ -11,28 +11,28 @@ class GroupPointsView: UIView {
 	
 	// MARK: - Components
 	lazy var luckView: IndvPointsView = {
-		let points = IndvPointsView(pointName: LocalizedStrings.luckPoints, diceToggle: true, maxValue: 888)
+		let points = IndvPointsView(pointName: LocalizedStrings.luckPoints, diceButton: true)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(points)
 		return points
 	}()
 	
 	lazy var magicView: IndvPointsView = {
-		let points = IndvPointsView(pointName: LocalizedStrings.magicPoints, diceToggle: false, maxValue: 888)
+		let points = IndvPointsView(pointName: LocalizedStrings.magicPoints, diceButton: false)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(points)
 		return points
 	}()
 	
 	lazy var sanityView: IndvPointsView = {
-		let points = IndvPointsView(pointName: LocalizedStrings.sanityPoints, diceToggle: true, maxValue: 888)
+		let points = IndvPointsView(pointName: LocalizedStrings.sanityPoints, diceButton: true)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(points)
 		return points
 	}()
 	
 	lazy var healthView: IndvPointsView = {
-		let points = IndvPointsView(pointName: LocalizedStrings.healthPoints, diceToggle: false, maxValue: 888)
+		let points = IndvPointsView(pointName: LocalizedStrings.healthPoints, diceButton: false)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(points)
 		return points
