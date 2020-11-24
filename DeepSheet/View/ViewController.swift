@@ -15,8 +15,8 @@ class ViewController: UIViewController {
         return attributes
     }()
 	
-	lazy var statesView: IndvStatesView = {
-		let states = IndvStatesView(stateName: "Temporariamente Insano")
+	lazy var statesView: GroupStatesView = {
+		let states = GroupStatesView()
 		states.translatesAutoresizingMaskIntoConstraints = false
 		self.view.addSubview(states)
 		return states
