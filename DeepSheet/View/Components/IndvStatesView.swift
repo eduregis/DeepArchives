@@ -32,6 +32,15 @@ class IndvStatesView: UIView {
 		return checkbox
 	}()
 	
+	lazy var stateButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(self.callCheckState), for: .touchUpInside)
+		button.backgroundColor = .clear
+		self.addSubview(button)
+		return button
+	}()
+	
 	init(stateName: String) {
 		super.init(frame: .zero)
 		configureLayout()
@@ -57,8 +66,17 @@ class IndvStatesView: UIView {
 			stateCheckbox.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
 			stateCheckbox.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
 			stateCheckbox.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
-			stateCheckbox.leftAnchor.constraint(equalTo: self.rightAnchor, constant: -35)
+			stateCheckbox.leftAnchor.constraint(equalTo: self.rightAnchor, constant: -35),
+			
+			stateButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+			stateButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+			stateButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
+			stateButton.leftAnchor.constraint(equalTo: self.rightAnchor, constant: -35)
 		])
+	}
+	
+	@objc func callCheckState(sender: UIButton) {
+		print("Check State for \(stateLabel.text!)")
 	}
 	
 	required init?(coder: NSCoder) {
