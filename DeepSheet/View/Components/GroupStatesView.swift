@@ -10,28 +10,28 @@ import UIKit
 class GroupStatesView: UIView {
 
 	lazy var tempInsView: IndvStatesView = {
-		let states = IndvStatesView(stateName: "Temporariamente Insano")
+		let states = IndvStatesView(stateName: LocalizedStrings.tempInsLabel)
 		states.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(states)
 		return states
 	}()
 	
 	lazy var indefInsView: IndvStatesView = {
-		let states = IndvStatesView(stateName: "Indefinidamente Insano")
+		let states = IndvStatesView(stateName: LocalizedStrings.indefInsLabel)
 		states.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(states)
 		return states
 	}()
 	
 	lazy var incapacView: IndvStatesView = {
-		let states = IndvStatesView(stateName: "Incapacitado")
+		let states = IndvStatesView(stateName: LocalizedStrings.incapacLabel)
 		states.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(states)
 		return states
 	}()
 
 	lazy var woundView: IndvStatesView = {
-		let states = IndvStatesView(stateName: "Gravemente Ferido")
+		let states = IndvStatesView(stateName: LocalizedStrings.woundLabel)
 		states.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(states)
 		return states
@@ -51,7 +51,7 @@ class GroupStatesView: UIView {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(label)
 		label.font = UIFont.josefinSansBold()
-		label.text = "Estados"
+		label.text = LocalizedStrings.statesTitle
 		label.textAlignment = .center
 		label.textColor = .ivory
 		label.backgroundColor = .clear

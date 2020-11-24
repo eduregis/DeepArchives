@@ -10,7 +10,7 @@ import Foundation
 class LocalizedStrings {
 	
     static var language: String {
-		UserDefaults.standard.setValue("EN", forKey: "Language")
+		UserDefaults.standard.setValue("PT", forKey: "Language")
         return UserDefaults.standard.string(forKey: "Language")!
     }
     
@@ -25,7 +25,68 @@ class LocalizedStrings {
         }
     }
 	
-	// MARK: - String for Points View
+	// MARK: - Strings for States View
+	static var statesTitle: String {
+		
+		switch language {
+		case "EN":
+			return "States"
+		case "PT":
+			return "Estados"
+		default:
+			return "States"
+		}
+	}
+	
+	static var tempInsLabel: String {
+		
+		switch language {
+		case "EN":
+			return "Temporarily Insane"
+		case "PT":
+			return "Temporariamente Insano"
+		default:
+			return "Temporarily Insane"
+		}
+	}
+	
+	static var indefInsLabel: String {
+		
+		switch language {
+		case "EN":
+			return "Indefinitely Insane"
+		case "PT":
+			return "Indefinidamente Insano"
+		default:
+			return "Indefinitely Insane"
+		}
+	}
+	
+	static var incapacLabel: String {
+		
+		switch language {
+		case "EN":
+			return "Incapacitated"
+		case "PT":
+			return "Incapacitado"
+		default:
+			return "Incapacitated"
+		}
+	}
+	
+	static var woundLabel: String {
+		
+		switch language {
+		case "EN":
+			return "Gravely Wounded"
+		case "PT":
+			return "Gravemente Ferido"
+		default:
+			return "Gravely Wounded"
+		}
+	}
+	
+	// MARK: - Strings for Points View
 	static var pointsTitle: String {
 		
 		switch language {
