@@ -59,7 +59,7 @@ class TabBarViewController: UITabBarController {
         statsNavigationController.navigationBar.setNavigationBarStyle()
         combatNavigationController.navigationBar.setNavigationBarStyle()
         bioNavigationController.navigationBar.setNavigationBarStyle()
-        self.viewControllers = [profileNavigationController, skillsNavigationController,statsNavigationController, combatNavigationController, bioNavigationController]
+        self.viewControllers = [profileNavigationController, skillsNavigationController, statsNavigationController, combatNavigationController, bioNavigationController]
         
     }
 }

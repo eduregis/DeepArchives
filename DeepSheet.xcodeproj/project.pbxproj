@@ -67,6 +67,8 @@
 		2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */; };
 		5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */; };
 		5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */; };
+		92D3ABA5256D2B6000C49FAB /* IndvPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */; };
+		92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABAF256D45A400C49FAB /* CustomImages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,8 @@
 		2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarGradient.swift; sourceTree = "<group>"; };
+		92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvPointsView.swift; sourceTree = "<group>"; };
+		92D3ABAF256D45A400C49FAB /* CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +194,6 @@
 				2EF1EF0C2567EEC300BE0644 /* Model */,
 				2EF1EED32567EDE300BE0644 /* AppDelegate.swift */,
 				2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */,
-				2EF1EED72567EDE300BE0644 /* ViewController.swift */,
 				2EF1EEDF2567EDE400BE0644 /* Assets.xcassets */,
 				2EF1EEE12567EDE400BE0644 /* LaunchScreen.storyboard */,
 				2EF1EEE42567EDE400BE0644 /* Info.plist */,
@@ -246,6 +249,7 @@
 				2EF1EF1C2567F33300BE0644 /* CustomColors.swift */,
 				2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */,
 				5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */,
+				92D3ABAF256D45A400C49FAB /* CustomImages.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -253,6 +257,7 @@
 		2EF1EF102567EEE500BE0644 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EF1EED72567EDE300BE0644 /* ViewController.swift */,
 				2EF1EF212567F37400BE0644 /* Components */,
 			);
 			path = View;
@@ -270,6 +275,7 @@
 			children = (
 				2EF1EF222567F3A700BE0644 /* CharacteristicView.swift */,
 				2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */,
+				92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -504,6 +510,8 @@
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
+				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,
+				92D3ABA5256D2B6000C49FAB /* IndvPointsView.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
 				5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */,

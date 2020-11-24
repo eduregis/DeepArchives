@@ -13,7 +13,7 @@ class LocalizedStrings {
         return UserDefaults.standard.string(forKey: "Language")!
     }
     
-    static var strAttribute : String {
+    static var strAttribute: String {
         switch language {
         case "EN":
             return "STR"

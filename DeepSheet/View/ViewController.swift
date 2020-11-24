@@ -14,6 +14,13 @@ class ViewController: UIViewController {
         self.view.addSubview(attributes)
         return attributes
     }()
+	
+	lazy var pointsView: IndvPointsView = {
+		let points = IndvPointsView(pointName: "SORTE", diceToggle: true)
+		points.translatesAutoresizingMaskIntoConstraints = false
+		self.view.addSubview(points)
+		return points
+	}()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,5 +40,11 @@ class ViewController: UIViewController {
             attributesInformation.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             attributesInformation.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
+		
+		NSLayoutConstraint.activate([
+			pointsView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 440),
+			pointsView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
+			pointsView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16)
+		])
     }
 }
