@@ -7,7 +7,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    lazy var characterIllustration: IllustrationView =  {
+        let illustration = IllustrationView(image: UIImage(named: "d10-green")!)
+        illustration.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(illustration)
+        return illustration
+    }()
+    
     lazy var attributesInformation: AttributesView = {
         let attributes = AttributesView()
         attributes.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +79,11 @@ class ViewController: UIViewController {
     
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            attributesInformation.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            characterIllustration.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            characterIllustration.heightAnchor.constraint(equalToConstant: 240),
+            characterIllustration.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            attributesInformation.topAnchor.constraint(equalTo: self.characterIllustration.bottomAnchor, constant: 32),
             attributesInformation.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             attributesInformation.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             
