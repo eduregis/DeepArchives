@@ -6,9 +6,7 @@
 //
 import UIKit
 
-class CharacteristicView: UIView {
-    
-    var isEditable: Bool = false
+class CharacteristicView: UIButton {
     
     lazy var characteristicLabel: UILabel = {
         let label = UILabel()
@@ -97,7 +95,8 @@ class CharacteristicView: UIView {
         valueLabel.text = preValue + "\(value)"
         
         valueTextField.text = "\(value)"
-        valueTextField.isHidden = false
+        
+        valueTextField.isHidden = true
         
         if let valueBy2Text = valueBy2 {
             valueBy2Label.text = valueBy2Text
@@ -114,12 +113,10 @@ class CharacteristicView: UIView {
     }
     
     func beEditable() {
-        isEditable = true
         valueTextField.isHidden = false
     }
     
-    func beUneditable() {
-        isEditable = false
+    func beNotEditable() {
         valueTextField.isHidden = true
     }
     

@@ -63,8 +63,11 @@
 		2EF1EF8B25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
 		2EF1EF8C25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
 		2EF1EF8D25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
+		2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EF982569A37200BE0644 /* DiceAlert.swift */; };
 		2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */; };
 		2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */; };
+		2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFE2256D34AC00BE0644 /* IllustrationView.swift */; };
+		2EF1EFF7256D457A00BE0644 /* HeaderButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFF6256D457A00BE0644 /* HeaderButtons.swift */; };
 		5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */; };
 		5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */; };
 /* End PBXBuildFile section */
@@ -122,8 +125,11 @@
 		2EF1EF6125680FE500BE0644 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		2EF1EF6225680FE500BE0644 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
 		2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Italic.ttf"; sourceTree = "<group>"; };
+		2EF1EF982569A37200BE0644 /* DiceAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceAlert.swift; sourceTree = "<group>"; };
 		2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		2EF1EFE2256D34AC00BE0644 /* IllustrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IllustrationView.swift; sourceTree = "<group>"; };
+		2EF1EFF6256D457A00BE0644 /* HeaderButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButtons.swift; sourceTree = "<group>"; };
 		5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +259,7 @@
 		2EF1EF102567EEE500BE0644 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EF1EF972569A19200BE0644 /* Alerts */,
 				2EF1EF212567F37400BE0644 /* Components */,
 			);
 			path = View;
@@ -270,6 +277,8 @@
 			children = (
 				2EF1EF222567F3A700BE0644 /* CharacteristicView.swift */,
 				2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */,
+				2EF1EFE2256D34AC00BE0644 /* IllustrationView.swift */,
+				2EF1EFF6256D457A00BE0644 /* HeaderButtons.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -301,6 +310,14 @@
 				2EF1EF5A25680FE500BE0644 /* JosefinSans-ThinItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2EF1EF972569A19200BE0644 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				2EF1EF982569A37200BE0644 /* DiceAlert.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,11 +517,14 @@
 				2EF1EED82567EDE300BE0644 /* ViewController.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
+				2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
+				2EF1EFF7256D457A00BE0644 /* HeaderButtons.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
+				2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */,
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
 				5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */,
 				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
