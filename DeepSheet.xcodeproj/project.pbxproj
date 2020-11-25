@@ -64,10 +64,13 @@
 		2EF1EF8D25680FE500BE0644 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */; };
 		2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */; };
 		2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */; };
-		5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */; };
 		5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */; };
+		5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */; };
+		5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D1256D2F3A00B8B232 /* Skill.swift */; };
+		5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */; };
 		9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */; };
 		9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFE0256D958400EEAE80 /* GroupStatesView.swift */; };
+		92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */; };
 		92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABAF256D45A400C49FAB /* CustomImages.swift */; };
 		92E3874F256EA4850016D072 /* AspectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3874E256EA4850016D072 /* AspectsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -126,10 +129,13 @@
 		2EF1EF6325680FE500BE0644 /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Italic.ttf"; sourceTree = "<group>"; };
 		2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
-		5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarGradient.swift; sourceTree = "<group>"; };
+		5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
+		5BFC57D1256D2F3A00B8B232 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
 		9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvStatesView.swift; sourceTree = "<group>"; };
 		9237DFE0256D958400EEAE80 /* GroupStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStatesView.swift; sourceTree = "<group>"; };
+		92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = DeepSheet/View/TabBarViewController.swift; sourceTree = SOURCE_ROOT; };
 		92D3ABAF256D45A400C49FAB /* CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImages.swift; sourceTree = "<group>"; };
 		92E3874E256EA4850016D072 /* AspectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,6 +231,7 @@
 		2EF1EF0C2567EEC300BE0644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5BFC57D1256D2F3A00B8B232 /* Skill.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +239,9 @@
 		2EF1EF0D2567EED000BE0644 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */,
+				5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */,
+				5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -258,7 +268,6 @@
 		2EF1EF102567EEE500BE0644 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */,
 				2EF1EF212567F37400BE0644 /* Components */,
 				92E3874E256EA4850016D072 /* AspectsViewController.swift */,
 			);
@@ -506,19 +515,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */,
+				5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
+				5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
+				92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */,
 				92E3874F256EA4850016D072 /* AspectsViewController.swift in Sources */,
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
 				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
 				9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */,
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
-				5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */,
 				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
