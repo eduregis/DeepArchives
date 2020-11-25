@@ -46,9 +46,10 @@ class IndvStatesView: UIView {
 	lazy var checkMark: UIImageView = {
 		let checkMark = UIImageView()
 		// MARK: Replace with actual checkmark image
-		var check = UIImage.imageWithColor(color: .shockingPink)
+		var check = UIImage(systemName: "checkmark")
 		checkMark.translatesAutoresizingMaskIntoConstraints = false
 		checkMark.image = check
+		checkMark.tintColor = .ivory
 		self.addSubview(checkMark)
 		return checkMark
 	}()
