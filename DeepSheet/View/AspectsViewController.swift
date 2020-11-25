@@ -21,6 +21,13 @@ class AspectsViewController: UIViewController {
 		self.view.addSubview(points)
 		return points
 	}()
+
+	lazy var statesView: GroupStatesView = {
+		let states = GroupStatesView()
+		states.translatesAutoresizingMaskIntoConstraints = false
+		self.view.addSubview(states)
+		return states
+	}()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -43,7 +50,11 @@ class AspectsViewController: UIViewController {
 		
 			pointsView.topAnchor.constraint(equalTo: attributesInformation.bottomAnchor, constant: 55),
 			pointsView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
-			pointsView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16)
+			pointsView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+			
+			statesView.topAnchor.constraint(equalTo: attributesInformation.bottomAnchor, constant: 55),
+			statesView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
+			statesView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16)
 		])
 	}
 }

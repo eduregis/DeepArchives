@@ -28,9 +28,9 @@ class TabBarViewController: UITabBarController {
         statsViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "characteristic-icon"),
                                        selectedImage: UIImage(named: "characteristic-icon"))
         
-        let skillsViewController = AspectsViewController()
+        let skillsViewController = SkillsTableViewController()
         skillsViewController.title = ("Skills")
-        skillsViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "skill-icon"),
+        skillsViewController.tabBarItem = UITabBarItem(title: "Skills", image: UIImage(named: "skill-icon"),
                                        selectedImage: UIImage(named: "skill-icon"))
         
         let combatViewController = AspectsViewController()
@@ -38,7 +38,7 @@ class TabBarViewController: UITabBarController {
         combatViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "combat-icon"),
                                        selectedImage: UIImage(named: "combat-icon"))
         
-        let bioViewController = AspectsViewController()
+        let bioViewController = BioViewController()
         bioViewController.title = ("Bio")
         bioViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))
