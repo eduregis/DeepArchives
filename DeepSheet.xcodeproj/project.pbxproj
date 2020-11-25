@@ -73,6 +73,9 @@
 		2EF1F00E256E925100BE0644 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1F00D256E925100BE0644 /* BioViewController.swift */; };
 		5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */; };
 		5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */; };
+		5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */; };
+		5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D1256D2F3A00B8B232 /* Skill.swift */; };
+		5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +141,9 @@
 		2EF1F00D256E925100BE0644 /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarGradient.swift; sourceTree = "<group>"; };
+		5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
+		5BFC57D1256D2F3A00B8B232 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,7 @@
 		2EF1EF0C2567EEC300BE0644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5BFC57D1256D2F3A00B8B232 /* Skill.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */,
+				5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */,
+				5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -529,6 +538,11 @@
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
 				2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */,
+				5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */,
+				5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */,
+				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
+				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
+				5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,

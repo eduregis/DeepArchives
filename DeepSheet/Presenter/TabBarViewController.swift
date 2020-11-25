@@ -28,9 +28,9 @@ class TabBarViewController: UITabBarController {
         statsViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "characteristic-icon"),
                                        selectedImage: UIImage(named: "characteristic-icon"))
         
-        let skillsViewController = ViewController()
+        let skillsViewController = SkillsTableViewController()
         skillsViewController.title = ("Skills")
-        skillsViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "skill-icon"),
+        skillsViewController.tabBarItem = UITabBarItem(title: "Skills", image: UIImage(named: "skill-icon"),
                                        selectedImage: UIImage(named: "skill-icon"))
         
         let combatViewController = ViewController()

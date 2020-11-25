@@ -2,6 +2,8 @@ disabled_rules: # rule identifiers to exclude from running
   - line_lenght
   - trailing_whitespace
   - force_cast
-  - identifier_name# <---------
+  - identifier_name
+  - function_parameter_count
+  # <---------
 opt_in_rules: # some rules are only opt-in
   - empty_count
