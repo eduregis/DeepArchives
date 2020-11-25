@@ -9,7 +9,7 @@ import UIKit
 
 class IndvStatesView: UIView {
 
-	var stateChecked: Bool = true
+	var stateChecked: Bool = false
 	
 	lazy var stateLabel: UILabel = {
 		let label = UILabel()
@@ -45,7 +45,6 @@ class IndvStatesView: UIView {
 	
 	lazy var checkMark: UIImageView = {
 		let checkMark = UIImageView()
-		// MARK: Replace with actual checkmark image
 		var check = UIImage(systemName: "checkmark")
 		checkMark.translatesAutoresizingMaskIntoConstraints = false
 		checkMark.image = check
@@ -57,9 +56,11 @@ class IndvStatesView: UIView {
 	init(stateName: String) {
 		super.init(frame: .zero)
 		configureLayout()
-		toggleCheckMark()
 		
 		stateLabel.text = stateName
+		// MARK: - Call presenter to get check state from Model
+		//stateChecked = getStateFromModel()
+		//toggleCheckMark()
 	}
 	
 	override func draw(_ rect: CGRect) {
@@ -96,11 +97,17 @@ class IndvStatesView: UIView {
 	
 	// MARK: - Logic
 	func toggleCheckMark() {
-		checkMark.isHidden = !checkMark.isHidden
-		stateChecked = !stateChecked
+		if stateChecked {
+			checkMark.isHidden = false
+		} else {
+			checkMark.isHidden = true
+		}
 	}
 	
 	@objc func callCheckState(sender: UIButton) {
+		// MARK: - Call presenter to update state from Model
+		//stateChecked = updateStateFromModel()
+		stateChecked = !stateChecked //Remove once Presenter is in place
 		print("Check State for \(stateLabel.text!)")
 		toggleCheckMark()
 	}
