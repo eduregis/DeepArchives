@@ -9,6 +9,8 @@ import UIKit
 
 class IndvStatesView: UIView {
 
+	var stateChecked: Bool = true
+	
 	lazy var stateLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,9 +43,20 @@ class IndvStatesView: UIView {
 		return button
 	}()
 	
+	lazy var checkMark: UIImageView = {
+		let checkMark = UIImageView()
+		// MARK: Replace with actual checkmark image
+		var check = UIImage.imageWithColor(color: .shockingPink)
+		checkMark.translatesAutoresizingMaskIntoConstraints = false
+		checkMark.image = check
+		self.addSubview(checkMark)
+		return checkMark
+	}()
+	
 	init(stateName: String) {
 		super.init(frame: .zero)
 		configureLayout()
+		toggleCheckMark()
 		
 		stateLabel.text = stateName
 	}
@@ -68,6 +81,11 @@ class IndvStatesView: UIView {
 			stateCheckbox.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
 			stateCheckbox.leftAnchor.constraint(equalTo: self.rightAnchor, constant: -35),
 			
+			checkMark.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+			checkMark.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+			checkMark.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
+			checkMark.leftAnchor.constraint(equalTo: self.rightAnchor, constant: -35),
+			
 			stateButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
 			stateButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
 			stateButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
@@ -75,8 +93,15 @@ class IndvStatesView: UIView {
 		])
 	}
 	
+	// MARK: - Logic
+	func toggleCheckMark() {
+		checkMark.isHidden = !checkMark.isHidden
+		stateChecked = !stateChecked
+	}
+	
 	@objc func callCheckState(sender: UIButton) {
 		print("Check State for \(stateLabel.text!)")
+		toggleCheckMark()
 	}
 	
 	required init?(coder: NSCoder) {

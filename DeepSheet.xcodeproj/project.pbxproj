@@ -236,7 +236,6 @@
 		2EF1EF0D2567EED000BE0644 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -264,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				2EF1EED72567EDE300BE0644 /* ViewController.swift */,
+				5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */,
 				2EF1EF212567F37400BE0644 /* Components */,
 			);
 			path = View;
