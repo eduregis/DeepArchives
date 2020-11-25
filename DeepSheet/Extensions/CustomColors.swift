@@ -50,6 +50,8 @@ extension UIColor {
     static var darkSeaGreen: UIColor { return UIColor(hex: "#204622")! }
     
     static var palePurple: UIColor { return UIColor(hex: "#665687")! }
+	
+	static var shockingPink: UIColor { return UIColor(hex: "#ED70EF")! }
     
     static var backgroundBlack: UIColor { return UIColor(hex: "#120309")! }
 }

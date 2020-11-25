@@ -6,8 +6,6 @@
 //
 import UIKit
 
-
-
 class CharacteristicView: UIView {
     
     lazy var characteristicLabel: UILabel = {

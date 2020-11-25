@@ -16,14 +16,14 @@ class TabBarViewController: UITabBarController {
         self.tabBar.tintColor = UIColor.lightSeaGreen
         //self.tabBar.unselectedItemTintColor = .darkText
 
-        let profileViewController = ViewController()
+        let profileViewController = AspectsViewController()
         profileViewController.title = ("Profile")
         let profileViewControllerItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"),
                                        selectedImage: UIImage(systemName: "person.fill"))
         profileViewControllerItem.title = "Profile"
         profileViewController.tabBarItem = profileViewControllerItem
         
-        let statsViewController = ViewController()
+        let statsViewController = AspectsViewController()
         statsViewController.title = ("Stats")
         statsViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "characteristic-icon"),
                                        selectedImage: UIImage(named: "characteristic-icon"))
@@ -33,12 +33,12 @@ class TabBarViewController: UITabBarController {
         skillsViewController.tabBarItem = UITabBarItem(title: "Skills", image: UIImage(named: "skill-icon"),
                                        selectedImage: UIImage(named: "skill-icon"))
         
-        let combatViewController = ViewController()
+        let combatViewController = AspectsViewController()
         combatViewController.title = ("Combat")
         combatViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "combat-icon"),
                                        selectedImage: UIImage(named: "combat-icon"))
         
-        let bioViewController = ViewController()
+        let bioViewController = AspectsViewController()
         bioViewController.title = ("Bio")
         bioViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))
@@ -59,7 +59,7 @@ class TabBarViewController: UITabBarController {
         statsNavigationController.navigationBar.setNavigationBarStyle()
         combatNavigationController.navigationBar.setNavigationBarStyle()
         bioNavigationController.navigationBar.setNavigationBarStyle()
-        self.viewControllers = [profileNavigationController, skillsNavigationController,statsNavigationController, combatNavigationController, bioNavigationController]
+        self.viewControllers = [profileNavigationController, skillsNavigationController, statsNavigationController, combatNavigationController, bioNavigationController]
         
     }
 }
