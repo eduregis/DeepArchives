@@ -70,6 +70,7 @@
 		9237DFD4256D853D00EEAE80 /* GroupPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD3256D853D00EEAE80 /* GroupPointsView.swift */; };
 		92D3ABA5256D2B6000C49FAB /* IndvPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */; };
 		92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABAF256D45A400C49FAB /* CustomImages.swift */; };
+		92E3873F256E88950016D072 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3873E256E88950016D072 /* CustomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		9237DFD3256D853D00EEAE80 /* GroupPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPointsView.swift; sourceTree = "<group>"; };
 		92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvPointsView.swift; sourceTree = "<group>"; };
 		92D3ABAF256D45A400C49FAB /* CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImages.swift; sourceTree = "<group>"; };
+		92E3873E256E88950016D072 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +234,6 @@
 		2EF1EF0D2567EED000BE0644 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -252,6 +253,7 @@
 				2EF1EFA3256BDC5A00BE0644 /* CustomFonts.swift */,
 				5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */,
 				92D3ABAF256D45A400C49FAB /* CustomImages.swift */,
+				92E3873E256E88950016D072 /* CustomViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				2EF1EED72567EDE300BE0644 /* ViewController.swift */,
+				5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */,
 				2EF1EF212567F37400BE0644 /* Components */,
 			);
 			path = View;
@@ -518,6 +521,7 @@
 				92D3ABA5256D2B6000C49FAB /* IndvPointsView.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
+				92E3873F256E88950016D072 /* CustomViewController.swift in Sources */,
 				5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */,
 				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
 			);

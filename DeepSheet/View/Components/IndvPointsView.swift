@@ -7,11 +7,12 @@
 
 import UIKit
 
-class IndvPointsView: UIView {
+class IndvPointsView: UIView, UITextFieldDelegate {
 	
 	// MARK: - Components
 	var pointsValue: (current: Int, maximum: Int) = (0, 0)
 	var hasDiceButton: Bool = false
+	var isEditModeEnabled: Bool = false
 	
 	lazy var pointTextBackground: UIImageView = {
 		let background = UIImageView()
@@ -64,6 +65,7 @@ class IndvPointsView: UIView {
 		field.layer.cornerRadius = 5
 		field.layer.borderColor = UIColor.systemGray3.cgColor
 		field.keyboardType = .numberPad
+		field.delegate = self
 		return field
 	}()
 	
@@ -93,7 +95,12 @@ class IndvPointsView: UIView {
 		diceImage.image = UIImage(named: "d10-purple")
 		pointLabel.text = pointName
 		
-		updatePointValues()
+		// MARK: - PRESENTER to get values from Model
+		//pointsValue = getPointsFromModel()
+		//updatePointsDisplay()
+		pointsValue = (888, 888) //Remove once Presenter is in place
+		valueField.text = "\(pointsValue.current)"	//Remove once Presenter is in place
+		maxValueLabel.text = "/\(pointsValue.maximum)"	//Remove once Presenter is in place
 	}
 	
 	override func draw(_ rect: CGRect) {
@@ -149,26 +156,33 @@ class IndvPointsView: UIView {
 	}
 	
 	// MARK: - Logic
-	func updatePointValues() {
-		//Later call Presenter to get data from Model
-		pointsValue.current = 888
-		pointsValue.maximum = 888
-		
+	func updatePointsDisplay() {
 		valueField.text = "\(pointsValue.current)"
 		maxValueLabel.text = "/\(pointsValue.maximum)"
 	}
 	
 	//To be used in Edit Mode as to not allow rolling dice
-	func toggleDiceButton() {
+	func toggleDiceButton(as toggle: Bool) {
 		
 		if hasDiceButton {
-			diceImage.isHidden = !diceImage.isHidden
-			diceButton.isEnabled = !diceButton.isEnabled
+			diceImage.isHidden = toggle
+			diceButton.isEnabled = !toggle
 		}
 	}
 	
 	@objc func callDiceRoll(sender: UIButton) {
 		print("Call Roll for \(pointLabel.text!)")
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		// MARK: - PRESENTER formats and updates Model using new values
+		//presenter.updatePointsInModel(points.currrent, points.maximum)
+		
+		// MARK: - PRESENTER updates View using Model values
+		//pointsValue = getPointsFromModel()
+		//updatePointsDisplay()
+		
+		print("New values for \(pointLabel.text!). Current: \(pointsValue.current). Maximum: \(pointsValue.maximum)") //Remove once Presenter is in place
 	}
 	
 	required init?(coder: NSCoder) {
