@@ -42,6 +42,17 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		return label
 	}()
 	
+	lazy var currentValueLabel: UILabel = {
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(label)
+		label.font = UIFont.josefinSansRegular()
+		label.textAlignment = .center
+		label.textColor = .ivory
+		label.backgroundColor = .clear
+		return label
+	}()
+	
 	lazy var maxValueLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,14 +64,30 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		return label
 	}()
 	
-	lazy var valueField: UITextField = {
+	lazy var currentValueField: UITextField = {
 		let field = UITextField()
 		field.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(field)
 		field.font = UIFont.josefinSansRegular()
-		field.textColor = .ivory
+		field.textColor = .backgroundBlack
 		field.textAlignment = .center
-		field.backgroundColor = .systemGray6
+		field.backgroundColor = .ivory
+		field.layer.borderWidth = 1
+		field.layer.cornerRadius = 5
+		field.layer.borderColor = UIColor.systemGray3.cgColor
+		field.keyboardType = .numberPad
+		field.delegate = self
+		return field
+	}()
+	
+	lazy var maxValueField: UITextField = {
+		let field = UITextField()
+		field.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(field)
+		field.font = UIFont.josefinSansRegular()
+		field.textColor = .backgroundBlack
+		field.textAlignment = .center
+		field.backgroundColor = .ivory
 		field.layer.borderWidth = 1
 		field.layer.cornerRadius = 5
 		field.layer.borderColor = UIColor.systemGray3.cgColor
@@ -98,9 +125,13 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		// MARK: - PRESENTER to get values from Model
 		//pointsValue = getPointsFromModel()
 		//updatePointsDisplay()
-		pointsValue = (888, 888) //Remove once Presenter is in place
-		valueField.text = "\(pointsValue.current)"	//Remove once Presenter is in place
-		maxValueLabel.text = "/\(pointsValue.maximum)"	//Remove once Presenter is in place
+		pointsValue = (888, 888) //Remove once Presenter does it
+		currentValueField.text = "\(pointsValue.current)"	//Remove once Presenter does it
+		maxValueLabel.text = "/\(pointsValue.maximum)"	//Remove once Presenter does it
+		currentValueLabel.text = "\(pointsValue.current)/"	//Remove once Presenter does it
+		maxValueField.text = "\(pointsValue.maximum)"	//Remove once Presenter does it
+	
+		toggleEditMode(as: isEditModeEnabled, confirm: false)
 	}
 	
 	override func draw(_ rect: CGRect) {
@@ -129,12 +160,19 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 			pointLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 			pointLabel.centerXAnchor.constraint(equalTo: self.leftAnchor, constant: 57),
 			
+			currentValueField.topAnchor.constraint(equalTo: self.topAnchor, constant: 7),
+			currentValueField.widthAnchor.constraint(equalToConstant: 50),
+			currentValueField.rightAnchor.constraint(equalTo: maxValueLabel.leftAnchor, constant: -3),
+			
 			maxValueLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
 			maxValueLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15),
 			
-			valueField.topAnchor.constraint(equalTo: self.topAnchor, constant: 7),
-			valueField.widthAnchor.constraint(equalToConstant: 50),
-			valueField.rightAnchor.constraint(equalTo: maxValueLabel.leftAnchor, constant: -3)
+			currentValueLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+			currentValueLabel.rightAnchor.constraint(equalTo: maxValueField.leftAnchor, constant: -3),
+			
+			maxValueField.topAnchor.constraint(equalTo: self.topAnchor, constant: 7),
+			maxValueField.widthAnchor.constraint(equalToConstant: 50),
+			maxValueField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -6)
 		])
 			
 		if hasDiceButton {
@@ -157,16 +195,63 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 	
 	// MARK: - Logic
 	func updatePointsDisplay() {
-		valueField.text = "\(pointsValue.current)"
+		currentValueField.text = "\(pointsValue.current)"
 		maxValueLabel.text = "/\(pointsValue.maximum)"
+		
+		currentValueLabel.text = "\(pointsValue.current)/"
+		maxValueField.text = "\(pointsValue.maximum)"
+	}
+	
+	func toggleEditMode(as toggle: Bool, confirm: Bool) {
+		
+		//Change point text fields
+		if toggle {
+			print("\(pointLabel.text!) Edit Mode ON")
+			isEditModeEnabled = true
+			
+			currentValueField.isHidden = true
+			maxValueLabel.isHidden = true
+			
+			currentValueLabel.isHidden = false
+			maxValueField.isHidden = false
+		} else {
+			print("\(pointLabel.text!) Edit Mode OFF")
+			isEditModeEnabled = false
+			
+			currentValueField.isHidden = false
+			maxValueLabel.isHidden = false
+			
+			currentValueLabel.isHidden = true
+			maxValueField.isHidden = true
+			
+			if confirm {
+				// MARK: - PRESENTER formats and updates Model using new values
+				//presenter.updatePointsInModel(points.currrent, points.maximum)
+				
+				// MARK: - PRESENTER updates View using Model values
+				//pointsValue = getPointsFromModel()
+				//updatePointsDisplay()
+				
+				print("New Max Value for \(pointLabel.text!): \(pointsValue.current)") //Remove once Presenter does it
+			}
+		}
+		
+		if hasDiceButton {
+			toggleDiceButton()
+		}
 	}
 	
 	//To be used in Edit Mode as to not allow rolling dice
-	func toggleDiceButton(as toggle: Bool) {
+	func toggleDiceButton() {
 		
 		if hasDiceButton {
-			diceImage.isHidden = toggle
-			diceButton.isEnabled = !toggle
+			if isEditModeEnabled {
+				diceImage.isHidden = true
+				diceButton.isEnabled = false
+			} else {
+				diceImage.isHidden = false
+				diceButton.isEnabled = true
+			}
 		}
 	}
 	
@@ -175,14 +260,16 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 	}
 	
 	func textFieldDidEndEditing(_ textField: UITextField) {
-		// MARK: - PRESENTER formats and updates Model using new values
-		//presenter.updatePointsInModel(points.currrent, points.maximum)
-		
-		// MARK: - PRESENTER updates View using Model values
-		//pointsValue = getPointsFromModel()
-		//updatePointsDisplay()
-		
-		print("New values for \(pointLabel.text!). Current: \(pointsValue.current). Maximum: \(pointsValue.maximum)") //Remove once Presenter is in place
+		if !isEditModeEnabled {
+			// MARK: - PRESENTER formats and updates Model using new values
+			//presenter.updatePointsInModel(points.currrent, points.maximum)
+			
+			// MARK: - PRESENTER updates View using Model values
+			//pointsValue = getPointsFromModel()
+			//updatePointsDisplay()
+			
+			print("New Current Value for \(pointLabel.text!): \(pointsValue.current)") //Remove once Presenter does it
+		}
 	}
 	
 	required init?(coder: NSCoder) {

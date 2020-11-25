@@ -9,6 +9,9 @@ import UIKit
 
 class GroupPointsView: UIView {
 	
+	var isEditModeEnabled: Bool = false
+	var isEditConfirmed: Bool = false
+	
 	// MARK: - Components
 	lazy var luckView: IndvPointsView = {
 		let points = IndvPointsView(pointName: LocalizedStrings.luckPoints, diceButton: true)
@@ -61,9 +64,30 @@ class GroupPointsView: UIView {
 		return label
 	}()
 	
+	lazy var testButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(self.togglePointGroupEditMode), for: .touchUpInside)
+		button.backgroundColor = .orange
+		self.addSubview(button)
+		return button
+	}()
+	
+	lazy var editTest: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(self.confirmEdit), for: .touchUpInside)
+		button.backgroundColor = .red
+		self.addSubview(button)
+		return button
+	}()
+	
 	init() {
 		super.init(frame: .zero)
 		configureLayout()
+		
+		//Remove after tests
+		editTest.isHidden = true
 	}
 	
 	// MARK: - Layout Constraints
@@ -74,9 +98,51 @@ class GroupPointsView: UIView {
 			pointsStack.topAnchor.constraint(equalTo: self.topAnchor),
 			pointsStack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 			
+			testButton.leftAnchor.constraint(equalTo: groupLabel.rightAnchor, constant: 10),
+			testButton.topAnchor.constraint(equalTo: groupLabel.topAnchor, constant: -10),
+			testButton.widthAnchor.constraint(equalToConstant: 50),
+			testButton.heightAnchor.constraint(equalToConstant: 50),
+			
+			editTest.leftAnchor.constraint(equalTo: groupLabel.rightAnchor, constant: 80),
+			editTest.topAnchor.constraint(equalTo: groupLabel.topAnchor, constant: -10),
+			editTest.widthAnchor.constraint(equalToConstant: 50),
+			editTest.heightAnchor.constraint(equalToConstant: 50),
+			
 			groupLabel.leftAnchor.constraint(equalTo: self.leftAnchor),
 			groupLabel.bottomAnchor.constraint(equalTo: pointsStack.topAnchor, constant: -5)
 		])
+	}
+	
+	// MARK: - Logic
+	
+	//Presenter call when Confirm edit, DO NOT call when Cancelling
+	@objc func confirmEdit() {
+		if isEditModeEnabled {
+			isEditConfirmed = true
+			togglePointGroupEditMode()
+		}
+	}
+	
+	@objc func togglePointGroupEditMode() {
+		
+		if isEditModeEnabled {
+			print("Points Group Edit Mode OFF")
+			isEditModeEnabled = false
+			editTest.isHidden = true
+		} else {
+			print("Points Group Edit Mode ON")
+			isEditModeEnabled = true
+			editTest.isHidden = false
+		}
+		
+		luckView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
+		magicView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
+		sanityView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
+		healthView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
+		
+		if isEditConfirmed {
+			isEditConfirmed = false
+		}
 	}
 	
 	required init?(coder: NSCoder) {
