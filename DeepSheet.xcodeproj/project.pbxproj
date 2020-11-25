@@ -68,6 +68,9 @@
 		2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */; };
 		2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFE2256D34AC00BE0644 /* IllustrationView.swift */; };
 		2EF1EFF7256D457A00BE0644 /* HeaderButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFF6256D457A00BE0644 /* HeaderButtons.swift */; };
+		2EF1EFFC256D8A0A00BE0644 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFFB256D8A0A00BE0644 /* InfoView.swift */; };
+		2EF1F001256D8BCD00BE0644 /* GeneralCombatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1F000256D8BCD00BE0644 /* GeneralCombatView.swift */; };
+		2EF1F00E256E925100BE0644 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1F00D256E925100BE0644 /* BioViewController.swift */; };
 		5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */; };
 		5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */; };
 /* End PBXBuildFile section */
@@ -130,6 +133,9 @@
 		2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		2EF1EFE2256D34AC00BE0644 /* IllustrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IllustrationView.swift; sourceTree = "<group>"; };
 		2EF1EFF6256D457A00BE0644 /* HeaderButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButtons.swift; sourceTree = "<group>"; };
+		2EF1EFFB256D8A0A00BE0644 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		2EF1F000256D8BCD00BE0644 /* GeneralCombatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCombatView.swift; sourceTree = "<group>"; };
+		2EF1F00D256E925100BE0644 /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,6 +267,7 @@
 			children = (
 				2EF1EF972569A19200BE0644 /* Alerts */,
 				2EF1EF212567F37400BE0644 /* Components */,
+				2EF1F00D256E925100BE0644 /* BioViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,6 +286,8 @@
 				2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */,
 				2EF1EFE2256D34AC00BE0644 /* IllustrationView.swift */,
 				2EF1EFF6256D457A00BE0644 /* HeaderButtons.swift */,
+				2EF1EFFB256D8A0A00BE0644 /* InfoView.swift */,
+				2EF1F000256D8BCD00BE0644 /* GeneralCombatView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -515,6 +524,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF1EED82567EDE300BE0644 /* ViewController.swift in Sources */,
+				2EF1F001256D8BCD00BE0644 /* GeneralCombatView.swift in Sources */,
+				2EF1F00E256E925100BE0644 /* BioViewController.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
 				2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */,
@@ -527,6 +538,7 @@
 				2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */,
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
 				5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */,
+				2EF1EFFC256D8A0A00BE0644 /* InfoView.swift in Sources */,
 				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

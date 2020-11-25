@@ -113,10 +113,12 @@ class CharacteristicView: UIButton {
     }
     
     func beEditable() {
+        isEnabled = false
         valueTextField.isHidden = false
     }
     
     func beNotEditable() {
+        isEnabled = true
         valueTextField.isHidden = true
     }
     
