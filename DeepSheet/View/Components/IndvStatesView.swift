@@ -60,7 +60,8 @@ class IndvStatesView: UIView {
 		stateLabel.text = stateName
 		// MARK: - Call presenter to get check state from Model
 		//stateChecked = getStateFromModel()
-		//toggleCheckMark()
+		
+		toggleCheckMark()
 	}
 	
 	override func draw(_ rect: CGRect) {

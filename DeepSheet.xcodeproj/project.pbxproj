@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
-		2EF1EED82567EDE300BE0644 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED72567EDE300BE0644 /* ViewController.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
 		2EF1EEE02567EDE400BE0644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDF2567EDE400BE0644 /* Assets.xcassets */; };
 		2EF1EEE32567EDE400BE0644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1EEE12567EDE400BE0644 /* LaunchScreen.storyboard */; };
@@ -67,11 +66,10 @@
 		2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */; };
 		5BFC57BF256BFFA900B8B232 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */; };
 		5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */; };
-		9237DFD4256D853D00EEAE80 /* GroupPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD3256D853D00EEAE80 /* GroupPointsView.swift */; };
 		9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */; };
 		9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFE0256D958400EEAE80 /* GroupStatesView.swift */; };
-		92D3ABA5256D2B6000C49FAB /* IndvPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */; };
 		92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABAF256D45A400C49FAB /* CustomImages.swift */; };
+		92E3874F256EA4850016D072 /* AspectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3874E256EA4850016D072 /* AspectsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +93,6 @@
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2EF1EED72567EDE300BE0644 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2EF1EEDD2567EDE300BE0644 /* DeepSheet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeepSheet.xcdatamodel; sourceTree = "<group>"; };
 		2EF1EEDF2567EDE400BE0644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EF1EEE22567EDE400BE0644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -131,11 +128,10 @@
 		2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarGradient.swift; sourceTree = "<group>"; };
-		9237DFD3256D853D00EEAE80 /* GroupPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPointsView.swift; sourceTree = "<group>"; };
 		9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvStatesView.swift; sourceTree = "<group>"; };
 		9237DFE0256D958400EEAE80 /* GroupStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStatesView.swift; sourceTree = "<group>"; };
-		92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvPointsView.swift; sourceTree = "<group>"; };
 		92D3ABAF256D45A400C49FAB /* CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImages.swift; sourceTree = "<group>"; };
+		92E3874E256EA4850016D072 /* AspectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,9 +258,9 @@
 		2EF1EF102567EEE500BE0644 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2EF1EED72567EDE300BE0644 /* ViewController.swift */,
 				5BFC57BE256BFFA900B8B232 /* TabBarViewController.swift */,
 				2EF1EF212567F37400BE0644 /* Components */,
+				92E3874E256EA4850016D072 /* AspectsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,8 +277,6 @@
 			children = (
 				2EF1EF222567F3A700BE0644 /* CharacteristicView.swift */,
 				2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */,
-				92D3ABA4256D2B6000C49FAB /* IndvPointsView.swift */,
-				9237DFD3256D853D00EEAE80 /* GroupPointsView.swift */,
 				9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */,
 				9237DFE0256D958400EEAE80 /* GroupStatesView.swift */,
 			);
@@ -512,17 +506,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EF1EED82567EDE300BE0644 /* ViewController.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
-				9237DFD4256D853D00EEAE80 /* GroupPointsView.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
+				92E3874F256EA4850016D072 /* AspectsViewController.swift in Sources */,
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
 				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,
-				92D3ABA5256D2B6000C49FAB /* IndvPointsView.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
 				9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */,
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
