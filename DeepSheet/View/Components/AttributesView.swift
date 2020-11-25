@@ -8,22 +8,37 @@ import UIKit
 
 class AttributesView: UIView {
     
+    // MARK: - Título
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(label)
+        label.font = UIFont.josefinSansBold()
+        label.textAlignment = .center
+        label.textColor = .ivory
+        label.text = "Atributos"
+        return label
+    }()
+    
     // MARK: - Primeira linha
     let strView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.strAttribute, value: 50)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 0
         return view
     }()
     
     let dexView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: "DES", value: 55)
+        let view = CharacteristicView(characteristic: LocalizedStrings.dexAttribute, value: 55)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 1
         return view
     }()
     
     let intView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: "INT", value: 55, preValue: "")
+        let view = CharacteristicView(characteristic: LocalizedStrings.intAttribute, value: 55, preValue: "")
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 2
         return view
     }()
     
@@ -40,20 +55,23 @@ class AttributesView: UIView {
     
     // MARK: - Segunda linha
     let conView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: "CON", value: 75)
+        let view = CharacteristicView(characteristic: LocalizedStrings.conAttribute, value: 75)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 3
         return view
     }()
     
     let appView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: "APA", value: 45)
+        let view = CharacteristicView(characteristic: LocalizedStrings.appAttribute, value: 45)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 4
         return view
     }()
     
     let powView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: "POD", value: 50, preValue: "")
+        let view = CharacteristicView(characteristic: LocalizedStrings.powAttribute, value: 50, preValue: "")
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 5
         return view
     }()
     
@@ -70,20 +88,23 @@ class AttributesView: UIView {
     
     // MARK: - Terceira linha
     let sizView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: "TAM", value: 80)
+        let view = CharacteristicView(characteristic: LocalizedStrings.sizAttribute, value: 80)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 6
         return view
     }()
     
     let eduView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: "EDU", value: 61)
+        let view = CharacteristicView(characteristic: LocalizedStrings.eduAttribute, value: 61)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 7
         return view
     }()
     
     let movView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: "MOV", value: 8, preValue: "", valueBy2: "-1", valueBy5: "+1")
+        let view = CharacteristicView(characteristic: LocalizedStrings.movAttribute, value: 8, preValue: "", valueBy2: "-1", valueBy5: "+1")
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.tag = 8
         return view
     }()
     
@@ -121,9 +142,12 @@ class AttributesView: UIView {
     
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            stack.leftAnchor.constraint(equalTo: self.leftAnchor),
-            stack.rightAnchor.constraint(equalTo: self.rightAnchor),
-            stack.topAnchor.constraint(equalTo: self.topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            
+            stack.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            stack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            stack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 9),
             stack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
