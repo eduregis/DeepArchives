@@ -91,6 +91,7 @@ class BioViewController: UIViewController {
     
     @objc func triggerAlert(sender: UIButton) {
         print(sender.tag)
+        
         diceAlert.rollDice(tag: sender.tag)
         UIView.animate(withDuration: 0.2, delay: 0, animations: {
             self.diceAlert.layer.opacity = 1
