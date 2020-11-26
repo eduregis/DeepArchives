@@ -69,6 +69,10 @@ class SkillsTableViewController: UIViewController,UITableViewDelegate, UITableVi
         tableView.register(SkillTableViewCell.self, forCellReuseIdentifier: "SkillCell")
         configureConstraints()
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        print("roludo")
+    }
     func configureConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
