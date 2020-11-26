@@ -6,7 +6,12 @@
 //
 import UIKit
 
-class CharacteristicView: UIButton {
+class CharacteristicView: UIButton, DiceProtocol {
+    
+    var testName: String
+    
+    var diceType: String
+    
     
     lazy var characteristicLabel: UILabel = {
         let label = UILabel()
@@ -85,9 +90,15 @@ class CharacteristicView: UIButton {
         return divisor
     }()
     
-    init(characteristic: String, value: Int, preValue: String = "", valueBy2: String? = nil, valueBy5: String? = nil) {
+    init(characteristic: String, value: Int, preValue: String = "", valueBy2: String? = nil, valueBy5: String? = nil, testName: String = "", diceType: String = "") {
+        
+        self.testName = testName
+        self.diceType = diceType
+        
         super.init(frame: .zero)
+        
         configureLayout()
+        
         characteristicLabel.text = characteristic
         
         diceImage.image = UIImage(named: "d10-green")

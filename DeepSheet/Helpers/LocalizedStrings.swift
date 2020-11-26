@@ -234,4 +234,118 @@ class LocalizedStrings {
             return "MOV"
         }
     }
+    
+    
+    // MARK: - Strings for Characteristic Buttons
+    
+    static var strAttributeText : String {
+        switch language {
+        case "EN":
+            return "Strenght (Attribute)"
+        case "PT":
+            return "Força (Atributo)"
+        default:
+            return "Strenght (Attribute)"
+        }
+    }
+    
+    static var dexAttributeText : String {
+        switch language {
+        case "EN":
+            return "Dexterity (Attribute)"
+        case "PT":
+            return "Destreza (Atributo)"
+        default:
+            return "Dexterity (Attribute)"
+        }
+    }
+    
+    static var intAttributeText : String {
+        switch language {
+        case "EN":
+            return "Intelligence (Attribute)"
+        case "PT":
+            return "Inteligência (Atributo)"
+        default:
+            return "Intelligence (Attribute)"
+        }
+    }
+    
+    static var conAttributeText : String {
+        switch language {
+        case "EN":
+            return "Constitution (Attribute)"
+        case "PT":
+            return "Constiutuição (Atributo)"
+        default:
+            return "Constitution (Attribute)"
+        }
+    }
+    
+    static var appAttributeText : String {
+        switch language {
+        case "EN":
+            return "Appearance (Attribute)"
+        case "PT":
+            return "Aparência (Atributo)"
+        default:
+            return "Appearance (Attribute)"
+        }
+    }
+    
+    static var powAttributeText : String {
+        switch language {
+        case "EN":
+            return "Power (Attribute)"
+        case "PT":
+            return "Poder (Atributo)"
+        default:
+            return "Power (Attribute)"
+        }
+    }
+    
+    static var sizAttributeText : String {
+        switch language {
+        case "EN":
+            return "Size (Attribute)"
+        case "PT":
+            return "Tamanho (Atributo)"
+        default:
+            return "Size (Attribute)"
+        }
+    }
+    
+    static var eduAttributeText : String {
+        switch language {
+        case "EN":
+            return "Education (Attribute)"
+        case "PT":
+            return "Educação (Atributo)"
+        default:
+            return "Education (Attribute)"
+        }
+    }
+    
+    static var movAttributeText : String {
+        switch language {
+        case "EN":
+            return "Move (Attribute)"
+        case "PT":
+            return "Movimentação (Atributo)"
+        default:
+            return "Move (Attribute)"
+        }
+    }
+    
+    static var rollDiceD100 : String {
+        switch language {
+        case "EN":
+            return "Roll: d100"
+        case "PT":
+            return "Rolagem: d100"
+        default:
+            return "Roll: d100"
+        }
+    }
 }
+
