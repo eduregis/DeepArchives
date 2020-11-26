@@ -7,9 +7,13 @@
 
 import UIKit
 
-struct Skill {
-    var skillName:String
-    var skillPoints:Int
-    var isActivated:Bool
-    var skillDesc:String?
+struct Skill: DiceProtocol {
+    
+    var skillName: String
+    var skillPoints: Int
+    var isActivated: Bool
+    var skillDesc: String?
+    
+    var testName: String
+    var diceType: String
 }
