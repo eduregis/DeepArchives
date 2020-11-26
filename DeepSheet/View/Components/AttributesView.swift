@@ -136,10 +136,6 @@ class AttributesView: UIView {
         configureLayout()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented, because will not be used on IB")
-    }
-    
     private func configureLayout() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
@@ -151,4 +147,23 @@ class AttributesView: UIView {
             stack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
+	
+	// MARK: - Logic
+	func groupIsEditable(is toggle: Bool) {
+		strView.isEditable(is: toggle)
+		dexView.isEditable(is: toggle)
+		intView.isEditable(is: toggle)
+		
+		conView.isEditable(is: toggle)
+		appView.isEditable(is: toggle)
+		powView.isEditable(is: toggle)
+		
+		sizView.isEditable(is: toggle)
+		eduView.isEditable(is: toggle)
+		movView.isEditable(is: toggle)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented, because will not be used on IB")
+	}
 }

@@ -8,6 +8,12 @@ import UIKit
 
 class AspectsViewController: UIViewController {
 
+	lazy var headerButtons: HeaderButtons = {
+		let header = HeaderButtons()
+		header.translatesAutoresizingMaskIntoConstraints = false
+		return header
+	}()
+	
 	lazy var attributesInformation: AttributesView = {
 		let attributes = AttributesView()
 		attributes.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +56,7 @@ class AspectsViewController: UIViewController {
 	}
 	
 	private func configureLayout() {
+		scrollingView.addSubview(headerButtons)
 		scrollingView.addSubview(attributesInformation)
 		scrollingView.addSubview(pointsView)
 		scrollingView.addSubview(statesView)
@@ -60,7 +67,12 @@ class AspectsViewController: UIViewController {
 			scrollingView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
 			scrollingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
 			
-			attributesInformation.topAnchor.constraint(equalTo: scrollingView.topAnchor, constant: 10),
+			headerButtons.topAnchor.constraint(equalTo: scrollingView.topAnchor, constant: 0),
+			headerButtons.heightAnchor.constraint(equalToConstant: 34),
+			headerButtons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+			headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+			
+			attributesInformation.topAnchor.constraint(equalTo: headerButtons.bottomAnchor, constant: 10),
 			attributesInformation.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
 			attributesInformation.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 		

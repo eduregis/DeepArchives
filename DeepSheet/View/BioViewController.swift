@@ -99,35 +99,15 @@ class BioViewController: UIViewController {
     }
     
     @objc func beEditable() {
-        headerButtons.cancelButton.isHidden = false
-        headerButtons.confirmButton.isHidden = false
-        headerButtons.editButton.isHidden = true
+		headerButtons.toggleEditMode(as: true)
         
-        attributesInformation.strView.beEditable()
-        attributesInformation.dexView.beEditable()
-        attributesInformation.intView.beEditable()
-        attributesInformation.conView.beEditable()
-        attributesInformation.appView.beEditable()
-        attributesInformation.powView.beEditable()
-        attributesInformation.sizView.beEditable()
-        attributesInformation.eduView.beEditable()
-        attributesInformation.movView.beEditable()
+		attributesInformation.groupIsEditable(is: true)
     }
     
     @objc func beNotEditable() {
-        headerButtons.cancelButton.isHidden = true
-        headerButtons.confirmButton.isHidden = true
-        headerButtons.editButton.isHidden = false
+		headerButtons.toggleEditMode(as: false)
         
-        attributesInformation.strView.beNotEditable()
-        attributesInformation.dexView.beNotEditable()
-        attributesInformation.intView.beNotEditable()
-        attributesInformation.conView.beNotEditable()
-        attributesInformation.appView.beNotEditable()
-        attributesInformation.powView.beNotEditable()
-        attributesInformation.sizView.beNotEditable()
-        attributesInformation.eduView.beNotEditable()
-        attributesInformation.movView.beNotEditable()
+		attributesInformation.groupIsEditable(is: false)
     }
     
     private func configureLayout() {

@@ -9,6 +9,8 @@ import UIKit
 
 class HeaderButtons: UIView {
     
+	var isEditingEnabled: Bool = false
+	
     lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +41,7 @@ class HeaderButtons: UIView {
     init() {
         super.init(frame: .zero)
         configureLayout()
+		toggleEditMode(as: isEditingEnabled)
     }
     
     required init?(coder: NSCoder) {
@@ -60,8 +63,24 @@ class HeaderButtons: UIView {
             confirmButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             editButton.topAnchor.constraint(equalTo: self.topAnchor),
-            editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
+	
+	func toggleEditMode(as toggle: Bool) {
+		if toggle {
+			isEditingEnabled = true
+			
+			editButton.isHidden = true
+			confirmButton.isHidden = false
+			cancelButton.isHidden = false
+		} else {
+			isEditingEnabled = false
+			
+			editButton.isHidden = false
+			confirmButton.isHidden = true
+			cancelButton.isHidden = true
+		}
+	}
 
 }
