@@ -56,9 +56,17 @@ class AspectsViewController: UIViewController, AspectsViewDelegate {
 	private func additionalConfigurations() {
 		aspectsViewPresenter.setAspectsDelegate(viewDelegate: self)
 		configureLayout()
-		//Change background color
+		
+		let placeholderPoints = [
+			(111, 111),
+			(222, 222),
+			(333, 333),
+			(444, 444)
+		]
+		pointsView.updatePointsValues(with: placeholderPoints)
+		
 		view.backgroundColor = .backgroundBlack
-		//Navigation configuration
+		
 	}
 	
 	private func configureLayout() {

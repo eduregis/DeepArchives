@@ -121,15 +121,6 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		
 		diceImage.image = UIImage(named: "d10-purple")
 		pointLabel.text = pointName
-		
-		// MARK: - PRESENTER to get values from Model
-		//pointsValue = getPointsFromModel()
-		//updatePointsDisplay()
-		pointsValue = (888, 888) //Remove once Presenter does it
-		currentValueField.text = "\(pointsValue.current)"	//Remove once Presenter does it
-		maxValueLabel.text = "/\(pointsValue.maximum)"	//Remove once Presenter does it
-		currentValueLabel.text = "\(pointsValue.current)/"	//Remove once Presenter does it
-		maxValueField.text = "\(pointsValue.maximum)"	//Remove once Presenter does it
 	
 		toggleEditMode(as: isEditModeEnabled, confirm: false)
 	}
@@ -194,7 +185,10 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 	}
 	
 	// MARK: - Logic
-	func updatePointsDisplay() {
+	func updatePointsDisplay(with new: (current: Int, maximum: Int)) {
+		pointsValue.current = new.current
+		pointsValue.maximum = new.maximum
+		
 		currentValueField.text = "\(pointsValue.current)"
 		maxValueLabel.text = "/\(pointsValue.maximum)"
 		
