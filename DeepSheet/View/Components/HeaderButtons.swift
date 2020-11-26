@@ -14,7 +14,6 @@ class HeaderButtons: UIView {
     lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(self.cancelEditing), for: .touchUpInside)
 		button.setTitle("Cancelar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         self.addSubview(button)
@@ -24,7 +23,6 @@ class HeaderButtons: UIView {
     lazy var confirmButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(self.confirmEditing), for: .touchUpInside)
 		button.setTitle("Confirmar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         self.addSubview(button)
@@ -34,7 +32,6 @@ class HeaderButtons: UIView {
     lazy var editButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(self.enterEditing), for: .touchUpInside)
         button.setTitle("Editar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         self.addSubview(button)
@@ -73,7 +70,7 @@ class HeaderButtons: UIView {
         ])
     }
 	
-	@objc func enterEditing() {
+	func enterEditing() {
 		isEditingEnabled = true
 		
 		editButton.isHidden = true
@@ -81,16 +78,12 @@ class HeaderButtons: UIView {
 		cancelButton.isHidden = false
 	}
 	
-	@objc func cancelEditing() {
+	func endEditing() {
 		isEditingEnabled = false
 		
 		editButton.isHidden = false
 		confirmButton.isHidden = true
 		cancelButton.isHidden = true
-	}
-	
-	@objc func confirmEditing() {
-		cancelEditing()
 	}
 
 }

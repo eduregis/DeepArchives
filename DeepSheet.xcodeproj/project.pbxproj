@@ -79,6 +79,8 @@
 		9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */; };
 		9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFE0256D958400EEAE80 /* GroupStatesView.swift */; };
 		92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */; };
+		92CB88E3256FE34400B94B15 /* AspectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */; };
+		92CB88E8256FE5D800B94B15 /* AspectsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CB88E7256FE5D800B94B15 /* AspectsViewDelegate.swift */; };
 		92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABAF256D45A400C49FAB /* CustomImages.swift */; };
 		92E3873F256E88950016D072 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3873E256E88950016D072 /* CustomViewController.swift */; };
 		92E38744256EA21D0016D072 /* AspectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E38743256EA21D0016D072 /* AspectsViewController.swift */; };
@@ -153,6 +155,8 @@
 		9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvStatesView.swift; sourceTree = "<group>"; };
 		9237DFE0256D958400EEAE80 /* GroupStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStatesView.swift; sourceTree = "<group>"; };
 		92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = DeepSheet/View/TabBarViewController.swift; sourceTree = SOURCE_ROOT; };
+		92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsPresenter.swift; sourceTree = "<group>"; };
+		92CB88E7256FE5D800B94B15 /* AspectsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsViewDelegate.swift; sourceTree = "<group>"; };
 		92D3ABAF256D45A400C49FAB /* CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImages.swift; sourceTree = "<group>"; };
 		92E3873E256E88950016D072 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		92E38743256EA21D0016D072 /* AspectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */,
 				5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */,
 				5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */,
+				92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */,
+				92CB88E7256FE5D800B94B15 /* AspectsViewDelegate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -562,6 +568,7 @@
 				2EF1F00E256E925100BE0644 /* BioViewController.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
+				92CB88E3256FE34400B94B15 /* AspectsPresenter.swift in Sources */,
 				2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */,
 				5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */,
 				5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */,
@@ -570,6 +577,7 @@
 				5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
+				92CB88E8256FE5D800B94B15 /* AspectsViewDelegate.swift in Sources */,
 				9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */,

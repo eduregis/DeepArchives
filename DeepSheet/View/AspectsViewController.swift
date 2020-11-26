@@ -6,10 +6,15 @@
 //
 import UIKit
 
-class AspectsViewController: UIViewController {
+class AspectsViewController: UIViewController, AspectsViewDelegate {
 
+	private let aspectsViewPresenter = AspectsPresenter()
+	
 	lazy var headerButtons: HeaderButtons = {
 		let header = HeaderButtons()
+		header.editButton.addTarget(self, action: #selector(self.enterEditing), for: .touchUpInside)
+		header.cancelButton.addTarget(self, action: #selector(self.cancelEditing), for: .touchUpInside)
+		header.confirmButton.addTarget(self, action: #selector(self.confirmEditing), for: .touchUpInside)
 		header.translatesAutoresizingMaskIntoConstraints = false
 		return header
 	}()
@@ -49,6 +54,7 @@ class AspectsViewController: UIViewController {
 	}
 	
 	private func additionalConfigurations() {
+		aspectsViewPresenter.setAspectsDelegate(viewDelegate: self)
 		configureLayout()
 		//Change background color
 		view.backgroundColor = .backgroundBlack
@@ -85,5 +91,24 @@ class AspectsViewController: UIViewController {
 			statesView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
 			statesView.bottomAnchor.constraint(equalTo: scrollingView.bottomAnchor, constant: 0)
 		])
+	}
+	
+	// MARK: - Logic
+	@objc func enterEditing() {
+		headerButtons.enterEditing()
+		attributesInformation.groupIsEditable(is: true)
+		pointsView.togglePointGroupEditMode()
+	}
+	
+	@objc func cancelEditing() {
+		headerButtons.endEditing()
+		attributesInformation.groupIsEditable(is: false)
+		pointsView.togglePointGroupEditMode()
+	}
+	
+	@objc func confirmEditing() {
+		headerButtons.endEditing()
+		attributesInformation.groupIsEditable(is: false)
+		pointsView.confirmEdit()
 	}
 }

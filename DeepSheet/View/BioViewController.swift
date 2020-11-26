@@ -99,19 +99,19 @@ class BioViewController: UIViewController {
     }
     
     @objc func enterEdit() {
-		//headerButtons.enterEditing()
+		headerButtons.enterEditing()
         
 		attributesInformation.groupIsEditable(is: true)
     }
     
     @objc func cancelEdit() {
-		//headerButtons.cancelEditing()
+		headerButtons.endEditing()
         
 		attributesInformation.groupIsEditable(is: false)
     }
 	
 	@objc func confirmEdit() {
-		//headerButtons.confirmEditing()
+		headerButtons.endEditing()
 		
 		attributesInformation.groupIsEditable(is: false)
 	}
