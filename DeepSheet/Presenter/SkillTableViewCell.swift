@@ -71,7 +71,7 @@ class SkillTableViewCell : UITableViewCell {
         self.addSubview(view)
         return view
     }()
-    lazy var diceView:UIButton = {
+    lazy var diceView: UIButton = {
         let view = UIButton()
         view.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -81,6 +81,7 @@ class SkillTableViewCell : UITableViewCell {
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .backgroundBlack
         setConstraints()
     }
     

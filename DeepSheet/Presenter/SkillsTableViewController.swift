@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SkillsTableViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     var skills:[Skill] = [] {
         didSet {
         filteredSkill = skills
@@ -19,11 +19,12 @@ class SkillsTableViewController: UIViewController,UITableViewDelegate, UITableVi
     lazy var searchBar: UISearchBar = UISearchBar()
 
     private func setupSearchBar() {
-        searchBar.searchBarStyle = UISearchBar.Style.prominent
+        searchBar.searchBarStyle = UISearchBar.Style.minimal
         searchBar.placeholder = " Search Skill"
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
-        searchBar.backgroundColor = .backgroundBlack
+        searchBar.barTintColor = .systemGray6
+//        searchBar.backgroundColor = .backgroundBlack
         searchBar.delegate = self
         self.tableView.tableHeaderView = searchBar
     }
@@ -62,6 +63,7 @@ class SkillsTableViewController: UIViewController,UITableViewDelegate, UITableVi
     
     func configureTableView() {
         view.addSubview(tableView)
+        tableView.backgroundColor = .backgroundBlack
         //set the delegates
         tableView.delegate = self
         tableView.dataSource = self

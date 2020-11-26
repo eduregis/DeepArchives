@@ -18,6 +18,17 @@ extension UIFont {
         }
         return font
     }
+	
+	class func josefinSansBold17() -> UIFont {
+		guard let font = UIFont(name: "JosefinSans-Bold", size: 17) else {
+			fatalError("""
+			   Failed to load the "JosefinSans-Bold" font.
+			   Make sure the font file is included in the project and the font name is spelled correctly.
+			   """
+		   )
+		}
+		return font
+	}
     
     class func josefinSansSkillTitle() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Bold", size: 17) else {
@@ -43,6 +54,28 @@ extension UIFont {
     
     class func josefinSansRegular() -> UIFont {
         guard let font = UIFont(name: "JosefinSans-Regular", size: 20) else {
+            fatalError("""
+               Failed to load the "JosefinSans-Regular" font.
+               Make sure the font file is included in the project and the font name is spelled correctly.
+               """
+           )
+        }
+        return font
+    }
+    
+    class func josefinSansResult() -> UIFont {
+        guard let font = UIFont(name: "JosefinSans-Bold", size: 70) else {
+            fatalError("""
+               Failed to load the "JosefinSans-Bold" font.
+               Make sure the font file is included in the project and the font name is spelled correctly.
+               """
+           )
+        }
+        return font
+    }
+    
+    class func josefinSansDetail() -> UIFont {
+        guard let font = UIFont(name: "JosefinSans-Regular", size: 14) else {
             fatalError("""
                Failed to load the "JosefinSans-Regular" font.
                Make sure the font file is included in the project and the font name is spelled correctly.
