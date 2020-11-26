@@ -14,7 +14,8 @@ class HeaderButtons: UIView {
     lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cancelar", for: .normal)
+		button.addTarget(self, action: #selector(self.cancelEditing), for: .touchUpInside)
+		button.setTitle("Cancelar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         self.addSubview(button)
         return button
@@ -23,7 +24,8 @@ class HeaderButtons: UIView {
     lazy var confirmButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Confirmar", for: .normal)
+		button.addTarget(self, action: #selector(self.confirmEditing), for: .touchUpInside)
+		button.setTitle("Confirmar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         self.addSubview(button)
         return button
@@ -32,16 +34,20 @@ class HeaderButtons: UIView {
     lazy var editButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(self.enterEditing), for: .touchUpInside)
         button.setTitle("Editar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         self.addSubview(button)
         return button
     }()
     
-    init() {
+	init() {
         super.init(frame: .zero)
         configureLayout()
-		toggleEditMode(as: isEditingEnabled)
+		
+		editButton.isHidden = false
+		confirmButton.isHidden = true
+		cancelButton.isHidden = true
     }
     
     required init?(coder: NSCoder) {
@@ -67,20 +73,24 @@ class HeaderButtons: UIView {
         ])
     }
 	
-	func toggleEditMode(as toggle: Bool) {
-		if toggle {
-			isEditingEnabled = true
-			
-			editButton.isHidden = true
-			confirmButton.isHidden = false
-			cancelButton.isHidden = false
-		} else {
-			isEditingEnabled = false
-			
-			editButton.isHidden = false
-			confirmButton.isHidden = true
-			cancelButton.isHidden = true
-		}
+	@objc func enterEditing() {
+		isEditingEnabled = true
+		
+		editButton.isHidden = true
+		confirmButton.isHidden = false
+		cancelButton.isHidden = false
+	}
+	
+	@objc func cancelEditing() {
+		isEditingEnabled = false
+		
+		editButton.isHidden = false
+		confirmButton.isHidden = true
+		cancelButton.isHidden = true
+	}
+	
+	@objc func confirmEditing() {
+		cancelEditing()
 	}
 
 }

@@ -56,7 +56,7 @@ class BioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        beNotEditable()
+        cancelEdit()
         additionalConfigurations()
     }
     
@@ -64,9 +64,9 @@ class BioViewController: UIViewController {
         configureLayout()
         view.backgroundColor = .backgroundBlack
         
-        headerButtons.cancelButton.addTarget(self, action: #selector(beNotEditable), for: .touchUpInside)
-        headerButtons.confirmButton.addTarget(self, action: #selector(beNotEditable), for: .touchUpInside)
-        headerButtons.editButton.addTarget(self, action: #selector(beEditable), for: .touchUpInside)
+        headerButtons.cancelButton.addTarget(self, action: #selector(cancelEdit), for: .touchUpInside)
+        headerButtons.confirmButton.addTarget(self, action: #selector(confirmEdit), for: .touchUpInside)
+        headerButtons.editButton.addTarget(self, action: #selector(enterEdit), for: .touchUpInside)
         
         diceAlert.okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         dimmingOverlay.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
@@ -98,17 +98,23 @@ class BioViewController: UIViewController {
         })
     }
     
-    @objc func beEditable() {
-		headerButtons.toggleEditMode(as: true)
+    @objc func enterEdit() {
+		//headerButtons.enterEditing()
         
 		attributesInformation.groupIsEditable(is: true)
     }
     
-    @objc func beNotEditable() {
-		headerButtons.toggleEditMode(as: false)
+    @objc func cancelEdit() {
+		//headerButtons.cancelEditing()
         
 		attributesInformation.groupIsEditable(is: false)
     }
+	
+	@objc func confirmEdit() {
+		//headerButtons.confirmEditing()
+		
+		attributesInformation.groupIsEditable(is: false)
+	}
     
     private func configureLayout() {
         NSLayoutConstraint.activate([
