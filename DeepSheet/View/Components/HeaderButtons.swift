@@ -9,10 +9,12 @@ import UIKit
 
 class HeaderButtons: UIView {
     
+	var isEditingEnabled: Bool = false
+	
     lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cancelar", for: .normal)
+		button.setTitle("Cancelar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         self.addSubview(button)
         return button
@@ -21,7 +23,7 @@ class HeaderButtons: UIView {
     lazy var confirmButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Confirmar", for: .normal)
+		button.setTitle("Confirmar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         self.addSubview(button)
         return button
@@ -36,9 +38,13 @@ class HeaderButtons: UIView {
         return button
     }()
     
-    init() {
+	init() {
         super.init(frame: .zero)
         configureLayout()
+		
+		editButton.isHidden = false
+		confirmButton.isHidden = true
+		cancelButton.isHidden = true
     }
     
     required init?(coder: NSCoder) {
@@ -60,8 +66,24 @@ class HeaderButtons: UIView {
             confirmButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             editButton.topAnchor.constraint(equalTo: self.topAnchor),
-            editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
+	
+	func enterEditing() {
+		isEditingEnabled = true
+		
+		editButton.isHidden = true
+		confirmButton.isHidden = false
+		cancelButton.isHidden = false
+	}
+	
+	func endEditing() {
+		isEditingEnabled = false
+		
+		editButton.isHidden = false
+		confirmButton.isHidden = true
+		cancelButton.isHidden = true
+	}
 
 }

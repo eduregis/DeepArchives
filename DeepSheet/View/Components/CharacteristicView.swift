@@ -123,16 +123,6 @@ class CharacteristicView: UIButton, DiceProtocol {
 
     }
     
-    func beEditable() {
-        isEnabled = false
-        valueTextField.isHidden = false
-    }
-    
-    func beNotEditable() {
-        isEnabled = true
-        valueTextField.isHidden = true
-    }
-    
     override func draw(_ rect: CGRect) {
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 5
@@ -185,6 +175,12 @@ class CharacteristicView: UIButton, DiceProtocol {
             middleDivisor.centerYAnchor.constraint(equalTo: valueBy2Label.centerYAnchor)
         ])
     }
+	
+	// MARK: - Logic
+	func isEditable(is toggle: Bool) {
+		isEnabled = !toggle
+		valueTextField.isHidden = !toggle
+	}
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented, because will not be used on IB")
