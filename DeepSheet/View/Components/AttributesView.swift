@@ -24,21 +24,24 @@ class AttributesView: UIView {
     let strView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.strAttribute, value: 50)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tag = 0
+        view.testName = LocalizedStrings.strAttributeText
+        view.diceType = LocalizedStrings.rollDiceD100
         return view
     }()
     
     let dexView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.dexAttribute, value: 55)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tag = 1
+        view.testName = LocalizedStrings.dexAttributeText
+        view.diceType = LocalizedStrings.rollDiceD100
         return view
     }()
     
     let intView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.intAttribute, value: 55, preValue: "")
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tag = 2
+        view.testName = LocalizedStrings.intAttributeText
+        view.diceType = LocalizedStrings.rollDiceD100
         return view
     }()
     
@@ -57,21 +60,24 @@ class AttributesView: UIView {
     let conView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.conAttribute, value: 75)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tag = 3
+        view.testName = LocalizedStrings.conAttributeText
+        view.diceType = LocalizedStrings.rollDiceD100
         return view
     }()
     
     let appView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.appAttribute, value: 45)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tag = 4
+        view.testName = LocalizedStrings.appAttributeText
+        view.diceType = LocalizedStrings.rollDiceD100
         return view
     }()
     
     let powView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.powAttribute, value: 50, preValue: "")
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tag = 5
+        view.testName = LocalizedStrings.powAttributeText
+        view.diceType = LocalizedStrings.rollDiceD100
         return view
     }()
     
@@ -90,21 +96,24 @@ class AttributesView: UIView {
     let sizView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.sizAttribute, value: 80)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tag = 6
+        view.testName = LocalizedStrings.sizAttributeText
+        view.diceType = LocalizedStrings.rollDiceD100
         return view
     }()
     
     let eduView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.eduAttribute, value: 61)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tag = 7
+        view.testName = LocalizedStrings.eduAttributeText
+        view.diceType = LocalizedStrings.rollDiceD100
         return view
     }()
     
     let movView: CharacteristicView = {
         let view = CharacteristicView(characteristic: LocalizedStrings.movAttribute, value: 8, preValue: "", valueBy2: "-1", valueBy5: "+1")
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tag = 8
+        view.testName = LocalizedStrings.movAttributeText
+        view.diceType = LocalizedStrings.rollDiceD100
         return view
     }()
     

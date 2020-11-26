@@ -8,15 +8,32 @@
 import UIKit
 
 class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    var skills:[Skill] = [] {
+    var skills: [Skill] = [] {
         didSet {
         filteredSkill = skills
         self.tableView.reloadData()
         }
-
     }
     
     lazy var searchBar: UISearchBar = UISearchBar()
+    
+    lazy var dimmingOverlay: UIButton = {
+        let view = UIButton()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .black
+        view.layer.opacity = 0
+        self.view.addSubview(view)
+        return view
+    }()
+    
+    lazy var diceAlert: DiceAlert = {
+        let alert = DiceAlert(test: "", roll: "")
+        alert.translatesAutoresizingMaskIntoConstraints = false
+        alert.layer.backgroundColor = UIColor.backgroundBlack.cgColor
+        alert.layer.opacity = 0
+        self.view.addSubview(alert)
+        return alert
+    }()
 
     private func setupSearchBar() {
         searchBar.searchBarStyle = UISearchBar.Style.minimal
@@ -45,6 +62,13 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         filteredSkill.count
     }
     
+    @objc func dismissAlert() {
+        UIView.animate(withDuration: 0.2, delay: 0, animations: {
+            self.diceAlert.layer.opacity = 0
+            self.dimmingOverlay.layer.opacity = 0
+        })
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell") as! SkillTableViewCell
         let skill = filteredSkill[indexPath.row]
@@ -58,6 +82,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         configureTableView()
         fetchData()
         setupSearchBar()
+        self.hideKeyboardWhenTappedAround()
         self.tableView.tableFooterView = UIView()
     }
     
@@ -69,7 +94,17 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         tableView.rowHeight = 59
         tableView.register(SkillTableViewCell.self, forCellReuseIdentifier: "SkillCell")
+        dimmingOverlay.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        diceAlert.okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         configureConstraints()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        diceAlert.rollDice(rollText: filteredSkill[indexPath.row].testName, rollType: filteredSkill[indexPath.row].diceType)
+        UIView.animate(withDuration: 0.2, delay: 0, animations: {
+            self.diceAlert.layer.opacity = 1
+            self.dimmingOverlay.layer.opacity = 0.6
+        })
     }
     func configureConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -77,12 +112,20 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        diceAlert.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        diceAlert.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        
+        dimmingOverlay.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        dimmingOverlay.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        dimmingOverlay.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        dimmingOverlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
     
     func fetchData(){
-        skills.append(Skill(skillName: "Run", skillPoints: 25, isActivated: true))
-        skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: true))
-        skills.append(Skill(skillName: "Seek", skillPoints: 1, isActivated: false, skillDesc: "Textin"))
+        skills.append(Skill(skillName: "Run", skillPoints: 25, isActivated: true, testName: "Run (Skill)", diceType: LocalizedStrings.rollDiceD100))
+        skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: true, testName: "Search (Skill)", diceType: LocalizedStrings.rollDiceD100))
+        skills.append(Skill(skillName: "Seek", skillPoints: 1, isActivated: false, skillDesc: "Textin", testName: "Seek (Skill)", diceType: LocalizedStrings.rollDiceD100))
     }
 
 }
