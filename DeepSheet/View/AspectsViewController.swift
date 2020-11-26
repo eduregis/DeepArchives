@@ -11,22 +11,29 @@ class AspectsViewController: UIViewController {
 	lazy var attributesInformation: AttributesView = {
 		let attributes = AttributesView()
 		attributes.translatesAutoresizingMaskIntoConstraints = false
-		self.view.addSubview(attributes)
 		return attributes
 	}()
 	
 	lazy var pointsView: GroupPointsView = {
 		let points = GroupPointsView()
 		points.translatesAutoresizingMaskIntoConstraints = false
-		self.view.addSubview(points)
 		return points
 	}()
 
 	lazy var statesView: GroupStatesView = {
 		let states = GroupStatesView()
 		states.translatesAutoresizingMaskIntoConstraints = false
-		self.view.addSubview(states)
 		return states
+	}()
+	
+	lazy var scrollingView: UIScrollView = {
+		let scroll = UIScrollView()
+		scroll.translatesAutoresizingMaskIntoConstraints = false
+		scroll.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+		scroll.isScrollEnabled = true
+		scroll.alwaysBounceVertical = false
+		self.view.addSubview(scroll)
+		return scroll
 	}()
 	
 	override func viewDidLoad() {
@@ -43,8 +50,17 @@ class AspectsViewController: UIViewController {
 	}
 	
 	private func configureLayout() {
+		scrollingView.addSubview(attributesInformation)
+		scrollingView.addSubview(pointsView)
+		scrollingView.addSubview(statesView)
+		
 		NSLayoutConstraint.activate([
-			attributesInformation.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32),
+			scrollingView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
+			scrollingView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
+			scrollingView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+			scrollingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
+			
+			attributesInformation.topAnchor.constraint(equalTo: scrollingView.topAnchor, constant: 10),
 			attributesInformation.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
 			attributesInformation.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 		
@@ -52,9 +68,10 @@ class AspectsViewController: UIViewController {
 			pointsView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
 			pointsView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
 			
-			statesView.topAnchor.constraint(equalTo: attributesInformation.bottomAnchor, constant: 55),
+			statesView.topAnchor.constraint(equalTo: pointsView.bottomAnchor, constant: 55),
 			statesView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
-			statesView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16)
+			statesView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+			statesView.bottomAnchor.constraint(equalTo: scrollingView.bottomAnchor, constant: 0)
 		])
 	}
 }
