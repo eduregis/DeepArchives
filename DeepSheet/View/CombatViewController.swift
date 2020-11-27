@@ -9,21 +9,30 @@ import UIKit
 
 class CombatViewController: UIViewController {
 
+    lazy var additionCard: AdditionCardView = {
+        let card = AdditionCardView()
+        card.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(card)
+        return card
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        additionalConfigurations()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func additionalConfigurations() {
+        configureLayout()
+        additionCard.additionCardLabel.text = "Adicionar Item"
+        view.backgroundColor = .backgroundBlack
     }
-    */
-
+    private func configureLayout() {
+        NSLayoutConstraint.activate([
+            additionCard.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            additionCard.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            additionCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+        ])
+    }
 }
