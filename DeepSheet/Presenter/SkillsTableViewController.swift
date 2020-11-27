@@ -40,7 +40,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         searchBar.placeholder = " Search Skill"
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
-        searchBar.barTintColor = .systemGray6
+       // searchBar.barTintColor = .systemGray6
 //        searchBar.backgroundColor = .backgroundBlack
         searchBar.delegate = self
         self.tableView.tableHeaderView = searchBar
@@ -85,6 +85,11 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         self.hideKeyboardWhenTappedAround()
         self.tableView.tableFooterView = UIView()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        searchBar.changePlaceholderColor(.lightSeaGreen)
+        searchBar.textField?.textColor = .lightSeaGreen
+        searchBar.textField?.backgroundColor = .searchBarGray
+    }
     
     func configureTableView() {
         view.addSubview(tableView)
@@ -123,8 +128,8 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func fetchData(){
-        skills.append(Skill(skillName: "Run", skillPoints: 25, isActivated: true, testName: "Run (Skill)", diceType: LocalizedStrings.rollDiceD100))
-        skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: true, testName: "Search (Skill)", diceType: LocalizedStrings.rollDiceD100))
+        skills.append(Skill(skillName: "Run", skillPoints: 45, isActivated: true, testName: "Run (Skill)", diceType: LocalizedStrings.rollDiceD100))
+        skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: false, testName: "Search (Skill)", diceType: LocalizedStrings.rollDiceD100))
         skills.append(Skill(skillName: "Seek", skillPoints: 1, isActivated: false, skillDesc: "Textin", testName: "Seek (Skill)", diceType: LocalizedStrings.rollDiceD100))
     }
 

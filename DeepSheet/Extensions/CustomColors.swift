@@ -54,4 +54,8 @@ extension UIColor {
 	static var shockingPink: UIColor { return UIColor(hex: "#ED70EF")! }
     
     static var backgroundBlack: UIColor { return UIColor(hex: "#120309")! }
+    
+    static var lightGray: UIColor { return UIColor(hex: "#807e7e")! }
+    
+    static var searchBarGray: UIColor { return UIColor(hex: "#3b3b3b")! }
 }
