@@ -6,9 +6,10 @@
 //
 import UIKit
 
-class AspectsViewController: UIViewController, AspectsViewDelegate {
+class AspectsViewController: UIViewController, UITextFieldDelegate, AspectsViewDelegate {
 
 	private let aspectsViewPresenter = AspectsPresenter()
+	var isEditEnabled: Bool = false
 	
 	lazy var headerButtons: HeaderButtons = {
 		let header = HeaderButtons()
@@ -41,8 +42,7 @@ class AspectsViewController: UIViewController, AspectsViewDelegate {
 		let scroll = UIScrollView()
 		scroll.translatesAutoresizingMaskIntoConstraints = false
 		scroll.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-		scroll.isScrollEnabled = true
-		scroll.alwaysBounceVertical = false
+		scroll.showsVerticalScrollIndicator = false
 		self.view.addSubview(scroll)
 		return scroll
 	}()
@@ -54,16 +54,12 @@ class AspectsViewController: UIViewController, AspectsViewDelegate {
 	}
 	
 	private func additionalConfigurations() {
+		pointsView.setAllTextFieldDelegates(with: self)
+		
 		aspectsViewPresenter.setAspectsDelegate(viewDelegate: self)
 		configureLayout()
 		
-		let placeholderPoints = [
-			(111, 111),
-			(222, 222),
-			(333, 333),
-			(444, 444)
-		]
-		pointsView.updatePointsValues(with: placeholderPoints)
+		pointsView.updatePointsValues(with: aspectsViewPresenter.getPoints())
 		
 		view.backgroundColor = .backgroundBlack
 		
@@ -102,21 +98,48 @@ class AspectsViewController: UIViewController, AspectsViewDelegate {
 	}
 	
 	// MARK: - Logic
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		if !isEditEnabled {
+			pointsView.rewriteAllPoints(is: true)
+			aspectsViewPresenter.setPoints(with: pointsView.getAllPointsValues())
+				
+			//Presenter uses formatted values to update Model
+				
+			pointsView.updatePointsValues(with: aspectsViewPresenter.getPoints())
+		}
+	}
+	
 	@objc func enterEditing() {
+		isEditEnabled = true
 		headerButtons.enterEditing()
 		attributesInformation.groupIsEditable(is: true)
 		pointsView.togglePointGroupEditMode()
 	}
 	
 	@objc func cancelEditing() {
+		pointsView.rewriteAllPoints(is: false)
+		
 		headerButtons.endEditing()
 		attributesInformation.groupIsEditable(is: false)
 		pointsView.togglePointGroupEditMode()
+		isEditEnabled = false
 	}
 	
 	@objc func confirmEditing() {
+		//Presenter gets all values in View and formats
+		pointsView.rewriteAllPoints(is: true)
+		aspectsViewPresenter.setPoints(with: pointsView.getAllPointsValues())
+		//presenter.sendCharacteristics(characteristics.getValues())
+		
+		//Presenter uses formatted values to update Model
+		
+		//Presenter gets all values from Model and updates View
+		pointsView.updatePointsValues(with: aspectsViewPresenter.getPoints())
+		//characteristics.setValues(presenter.getCharacteristics())
+		
 		headerButtons.endEditing()
 		attributesInformation.groupIsEditable(is: false)
-		pointsView.confirmEdit()
+		pointsView.togglePointGroupEditMode()
+		isEditEnabled = false
 	}
 }

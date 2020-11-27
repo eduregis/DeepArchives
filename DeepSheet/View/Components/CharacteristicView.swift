@@ -12,7 +12,6 @@ class CharacteristicView: UIButton, DiceProtocol {
     
     var diceType: String
     
-    
     lazy var characteristicLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

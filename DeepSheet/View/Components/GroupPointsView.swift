@@ -10,7 +10,6 @@ import UIKit
 class GroupPointsView: UIView {
 	
 	var isEditModeEnabled: Bool = false
-	var isEditConfirmed: Bool = false
 	
 	// MARK: - Components
 	lazy var luckView: IndvPointsView = {
@@ -84,6 +83,31 @@ class GroupPointsView: UIView {
 	}
 	
 	// MARK: - Logic
+	func getAllPointsValues() -> [(Int, Int)] {
+		
+		let arr = [
+			luckView.pointsValue,
+			magicView.pointsValue,
+			sanityView.pointsValue,
+			healthView.pointsValue
+		]
+		
+		return arr
+	}
+	
+	func setAllTextFieldDelegates(with delegate: UITextFieldDelegate) {
+		luckView.setTextFieldDelegate(with: delegate)
+		magicView.setTextFieldDelegate(with: delegate)
+		sanityView.setTextFieldDelegate(with: delegate)
+		healthView.setTextFieldDelegate(with: delegate)
+	}
+	
+	func rewriteAllPoints(is bool: Bool) {
+		luckView.rewritePoints(is: bool)
+		magicView.rewritePoints(is: bool)
+		sanityView.rewritePoints(is: bool)
+		healthView.rewritePoints(is: bool)
+	}
 	
 	func updatePointsValues(with points: [(current: Int, maximum: Int)]) {
 		
@@ -93,34 +117,20 @@ class GroupPointsView: UIView {
 		healthView.updatePointsDisplay(with: points[3])
 	}
 	
-	//Presenter call when Confirm edit, DO NOT call when Cancelling
-	@objc func confirmEdit() {
-		if isEditModeEnabled {
-			isEditConfirmed = true
-			togglePointGroupEditMode()
-		}
-	}
-	
 	@objc func togglePointGroupEditMode() {
 		
 		if isEditModeEnabled {
 			print("Points Group Edit Mode OFF")
 			isEditModeEnabled = false
-			//editTest.isHidden = true
 		} else {
 			print("Points Group Edit Mode ON")
 			isEditModeEnabled = true
-			//editTest.isHidden = false
 		}
 		
-		luckView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
-		magicView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
-		sanityView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
-		healthView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
-		
-		if isEditConfirmed {
-			isEditConfirmed = false
-		}
+		luckView.toggleEditMode(as: isEditModeEnabled)
+		magicView.toggleEditMode(as: isEditModeEnabled)
+		sanityView.toggleEditMode(as: isEditModeEnabled)
+		healthView.toggleEditMode(as: isEditModeEnabled)
 	}
 	
 	required init?(coder: NSCoder) {

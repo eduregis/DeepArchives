@@ -122,7 +122,7 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		diceImage.image = UIImage(named: "d10-purple")
 		pointLabel.text = pointName
 	
-		toggleEditMode(as: isEditModeEnabled, confirm: false)
+		toggleEditMode(as: isEditModeEnabled)
 	}
 	
 	override func draw(_ rect: CGRect) {
@@ -185,6 +185,22 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 	}
 	
 	// MARK: - Logic
+	func setTextFieldDelegate(with delegate: UITextFieldDelegate) {
+		currentValueField.delegate = delegate
+		maxValueField.delegate = delegate
+	}
+	
+	func rewritePoints(is bool: Bool) {
+		if bool {
+			pointsValue.current = (currentValueField.text! as NSString).integerValue
+			pointsValue.maximum = (maxValueField.text! as NSString).integerValue
+		} else {
+			currentValueField.text = "\(pointsValue.current)"
+			maxValueField.text = "\(pointsValue.maximum)"
+		}
+		updatePointsDisplay(with: pointsValue)
+	}
+	
 	func updatePointsDisplay(with new: (current: Int, maximum: Int)) {
 		pointsValue.current = new.current
 		pointsValue.maximum = new.maximum
@@ -196,7 +212,7 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		maxValueField.text = "\(pointsValue.maximum)"
 	}
 	
-	func toggleEditMode(as toggle: Bool, confirm: Bool) {
+	func toggleEditMode(as toggle: Bool) {
 		
 		//Change point text fields
 		if toggle {
@@ -217,17 +233,6 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 			
 			currentValueLabel.isHidden = true
 			maxValueField.isHidden = true
-			
-			if confirm {
-				// MARK: - PRESENTER formats and updates Model using new values
-				//presenter.updatePointsInModel(points.currrent, points.maximum)
-				
-				// MARK: - PRESENTER updates View using Model values
-				//pointsValue = getPointsFromModel()
-				//updatePointsDisplay()
-				
-				print("New Max Value for \(pointLabel.text!): \(pointsValue.current)") //Remove once Presenter does it
-			}
 		}
 		
 		if hasDiceButton {
@@ -251,19 +256,6 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 	
 	@objc func callDiceRoll(sender: UIButton) {
 		print("Call Roll for \(pointLabel.text!)")
-	}
-	
-	func textFieldDidEndEditing(_ textField: UITextField) {
-		if !isEditModeEnabled {
-			// MARK: - PRESENTER formats and updates Model using new values
-			//presenter.updatePointsInModel(points.currrent, points.maximum)
-			
-			// MARK: - PRESENTER updates View using Model values
-			//pointsValue = getPointsFromModel()
-			//updatePointsDisplay()
-			
-			print("New Current Value for \(pointLabel.text!): \(pointsValue.current)") //Remove once Presenter does it
-		}
 	}
 	
 	required init?(coder: NSCoder) {
