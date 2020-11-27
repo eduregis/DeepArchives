@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IndvPointsView: UIView, UITextFieldDelegate {
+class IndvPointsView: UIView {
 	
 	// MARK: - Components
 	var pointsValue: (current: Int, maximum: Int) = (0, 0)
@@ -76,7 +76,6 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		field.layer.cornerRadius = 5
 		field.layer.borderColor = UIColor.systemGray3.cgColor
 		field.keyboardType = .numberPad
-		field.delegate = self
 		return field
 	}()
 	
@@ -92,7 +91,6 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		field.layer.cornerRadius = 5
 		field.layer.borderColor = UIColor.systemGray3.cgColor
 		field.keyboardType = .numberPad
-		field.delegate = self
 		return field
 	}()
 	

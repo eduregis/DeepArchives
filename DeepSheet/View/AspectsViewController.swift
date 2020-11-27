@@ -54,12 +54,15 @@ class AspectsViewController: UIViewController, UITextFieldDelegate, AspectsViewD
 	}
 	
 	private func additionalConfigurations() {
+		attributesInformation.setAllTextFieldDelegates(with: self)
 		pointsView.setAllTextFieldDelegates(with: self)
 		
 		aspectsViewPresenter.setAspectsDelegate(viewDelegate: self)
 		configureLayout()
 		
 		pointsView.updatePointsValues(with: aspectsViewPresenter.getPoints())
+		
+		attributesInformation.changeAllCharacteristicValues(with: aspectsViewPresenter.getCharacteristics())
 		
 		view.backgroundColor = .backgroundBlack
 		
@@ -119,6 +122,9 @@ class AspectsViewController: UIViewController, UITextFieldDelegate, AspectsViewD
 	@objc func cancelEditing() {
 		pointsView.rewriteAllPoints(is: false)
 		
+		//"Rewrites" characteristics text fields with their Current Values
+		attributesInformation.changeAllCharacteristicValues(with: attributesInformation.getAllCharacteristicValues())
+		
 		headerButtons.endEditing()
 		attributesInformation.groupIsEditable(is: false)
 		pointsView.togglePointGroupEditMode()
@@ -129,13 +135,13 @@ class AspectsViewController: UIViewController, UITextFieldDelegate, AspectsViewD
 		//Presenter gets all values in View and formats
 		pointsView.rewriteAllPoints(is: true)
 		aspectsViewPresenter.setPoints(with: pointsView.getAllPointsValues())
-		//presenter.sendCharacteristics(characteristics.getValues())
+		aspectsViewPresenter.setCharacteristics(with: attributesInformation.getAllCharacteristicValues())
 		
 		//Presenter uses formatted values to update Model
 		
 		//Presenter gets all values from Model and updates View
 		pointsView.updatePointsValues(with: aspectsViewPresenter.getPoints())
-		//characteristics.setValues(presenter.getCharacteristics())
+		attributesInformation.overwriteAllCharacteristicValues()
 		
 		headerButtons.endEditing()
 		attributesInformation.groupIsEditable(is: false)
