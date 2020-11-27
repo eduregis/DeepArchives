@@ -123,8 +123,8 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func fetchData(){
-        skills.append(Skill(skillName: "Run", skillPoints: 25, isActivated: true, testName: "Run (Skill)", diceType: LocalizedStrings.rollDiceD100))
-        skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: true, testName: "Search (Skill)", diceType: LocalizedStrings.rollDiceD100))
+        skills.append(Skill(skillName: "Run", skillPoints: 45, isActivated: true, testName: "Run (Skill)", diceType: LocalizedStrings.rollDiceD100))
+        skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: false, testName: "Search (Skill)", diceType: LocalizedStrings.rollDiceD100))
         skills.append(Skill(skillName: "Seek", skillPoints: 1, isActivated: false, skillDesc: "Textin", testName: "Seek (Skill)", diceType: LocalizedStrings.rollDiceD100))
     }
 
