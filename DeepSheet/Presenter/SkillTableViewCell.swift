@@ -28,6 +28,7 @@ class SkillTableViewCell : UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = .josefinSansSkillDesc()
+        lbl.textColor = .backgroundBlack
         self.addSubview(lbl)
         return lbl
     }()

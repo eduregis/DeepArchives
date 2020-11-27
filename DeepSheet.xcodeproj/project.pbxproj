@@ -74,6 +74,7 @@
 		5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */; };
 		5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D1256D2F3A00B8B232 /* Skill.swift */; };
 		5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */; };
+		5BFC57FE2571228200B8B232 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57FD2571228200B8B232 /* SearchBar.swift */; };
 		9227B5C3256F00F600399CCB /* GroupPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227B5C2256F00F600399CCB /* GroupPointsView.swift */; };
 		9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227B5C7256F010B00399CCB /* IndvPointsView.swift */; };
 		9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */; };
@@ -150,6 +151,7 @@
 		5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
 		5BFC57D1256D2F3A00B8B232 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
+		5BFC57FD2571228200B8B232 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		9227B5C2256F00F600399CCB /* GroupPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPointsView.swift; sourceTree = "<group>"; };
 		9227B5C7256F010B00399CCB /* IndvPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndvPointsView.swift; sourceTree = "<group>"; };
 		9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvStatesView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */,
 				92D3ABAF256D45A400C49FAB /* CustomImages.swift */,
 				92E3873E256E88950016D072 /* CustomViewController.swift */,
+				5BFC57FD2571228200B8B232 /* SearchBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				92E38744256EA21D0016D072 /* AspectsViewController.swift in Sources */,
 				9227B5C3256F00F600399CCB /* GroupPointsView.swift in Sources */,
 				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,
+				5BFC57FE2571228200B8B232 /* SearchBar.swift in Sources */,
 				2EF1EFF7256D457A00BE0644 /* HeaderButtons.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
 				2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */,

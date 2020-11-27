@@ -40,7 +40,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         searchBar.placeholder = " Search Skill"
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
-        searchBar.barTintColor = .systemGray6
+       // searchBar.barTintColor = .systemGray6
 //        searchBar.backgroundColor = .backgroundBlack
         searchBar.delegate = self
         self.tableView.tableHeaderView = searchBar
@@ -84,6 +84,11 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         setupSearchBar()
         self.hideKeyboardWhenTappedAround()
         self.tableView.tableFooterView = UIView()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        searchBar.changePlaceholderColor(.lightSeaGreen)
+        searchBar.textField?.textColor = .lightSeaGreen
+        searchBar.textField?.backgroundColor = .searchBarGray
     }
     
     func configureTableView() {
