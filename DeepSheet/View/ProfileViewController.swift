@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func triggerModal () {
-        let editModal = EditCombatModal()
+        let editModal = NewItemModal()
         present(editModal, animated: true, completion: nil)
     }
     

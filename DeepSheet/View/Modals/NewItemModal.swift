@@ -1,5 +1,5 @@
 //
-//  EditCombatModal.swift
+//  NewItemModal.swift
 //  DeepSheet
 //
 //  Created by Eduardo Oliveira on 30/11/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditCombatModal: UIViewController {
+class NewItemModal: UIViewController {
     
     // MARK: - NavBar
     
@@ -23,7 +23,7 @@ class EditCombatModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = "Editar Combate"
+        label.text = "Novo Item"
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -51,40 +51,23 @@ class EditCombatModal: UIViewController {
     
     // MARK: - First Group
     
-    lazy var damageView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Dano")
+    lazy var itemNameView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Nome do item")
+        return view
+    }()
+
+    lazy var useView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Usos")
         return view
     }()
     
-    lazy var damageDetail: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkIvory
-        label.font = UIFont.josefinSansRegular()
-        label.text = "Insira uma combinação válida de dados. Ex: 1d6 + 1d3, 1d4"
-        label.numberOfLines = 0
-
-        return label
-    }()
-    
-    lazy var damageStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [damageView, damageDetail])
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.alignment = .fill
-        stack.distribution = .fillEqually
-        stack.spacing = 0
-        self.view.addSubview(stack)
-        return stack
-    }()
-    
-    lazy var dodgeView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Esquiva")
+    lazy var descriptionView: EditModalComponent = {
+        let view = EditModalComponent(titleText: "Descrição", multiline: true)
         return view
     }()
     
     lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [damageStack, dodgeView])
+        let stack = UIStackView(arrangedSubviews: [itemNameView, useView, descriptionView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
