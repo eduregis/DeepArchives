@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func triggerModal () {
-        let editModal = EditProfileModal()
+        let editModal = EditCombatModal()
         present(editModal, animated: true, completion: nil)
     }
     
@@ -55,7 +55,7 @@ class ProfileViewController: UIViewController {
             headerButtons.topAnchor.constraint(equalTo: scrollingView.topAnchor, constant: 0),
             headerButtons.heightAnchor.constraint(equalToConstant: 34),
             headerButtons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
     }
 }

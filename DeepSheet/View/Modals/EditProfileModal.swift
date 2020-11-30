@@ -103,7 +103,6 @@ class EditProfileModal: UIViewController {
         return stack
     }()
     
-    
     // MARK: - Third Group
     
     lazy var addressView: EditModalComponent = {
