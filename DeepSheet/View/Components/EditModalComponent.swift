@@ -66,7 +66,7 @@ class EditModalComponent: UIView {
         ])
         
         if isMultiline {
-            valueText.heightAnchor.constraint(equalToConstant: 120).isActive = true
+            valueText.heightAnchor.constraint(equalToConstant: 90).isActive = true
             valueText.textContainer.maximumNumberOfLines = 10
         } else {
             valueText.heightAnchor.constraint(equalToConstant: 30).isActive = true
