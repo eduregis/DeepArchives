@@ -13,6 +13,8 @@
 		2E7F67872575195400976C85 /* EditCombatModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67862575195400976C85 /* EditCombatModal.swift */; };
 		2E7F678C25751F6F00976C85 /* NewItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F678B25751F6F00976C85 /* NewItemModal.swift */; };
 		2E7F6791257524A000976C85 /* EditItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F6790257524A000976C85 /* EditItemModal.swift */; };
+		2E7F67962575256700976C85 /* NewWeaponModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67952575256700976C85 /* NewWeaponModal.swift */; };
+		2E7F679B2575282200976C85 /* EditWeaponModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F679A2575282200976C85 /* EditWeaponModal.swift */; };
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
@@ -116,6 +118,8 @@
 		2E7F67862575195400976C85 /* EditCombatModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCombatModal.swift; sourceTree = "<group>"; };
 		2E7F678B25751F6F00976C85 /* NewItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemModal.swift; sourceTree = "<group>"; };
 		2E7F6790257524A000976C85 /* EditItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemModal.swift; sourceTree = "<group>"; };
+		2E7F67952575256700976C85 /* NewWeaponModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWeaponModal.swift; sourceTree = "<group>"; };
+		2E7F679A2575282200976C85 /* EditWeaponModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeaponModal.swift; sourceTree = "<group>"; };
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				2E7F67862575195400976C85 /* EditCombatModal.swift */,
 				2E7F678B25751F6F00976C85 /* NewItemModal.swift */,
 				2E7F6790257524A000976C85 /* EditItemModal.swift */,
+				2E7F67952575256700976C85 /* NewWeaponModal.swift */,
+				2E7F679A2575282200976C85 /* EditWeaponModal.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -602,6 +608,7 @@
 				5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */,
 				2E7F6791257524A000976C85 /* EditItemModal.swift in Sources */,
 				5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */,
+				2E7F679B2575282200976C85 /* EditWeaponModal.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
 				5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */,
@@ -618,6 +625,7 @@
 				2EF1EFF7256D457A00BE0644 /* HeaderButtons.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
 				2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */,
+				2E7F67962575256700976C85 /* NewWeaponModal.swift in Sources */,
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
 				9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */,
 				2E7F67872575195400976C85 /* EditCombatModal.swift in Sources */,
