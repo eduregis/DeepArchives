@@ -20,6 +20,23 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>JosefinSans-Bold.ttf</string>
+		<string>JosefinSans-BoldItalic.ttf</string>
+		<string>JosefinSans-ExtraLight.ttf</string>
+		<string>JosefinSans-ExtraLightItalic.ttf</string>
+		<string>JosefinSans-Italic.ttf</string>
+		<string>JosefinSans-Light.ttf</string>
+		<string>JosefinSans-LightItalic.ttf</string>
+		<string>JosefinSans-Medium.ttf</string>
+		<string>JosefinSans-MediumItalic.ttf</string>
+		<string>JosefinSans-Regular.ttf</string>
+		<string>JosefinSans-SemiBold.ttf</string>
+		<string>JosefinSans-SemiBoldItalic.ttf</string>
+		<string>JosefinSans-Thin.ttf</string>
+		<string>JosefinSans-ThinItalic.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -59,23 +76,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>JosefinSans-Bold.ttf</string>
-		<string>JosefinSans-BoldItalic.ttf</string>
-		<string>JosefinSans-ExtraLight.ttf</string>
-		<string>JosefinSans-ExtraLightItalic.ttf</string>
-		<string>JosefinSans-Italic.ttf</string>
-		<string>JosefinSans-Light.ttf</string>
-		<string>JosefinSans-LightItalic.ttf</string>
-		<string>JosefinSans-Medium.ttf</string>
-		<string>JosefinSans-MediumItalic.ttf</string>
-		<string>JosefinSans-Regular.ttf</string>
-		<string>JosefinSans-SemiBold.ttf</string>
-		<string>JosefinSans-SemiBoldItalic.ttf</string>
-		<string>JosefinSans-Thin.ttf</string>
-		<string>JosefinSans-ThinItalic.ttf</string>
 	</array>
 </dict>
 </plist>
