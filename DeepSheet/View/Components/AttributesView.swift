@@ -157,7 +157,7 @@ class AttributesView: UIView {
         ])
     }
 	
-	// MARK: - Logic
+	// MARK: - Editing Logic
 	func setAllTextFieldDelegates(with delegate: UITextFieldDelegate) {
 		strView.setTextFieldDelegate(with: delegate)
 		dexView.setTextFieldDelegate(with: delegate)

@@ -13,7 +13,7 @@ class GroupPointsView: UIView {
 	
 	// MARK: - Components
 	lazy var luckView: IndvPointsView = {
-		let points = IndvPointsView(pointName: LocalizedStrings.luckPoints, diceButton: true)
+		let points = IndvPointsView(pointName: LocalizedStrings.luckPoints, rollName: LocalizedStrings.luckRoll ,diceType: LocalizedStrings.rollDiceD100, diceButton: true)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(points)
 		return points
@@ -27,7 +27,7 @@ class GroupPointsView: UIView {
 	}()
 	
 	lazy var sanityView: IndvPointsView = {
-		let points = IndvPointsView(pointName: LocalizedStrings.sanityPoints, diceButton: true)
+		let points = IndvPointsView(pointName: LocalizedStrings.sanityPoints, rollName: LocalizedStrings.sanityRoll, diceType: LocalizedStrings.rollDiceD100, diceButton: true)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(points)
 		return points
@@ -82,7 +82,7 @@ class GroupPointsView: UIView {
 		])
 	}
 	
-	// MARK: - Logic
+	// MARK: - Editing Logic
 	func getAllPointsValues() -> [(Int, Int)] {
 		
 		let arr = [
@@ -131,6 +131,18 @@ class GroupPointsView: UIView {
 		magicView.toggleEditMode(as: isEditModeEnabled)
 		sanityView.toggleEditMode(as: isEditModeEnabled)
 		healthView.toggleEditMode(as: isEditModeEnabled)
+	}
+	
+	// MARK: - Dice Roll Logic
+	func getPointsRolled() -> IndvPointsView? {
+		
+		if luckView.hasDiceRolled {
+			return luckView
+		} else if sanityView.hasDiceRolled {
+			return sanityView
+		} else {
+			return nil
+		}
 	}
 	
 	required init?(coder: NSCoder) {

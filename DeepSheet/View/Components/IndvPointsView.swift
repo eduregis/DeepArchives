@@ -9,11 +9,19 @@ import UIKit
 
 class IndvPointsView: UIView {
 	
-	// MARK: - Components
+	var rollName: String
+	
+	var diceType: String
+	
+	var hasDiceButton: Bool
+	
 	var pointsValue: (current: Int, maximum: Int) = (0, 0)
-	var hasDiceButton: Bool = false
+	
 	var isEditModeEnabled: Bool = false
 	
+	var hasDiceRolled: Bool = false
+	
+	// MARK: - Components
 	lazy var pointTextBackground: UIImageView = {
 		let background = UIImageView()
 		let backgroundColor = UIImage.imageWithColor(color: .palePurple)
@@ -106,15 +114,19 @@ class IndvPointsView: UIView {
 	lazy var diceButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(self.callDiceRoll), for: .touchUpInside)
 		button.backgroundColor = .none
+		button.addTarget(self, action: #selector(self.callDiceRoll), for: .touchUpInside)
 		return button
 	}()
 	
-	init(pointName: String, diceButton: Bool) {
+	init(pointName: String, rollName: String = "", diceType: String = "", diceButton: Bool) {
+		
+		self.rollName = rollName
+		self.diceType = diceType
+		self.hasDiceButton = diceButton
+		
 		super.init(frame: .zero)
 		
-		hasDiceButton = diceButton
 		configureLayout()
 		
 		diceImage.image = UIImage(named: "d10-purple")
@@ -182,7 +194,7 @@ class IndvPointsView: UIView {
 		}
 	}
 	
-	// MARK: - Logic
+	// MARK: - Editing Logic
 	func setTextFieldDelegate(with delegate: UITextFieldDelegate) {
 		currentValueField.delegate = delegate
 		maxValueField.delegate = delegate
@@ -252,8 +264,13 @@ class IndvPointsView: UIView {
 		}
 	}
 	
+	// MARK: - Dice Roll Logic
 	@objc func callDiceRoll(sender: UIButton) {
-		print("Call Roll for \(pointLabel.text!)")
+		hasDiceRolled = true
+	}
+	
+	func resetDiceRoll() {
+		hasDiceRolled = false
 	}
 	
 	required init?(coder: NSCoder) {

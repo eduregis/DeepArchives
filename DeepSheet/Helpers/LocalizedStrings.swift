@@ -111,6 +111,18 @@ class LocalizedStrings {
 		}
 	}
 	
+	static var luckRoll: String {
+		
+		switch language {
+		case "EN":
+			return "Luck (Points)"
+		case "PT":
+			return "Sorte (Pontos)"
+		default:
+			return "Luck (Points)"
+		}
+	}
+	
 	static var magicPoints: String {
 		
 		switch language {
@@ -132,6 +144,18 @@ class LocalizedStrings {
 			return "SANIDADE"
 		default:
 			return "SANITY"
+		}
+	}
+	
+	static var sanityRoll: String {
+		
+		switch language {
+		case "EN":
+			return "Sanity (Points)"
+		case "PT":
+			return "Sanidade (Pontos)"
+		default:
+			return "Sanity (Points)"
 		}
 	}
 	
@@ -275,7 +299,7 @@ class LocalizedStrings {
         case "EN":
             return "Constitution (Attribute)"
         case "PT":
-            return "Constiutuição (Atributo)"
+            return "Constituição (Atributo)"
         default:
             return "Constitution (Attribute)"
         }
