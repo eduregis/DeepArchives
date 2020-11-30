@@ -12,6 +12,7 @@
 		2E7F677F2571364800976C85 /* EditModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F677E2571364800976C85 /* EditModalComponent.swift */; };
 		2E7F67872575195400976C85 /* EditCombatModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67862575195400976C85 /* EditCombatModal.swift */; };
 		2E7F678C25751F6F00976C85 /* NewItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F678B25751F6F00976C85 /* NewItemModal.swift */; };
+		2E7F6791257524A000976C85 /* EditItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F6790257524A000976C85 /* EditItemModal.swift */; };
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
@@ -114,6 +115,7 @@
 		2E7F677E2571364800976C85 /* EditModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalComponent.swift; sourceTree = "<group>"; };
 		2E7F67862575195400976C85 /* EditCombatModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCombatModal.swift; sourceTree = "<group>"; };
 		2E7F678B25751F6F00976C85 /* NewItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemModal.swift; sourceTree = "<group>"; };
+		2E7F6790257524A000976C85 /* EditItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemModal.swift; sourceTree = "<group>"; };
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				2E7F676E2570556200976C85 /* EditProfileModal.swift */,
 				2E7F67862575195400976C85 /* EditCombatModal.swift */,
 				2E7F678B25751F6F00976C85 /* NewItemModal.swift */,
+				2E7F6790257524A000976C85 /* EditItemModal.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */,
 				2E7F67772570570D00976C85 /* ProfileViewController.swift in Sources */,
 				5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */,
+				2E7F6791257524A000976C85 /* EditItemModal.swift in Sources */,
 				5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
