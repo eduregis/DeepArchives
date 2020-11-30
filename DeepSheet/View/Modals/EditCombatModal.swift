@@ -23,7 +23,7 @@ class EditCombatModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = "Editar Combate"
+        label.text = LocalizedStrings.editCombatName
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -52,7 +52,7 @@ class EditCombatModal: UIViewController {
     // MARK: - First Group
     
     lazy var damageView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Dano")
+        let view = EditModalComponent(titleText: LocalizedStrings.damage)
         return view
     }()
     
@@ -61,7 +61,7 @@ class EditCombatModal: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkIvory
         label.font = UIFont.josefinSansRegular()
-        label.text = "Insira uma combinação válida de dados. Ex: 1d6 + 1d3, 1d4"
+        label.text = LocalizedStrings.damageDetail
         label.numberOfLines = 0
 
         return label
@@ -79,7 +79,7 @@ class EditCombatModal: UIViewController {
     }()
     
     lazy var dodgeView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Esquiva")
+        let view = EditModalComponent(titleText: LocalizedStrings.dodge)
         return view
     }()
     

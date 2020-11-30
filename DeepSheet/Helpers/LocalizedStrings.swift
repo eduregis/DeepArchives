@@ -10,7 +10,7 @@ import Foundation
 class LocalizedStrings {
 	
     static var language: String {
-		UserDefaults.standard.setValue("PT", forKey: "Language")
+		UserDefaults.standard.setValue("EN", forKey: "Language")
         return UserDefaults.standard.string(forKey: "Language")!
     }
     
@@ -347,7 +347,7 @@ class LocalizedStrings {
         }
     }
     
-    // MARK: - Strings for Modals Texts and Buttons
+    // MARK: - Strings for Header Buttons
     
     static var cancelButton: String {
         switch language {
@@ -390,6 +390,426 @@ class LocalizedStrings {
             return "Confirmar"
         default:
             return "Confirm"
+        }
+    }
+    
+    // MARK: - Strings for Modals
+    
+    static var editProfileName: String {
+        switch language {
+        case "EN":
+            return "Edit Profile"
+        case "PT":
+            return "Editar Perfil"
+        default:
+            return "Edit Profile"
+        }
+    }
+    
+    static var investigatorName: String {
+        switch language {
+        case "EN":
+            return "Investigator Name"
+        case "PT":
+            return "Nome do Investigador"
+        default:
+            return "Investigator Name"
+        }
+    }
+    
+    static var ocupation: String {
+        switch language {
+        case "EN":
+            return "Ocupation"
+        case "PT":
+            return "Ocupação"
+        default:
+            return "Ocupation"
+        }
+    }
+    
+    static var age: String {
+        switch language {
+        case "EN":
+            return "Age"
+        case "PT":
+            return "Idade"
+        default:
+            return "Age"
+        }
+    }
+    
+    static var gender: String {
+        switch language {
+        case "EN":
+            return "Gender"
+        case "PT":
+            return "Gênero"
+        default:
+            return "Gender"
+        }
+    }
+    
+    static var address: String {
+        switch language {
+        case "EN":
+            return "Address"
+        case "PT":
+            return "Onde Mora"
+        default:
+            return "Address"
+        }
+    }
+    
+    static var birthPlace: String {
+        switch language {
+        case "EN":
+            return "Birth place"
+        case "PT":
+            return "Terra natal"
+        default:
+            return "Birth place"
+        }
+    }
+    
+    static var editCombatName: String {
+        switch language {
+        case "EN":
+            return "Edit Combat"
+        case "PT":
+            return "Editar Combate"
+        default:
+            return "Edit Combat"
+        }
+    }
+    
+    static var damage: String {
+        switch language {
+        case "EN":
+            return "Damage"
+        case "PT":
+            return "Dano"
+        default:
+            return "Damage"
+        }
+    }
+    
+    static var damageDetail: String {
+        switch language {
+        case "EN":
+            return "Enter a valid combination of dices. Ex: 1d6 + 1d3, 1d4"
+        case "PT":
+            return "Insira uma combinação válida de dados. Ex: 1d6 + 1d3, 1d4"
+        default:
+            return "Enter a valid combination of dices. Ex: 1d6 + 1d3, 1d4"
+        }
+    }
+    
+    static var dodge: String {
+        switch language {
+        case "EN":
+            return "Dodge"
+        case "PT":
+            return "Esquiva"
+        default:
+            return "Dodge"
+        }
+    }
+    
+    static var newItemName: String {
+        switch language {
+        case "EN":
+            return "New Item"
+        case "PT":
+            return "Novo Item"
+        default:
+            return "New Item"
+        }
+    }
+    
+    static var itemName: String {
+        switch language {
+        case "EN":
+            return "Item name"
+        case "PT":
+            return "Nome do item"
+        default:
+            return "Item name"
+        }
+    }
+    
+    static var uses: String {
+        switch language {
+        case "EN":
+            return "Uses"
+        case "PT":
+            return "Usos"
+        default:
+            return "Uses"
+        }
+    }
+    
+    static var description: String {
+        switch language {
+        case "EN":
+            return "Description"
+        case "PT":
+            return "Descrição"
+        default:
+            return "Description"
+        }
+    }
+    
+    static var editItemName: String {
+        switch language {
+        case "EN":
+            return "Edit Item"
+        case "PT":
+            return "Editar Item"
+        default:
+            return "Edit Item"
+        }
+    }
+    
+    static var newWeaponName: String {
+        switch language {
+        case "EN":
+            return "New Weapon"
+        case "PT":
+            return "Novo Golpe"
+        default:
+            return "New Weapon"
+        }
+    }
+    
+    static var points: String {
+        switch language {
+        case "EN":
+            return "Points"
+        case "PT":
+            return "Pontos"
+        default:
+            return "Points"
+        }
+    }
+    
+    static var malfunction: String {
+        switch language {
+        case "EN":
+            return "Malfunction (in %)"
+        case "PT":
+            return "Malfuncionamento (em %)"
+        default:
+            return "Malfunction (in %)"
+        }
+    }
+    
+    static var range: String {
+        switch language {
+        case "EN":
+            return "Range (in meters)"
+        case "PT":
+            return "Alcance (em metros)"
+        default:
+            return "Range (in meters)"
+        }
+    }
+    
+    static var ammo: String {
+        switch language {
+        case "EN":
+            return "Ammo"
+        case "PT":
+            return "Munição"
+        default:
+            return "Ammo"
+        }
+    }
+    
+    static var attacks: String {
+        switch language {
+        case "EN":
+            return "Attacks"
+        case "PT":
+            return "Ataques"
+        default:
+            return "Attacks"
+        }
+    }
+    
+    static var editWeaponName: String {
+        switch language {
+        case "EN":
+            return "Edit Weapon"
+        case "PT":
+            return "Editar Golpe"
+        default:
+            return "Edit Weapon"
+        }
+    }
+    
+    static var newSkillName: String {
+        switch language {
+        case "EN":
+            return "New Skill"
+        case "PT":
+            return "Nova Perícia"
+        default:
+            return "New Skill"
+        }
+    }
+    
+    static var skillName: String {
+        switch language {
+        case "EN":
+            return "Skill Name"
+        case "PT":
+            return "Nome da Perícia"
+        default:
+            return "Skill Name"
+        }
+    }
+    
+    static var value: String {
+        switch language {
+        case "EN":
+            return "Value"
+        case "PT":
+            return "Valor"
+        default:
+            return "Value"
+        }
+    }
+    
+    static var editHistoric: String {
+        switch language {
+        case "EN":
+            return "Edit Historic"
+        case "PT":
+            return "Editar Histórico"
+        default:
+            return "Edit Historic"
+        }
+    }
+    
+    static var personalDescription: String {
+        switch language {
+        case "EN":
+            return "Personal Description"
+        case "PT":
+            return "Descrição Pessoal"
+        default:
+            return "Personal Description"
+        }
+    }
+    
+    static var ideology: String {
+        switch language {
+        case "EN":
+            return "Ideology"
+        case "PT":
+            return "Ideologia"
+        default:
+            return "Ideology"
+        }
+    }
+    
+    static var traits: String {
+        switch language {
+        case "EN":
+            return "Traits"
+        case "PT":
+            return "Traços"
+        default:
+            return "Traits"
+        }
+    }
+    
+    static var woundsAndScars: String {
+        switch language {
+        case "EN":
+            return "Wounds and Scars"
+        case "PT":
+            return "Ferimentos e Cicatrizes"
+        default:
+            return "Wounds and Scars"
+        }
+    }
+    
+    static var phobiasAndManias: String {
+        switch language {
+        case "EN":
+            return "Phobias and Manias"
+        case "PT":
+            return "Fobias and Manias"
+        default:
+            return "Phobias and Manias"
+        }
+    }
+    
+    static var importantPersons: String {
+        switch language {
+        case "EN":
+            return "Important Persons"
+        case "PT":
+            return "Pessoas Importantes"
+        default:
+            return "Important Persons"
+        }
+    }
+    
+    static var importantLocals: String {
+        switch language {
+        case "EN":
+            return "Important Locals"
+        case "PT":
+            return "Locais Importantes"
+        default:
+            return "Important Locals"
+        }
+    }
+    
+    static var possessions: String {
+        switch language {
+        case "EN":
+            return "Possessions"
+        case "PT":
+            return "Posses"
+        default:
+            return "Possessions"
+        }
+    }
+    
+    static var tomesAndSpells: String {
+        switch language {
+        case "EN":
+            return "Tomes and Spells"
+        case "PT":
+            return "Tomos, Feitiços e Magias"
+        default:
+            return "Tomes and Spells"
+        }
+    }
+    
+    static var meetingWithEntities: String {
+        switch language {
+        case "EN":
+            return "Meeting with Entities"
+        case "PT":
+            return "Encontro com Entidades"
+        default:
+            return "Meeting with Entities"
+        }
+    }
+    
+    static var newInvestigatorName: String {
+        switch language {
+        case "EN":
+            return "New investigator"
+        case "PT":
+            return "Novo Investigador"
+        default:
+            return "New investigator"
         }
     }
 }

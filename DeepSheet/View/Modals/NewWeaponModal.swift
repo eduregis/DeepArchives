@@ -26,7 +26,7 @@ class NewWeaponModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = "Novo Golpe"
+        label.text = LocalizedStrings.newWeaponName
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -55,17 +55,17 @@ class NewWeaponModal: UIViewController {
     // MARK: - First Group
     
     lazy var weaponNameView: EditModalComponent = {
-        let stack = EditModalComponent(titleText: "Nome do investigator")
+        let stack = EditModalComponent(titleText: LocalizedStrings.investigatorName)
         return stack
     }()
     
     lazy var pointsView: EditModalComponent = {
-        let stack = EditModalComponent(titleText: "Pontos")
+        let stack = EditModalComponent(titleText: LocalizedStrings.points)
         return stack
     }()
     
     lazy var damageView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Dano")
+        let view = EditModalComponent(titleText: LocalizedStrings.damage)
         return view
     }()
     
@@ -74,7 +74,7 @@ class NewWeaponModal: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkIvory
         label.font = UIFont.josefinSansRegular()
-        label.text = "Insira uma combinação válida de dados. Ex: 1d6 + 1d3, 1d4"
+        label.text = LocalizedStrings.damageDetail
         label.numberOfLines = 0
 
         return label
@@ -104,12 +104,12 @@ class NewWeaponModal: UIViewController {
     // MARK: - Second Group
     
     lazy var malfunctionView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Malfuncionamento (em %)")
+        let view = EditModalComponent(titleText: LocalizedStrings.malfunction)
         return view
     }()
     
     lazy var rangeView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Alcance (em metros)")
+        let view = EditModalComponent(titleText: LocalizedStrings.range)
         return view
     }()
     
@@ -127,12 +127,12 @@ class NewWeaponModal: UIViewController {
     // MARK: - Third Group
     
     lazy var ammoView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Munição")
+        let view = EditModalComponent(titleText: LocalizedStrings.ammo)
         return view
     }()
     
     lazy var attackView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Ataques")
+        let view = EditModalComponent(titleText: LocalizedStrings.attacks)
         return view
     }()
     

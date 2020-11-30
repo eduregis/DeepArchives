@@ -26,7 +26,7 @@ class EditHistoricModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = "Editar Histórico"
+        label.text = LocalizedStrings.editHistoric
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -55,12 +55,12 @@ class EditHistoricModal: UIViewController {
     // MARK: - First Group
     
     lazy var personalDescriptionView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Descrição pessoal", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.personalDescription, multiline: true)
         return view
     }()
     
     lazy var ideologyView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Ideologia", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.ideology, multiline: true)
         return view
     }()
     
@@ -77,18 +77,18 @@ class EditHistoricModal: UIViewController {
     
     // MARK: - Second Group
     
-    lazy var traitView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Traços", multiline: true)
+    lazy var traitsView: EditModalComponent = {
+        let view = EditModalComponent(titleText: LocalizedStrings.traits, multiline: true)
         return view
     }()
     
     lazy var woundsAndScarsView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Ferimentos e Cicatrizes", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.woundsAndScars, multiline: true)
         return view
     }()
     
     lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [traitView, woundsAndScarsView])
+        let stack = UIStackView(arrangedSubviews: [traitsView, woundsAndScarsView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -101,12 +101,12 @@ class EditHistoricModal: UIViewController {
     // MARK: - Third Group
     
     lazy var phobiasAndManiasView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Fobias e Manias", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.phobiasAndManias, multiline: true)
         return view
     }()
     
     lazy var importantPersonsView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Pessoas Importantes", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.importantPersons, multiline: true)
         return view
     }()
     
@@ -124,12 +124,12 @@ class EditHistoricModal: UIViewController {
     // MARK: - Fourth Group
     
     lazy var importantLocalsView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Locais Importantes", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.importantPersons, multiline: true)
         return view
     }()
     
     lazy var possessionsView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Posses", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.possessions, multiline: true)
         return view
     }()
     
@@ -147,12 +147,12 @@ class EditHistoricModal: UIViewController {
     // MARK: - Fifth Group
     
     lazy var tomesAndSpellsView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Tomos, Feitiços e Magias", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.tomesAndSpells, multiline: true)
         return view
     }()
     
     lazy var meetingWithEntitiesView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Encontro com entidades", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.meetingWithEntities, multiline: true)
         return view
     }()
     

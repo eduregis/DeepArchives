@@ -30,7 +30,7 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = "Nova Perícia"
+        label.text = LocalizedStrings.newSkillName
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -59,12 +59,12 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
     // MARK: - First Group
     
     lazy var skillNameView: EditModalComponent = {
-        let stack = EditModalComponent(titleText: "Nome da perícia")
+        let stack = EditModalComponent(titleText: LocalizedStrings.skillName)
         return stack
     }()
     
     lazy var valueView: EditModalComponent = {
-        let stack = EditModalComponent(titleText: "Valor")
+        let stack = EditModalComponent(titleText: LocalizedStrings.value)
         return stack
     }()
     

@@ -23,7 +23,7 @@ class EditItemModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = "Editar Item"
+        label.text = LocalizedStrings.editItemName
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -52,17 +52,17 @@ class EditItemModal: UIViewController {
     // MARK: - First Group
     
     lazy var itemNameView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Nome do item")
+        let view = EditModalComponent(titleText: LocalizedStrings.itemName)
         return view
     }()
 
     lazy var useView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Usos")
+        let view = EditModalComponent(titleText: LocalizedStrings.uses)
         return view
     }()
     
     lazy var descriptionView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Descrição", multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.description, multiline: true)
         return view
     }()
     

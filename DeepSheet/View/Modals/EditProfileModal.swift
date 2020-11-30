@@ -26,7 +26,7 @@ class EditProfileModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = "Editar Perfil"
+        label.text = LocalizedStrings.editProfileName
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -55,7 +55,7 @@ class EditProfileModal: UIViewController {
     // MARK: - First Group
     
     lazy var investigatorView: EditModalComponent = {
-        let stack = EditModalComponent(titleText: "Nome do investigator")
+        let stack = EditModalComponent(titleText: LocalizedStrings.investigatorName)
         return stack
     }()
     
@@ -78,17 +78,17 @@ class EditProfileModal: UIViewController {
     // MARK: - Second Group
     
     lazy var ocupationView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Ocupação")
+        let view = EditModalComponent(titleText: LocalizedStrings.ocupation)
         return view
     }()
     
     lazy var ageView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Age")
+        let view = EditModalComponent(titleText: LocalizedStrings.age)
         return view
     }()
     
     lazy var genderView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Gênero")
+        let view = EditModalComponent(titleText: LocalizedStrings.gender)
         return view
     }()
     
@@ -106,12 +106,12 @@ class EditProfileModal: UIViewController {
     // MARK: - Third Group
     
     lazy var addressView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Onde Mora")
+        let view = EditModalComponent(titleText: LocalizedStrings.address)
         return view
     }()
     
     lazy var birthPlaceView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Terra Natal")
+        let view = EditModalComponent(titleText: LocalizedStrings.birthPlace)
         return view
     }()
     

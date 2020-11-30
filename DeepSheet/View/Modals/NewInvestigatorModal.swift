@@ -23,7 +23,7 @@ class NewInvestigatorModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = "Novo Item"
+        label.text = LocalizedStrings.newInvestigatorName
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -52,12 +52,12 @@ class NewInvestigatorModal: UIViewController {
     // MARK: - First Group
     
     lazy var investigatorNameView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Nome do item")
+        let view = EditModalComponent(titleText: LocalizedStrings.investigatorName)
         return view
     }()
 
     lazy var ocupationView: EditModalComponent = {
-        let view = EditModalComponent(titleText: "Ocupação")
+        let view = EditModalComponent(titleText: LocalizedStrings.ocupation)
         return view
     }()
     
