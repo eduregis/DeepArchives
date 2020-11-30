@@ -349,6 +349,48 @@ class LocalizedStrings {
     
     // MARK: - Strings for Modals Texts and Buttons
     
+    static var cancelButton: String {
+        switch language {
+        case "EN":
+            return "Cancel"
+        case "PT":
+            return "Cancelar"
+        default:
+            return "Cancel"
+        }
+    }
     
+    static var nextButton: String {
+        switch language {
+        case "EN":
+            return "Next"
+        case "PT":
+            return "Próximo"
+        default:
+            return "Next"
+        }
+    }
+    
+    static var backButton: String {
+        switch language {
+        case "EN":
+            return "Back"
+        case "PT":
+            return "Voltar"
+        default:
+            return "Back"
+        }
+    }
+    
+    static var confirmButton: String {
+        switch language {
+        case "EN":
+            return "Confirm"
+        case "PT":
+            return "Confirmar"
+        default:
+            return "Confirm"
+        }
+    }
 }
 

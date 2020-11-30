@@ -10,7 +10,7 @@ import UIKit
 class NewWeaponModal: UIViewController {
     
     var actualPage = 0
-    var lastPage = 1
+    var lastPage = 2
     
     // MARK: - NavBar
     
@@ -113,6 +113,19 @@ class NewWeaponModal: UIViewController {
         return view
     }()
     
+    lazy var secondStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [malfunctionView, rangeView])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 22
+        self.view.addSubview(stack)
+        return stack
+    }()
+    
+    // MARK: - Third Group
+    
     lazy var ammoView: EditModalComponent = {
         let view = EditModalComponent(titleText: "Munição")
         return view
@@ -123,8 +136,8 @@ class NewWeaponModal: UIViewController {
         return view
     }()
     
-    lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [malfunctionView, rangeView, ammoView, attackView])
+    lazy var thirdStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [ammoView, attackView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -145,6 +158,7 @@ class NewWeaponModal: UIViewController {
         
         firstStack.isHidden = false
         secondStack.isHidden = true
+        thirdStack.isHidden = true
     }
     
     @objc func leftButtonBehavior() {
@@ -167,24 +181,30 @@ class NewWeaponModal: UIViewController {
     
     func atualizeUI() {
         if actualPage == 0 {
-            leftButton.setTitle("Cancelar", for: .normal)
+            leftButton.setTitle(LocalizedStrings.cancelButton, for: .normal)
         } else {
-            leftButton.setTitle("Voltar", for: .normal)
+            leftButton.setTitle(LocalizedStrings.backButton, for: .normal)
         }
         
         if actualPage == lastPage {
-            rightButton.setTitle("Confirmar", for: .normal)
+            rightButton.setTitle(LocalizedStrings.confirmButton, for: .normal)
         } else {
-            rightButton.setTitle("Próximo", for: .normal)
+            rightButton.setTitle(LocalizedStrings.nextButton, for: .normal)
         }
         
         switch actualPage {
         case 0:
             firstStack.isHidden = false
             secondStack.isHidden = true
+            thirdStack.isHidden = true
         case 1:
             firstStack.isHidden = true
             secondStack.isHidden = false
+            thirdStack.isHidden = true
+        case 2:
+            firstStack.isHidden = true
+            secondStack.isHidden = true
+            thirdStack.isHidden = false
         default:
             break
         }
@@ -217,7 +237,11 @@ class NewWeaponModal: UIViewController {
 
             secondStack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
             secondStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            secondStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+            secondStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            thirdStack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
+            thirdStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            thirdStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
     }
 }

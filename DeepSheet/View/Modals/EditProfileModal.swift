@@ -35,7 +35,7 @@ class EditProfileModal: UIViewController {
     lazy var leftButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cancelar", for: .normal)
+        button.setTitle(LocalizedStrings.cancelButton, for: .normal)
         button.setTitleColor(.lightSeaGreen, for: .normal)
         button.titleLabel?.font = UIFont.josefinSansButton()
         self.view.addSubview(button)
@@ -45,7 +45,7 @@ class EditProfileModal: UIViewController {
     lazy var rightButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Próximo", for: .normal)
+        button.setTitle(LocalizedStrings.nextButton, for: .normal)
         button.setTitleColor(.lightSeaGreen, for: .normal)
         button.titleLabel?.font = UIFont.josefinSansButton()
         self.view.addSubview(button)
@@ -160,15 +160,15 @@ class EditProfileModal: UIViewController {
     
     func atualizeUI() {
         if actualPage == 0 {
-            leftButton.setTitle("Cancelar", for: .normal)
+            leftButton.setTitle(LocalizedStrings.cancelButton, for: .normal)
         } else {
-            leftButton.setTitle("Voltar", for: .normal)
+            leftButton.setTitle(LocalizedStrings.backButton, for: .normal)
         }
         
         if actualPage == lastPage {
-            rightButton.setTitle("Confirmar", for: .normal)
+            rightButton.setTitle(LocalizedStrings.confirmButton, for: .normal)
         } else {
-            rightButton.setTitle("Próximo", for: .normal)
+            rightButton.setTitle(LocalizedStrings.nextButton, for: .normal)
         }
         
         switch actualPage {
@@ -220,7 +220,7 @@ class EditProfileModal: UIViewController {
             
             thirdStack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
             thirdStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            thirdStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            thirdStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
             
         ])
     }

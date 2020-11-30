@@ -15,6 +15,7 @@
 		2E7F6791257524A000976C85 /* EditItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F6790257524A000976C85 /* EditItemModal.swift */; };
 		2E7F67962575256700976C85 /* NewWeaponModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67952575256700976C85 /* NewWeaponModal.swift */; };
 		2E7F679B2575282200976C85 /* EditWeaponModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F679A2575282200976C85 /* EditWeaponModal.swift */; };
+		2E7F67A025752D8500976C85 /* NewSkillModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F679F25752D8500976C85 /* NewSkillModal.swift */; };
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
@@ -120,6 +121,7 @@
 		2E7F6790257524A000976C85 /* EditItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemModal.swift; sourceTree = "<group>"; };
 		2E7F67952575256700976C85 /* NewWeaponModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWeaponModal.swift; sourceTree = "<group>"; };
 		2E7F679A2575282200976C85 /* EditWeaponModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeaponModal.swift; sourceTree = "<group>"; };
+		2E7F679F25752D8500976C85 /* NewSkillModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSkillModal.swift; sourceTree = "<group>"; };
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				2E7F6790257524A000976C85 /* EditItemModal.swift */,
 				2E7F67952575256700976C85 /* NewWeaponModal.swift */,
 				2E7F679A2575282200976C85 /* EditWeaponModal.swift */,
+				2E7F679F25752D8500976C85 /* NewSkillModal.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				2E7F676F2570556200976C85 /* EditProfileModal.swift in Sources */,
 				92E3873F256E88950016D072 /* CustomViewController.swift in Sources */,
 				2EF1EFFC256D8A0A00BE0644 /* InfoView.swift in Sources */,
+				2E7F67A025752D8500976C85 /* NewSkillModal.swift in Sources */,
 				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,
 				9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */,
 				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
