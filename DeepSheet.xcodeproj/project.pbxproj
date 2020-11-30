@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E7F676F2570556200976C85 /* EditProfileModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F676E2570556200976C85 /* EditProfileModal.swift */; };
+		2E7F67772570570D00976C85 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67762570570D00976C85 /* ProfileViewController.swift */; };
+		2E7F677F2571364800976C85 /* EditModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F677E2571364800976C85 /* EditModalComponent.swift */; };
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
@@ -104,6 +107,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E7F676E2570556200976C85 /* EditProfileModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModal.swift; sourceTree = "<group>"; };
+		2E7F67762570570D00976C85 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2E7F677E2571364800976C85 /* EditModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalComponent.swift; sourceTree = "<group>"; };
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +194,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E7F676D2570554700976C85 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				2E7F676E2570556200976C85 /* EditProfileModal.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
 		2EF1EEC72567EDE300BE0644 = {
 			isa = PBXGroup;
 			children = (
@@ -294,10 +308,12 @@
 		2EF1EF102567EEE500BE0644 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E7F676D2570554700976C85 /* Modals */,
 				92E38743256EA21D0016D072 /* AspectsViewController.swift */,
 				2EF1EF972569A19200BE0644 /* Alerts */,
 				2EF1EF212567F37400BE0644 /* Components */,
 				2EF1F00D256E925100BE0644 /* BioViewController.swift */,
+				2E7F67762570570D00976C85 /* ProfileViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +338,7 @@
 				2EF1F000256D8BCD00BE0644 /* GeneralCombatView.swift */,
 				9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */,
 				9237DFE0256D958400EEAE80 /* GroupStatesView.swift */,
+				2E7F677E2571364800976C85 /* EditModalComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -568,8 +585,10 @@
 				2EF1F00E256E925100BE0644 /* BioViewController.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
+				2E7F677F2571364800976C85 /* EditModalComponent.swift in Sources */,
 				92CB88E3256FE34400B94B15 /* AspectsPresenter.swift in Sources */,
 				2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */,
+				2E7F67772570570D00976C85 /* ProfileViewController.swift in Sources */,
 				5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */,
 				5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
@@ -590,6 +609,7 @@
 				2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */,
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
 				9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */,
+				2E7F676F2570556200976C85 /* EditProfileModal.swift in Sources */,
 				92E3873F256E88950016D072 /* CustomViewController.swift in Sources */,
 				2EF1EFFC256D8A0A00BE0644 /* InfoView.swift in Sources */,
 				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,

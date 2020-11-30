@@ -16,7 +16,7 @@ class TabBarViewController: UITabBarController {
         self.tabBar.tintColor = UIColor.lightSeaGreen
         //self.tabBar.unselectedItemTintColor = .darkText
 
-        let profileViewController = AspectsViewController()
+        let profileViewController = ProfileViewController()
         profileViewController.title = ("Profile")
         let profileViewControllerItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"),
                                        selectedImage: UIImage(systemName: "person.fill"))
