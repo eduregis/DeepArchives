@@ -35,7 +35,7 @@ class NewWeaponModal: UIViewController {
     lazy var leftButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cancelar", for: .normal)
+        button.setTitle(LocalizedStrings.cancelButton, for: .normal)
         button.setTitleColor(.lightSeaGreen, for: .normal)
         button.titleLabel?.font = UIFont.josefinSansButton()
         self.view.addSubview(button)
@@ -45,7 +45,7 @@ class NewWeaponModal: UIViewController {
     lazy var rightButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Próximo", for: .normal)
+        button.setTitle(LocalizedStrings.confirmButton, for: .normal)
         button.setTitleColor(.lightSeaGreen, for: .normal)
         button.titleLabel?.font = UIFont.josefinSansButton()
         self.view.addSubview(button)

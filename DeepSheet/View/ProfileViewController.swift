@@ -35,11 +35,10 @@ class ProfileViewController: UIViewController {
     private func additionalConfigurations() {
         configureLayout()
         view.backgroundColor = .backgroundBlack
-        
     }
     
     @objc func triggerModal () {
-        let editModal = NewWeaponModal()
+        let editModal = NewSkillModal()
         present(editModal, animated: true, completion: nil)
     }
     
