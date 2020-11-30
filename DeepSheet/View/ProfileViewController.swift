@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func triggerModal () {
-        let editModal = EditHistoricModal()
+        let editModal = NewInvestigatorModal()
         present(editModal, animated: true, completion: nil)
     }
     

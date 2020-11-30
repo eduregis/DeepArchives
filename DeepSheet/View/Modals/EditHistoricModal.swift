@@ -26,7 +26,7 @@ class EditHistoricModal: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = "Editar Perfil"
+        label.text = "Editar Histórico"
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
