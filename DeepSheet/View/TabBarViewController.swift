@@ -25,7 +25,7 @@ class TabBarViewController: UITabBarController {
         
         let statsViewController = AspectsViewController()
         statsViewController.title = ("Stats")
-        statsViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "characteristic-icon"),
+        statsViewController.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "characteristic-icon"),
                                        selectedImage: UIImage(named: "characteristic-icon"))
         
         let skillsViewController = SkillsTableViewController()
@@ -40,11 +40,13 @@ class TabBarViewController: UITabBarController {
         
         let bioViewController = BioViewController()
         bioViewController.title = ("Bio")
-        bioViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "book.fill"),
+        bioViewController.tabBarItem = UITabBarItem(title: "Bio", image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))
 
+        
+        
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
-        profileNavigationController.overrideUserInterfaceStyle = .dark
+        profileNavigationController.overrideUserInterfaceStyle = .dark        
         let skillsNavigationController = UINavigationController(rootViewController: skillsViewController)
         skillsNavigationController.overrideUserInterfaceStyle = .dark
         let statsNavigationController = UINavigationController(rootViewController: statsViewController)
@@ -61,5 +63,9 @@ class TabBarViewController: UITabBarController {
         bioNavigationController.navigationBar.setNavigationBarStyle()
         self.viewControllers = [profileNavigationController, skillsNavigationController, statsNavigationController, combatNavigationController, bioNavigationController]
         
+    }
+    
+    func backAction() -> Void {
+        self.navigationController?.popViewController(animated: true)
     }
 }

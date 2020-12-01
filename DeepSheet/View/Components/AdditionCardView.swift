@@ -48,7 +48,6 @@ class AdditionCardView: UIView {
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 5
         self.layer.borderColor = UIColor.clear.cgColor
-        self.backgroundColor = .red
         self.addDashedBorder()
     }
     
