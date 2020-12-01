@@ -129,7 +129,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         dimmingOverlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
     
-    func fetchData(){
+    func fetchData() {
         skills.append(Skill(skillName: "Run", skillPoints: 45, isActivated: true, testName: "Run (Skill)", diceType: LocalizedStrings.rollDiceD100))
         skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: false, testName: "Search (Skill)", diceType: LocalizedStrings.rollDiceD100))
         skills.append(Skill(skillName: "Seek", skillPoints: 1, isActivated: false, skillDesc: "Textin", testName: "Seek (Skill)", diceType: LocalizedStrings.rollDiceD100))

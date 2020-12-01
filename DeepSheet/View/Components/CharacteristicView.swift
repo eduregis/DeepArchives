@@ -11,7 +11,8 @@ class CharacteristicView: UIButton, DiceProtocol {
     var testName: String
     
     var diceType: String
-    
+	
+	var preValue: String
     
     lazy var characteristicLabel: UILabel = {
         let label = UILabel()
@@ -46,9 +47,14 @@ class CharacteristicView: UIButton, DiceProtocol {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textField)
-        textField.borderStyle = UITextField.BorderStyle.roundedRect
-        textField.font = UIFont.josefinSansBold()
-        textField.keyboardType = UIKeyboardType.numberPad
+		textField.font = UIFont.josefinSansBold()
+		textField.textColor = .backgroundBlack
+		textField.textAlignment = .center
+		textField.backgroundColor = .ivory
+		textField.layer.borderWidth = 1
+		textField.layer.cornerRadius = 5
+		textField.layer.borderColor = UIColor.systemGray3.cgColor
+		textField.keyboardType = .numberPad
         return textField
     }()
     
@@ -94,20 +100,17 @@ class CharacteristicView: UIButton, DiceProtocol {
         
         self.testName = testName
         self.diceType = diceType
+		self.preValue = preValue
         
         super.init(frame: .zero)
         
         configureLayout()
-        
+		
         characteristicLabel.text = characteristic
         
         diceImage.image = UIImage(named: "d10-green")
         
-        valueLabel.text = preValue + "\(value)"
-        
-        valueTextField.text = "\(value)"
-        
-        valueTextField.isHidden = true
+		valueLabel.text = self.preValue + "\(value)"
         
         if let valueBy2Text = valueBy2 {
             valueBy2Label.text = valueBy2Text
@@ -120,6 +123,10 @@ class CharacteristicView: UIButton, DiceProtocol {
         } else {
             valueBy5Label.text = "\(Int(value/5))"
         }
+		
+		valueTextField.text = "\(value)"
+		
+		valueTextField.isHidden = true
 
     }
     
@@ -128,11 +135,6 @@ class CharacteristicView: UIButton, DiceProtocol {
         self.layer.cornerRadius = 5
         self.layer.borderColor = UIColor.lightSeaGreen.cgColor
         self.backgroundColor = .clear
-    }
-    
-    func updateFonts(value: UIFont, characteristic: UIFont) {
-        valueLabel.font = characteristic
-        characteristicLabel.font = value
     }
     
     private func configureLayout() {
@@ -150,9 +152,6 @@ class CharacteristicView: UIButton, DiceProtocol {
             
             valueLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             valueLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -3),
-            
-            valueTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            valueTextField.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -3),
             
             valueBy2Label.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             valueBy2Label.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -172,14 +171,48 @@ class CharacteristicView: UIButton, DiceProtocol {
             middleDivisor.widthAnchor.constraint(equalToConstant: 3),
             middleDivisor.heightAnchor.constraint(equalTo: valueBy2Label.heightAnchor),
             middleDivisor.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            middleDivisor.centerYAnchor.constraint(equalTo: valueBy2Label.centerYAnchor)
+            middleDivisor.centerYAnchor.constraint(equalTo: valueBy2Label.centerYAnchor),
+			
+			valueTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+			valueTextField.widthAnchor.constraint(equalToConstant: 45),
+			valueTextField.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -3)
         ])
     }
 	
 	// MARK: - Logic
+	func setTextFieldDelegate(with delegate: UITextFieldDelegate) {
+		valueTextField.delegate = delegate
+	}
+	
+	func getCharacteristicValue() -> Int {
+		let intValue = (valueLabel.text! as NSString).integerValue
+		
+		return intValue
+	}
+	
+	func overwriteCharacteristicValues() {
+		let valueFromField = (valueTextField.text! as NSString).integerValue
+		
+		valueLabel.text = "\(valueFromField)"
+		valueBy2Label.text = "\(Int(valueFromField/2))"
+		valueBy5Label.text = "\(Int(valueFromField/5))"
+	}
+	
+	func changeCharacteristicValues(with newValue: Int) {
+		valueLabel.text = preValue + "\(newValue)"
+		valueTextField.text = "\(newValue)"
+		
+		valueBy2Label.text = "\(Int(newValue/2))"
+		valueBy5Label.text = "\(Int(newValue/5))"
+	}
+	
 	func isEditable(is toggle: Bool) {
-		isEnabled = !toggle
 		valueTextField.isHidden = !toggle
+	}
+	
+	func updateFonts(value: UIFont, characteristic: UIFont) {
+		valueLabel.font = characteristic
+		characteristicLabel.font = value
 	}
 
     required init?(coder: NSCoder) {

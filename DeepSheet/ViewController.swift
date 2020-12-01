@@ -18,7 +18,6 @@ class ViewController: UIViewController {
         view.backgroundColor = .backgroundBlack
     }
    
-    
     private func configureLayout() {
         NSLayoutConstraint.activate([
         
