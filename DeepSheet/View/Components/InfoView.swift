@@ -84,7 +84,7 @@ class InfoView: UIButton {
             valueLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -3),
             
             valueTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            valueTextField.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -3),
+            valueTextField.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -3)
         ])
     }
 

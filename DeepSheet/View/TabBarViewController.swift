@@ -23,7 +23,7 @@ class TabBarViewController: UITabBarController {
         backbutton.addTarget(self, action: Selector("backAction"), for: .touchUpInside)
 
 
-        let profileViewController = AspectsViewController()
+        let profileViewController = ProfileViewController()
         profileViewController.title = ("Profile")
         let profileViewControllerItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"),
                                        selectedImage: UIImage(systemName: "person.fill"))

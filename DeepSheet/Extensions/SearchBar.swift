@@ -18,7 +18,7 @@ extension UISearchBar {
         return textField
     }
     
-    func changePlaceholderColor(_ color : UIColor){
+    func changePlaceholderColor(_ color: UIColor) {
         guard let UISearchBarTextFieldLabel: AnyClass = NSClassFromString("UISearchBarTextFieldLabel"),
               let field = textField else { return  }
         for subview in field.subviews where subview.isKind(of: UISearchBarTextFieldLabel) {

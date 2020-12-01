@@ -103,6 +103,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         diceAlert.okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         configureConstraints()
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         diceAlert.rollDice(rollText: filteredSkill[indexPath.row].testName, rollType: filteredSkill[indexPath.row].diceType)
@@ -111,6 +112,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
             self.dimmingOverlay.layer.opacity = 0.6
         })
     }
+    
     func configureConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -127,7 +129,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         dimmingOverlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
     
-    func fetchData(){
+    func fetchData() {
         skills.append(Skill(skillName: "Run", skillPoints: 45, isActivated: true, testName: "Run (Skill)", diceType: LocalizedStrings.rollDiceD100))
         skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: false, testName: "Search (Skill)", diceType: LocalizedStrings.rollDiceD100))
         skills.append(Skill(skillName: "Seek", skillPoints: 1, isActivated: false, skillDesc: "Textin", testName: "Seek (Skill)", diceType: LocalizedStrings.rollDiceD100))
