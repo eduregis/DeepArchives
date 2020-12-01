@@ -33,9 +33,9 @@ class TabBarViewController: UITabBarController {
         skillsViewController.tabBarItem = UITabBarItem(title: "Skills", image: UIImage(named: "skill-icon"),
                                        selectedImage: UIImage(named: "skill-icon"))
         
-        let combatViewController = AspectsViewController()
+        let combatViewController = CombatViewController()
         combatViewController.title = ("Combat")
-        combatViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "combat-icon"),
+        combatViewController.tabBarItem = UITabBarItem(title: "Combat", image: UIImage(named: "combat-icon"),
                                        selectedImage: UIImage(named: "combat-icon"))
         
         let bioViewController = BioViewController()
