@@ -48,7 +48,7 @@ class AdditionCardView: UIView {
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 5
         self.layer.borderColor = UIColor.clear.cgColor
-        self.addDashedBorder()
+        self.addDashedBorder(color: UIColor.lightSeaGreen.cgColor)
     }
     
     var additionCardStack = UIStackView()
@@ -65,7 +65,7 @@ class AdditionCardView: UIView {
     }
     
     private func configureLayout() {
-            self.heightAnchor.constraint(equalToConstant: 44).isActive = true
-            additionCardStack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        additionCardStack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     }
 }
