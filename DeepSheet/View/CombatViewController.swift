@@ -16,11 +16,9 @@ class CombatViewController: UIViewController {
         return card
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         additionalConfigurations()
-        
     }
     
     private func additionalConfigurations() {
@@ -28,9 +26,10 @@ class CombatViewController: UIViewController {
         additionCard.additionCardLabel.text = "Adicionar Item"
         view.backgroundColor = .backgroundBlack
     }
+    
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            additionCard.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            additionCard.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200),
             additionCard.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             additionCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
         ])

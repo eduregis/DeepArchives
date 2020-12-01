@@ -19,15 +19,26 @@ class AdditionCardView: UIView {
         label.textAlignment = .center
         label.textColor = .ivory
         label.backgroundColor = .clear
-       
+        
         return label
     }()
-//    lazy var additionCardPlusSign: UIImage {
-//
-//    }
+    
+    lazy var additionCardPlusSign: UIImageView = {
+        let plusImage = UIImageView()
+        self.addSubview(plusImage)
+        plusImage.translatesAutoresizingMaskIntoConstraints = false
+        plusImage.clipsToBounds = false
+        plusImage.contentMode = .scaleAspectFit
+        plusImage.backgroundColor = .clear
+        plusImage.tintColor = .ivory
+        return plusImage
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 22, weight: .black, scale: .small)
+        additionCardPlusSign.image = UIImage(systemName: "plus.circle.fill", withConfiguration: imageConfig)
+        configureStackView()
         configureLayout()
     }
     required init?(coder: NSCoder) {
@@ -40,14 +51,22 @@ class AdditionCardView: UIView {
         self.backgroundColor = .red
         self.addDashedBorder()
     }
+    
+    var additionCardStack = UIStackView()
+    
+    func configureStackView() {
+        self.addSubview(additionCardStack)
+        additionCardStack.translatesAutoresizingMaskIntoConstraints = false
+        additionCardStack.axis = .horizontal
+        additionCardStack.spacing = 10
+        additionCardStack.addArrangedSubview(additionCardLabel)
+        additionCardStack.addArrangedSubview(additionCardPlusSign)
+        additionCardLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        additionCardPlusSign.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    }
+    
     private func configureLayout() {
-        NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 44),
-        
-            additionCardLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            additionCardLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
-        
-        ])
+            self.heightAnchor.constraint(equalToConstant: 44).isActive = true
+            additionCardStack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     }
 }
