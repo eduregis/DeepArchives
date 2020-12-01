@@ -10,11 +10,10 @@ import UIKit
 class GroupPointsView: UIView {
 	
 	var isEditModeEnabled: Bool = false
-	var isEditConfirmed: Bool = false
 	
 	// MARK: - Components
 	lazy var luckView: IndvPointsView = {
-		let points = IndvPointsView(pointName: LocalizedStrings.luckPoints, diceButton: true)
+		let points = IndvPointsView(pointName: LocalizedStrings.luckPoints, rollName: LocalizedStrings.luckRoll ,diceType: LocalizedStrings.rollDiceD100, diceButton: true)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(points)
 		return points
@@ -28,7 +27,7 @@ class GroupPointsView: UIView {
 	}()
 	
 	lazy var sanityView: IndvPointsView = {
-		let points = IndvPointsView(pointName: LocalizedStrings.sanityPoints, diceButton: true)
+		let points = IndvPointsView(pointName: LocalizedStrings.sanityPoints, rollName: LocalizedStrings.sanityRoll, diceType: LocalizedStrings.rollDiceD100, diceButton: true)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(points)
 		return points
@@ -64,30 +63,10 @@ class GroupPointsView: UIView {
 		return label
 	}()
 	
-	lazy var testButton: UIButton = {
-		let button = UIButton()
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(self.togglePointGroupEditMode), for: .touchUpInside)
-		button.backgroundColor = .orange
-		self.addSubview(button)
-		return button
-	}()
-	
-	lazy var editTest: UIButton = {
-		let button = UIButton()
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(self.confirmEdit), for: .touchUpInside)
-		button.backgroundColor = .red
-		self.addSubview(button)
-		return button
-	}()
-	
 	init() {
 		super.init(frame: .zero)
 		configureLayout()
 		
-		//Remove after tests
-		editTest.isHidden = true
 	}
 	
 	// MARK: - Layout Constraints
@@ -97,30 +76,45 @@ class GroupPointsView: UIView {
 			pointsStack.rightAnchor.constraint(equalTo: self.rightAnchor),
 			pointsStack.topAnchor.constraint(equalTo: self.topAnchor),
 			pointsStack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-			
-			testButton.leftAnchor.constraint(equalTo: groupLabel.rightAnchor, constant: 10),
-			testButton.topAnchor.constraint(equalTo: groupLabel.topAnchor, constant: -10),
-			testButton.widthAnchor.constraint(equalToConstant: 50),
-			testButton.heightAnchor.constraint(equalToConstant: 50),
-			
-			editTest.leftAnchor.constraint(equalTo: groupLabel.rightAnchor, constant: 80),
-			editTest.topAnchor.constraint(equalTo: groupLabel.topAnchor, constant: -10),
-			editTest.widthAnchor.constraint(equalToConstant: 50),
-			editTest.heightAnchor.constraint(equalToConstant: 50),
-			
+		
 			groupLabel.leftAnchor.constraint(equalTo: self.leftAnchor),
 			groupLabel.bottomAnchor.constraint(equalTo: pointsStack.topAnchor, constant: -5)
 		])
 	}
 	
-	// MARK: - Logic
+	// MARK: - Editing Logic
+	func getAllPointsValues() -> [(Int, Int)] {
+		
+		let arr = [
+			luckView.pointsValue,
+			magicView.pointsValue,
+			sanityView.pointsValue,
+			healthView.pointsValue
+		]
+		
+		return arr
+	}
 	
-	//Presenter call when Confirm edit, DO NOT call when Cancelling
-	@objc func confirmEdit() {
-		if isEditModeEnabled {
-			isEditConfirmed = true
-			togglePointGroupEditMode()
-		}
+	func setAllTextFieldDelegates(with delegate: UITextFieldDelegate) {
+		luckView.setTextFieldDelegate(with: delegate)
+		magicView.setTextFieldDelegate(with: delegate)
+		sanityView.setTextFieldDelegate(with: delegate)
+		healthView.setTextFieldDelegate(with: delegate)
+	}
+	
+	func rewriteAllPoints(is bool: Bool) {
+		luckView.rewritePoints(is: bool)
+		magicView.rewritePoints(is: bool)
+		sanityView.rewritePoints(is: bool)
+		healthView.rewritePoints(is: bool)
+	}
+	
+	func updatePointsValues(with points: [(current: Int, maximum: Int)]) {
+		
+		luckView.updatePointsDisplay(with: points[0])
+		magicView.updatePointsDisplay(with: points[1])
+		sanityView.updatePointsDisplay(with: points[2])
+		healthView.updatePointsDisplay(with: points[3])
 	}
 	
 	@objc func togglePointGroupEditMode() {
@@ -128,20 +122,26 @@ class GroupPointsView: UIView {
 		if isEditModeEnabled {
 			print("Points Group Edit Mode OFF")
 			isEditModeEnabled = false
-			editTest.isHidden = true
 		} else {
 			print("Points Group Edit Mode ON")
 			isEditModeEnabled = true
-			editTest.isHidden = false
 		}
 		
-		luckView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
-		magicView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
-		sanityView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
-		healthView.toggleEditMode(as: isEditModeEnabled, confirm: isEditConfirmed)
+		luckView.toggleEditMode(as: isEditModeEnabled)
+		magicView.toggleEditMode(as: isEditModeEnabled)
+		sanityView.toggleEditMode(as: isEditModeEnabled)
+		healthView.toggleEditMode(as: isEditModeEnabled)
+	}
+	
+	// MARK: - Dice Roll Logic
+	func getPointsRolled() -> IndvPointsView? {
 		
-		if isEditConfirmed {
-			isEditConfirmed = false
+		if luckView.hasDiceRolled {
+			return luckView
+		} else if sanityView.hasDiceRolled {
+			return sanityView
+		} else {
+			return nil
 		}
 	}
 	

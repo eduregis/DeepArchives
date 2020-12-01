@@ -6,9 +6,7 @@
 //
 
 import UIKit
-
 class SkillTableViewCell: UITableViewCell {
-	
     lazy var diceImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,7 +16,7 @@ class SkillTableViewCell: UITableViewCell {
         self.diceView.addSubview(imageView)
         return imageView
     }()
-	
+    
     lazy var skillName: UILabel = {
        let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +25,7 @@ class SkillTableViewCell: UITableViewCell {
         self.addSubview(lbl)
         return lbl
     }()
-	
+    
     lazy var skillDesc: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -36,28 +34,28 @@ class SkillTableViewCell: UITableViewCell {
         self.addSubview(lbl)
         return lbl
     }()
-	
+    
     lazy var skillValue: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         self.diceView.addSubview(lbl)
         return lbl
     }()
-	
+    
     lazy var skillValueBy2: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(lbl)
         return lbl
     }()
-	
+    
     lazy var skillValueBy5: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(lbl)
         return lbl
     }()
-	
+    
     lazy var colorView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 5
@@ -66,7 +64,7 @@ class SkillTableViewCell: UITableViewCell {
         self.addSubview(view)
         return view
     }()
-	
+    
     lazy var squareViewBy2: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +72,7 @@ class SkillTableViewCell: UITableViewCell {
         self.addSubview(view)
         return view
     }()
-	
+    
     lazy var squareViewBy5: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -82,7 +80,7 @@ class SkillTableViewCell: UITableViewCell {
         self.addSubview(view)
         return view
     }()
-	
+    
     lazy var diceView: UIButton = {
         let view = UIButton()
         view.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
@@ -91,9 +89,9 @@ class SkillTableViewCell: UITableViewCell {
         self.addSubview(view)
         return view
     }()
-	
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .backgroundBlack
         setConstraints()
     }
     
@@ -107,11 +105,6 @@ class SkillTableViewCell: UITableViewCell {
         skillValue.text = skill.skillPoints.description
         skillValueBy2.text = (skill.skillPoints/2).description
         skillValueBy5.text = (skill.skillPoints/5).description
-        if (!skill.isActivated) {
-            colorView.backgroundColor = .lightGray
-        } else {
-            colorView.backgroundColor = .lightSeaGreen
-        }
     }
     
     @objc func buttonTest() {

@@ -7,13 +7,21 @@
 
 import UIKit
 
-class IndvPointsView: UIView, UITextFieldDelegate {
+class IndvPointsView: UIView {
 	
-	// MARK: - Components
+	var rollName: String
+	
+	var diceType: String
+	
+	var hasDiceButton: Bool
+	
 	var pointsValue: (current: Int, maximum: Int) = (0, 0)
-	var hasDiceButton: Bool = false
+	
 	var isEditModeEnabled: Bool = false
 	
+	var hasDiceRolled: Bool = false
+	
+	// MARK: - Components
 	lazy var pointTextBackground: UIImageView = {
 		let background = UIImageView()
 		let backgroundColor = UIImage.imageWithColor(color: .palePurple)
@@ -76,7 +84,6 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		field.layer.cornerRadius = 5
 		field.layer.borderColor = UIColor.systemGray3.cgColor
 		field.keyboardType = .numberPad
-		field.delegate = self
 		return field
 	}()
 	
@@ -92,7 +99,6 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		field.layer.cornerRadius = 5
 		field.layer.borderColor = UIColor.systemGray3.cgColor
 		field.keyboardType = .numberPad
-		field.delegate = self
 		return field
 	}()
 	
@@ -108,30 +114,25 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 	lazy var diceButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(self.callDiceRoll), for: .touchUpInside)
 		button.backgroundColor = .none
+		button.addTarget(self, action: #selector(self.callDiceRoll), for: .touchUpInside)
 		return button
 	}()
 	
-	init(pointName: String, diceButton: Bool) {
+	init(pointName: String, rollName: String = "", diceType: String = "", diceButton: Bool) {
+		
+		self.rollName = rollName
+		self.diceType = diceType
+		self.hasDiceButton = diceButton
+		
 		super.init(frame: .zero)
 		
-		hasDiceButton = diceButton
 		configureLayout()
 		
 		diceImage.image = UIImage(named: "d10-purple")
 		pointLabel.text = pointName
-		
-		// MARK: - PRESENTER to get values from Model
-		//pointsValue = getPointsFromModel()
-		//updatePointsDisplay()
-		pointsValue = (888, 888) //Remove once Presenter does it
-		currentValueField.text = "\(pointsValue.current)"	//Remove once Presenter does it
-		maxValueLabel.text = "/\(pointsValue.maximum)"	//Remove once Presenter does it
-		currentValueLabel.text = "\(pointsValue.current)/"	//Remove once Presenter does it
-		maxValueField.text = "\(pointsValue.maximum)"	//Remove once Presenter does it
 	
-		toggleEditMode(as: isEditModeEnabled, confirm: false)
+		toggleEditMode(as: isEditModeEnabled)
 	}
 	
 	override func draw(_ rect: CGRect) {
@@ -193,8 +194,27 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		}
 	}
 	
-	// MARK: - Logic
-	func updatePointsDisplay() {
+	// MARK: - Editing Logic
+	func setTextFieldDelegate(with delegate: UITextFieldDelegate) {
+		currentValueField.delegate = delegate
+		maxValueField.delegate = delegate
+	}
+	
+	func rewritePoints(is bool: Bool) {
+		if bool {
+			pointsValue.current = (currentValueField.text! as NSString).integerValue
+			pointsValue.maximum = (maxValueField.text! as NSString).integerValue
+		} else {
+			currentValueField.text = "\(pointsValue.current)"
+			maxValueField.text = "\(pointsValue.maximum)"
+		}
+		updatePointsDisplay(with: pointsValue)
+	}
+	
+	func updatePointsDisplay(with new: (current: Int, maximum: Int)) {
+		pointsValue.current = new.current
+		pointsValue.maximum = new.maximum
+		
 		currentValueField.text = "\(pointsValue.current)"
 		maxValueLabel.text = "/\(pointsValue.maximum)"
 		
@@ -202,7 +222,7 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		maxValueField.text = "\(pointsValue.maximum)"
 	}
 	
-	func toggleEditMode(as toggle: Bool, confirm: Bool) {
+	func toggleEditMode(as toggle: Bool) {
 		
 		//Change point text fields
 		if toggle {
@@ -223,17 +243,6 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 			
 			currentValueLabel.isHidden = true
 			maxValueField.isHidden = true
-			
-			if confirm {
-				// MARK: - PRESENTER formats and updates Model using new values
-				//presenter.updatePointsInModel(points.currrent, points.maximum)
-				
-				// MARK: - PRESENTER updates View using Model values
-				//pointsValue = getPointsFromModel()
-				//updatePointsDisplay()
-				
-				print("New Max Value for \(pointLabel.text!): \(pointsValue.current)") //Remove once Presenter does it
-			}
 		}
 		
 		if hasDiceButton {
@@ -255,21 +264,13 @@ class IndvPointsView: UIView, UITextFieldDelegate {
 		}
 	}
 	
+	// MARK: - Dice Roll Logic
 	@objc func callDiceRoll(sender: UIButton) {
-		print("Call Roll for \(pointLabel.text!)")
+		hasDiceRolled = true
 	}
 	
-	func textFieldDidEndEditing(_ textField: UITextField) {
-		if !isEditModeEnabled {
-			// MARK: - PRESENTER formats and updates Model using new values
-			//presenter.updatePointsInModel(points.currrent, points.maximum)
-			
-			// MARK: - PRESENTER updates View using Model values
-			//pointsValue = getPointsFromModel()
-			//updatePointsDisplay()
-			
-			print("New Current Value for \(pointLabel.text!): \(pointsValue.current)") //Remove once Presenter does it
-		}
+	func resetDiceRoll() {
+		hasDiceRolled = false
 	}
 	
 	required init?(coder: NSCoder) {

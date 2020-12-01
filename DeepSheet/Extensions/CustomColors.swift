@@ -47,6 +47,8 @@ extension UIColor {
     
     static var ivory: UIColor { return UIColor(hex: "#F7FBEF")! }
     
+    static var darkIvory: UIColor { return UIColor(hex: "#A5A5A5")! }
+    
     static var darkSeaGreen: UIColor { return UIColor(hex: "#204622")! }
     
     static var palePurple: UIColor { return UIColor(hex: "#665687")! }
@@ -54,4 +56,8 @@ extension UIColor {
 	static var shockingPink: UIColor { return UIColor(hex: "#ED70EF")! }
     
     static var backgroundBlack: UIColor { return UIColor(hex: "#120309")! }
+    
+    static var lightGray: UIColor { return UIColor(hex: "#807e7e")! }
+    
+    static var searchBarGray: UIColor { return UIColor(hex: "#3b3b3b")! }
 }

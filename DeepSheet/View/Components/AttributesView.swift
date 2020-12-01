@@ -145,10 +145,6 @@ class AttributesView: UIView {
         configureLayout()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented, because will not be used on IB")
-    }
-    
     private func configureLayout() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
@@ -160,4 +156,83 @@ class AttributesView: UIView {
             stack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
+	
+	// MARK: - Editing Logic
+	func setAllTextFieldDelegates(with delegate: UITextFieldDelegate) {
+		strView.setTextFieldDelegate(with: delegate)
+		dexView.setTextFieldDelegate(with: delegate)
+		intView.setTextFieldDelegate(with: delegate)
+		
+		conView.setTextFieldDelegate(with: delegate)
+		appView.setTextFieldDelegate(with: delegate)
+		powView.setTextFieldDelegate(with: delegate)
+		
+		sizView.setTextFieldDelegate(with: delegate)
+		eduView.setTextFieldDelegate(with: delegate)
+		movView.setTextFieldDelegate(with: delegate)
+	}
+	
+	func getAllCharacteristicValues() -> [Int] {
+		let arr = [
+			strView.getCharacteristicValue(),
+			dexView.getCharacteristicValue(),
+			intView.getCharacteristicValue(),
+			conView.getCharacteristicValue(),
+			appView.getCharacteristicValue(),
+			powView.getCharacteristicValue(),
+			sizView.getCharacteristicValue(),
+			eduView.getCharacteristicValue(),
+			movView.getCharacteristicValue()
+		]
+		
+		return arr
+	}
+	
+	func overwriteAllCharacteristicValues() {
+		
+		strView.overwriteCharacteristicValues()
+		dexView.overwriteCharacteristicValues()
+		intView.overwriteCharacteristicValues()
+		
+		conView.overwriteCharacteristicValues()
+		appView.overwriteCharacteristicValues()
+		powView.overwriteCharacteristicValues()
+		
+		sizView.overwriteCharacteristicValues()
+		eduView.overwriteCharacteristicValues()
+		movView.overwriteCharacteristicValues()
+	}
+	
+	func changeAllCharacteristicValues(with newValues: [Int]) {
+		
+		strView.changeCharacteristicValues(with: newValues[0])
+		dexView.changeCharacteristicValues(with: newValues[1])
+		intView.changeCharacteristicValues(with: newValues[2])
+		
+		conView.changeCharacteristicValues(with: newValues[3])
+		appView.changeCharacteristicValues(with: newValues[4])
+		powView.changeCharacteristicValues(with: newValues[5])
+		
+		sizView.changeCharacteristicValues(with: newValues[6])
+		eduView.changeCharacteristicValues(with: newValues[7])
+		movView.changeCharacteristicValues(with: newValues[8])
+	}
+	
+	func groupIsEditable(is toggle: Bool) {
+		strView.isEditable(is: toggle)
+		dexView.isEditable(is: toggle)
+		intView.isEditable(is: toggle)
+		
+		conView.isEditable(is: toggle)
+		appView.isEditable(is: toggle)
+		powView.isEditable(is: toggle)
+		
+		sizView.isEditable(is: toggle)
+		eduView.isEditable(is: toggle)
+		movView.isEditable(is: toggle)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented, because will not be used on IB")
+	}
 }
