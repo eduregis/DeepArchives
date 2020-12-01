@@ -15,13 +15,6 @@ class TabBarViewController: UITabBarController {
         self.tabBar.isTranslucent = false
         self.tabBar.tintColor = UIColor.lightSeaGreen
         //self.tabBar.unselectedItemTintColor = .darkText
-        
-        var backbutton = UIButton(type: .custom)
-        backbutton.setImage(UIImage(named: "BackButton.png"), for: .normal)
-        backbutton.setTitle("Back", for: .normal)
-        backbutton.setTitleColor(backbutton.tintColor, for: .normal) // You can change the TitleColor
-        backbutton.addTarget(self, action: Selector("backAction"), for: .touchUpInside)
-
 
         let profileViewController = ProfileViewController()
         profileViewController.title = ("Profile")
@@ -32,7 +25,7 @@ class TabBarViewController: UITabBarController {
         
         let statsViewController = AspectsViewController()
         statsViewController.title = ("Stats")
-        statsViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "characteristic-icon"),
+        statsViewController.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "characteristic-icon"),
                                        selectedImage: UIImage(named: "characteristic-icon"))
         
         let skillsViewController = SkillsTableViewController()
@@ -42,20 +35,18 @@ class TabBarViewController: UITabBarController {
         
         let combatViewController = AspectsViewController()
         combatViewController.title = ("Combat")
-        combatViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "combat-icon"),
+        combatViewController.tabBarItem = UITabBarItem(title: "Combat", image: UIImage(named: "combat-icon"),
                                        selectedImage: UIImage(named: "combat-icon"))
         
         let bioViewController = BioViewController()
         bioViewController.title = ("Bio")
-        bioViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "book.fill"),
+        bioViewController.tabBarItem = UITabBarItem(title: "Bio", image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))
 
         
         
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
-        profileNavigationController.overrideUserInterfaceStyle = .dark
-        profileNavigationController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
-        
+        profileNavigationController.overrideUserInterfaceStyle = .dark        
         let skillsNavigationController = UINavigationController(rootViewController: skillsViewController)
         skillsNavigationController.overrideUserInterfaceStyle = .dark
         let statsNavigationController = UINavigationController(rootViewController: statsViewController)

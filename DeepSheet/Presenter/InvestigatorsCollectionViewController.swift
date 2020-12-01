@@ -14,9 +14,7 @@ class InvestigatorsCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.isHidden = true
-        
+            
         self.title = "Investigators"
         
         let view = UIView()
@@ -37,6 +35,13 @@ class InvestigatorsCollectionViewController: UIViewController {
         view.addSubview(myCollectionView ?? UICollectionView())
         
         self.view = view
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func setNavBarStyle(){
