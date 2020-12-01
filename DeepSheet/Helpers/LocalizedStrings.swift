@@ -111,6 +111,18 @@ class LocalizedStrings {
 		}
 	}
 	
+	static var luckRoll: String {
+		
+		switch language {
+		case "EN":
+			return "Luck (Points)"
+		case "PT":
+			return "Sorte (Pontos)"
+		default:
+			return "Luck (Points)"
+		}
+	}
+	
 	static var magicPoints: String {
 		
 		switch language {
@@ -135,6 +147,18 @@ class LocalizedStrings {
 		}
 	}
 	
+	static var sanityRoll: String {
+		
+		switch language {
+		case "EN":
+			return "Sanity (Points)"
+		case "PT":
+			return "Sanidade (Pontos)"
+		default:
+			return "Sanity (Points)"
+		}
+	}
+	
 	static var healthPoints: String {
 		
 		switch language {
@@ -147,7 +171,7 @@ class LocalizedStrings {
 		}
 	}
     
-    static var dexAttribute : String {
+    static var dexAttribute: String {
         switch language {
         case "EN":
             return "DEX"
@@ -158,7 +182,7 @@ class LocalizedStrings {
         }
     }
     
-    static var intAttribute : String {
+    static var intAttribute: String {
         switch language {
         case "EN":
             return "INT"
@@ -169,7 +193,7 @@ class LocalizedStrings {
         }
     }
     
-    static var conAttribute : String {
+    static var conAttribute: String {
         switch language {
         case "EN":
             return "CON"
@@ -180,7 +204,7 @@ class LocalizedStrings {
         }
     }
     
-    static var appAttribute : String {
+    static var appAttribute: String {
         switch language {
         case "EN":
             return "APP"
@@ -191,7 +215,7 @@ class LocalizedStrings {
         }
     }
     
-    static var powAttribute : String {
+    static var powAttribute: String {
         switch language {
         case "EN":
             return "POW"
@@ -202,7 +226,7 @@ class LocalizedStrings {
         }
     }
     
-    static var sizAttribute : String {
+    static var sizAttribute: String {
         switch language {
         case "EN":
             return "SIZ"
@@ -213,7 +237,7 @@ class LocalizedStrings {
         }
     }
     
-    static var eduAttribute : String {
+    static var eduAttribute: String {
         switch language {
         case "EN":
             return "EDU"
@@ -224,7 +248,7 @@ class LocalizedStrings {
         }
     }
     
-    static var movAttribute : String {
+    static var movAttribute: String {
         switch language {
         case "EN":
             return "MOV"
@@ -234,11 +258,10 @@ class LocalizedStrings {
             return "MOV"
         }
     }
-    
     
     // MARK: - Strings for Characteristic Buttons
     
-    static var strAttributeText : String {
+    static var strAttributeText: String {
         switch language {
         case "EN":
             return "Strenght (Attribute)"
@@ -249,7 +272,7 @@ class LocalizedStrings {
         }
     }
     
-    static var dexAttributeText : String {
+    static var dexAttributeText: String {
         switch language {
         case "EN":
             return "Dexterity (Attribute)"
@@ -260,7 +283,7 @@ class LocalizedStrings {
         }
     }
     
-    static var intAttributeText : String {
+    static var intAttributeText: String {
         switch language {
         case "EN":
             return "Intelligence (Attribute)"
@@ -271,18 +294,18 @@ class LocalizedStrings {
         }
     }
     
-    static var conAttributeText : String {
+    static var conAttributeText: String {
         switch language {
         case "EN":
             return "Constitution (Attribute)"
         case "PT":
-            return "Constiutuição (Atributo)"
+            return "Constituição (Atributo)"
         default:
             return "Constitution (Attribute)"
         }
     }
     
-    static var appAttributeText : String {
+    static var appAttributeText: String {
         switch language {
         case "EN":
             return "Appearance (Attribute)"
@@ -293,7 +316,7 @@ class LocalizedStrings {
         }
     }
     
-    static var powAttributeText : String {
+    static var powAttributeText: String {
         switch language {
         case "EN":
             return "Power (Attribute)"
@@ -304,7 +327,7 @@ class LocalizedStrings {
         }
     }
     
-    static var sizAttributeText : String {
+    static var sizAttributeText: String {
         switch language {
         case "EN":
             return "Size (Attribute)"
@@ -315,7 +338,7 @@ class LocalizedStrings {
         }
     }
     
-    static var eduAttributeText : String {
+    static var eduAttributeText: String {
         switch language {
         case "EN":
             return "Education (Attribute)"
@@ -326,7 +349,7 @@ class LocalizedStrings {
         }
     }
     
-    static var movAttributeText : String {
+    static var movAttributeText: String {
         switch language {
         case "EN":
             return "Move (Attribute)"
@@ -337,7 +360,7 @@ class LocalizedStrings {
         }
     }
     
-    static var rollDiceD100 : String {
+    static var rollDiceD100: String {
         switch language {
         case "EN":
             return "Roll: d100"
@@ -348,4 +371,3 @@ class LocalizedStrings {
         }
     }
 }
-
