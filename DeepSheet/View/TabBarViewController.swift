@@ -15,6 +15,13 @@ class TabBarViewController: UITabBarController {
         self.tabBar.isTranslucent = false
         self.tabBar.tintColor = UIColor.lightSeaGreen
         //self.tabBar.unselectedItemTintColor = .darkText
+        
+        var backbutton = UIButton(type: .custom)
+        backbutton.setImage(UIImage(named: "BackButton.png"), for: .normal)
+        backbutton.setTitle("Back", for: .normal)
+        backbutton.setTitleColor(backbutton.tintColor, for: .normal) // You can change the TitleColor
+        backbutton.addTarget(self, action: Selector("backAction"), for: .touchUpInside)
+
 
         let profileViewController = AspectsViewController()
         profileViewController.title = ("Profile")
@@ -43,8 +50,12 @@ class TabBarViewController: UITabBarController {
         bioViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))
 
+        
+        
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
         profileNavigationController.overrideUserInterfaceStyle = .dark
+        profileNavigationController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
+        
         let skillsNavigationController = UINavigationController(rootViewController: skillsViewController)
         skillsNavigationController.overrideUserInterfaceStyle = .dark
         let statsNavigationController = UINavigationController(rootViewController: statsViewController)
@@ -61,5 +72,9 @@ class TabBarViewController: UITabBarController {
         bioNavigationController.navigationBar.setNavigationBarStyle()
         self.viewControllers = [profileNavigationController, skillsNavigationController, statsNavigationController, combatNavigationController, bioNavigationController]
         
+    }
+    
+    func backAction() -> Void {
+        self.navigationController?.popViewController(animated: true)
     }
 }

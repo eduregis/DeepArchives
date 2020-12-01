@@ -75,6 +75,7 @@
 		5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D1256D2F3A00B8B232 /* Skill.swift */; };
 		5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */; };
 		5BFC57FE2571228200B8B232 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57FD2571228200B8B232 /* SearchBar.swift */; };
+		5BFC58092571328500B8B232 /* InvestigatorsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC58082571328500B8B232 /* InvestigatorsCollectionViewController.swift */; };
 		9227B5C3256F00F600399CCB /* GroupPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227B5C2256F00F600399CCB /* GroupPointsView.swift */; };
 		9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227B5C7256F010B00399CCB /* IndvPointsView.swift */; };
 		9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */; };
@@ -152,6 +153,7 @@
 		5BFC57D1256D2F3A00B8B232 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
 		5BFC57FD2571228200B8B232 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		5BFC58082571328500B8B232 /* InvestigatorsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestigatorsCollectionViewController.swift; sourceTree = "<group>"; };
 		9227B5C2256F00F600399CCB /* GroupPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPointsView.swift; sourceTree = "<group>"; };
 		9227B5C7256F010B00399CCB /* IndvPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndvPointsView.swift; sourceTree = "<group>"; };
 		9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvStatesView.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */,
 				5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */,
 				92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */,
+				5BFC58082571328500B8B232 /* InvestigatorsCollectionViewController.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */,
+				5BFC58092571328500B8B232 /* InvestigatorsCollectionViewController.swift in Sources */,
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
 				92E38744256EA21D0016D072 /* AspectsViewController.swift in Sources */,
 				9227B5C3256F00F600399CCB /* GroupPointsView.swift in Sources */,
