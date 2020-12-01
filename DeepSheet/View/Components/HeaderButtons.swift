@@ -16,6 +16,7 @@ class HeaderButtons: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
 		button.setTitle("Cancelar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
+        button.titleLabel?.font = .josefinSansButton()
         self.addSubview(button)
         return button
     }()
@@ -25,6 +26,7 @@ class HeaderButtons: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
 		button.setTitle("Confirmar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
+        button.titleLabel?.font = .josefinSansButton()
         self.addSubview(button)
         return button
     }()
@@ -34,6 +36,7 @@ class HeaderButtons: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Editar", for: .normal)
         button.setTitleColor(.ivory, for: .normal)
+        button.titleLabel?.font = .josefinSansButton()
         self.addSubview(button)
         return button
     }()

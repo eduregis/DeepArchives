@@ -103,6 +103,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         diceAlert.okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         configureConstraints()
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         diceAlert.rollDice(rollText: filteredSkill[indexPath.row].testName, rollType: filteredSkill[indexPath.row].diceType)
@@ -111,6 +112,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
             self.dimmingOverlay.layer.opacity = 0.6
         })
     }
+    
     func configureConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true

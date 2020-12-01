@@ -22,13 +22,6 @@ class BioViewController: UIViewController {
         return header
     }()
     
-//    lazy var characterIllustration: IllustrationView =  {
-//        let illustration = IllustrationView(image: UIImage(named: "d10-green")!)
-//        illustration.translatesAutoresizingMaskIntoConstraints = false
-//        self.view.addSubview(illustration)
-//        return illustration
-//    }()
-    
     lazy var attributesInformation: AttributesView = {
         let attributes = AttributesView()
         attributes.translatesAutoresizingMaskIntoConstraints = false

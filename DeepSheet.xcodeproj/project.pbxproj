@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E7F676F2570556200976C85 /* EditProfileModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F676E2570556200976C85 /* EditProfileModal.swift */; };
+		2E7F67772570570D00976C85 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67762570570D00976C85 /* ProfileViewController.swift */; };
+		2E7F677F2571364800976C85 /* EditModalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F677E2571364800976C85 /* EditModalComponent.swift */; };
+		2E7F67872575195400976C85 /* EditCombatModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67862575195400976C85 /* EditCombatModal.swift */; };
+		2E7F678C25751F6F00976C85 /* NewItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F678B25751F6F00976C85 /* NewItemModal.swift */; };
+		2E7F6791257524A000976C85 /* EditItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F6790257524A000976C85 /* EditItemModal.swift */; };
+		2E7F67962575256700976C85 /* NewWeaponModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67952575256700976C85 /* NewWeaponModal.swift */; };
+		2E7F679B2575282200976C85 /* EditWeaponModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F679A2575282200976C85 /* EditWeaponModal.swift */; };
+		2E7F67A025752D8500976C85 /* NewSkillModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F679F25752D8500976C85 /* NewSkillModal.swift */; };
+		2E7F67A525753BBB00976C85 /* EditHistoricModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67A425753BBB00976C85 /* EditHistoricModal.swift */; };
+		2E7F67AA257567A100976C85 /* NewInvestigatorModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67A9257567A100976C85 /* NewInvestigatorModal.swift */; };
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
@@ -105,6 +116,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E7F676E2570556200976C85 /* EditProfileModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModal.swift; sourceTree = "<group>"; };
+		2E7F67762570570D00976C85 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2E7F677E2571364800976C85 /* EditModalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalComponent.swift; sourceTree = "<group>"; };
+		2E7F67862575195400976C85 /* EditCombatModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCombatModal.swift; sourceTree = "<group>"; };
+		2E7F678B25751F6F00976C85 /* NewItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemModal.swift; sourceTree = "<group>"; };
+		2E7F6790257524A000976C85 /* EditItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemModal.swift; sourceTree = "<group>"; };
+		2E7F67952575256700976C85 /* NewWeaponModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWeaponModal.swift; sourceTree = "<group>"; };
+		2E7F679A2575282200976C85 /* EditWeaponModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeaponModal.swift; sourceTree = "<group>"; };
+		2E7F679F25752D8500976C85 /* NewSkillModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSkillModal.swift; sourceTree = "<group>"; };
+		2E7F67A425753BBB00976C85 /* EditHistoricModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHistoricModal.swift; sourceTree = "<group>"; };
+		2E7F67A9257567A100976C85 /* NewInvestigatorModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestigatorModal.swift; sourceTree = "<group>"; };
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +212,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E7F676D2570554700976C85 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				2E7F676E2570556200976C85 /* EditProfileModal.swift */,
+				2E7F67862575195400976C85 /* EditCombatModal.swift */,
+				2E7F678B25751F6F00976C85 /* NewItemModal.swift */,
+				2E7F6790257524A000976C85 /* EditItemModal.swift */,
+				2E7F67952575256700976C85 /* NewWeaponModal.swift */,
+				2E7F679A2575282200976C85 /* EditWeaponModal.swift */,
+				2E7F679F25752D8500976C85 /* NewSkillModal.swift */,
+				2E7F67A425753BBB00976C85 /* EditHistoricModal.swift */,
+				2E7F67A9257567A100976C85 /* NewInvestigatorModal.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
 		2EF1EEC72567EDE300BE0644 = {
 			isa = PBXGroup;
 			children = (
@@ -297,10 +335,12 @@
 		2EF1EF102567EEE500BE0644 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E7F676D2570554700976C85 /* Modals */,
 				92E38743256EA21D0016D072 /* AspectsViewController.swift */,
 				2EF1EF972569A19200BE0644 /* Alerts */,
 				2EF1EF212567F37400BE0644 /* Components */,
 				2EF1F00D256E925100BE0644 /* BioViewController.swift */,
+				2E7F67762570570D00976C85 /* ProfileViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,6 +365,7 @@
 				2EF1F000256D8BCD00BE0644 /* GeneralCombatView.swift */,
 				9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */,
 				9237DFE0256D958400EEAE80 /* GroupStatesView.swift */,
+				2E7F677E2571364800976C85 /* EditModalComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -570,14 +611,21 @@
 				2EF1F001256D8BCD00BE0644 /* GeneralCombatView.swift in Sources */,
 				2EF1F00E256E925100BE0644 /* BioViewController.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
+				2E7F678C25751F6F00976C85 /* NewItemModal.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
+				2E7F67AA257567A100976C85 /* NewInvestigatorModal.swift in Sources */,
+				2E7F677F2571364800976C85 /* EditModalComponent.swift in Sources */,
 				92CB88E3256FE34400B94B15 /* AspectsPresenter.swift in Sources */,
 				2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */,
+				2E7F67772570570D00976C85 /* ProfileViewController.swift in Sources */,
 				5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */,
+				2E7F6791257524A000976C85 /* EditItemModal.swift in Sources */,
 				5BFC57D2256D2F3A00B8B232 /* Skill.swift in Sources */,
+				2E7F679B2575282200976C85 /* EditWeaponModal.swift in Sources */,
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
 				5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */,
+				2E7F67A525753BBB00976C85 /* EditHistoricModal.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				92CB88E8256FE5D800B94B15 /* AspectsViewDelegate.swift in Sources */,
@@ -592,10 +640,14 @@
 				2EF1EFF7256D457A00BE0644 /* HeaderButtons.swift in Sources */,
 				2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */,
 				2EF1EF992569A37200BE0644 /* DiceAlert.swift in Sources */,
+				2E7F67962575256700976C85 /* NewWeaponModal.swift in Sources */,
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
 				9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */,
+				2E7F67872575195400976C85 /* EditCombatModal.swift in Sources */,
+				2E7F676F2570556200976C85 /* EditProfileModal.swift in Sources */,
 				92E3873F256E88950016D072 /* CustomViewController.swift in Sources */,
 				2EF1EFFC256D8A0A00BE0644 /* InfoView.swift in Sources */,
+				2E7F67A025752D8500976C85 /* NewSkillModal.swift in Sources */,
 				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,
 				9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */,
 				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
