@@ -31,7 +31,7 @@ class CombatViewController: UIViewController {
         NSLayoutConstraint.activate([
             additionCard.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200),
             additionCard.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            additionCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            additionCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
     }
 }
