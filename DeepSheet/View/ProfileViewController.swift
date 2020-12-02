@@ -26,6 +26,12 @@ class ProfileViewController: UIViewController {
         return scroll
     }()
     
+    lazy var nameInvestigator: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.investigatorName, value: "Cleiton")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -44,6 +50,7 @@ class ProfileViewController: UIViewController {
     
     private func configureLayout() {
         scrollingView.addSubview(headerButtons)
+        scrollingView.addSubview(nameInvestigator)
         
         NSLayoutConstraint.activate([
             scrollingView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
@@ -54,7 +61,12 @@ class ProfileViewController: UIViewController {
             headerButtons.topAnchor.constraint(equalTo: scrollingView.topAnchor, constant: 0),
             headerButtons.heightAnchor.constraint(equalToConstant: 34),
             headerButtons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+            headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            nameInvestigator.topAnchor.constraint(equalTo: headerButtons.bottomAnchor, constant: 16),
+            nameInvestigator.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            nameInvestigator.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+           
         ])
     }
 }
