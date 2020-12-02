@@ -15,8 +15,53 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    lazy var searchBar: UISearchBar = UISearchBar()
+    var isEditable = false
     
+    lazy var headerView: UIView = {
+        let headerView = UIView()
+        headerView.addSubview(contentHeaderView)
+        headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 118)
+        headerView.isUserInteractionEnabled = false
+        return headerView
+    }()
+    
+    lazy var contentHeaderView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(additionCard)
+        view.addSubview(searchBar)
+        view.isUserInteractionEnabled = false
+        return view
+    }()
+    
+    lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.searchBarStyle = UISearchBar.Style.minimal
+        searchBar.placeholder = " Search Skill"
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        searchBar.delegate = self
+        return searchBar
+    }()
+    
+    lazy var additionCard: AdditionCardView = {
+        let card = AdditionCardView()
+        card.translatesAutoresizingMaskIntoConstraints = false
+        card.additionCardLabel.text = "Add skill"
+        card.sizeToFit()
+        self.view.addSubview(card)
+        return card
+    }()
+
+    lazy var headerButtons: HeaderButtons = {
+        let header = HeaderButtons()
+        header.editButton.addTarget(self, action: #selector(self.enterEditing), for: .touchUpInside)
+        header.cancelButton.addTarget(self, action: #selector(self.cancelEditing), for: .touchUpInside)
+        header.confirmButton.addTarget(self, action: #selector(self.confirmEditing), for: .touchUpInside)
+        header.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(header)
+        return header
+    }()
     lazy var dimmingOverlay: UIButton = {
         let view = UIButton()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -36,14 +81,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }()
 
     private func setupSearchBar() {
-        searchBar.searchBarStyle = UISearchBar.Style.minimal
-        searchBar.placeholder = " Search Skill"
-        searchBar.sizeToFit()
-        searchBar.isTranslucent = false
-       // searchBar.barTintColor = .systemGray6
-//        searchBar.backgroundColor = .backgroundBlack
-        searchBar.delegate = self
-        self.tableView.tableHeaderView = searchBar
+        self.tableView.tableHeaderView = headerView
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
@@ -76,12 +114,22 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+      super.viewWillTransition(to: size, with: coordinator)
+      DispatchQueue.main.async {
+        self.tableView.tableHeaderView?.layoutIfNeeded()
+        self.tableView.tableHeaderView = self.tableView.tableHeaderView
+      }
+    }
+    
     var tableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableHeaderView?.layoutIfNeeded()
+        self.tableView.tableHeaderView = self.tableView.tableHeaderView
+        setupSearchBar()
         configureTableView()
         fetchData()
-        setupSearchBar()
         self.hideKeyboardWhenTappedAround()
         self.tableView.tableFooterView = UIView()
     }
@@ -106,14 +154,20 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        diceAlert.rollDice(rollText: filteredSkill[indexPath.row].testName, rollType: filteredSkill[indexPath.row].diceType)
-        UIView.animate(withDuration: 0.2, delay: 0, animations: {
-            self.diceAlert.layer.opacity = 1
-            self.dimmingOverlay.layer.opacity = 0.6
-        })
+        if !isEditable {
+            diceAlert.rollDice(rollText: filteredSkill[indexPath.row].testName, rollType: filteredSkill[indexPath.row].diceType)
+            UIView.animate(withDuration: 0.2, delay: 0, animations: {
+                self.diceAlert.layer.opacity = 1
+                self.dimmingOverlay.layer.opacity = 0.6
+            })
+        } else {
+            self.present(NewSkillModal(), animated: true, completion: nil)
+        }
     }
     
     func configureConstraints() {
+        tableView.contentInset.top = 18
+        tableView.contentOffset = CGPoint(x: -18, y: -18)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -127,12 +181,44 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         dimmingOverlay.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         dimmingOverlay.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         dimmingOverlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        headerButtons.topAnchor.constraint(equalTo: tableView.tableHeaderView!.topAnchor, constant: -18).isActive = true
+        headerButtons.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        headerButtons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+        headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
+        
+        additionCard.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10).isActive = true
+        additionCard.leadingAnchor.constraint(equalTo: self.headerView.leadingAnchor, constant: 16).isActive = true
+        additionCard.trailingAnchor.constraint(equalTo: self.headerView.trailingAnchor, constant: -16).isActive = true
+                
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
+        headerView.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
+        headerView.topAnchor.constraint(equalTo: self.tableView.topAnchor).isActive = true
+        
     }
     
     func fetchData() {
         skills.append(Skill(skillName: "Run", skillPoints: 45, isActivated: true, testName: "Run (Skill)", diceType: LocalizedStrings.rollDiceD100))
         skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: false, testName: "Search (Skill)", diceType: LocalizedStrings.rollDiceD100))
         skills.append(Skill(skillName: "Seek", skillPoints: 1, isActivated: false, skillDesc: "Textin", testName: "Seek (Skill)", diceType: LocalizedStrings.rollDiceD100))
+    }
+    
+    @objc func enterEditing() {
+        headerButtons.enterEditing()
+        isEditable = true
+    }
+    
+    @objc func cancelEditing() {
+        isEditable = false
+
+        headerButtons.endEditing()
+    }
+    
+    @objc func confirmEditing() {
+        isEditable = false
+
+        headerButtons.endEditing()
     }
 
 }
