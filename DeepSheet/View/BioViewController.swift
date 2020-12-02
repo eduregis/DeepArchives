@@ -30,6 +30,13 @@ class BioViewController: UIViewController {
         self.view.addSubview(view)
         return view
     }()
+	
+	lazy var attackCard: AttackCardView = {
+		let attack = AttackCardView(attackName: "Revólver", chance: 25)
+		attack.translatesAutoresizingMaskIntoConstraints = false
+		self.view.addSubview(attack)
+		return attack
+	}()
     
     lazy var diceAlert: DiceAlert = {
         let alert = DiceAlert(test: "Destreza (Atributo)", roll: "d100")
@@ -105,6 +112,10 @@ class BioViewController: UIViewController {
             generalCombat.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             generalCombat.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             
+			attackCard.topAnchor.constraint(equalTo: generalCombat.bottomAnchor, constant: 10),
+			attackCard.leadingAnchor.constraint(equalTo: generalCombat.leadingAnchor),
+			attackCard.trailingAnchor.constraint(equalTo: generalCombat.trailingAnchor),
+			
             dimmingOverlay.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             dimmingOverlay.rightAnchor.constraint(equalTo: self.view.rightAnchor),
             dimmingOverlay.topAnchor.constraint(equalTo: self.view.topAnchor),

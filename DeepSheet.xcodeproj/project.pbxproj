@@ -95,6 +95,7 @@
 		9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227B5C7256F010B00399CCB /* IndvPointsView.swift */; };
 		9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */; };
 		9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFE0256D958400EEAE80 /* GroupStatesView.swift */; };
+		92876D402577BCB40071BFE7 /* AttackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92876D3F2577BCB40071BFE7 /* AttackCardView.swift */; };
 		92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */; };
 		92CB88E3256FE34400B94B15 /* AspectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */; };
 		92CB88E8256FE5D800B94B15 /* AspectsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CB88E7256FE5D800B94B15 /* AspectsViewDelegate.swift */; };
@@ -188,6 +189,7 @@
 		9227B5C7256F010B00399CCB /* IndvPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndvPointsView.swift; sourceTree = "<group>"; };
 		9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvStatesView.swift; sourceTree = "<group>"; };
 		9237DFE0256D958400EEAE80 /* GroupStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStatesView.swift; sourceTree = "<group>"; };
+		92876D3F2577BCB40071BFE7 /* AttackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackCardView.swift; sourceTree = "<group>"; };
 		92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = DeepSheet/View/TabBarViewController.swift; sourceTree = SOURCE_ROOT; };
 		92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsPresenter.swift; sourceTree = "<group>"; };
 		92CB88E7256FE5D800B94B15 /* AspectsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsViewDelegate.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */,
 				9237DFE0256D958400EEAE80 /* GroupStatesView.swift */,
 				2E7F677E2571364800976C85 /* EditModalComponent.swift */,
+				92876D3F2577BCB40071BFE7 /* AttackCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				2EF1EFFC256D8A0A00BE0644 /* InfoView.swift in Sources */,
 				2E7F67A025752D8500976C85 /* NewSkillModal.swift in Sources */,
 				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,
+				92876D402577BCB40071BFE7 /* AttackCardView.swift in Sources */,
 				9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */,
 				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
 			);
