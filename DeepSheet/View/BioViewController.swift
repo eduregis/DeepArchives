@@ -11,23 +11,42 @@ class BioViewController: UIViewController {
     lazy var headerButtons: HeaderButtons = {
         let header = HeaderButtons()
         header.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(header)
+        header.editButton.addTarget(self, action: #selector(triggerModal), for: .touchUpInside)
         return header
     }()
     
-    lazy var generalCombat: GeneralCombatView = {
-        let header = GeneralCombatView()
-        header.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(header)
-        return header
+    lazy var scrollingView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        scroll.isScrollEnabled = true
+        scroll.showsHorizontalScrollIndicator = false
+        scroll.showsVerticalScrollIndicator = false
+        self.view.addSubview(scroll)
+        return scroll
     }()
     
-    lazy var dimmingOverlay: UIButton = {
-        let view = UIButton()
+    lazy var personalDescription: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.personalDescription, value: "Edvaldo Cleiton Rasta, fazendo a festa pra galera.", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .black
-        view.layer.opacity = 0
-        self.view.addSubview(view)
+        return view
+    }()
+    
+    lazy var ideology: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.ideology, value: "Fazer a galera debochar legal.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var traits: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.traits, value: "Cabeça de Gelo.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var woundsAndScars: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.woundsAndScars, value: "Nenhum.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 	
@@ -38,91 +57,123 @@ class BioViewController: UIViewController {
 		return attack
 	}()
     
-    lazy var diceAlert: DiceAlert = {
-        let alert = DiceAlert(test: "Destreza (Atributo)", roll: "d100")
-        alert.translatesAutoresizingMaskIntoConstraints = false
-        alert.layer.backgroundColor = UIColor.backgroundBlack.cgColor
-        alert.layer.opacity = 0
-        self.view.addSubview(alert)
-        return alert
+    lazy var phobiasAndManias: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.phobiasAndManias, value: "Desconsiderar o nego.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var importantPersons: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.importantPersons, value: "Atalaia aí, ó.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var importantLocals: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.importantLocals, value: "Povoado Santo Antônio.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var possessions: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.possessions, value: "Primeiro DVD.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var tomesAndSpells: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.tomesAndSpells, value: "Fogo na Babilônia.\nChama\nAcende um pra relaxar\nVir para conquistar\nOlha a pedra", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var meetingWithEntities: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.meetingWithEntities, value: "nenhum.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cancelEdit()
+        self.hideKeyboardWhenTappedAround()
         additionalConfigurations()
     }
     
     private func additionalConfigurations() {
         configureLayout()
         view.backgroundColor = .backgroundBlack
-        
-        headerButtons.cancelButton.addTarget(self, action: #selector(cancelEdit), for: .touchUpInside)
-        headerButtons.confirmButton.addTarget(self, action: #selector(confirmEdit), for: .touchUpInside)
-        headerButtons.editButton.addTarget(self, action: #selector(enterEdit), for: .touchUpInside)
-        
-        diceAlert.okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
-        dimmingOverlay.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
-        
     }
     
-    @objc func dismissAlert() {
-        UIView.animate(withDuration: 0.2, delay: 0, animations: {
-            self.diceAlert.layer.opacity = 0
-            self.dimmingOverlay.layer.opacity = 0
-        })
+    @objc func triggerModal () {
+        let editModal = EditHistoricModal()
+        present(editModal, animated: true, completion: nil)
     }
-    
-    @objc func triggerAlert(sender: CharacteristicView) {
-        print(sender.diceType)
-        diceAlert.rollDice(rollText: sender.testName, rollType: sender.diceType)
-        UIView.animate(withDuration: 0.2, delay: 0, animations: {
-            self.diceAlert.layer.opacity = 1
-            self.dimmingOverlay.layer.opacity = 0.6
-        })
-    }
-    
-    @objc func enterEdit() {
-		headerButtons.enterEditing()
-        
-    }
-    
-    @objc func cancelEdit() {
-		headerButtons.endEditing()
-        
-    }
-	
-	@objc func confirmEdit() {
-		headerButtons.endEditing()
-		
-	}
     
     private func configureLayout() {
+        scrollingView.addSubview(headerButtons)
+        scrollingView.addSubview(personalDescription)
+        scrollingView.addSubview(ideology)
+        scrollingView.addSubview(traits)
+        scrollingView.addSubview(woundsAndScars)
+        scrollingView.addSubview(phobiasAndManias)
+        scrollingView.addSubview(importantPersons)
+        scrollingView.addSubview(importantLocals)
+        scrollingView.addSubview(possessions)
+        scrollingView.addSubview(tomesAndSpells)
+        scrollingView.addSubview(meetingWithEntities)
+        
         NSLayoutConstraint.activate([
-            headerButtons.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            scrollingView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
+            scrollingView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
+            scrollingView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+            scrollingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
+            
+            headerButtons.topAnchor.constraint(equalTo: scrollingView.topAnchor, constant: 0),
             headerButtons.heightAnchor.constraint(equalToConstant: 34),
             headerButtons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             
-//            characterIllustration.topAnchor.constraint(equalTo: headerButtons.bottomAnchor),
-//            characterIllustration.heightAnchor.constraint(equalToConstant: 240),
-//            characterIllustration.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            personalDescription.topAnchor.constraint(equalTo: headerButtons.bottomAnchor, constant: 16),
+            personalDescription.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            personalDescription.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             
-            generalCombat.topAnchor.constraint(equalTo: headerButtons.bottomAnchor),
-            generalCombat.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            generalCombat.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            ideology.topAnchor.constraint(equalTo: personalDescription.bottomAnchor, constant: 16),
+            ideology.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            ideology.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             
-			attackCard.topAnchor.constraint(equalTo: generalCombat.bottomAnchor, constant: 10),
-			attackCard.leadingAnchor.constraint(equalTo: generalCombat.leadingAnchor),
-			attackCard.trailingAnchor.constraint(equalTo: generalCombat.trailingAnchor),
-			
-            dimmingOverlay.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            dimmingOverlay.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            dimmingOverlay.topAnchor.constraint(equalTo: self.view.topAnchor),
-            dimmingOverlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            traits.topAnchor.constraint(equalTo: ideology.bottomAnchor, constant: 16),
+            traits.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            traits.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             
-            diceAlert.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            diceAlert.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            woundsAndScars.topAnchor.constraint(equalTo: traits.bottomAnchor, constant: 16),
+            woundsAndScars.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            woundsAndScars.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            phobiasAndManias.topAnchor.constraint(equalTo: woundsAndScars.bottomAnchor, constant: 16),
+            phobiasAndManias.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            phobiasAndManias.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            importantPersons.topAnchor.constraint(equalTo: phobiasAndManias.bottomAnchor, constant: 16),
+            importantPersons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            importantPersons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            importantLocals.topAnchor.constraint(equalTo: importantPersons.bottomAnchor, constant: 16),
+            importantLocals.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            importantLocals.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            possessions.topAnchor.constraint(equalTo: importantLocals.bottomAnchor, constant: 16),
+            possessions.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            possessions.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            tomesAndSpells.topAnchor.constraint(equalTo: possessions.bottomAnchor, constant: 16),
+            tomesAndSpells.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            tomesAndSpells.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            meetingWithEntities.topAnchor.constraint(equalTo: tomesAndSpells.bottomAnchor, constant: 16),
+            meetingWithEntities.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            meetingWithEntities.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            meetingWithEntities.bottomAnchor.constraint(equalTo: scrollingView.bottomAnchor)
+            
         ])
     }
 }
