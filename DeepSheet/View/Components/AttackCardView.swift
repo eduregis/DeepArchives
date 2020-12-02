@@ -51,7 +51,7 @@ class AttackCardView: UIView {
 		return view
 	}()
 	
-	lazy var attackChance: UILabel = {
+	lazy var attackChanceValue: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(label)
@@ -60,6 +60,74 @@ class AttackCardView: UIView {
 		label.textColor = .lightSeaGreen
 		label.backgroundColor = .clear
 		return label
+	}()
+	
+	lazy var attackChanceBy2Background: UIImageView = {
+		let view = UIImageView()
+		let viewColor = UIImage.imageWithColor(color: .darkSeaGreen)
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.image = viewColor
+		self.addSubview(view)
+		return view
+	}()
+	
+	lazy var attackChanceBy2Value: UILabel = {
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(label)
+		label.font = UIFont.josefinSansBold25()
+		label.textAlignment = .center
+		label.textColor = .ivory
+		label.backgroundColor = .clear
+		return label
+	}()
+	
+	lazy var attackChanceBy5Background: UIImageView = {
+		let view = UIImageView()
+		let viewColor = UIImage.imageWithColor(color: .darkSeaGreen)
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.image = viewColor
+		self.addSubview(view)
+		return view
+	}()
+	
+	lazy var attackChanceBy5Value: UILabel = {
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(label)
+		label.font = UIFont.josefinSansBold25()
+		label.textAlignment = .center
+		label.textColor = .ivory
+		label.backgroundColor = .clear
+		return label
+	}()
+	
+	lazy var attackBaseChance: UIView = {
+		let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(attackChanceBackground)
+		self.addSubview(attackChanceImage)
+		self.addSubview(attackChanceValue)
+		self.addSubview(view)
+		return view
+	}()
+	
+	lazy var attackBy2Chance: UIView = {
+		let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(attackChanceBy2Background)
+		self.addSubview(attackChanceBy2Value)
+		self.addSubview(view)
+		return view
+	}()
+	
+	lazy var attackBy5Chance: UIView = {
+		let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(attackChanceBy5Background)
+		self.addSubview(attackChanceBy5Value)
+		self.addSubview(view)
+		return view
 	}()
 	
 	lazy var editButton: UIButton = {
@@ -86,7 +154,9 @@ class AttackCardView: UIView {
 		configureLayout()
 		
 		attackLabel.text = attackName
-		attackChance.text = "\(chance)"
+		attackChanceValue.text = "\(chance)"
+		attackChanceBy2Value.text = "\(Int(chance / 2))"
+		attackChanceBy5Value.text = "\(Int(chance / 5))"
 	}
 	
 	// MARK: - Layout Constraints
@@ -107,10 +177,41 @@ class AttackCardView: UIView {
 			attackLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
 			attackLabel.leftAnchor.constraint(equalTo: attackLabelBackground.leftAnchor, constant: 15),
 			
-			attackChanceBackground.topAnchor.constraint(equalTo: self.topAnchor, constant: 3),
-			attackChanceBackground.bottomAnchor.constraint(equalTo: attackLabelBackground.bottomAnchor, constant: -3),
+			attackBy5Chance.topAnchor.constraint(equalTo: self.topAnchor, constant: 3),
+			attackBy5Chance.bottomAnchor.constraint(equalTo: attackLabelBackground.bottomAnchor, constant: -3),
+			attackBy5Chance.widthAnchor.constraint(equalToConstant: 45),
+			attackBy5Chance.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -3),
+			
+			attackChanceBy5Background.topAnchor.constraint(equalTo: attackBy5Chance.topAnchor),
+			attackChanceBy5Background.bottomAnchor.constraint(equalTo: attackBy5Chance.bottomAnchor),
+			attackChanceBy5Background.widthAnchor.constraint(equalToConstant: 45),
+			attackChanceBy5Background.leftAnchor.constraint(equalTo: attackBy5Chance.leftAnchor),
+			
+			attackChanceBy5Value.centerXAnchor.constraint(equalTo: attackBy5Chance.centerXAnchor),
+			attackChanceBy5Value.centerYAnchor.constraint(equalTo: attackBy5Chance.centerYAnchor),
+			
+			attackBy2Chance.topAnchor.constraint(equalTo: self.topAnchor, constant: 3),
+			attackBy2Chance.bottomAnchor.constraint(equalTo: attackLabelBackground.bottomAnchor, constant: -3),
+			attackBy2Chance.widthAnchor.constraint(equalToConstant: 45),
+			attackBy2Chance.rightAnchor.constraint(equalTo: attackBy5Chance.leftAnchor, constant: -3),
+			
+			attackChanceBy2Background.topAnchor.constraint(equalTo: attackBy2Chance.topAnchor),
+			attackChanceBy2Background.bottomAnchor.constraint(equalTo: attackBy2Chance.bottomAnchor),
+			attackChanceBy2Background.widthAnchor.constraint(equalToConstant: 45),
+			attackChanceBy2Background.leftAnchor.constraint(equalTo: attackBy2Chance.leftAnchor),
+			
+			attackChanceBy2Value.centerXAnchor.constraint(equalTo: attackBy2Chance.centerXAnchor),
+			attackChanceBy2Value.centerYAnchor.constraint(equalTo: attackBy2Chance.centerYAnchor),
+			
+			attackBaseChance.topAnchor.constraint(equalTo: self.topAnchor, constant: 3),
+			attackBaseChance.bottomAnchor.constraint(equalTo: attackLabelBackground.bottomAnchor, constant: -3),
+			attackBaseChance.widthAnchor.constraint(equalToConstant: 45),
+			attackBaseChance.rightAnchor.constraint(equalTo: attackBy2Chance.leftAnchor, constant: -3),
+			
+			attackChanceBackground.topAnchor.constraint(equalTo: attackBaseChance.topAnchor),
+			attackChanceBackground.bottomAnchor.constraint(equalTo: attackBaseChance.bottomAnchor),
 			attackChanceBackground.widthAnchor.constraint(equalToConstant: 45),
-			attackChanceBackground.leftAnchor.constraint(equalTo: self.rightAnchor, constant: -120),
+			attackChanceBackground.leftAnchor.constraint(equalTo: attackBaseChance.leftAnchor),
 			
 			attackChanceImage.centerXAnchor.constraint(equalTo: attackChanceBackground.centerXAnchor),
 			attackChanceImage.centerYAnchor.constraint(equalTo: attackChanceBackground.centerYAnchor),
@@ -118,8 +219,8 @@ class AttackCardView: UIView {
 			attackChanceImage.bottomAnchor.constraint(equalTo: attackChanceBackground.bottomAnchor, constant: -2.5),
 			attackChanceImage.widthAnchor.constraint(equalToConstant: 40),
 			
-			attackChance.centerXAnchor.constraint(equalTo: attackChanceImage.centerXAnchor),
-			attackChance.centerYAnchor.constraint(equalTo: attackChanceImage.centerYAnchor)
+			attackChanceValue.centerXAnchor.constraint(equalTo: attackChanceImage.centerXAnchor),
+			attackChanceValue.centerYAnchor.constraint(equalTo: attackChanceImage.centerYAnchor)
 		])
 	}
 
