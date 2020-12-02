@@ -836,4 +836,15 @@ class LocalizedStrings {
             return "New investigator"
         }
     }
+    
+    static var addInvestigator: String {
+        switch language {
+        case "EN":
+            return "Add\nInvestigator"
+        case "PT":
+            return "Adicionar\nInvestigador"
+        default:
+            return "Add\nInvestigator"
+        }
+    }
 }

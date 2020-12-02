@@ -21,6 +21,7 @@
 		2E7F67A025752D8500976C85 /* NewSkillModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F679F25752D8500976C85 /* NewSkillModal.swift */; };
 		2E7F67A525753BBB00976C85 /* EditHistoricModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67A425753BBB00976C85 /* EditHistoricModal.swift */; };
 		2E7F67AA257567A100976C85 /* NewInvestigatorModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67A9257567A100976C85 /* NewInvestigatorModal.swift */; };
+		2E7F67CD257685DE00976C85 /* InvestigatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67CC257685DE00976C85 /* InvestigatorCollectionViewCell.swift */; };
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
@@ -134,6 +135,7 @@
 		2E7F679F25752D8500976C85 /* NewSkillModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSkillModal.swift; sourceTree = "<group>"; };
 		2E7F67A425753BBB00976C85 /* EditHistoricModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHistoricModal.swift; sourceTree = "<group>"; };
 		2E7F67A9257567A100976C85 /* NewInvestigatorModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvestigatorModal.swift; sourceTree = "<group>"; };
+		2E7F67CC257685DE00976C85 /* InvestigatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestigatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			children = (
 				92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */,
 				5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */,
+				2E7F67CC257685DE00976C85 /* InvestigatorCollectionViewCell.swift */,
 				5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */,
 				92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */,
 				5BFC58082571328500B8B232 /* InvestigatorsCollectionViewController.swift */,
@@ -347,7 +350,6 @@
 			children = (
 				2E7F676D2570554700976C85 /* Modals */,
 				92E38743256EA21D0016D072 /* AspectsViewController.swift */,
-				2EF1F00D256E925100BE0644 /* BioViewController.swift */,
 				00E630B1256FD95C00D397C0 /* CombatViewController.swift */,
 				2EF1EF972569A19200BE0644 /* Alerts */,
 				2EF1EF212567F37400BE0644 /* Components */,
@@ -642,6 +644,7 @@
 				2E7F67A525753BBB00976C85 /* EditHistoricModal.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
+				2E7F67CD257685DE00976C85 /* InvestigatorCollectionViewCell.swift in Sources */,
 				00E630AA256FD73D00D397C0 /* AdditionCardView.swift in Sources */,
 				92CB88E8256FE5D800B94B15 /* AspectsViewDelegate.swift in Sources */,
 				9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */,
