@@ -19,28 +19,19 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     lazy var headerView: UIView = {
         let headerView = UIView()
-        headerView.addSubview(contentHeaderView)
         headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 118)
-        headerView.isUserInteractionEnabled = false
+        headerView.addSubview(additionCard)
+        headerView.addSubview(searchBar)
         return headerView
     }()
-    
-    lazy var contentHeaderView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(additionCard)
-        view.addSubview(searchBar)
-        view.isUserInteractionEnabled = false
-        return view
-    }()
-    
+
     lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
+      let searchBar = UISearchBar()
         searchBar.searchBarStyle = UISearchBar.Style.minimal
         searchBar.placeholder = " Search Skill"
-        searchBar.sizeToFit()
         searchBar.isTranslucent = false
         searchBar.delegate = self
+        searchBar.sizeToFit()
         return searchBar
     }()
     
@@ -48,8 +39,6 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         let card = AdditionCardView()
         card.translatesAutoresizingMaskIntoConstraints = false
         card.additionCardLabel.text = "Add skill"
-        card.sizeToFit()
-        self.view.addSubview(card)
         return card
     }()
 
@@ -189,13 +178,10 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         additionCard.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10).isActive = true
         additionCard.leadingAnchor.constraint(equalTo: self.headerView.leadingAnchor, constant: 16).isActive = true
-        additionCard.trailingAnchor.constraint(equalTo: self.headerView.trailingAnchor, constant: -16).isActive = true
-                
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
-        headerView.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
-        headerView.topAnchor.constraint(equalTo: self.tableView.topAnchor).isActive = true
-        
+        let trailing = additionCard.trailingAnchor.constraint(equalTo: self.headerView.trailingAnchor, constant: -16)
+        trailing.priority = .defaultLow
+        trailing.isActive = true
+        additionCard.isHidden = true
     }
     
     func fetchData() {
@@ -206,18 +192,19 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     @objc func enterEditing() {
         headerButtons.enterEditing()
+        additionCard.isHidden = false
         isEditable = true
     }
     
     @objc func cancelEditing() {
         isEditable = false
-
+        additionCard.isHidden = true
         headerButtons.endEditing()
     }
     
     @objc func confirmEditing() {
         isEditable = false
-
+        additionCard.isHidden = true
         headerButtons.endEditing()
     }
 
