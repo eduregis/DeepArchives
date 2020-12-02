@@ -25,7 +25,6 @@ class ProfileComponent: UIView {
         field.font = UIFont.systemFont(ofSize: 17.0)
         field.textColor = .ivory
         field.isEditable = false
-//        field.isUserInteractionEnabled = false
         field.layer.borderWidth = 1
         field.layer.cornerRadius = 5
         field.textContainer.lineBreakMode = .byWordWrapping
@@ -89,4 +88,3 @@ class ProfileComponent: UIView {
         }
     }
 }
-
