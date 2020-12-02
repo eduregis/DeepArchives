@@ -10,7 +10,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class InvestigatorsCollectionViewController: UIViewController {
-    var myCollectionView:UICollectionView?
+    var myCollectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class InvestigatorsCollectionViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    func setNavBarStyle(){
+    func setNavBarStyle() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.addGradient(1, .darkSeaGreen)
     }

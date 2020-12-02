@@ -22,13 +22,6 @@ class BioViewController: UIViewController {
         return header
     }()
     
-    lazy var attributesInformation: AttributesView = {
-        let attributes = AttributesView()
-        attributes.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(attributes)
-        return attributes
-    }()
-    
     lazy var dimmingOverlay: UIButton = {
         let view = UIButton()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -64,15 +57,6 @@ class BioViewController: UIViewController {
         diceAlert.okButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         dimmingOverlay.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         
-        attributesInformation.strView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
-        attributesInformation.dexView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
-        attributesInformation.intView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
-        attributesInformation.conView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
-        attributesInformation.appView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
-        attributesInformation.powView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
-        attributesInformation.sizView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
-        attributesInformation.eduView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
-        attributesInformation.movView.addTarget(self, action: #selector(triggerAlert), for: .touchUpInside)
     }
     
     @objc func dismissAlert() {
@@ -94,19 +78,16 @@ class BioViewController: UIViewController {
     @objc func enterEdit() {
 		headerButtons.enterEditing()
         
-		attributesInformation.groupIsEditable(is: true)
     }
     
     @objc func cancelEdit() {
 		headerButtons.endEditing()
         
-		attributesInformation.groupIsEditable(is: false)
     }
 	
 	@objc func confirmEdit() {
 		headerButtons.endEditing()
 		
-		attributesInformation.groupIsEditable(is: false)
 	}
     
     private func configureLayout() {
@@ -123,10 +104,6 @@ class BioViewController: UIViewController {
             generalCombat.topAnchor.constraint(equalTo: headerButtons.bottomAnchor),
             generalCombat.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             generalCombat.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            
-            attributesInformation.topAnchor.constraint(equalTo: self.generalCombat.bottomAnchor, constant: 32),
-            attributesInformation.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            attributesInformation.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             
             dimmingOverlay.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             dimmingOverlay.rightAnchor.constraint(equalTo: self.view.rightAnchor),

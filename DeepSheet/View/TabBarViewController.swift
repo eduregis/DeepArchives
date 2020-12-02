@@ -43,8 +43,6 @@ class TabBarViewController: UITabBarController {
         bioViewController.tabBarItem = UITabBarItem(title: "Bio", image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))
 
-        
-        
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
         profileNavigationController.overrideUserInterfaceStyle = .dark        
         let skillsNavigationController = UINavigationController(rootViewController: skillsViewController)
@@ -65,7 +63,7 @@ class TabBarViewController: UITabBarController {
         
     }
     
-    func backAction() -> Void {
+    func backAction() {
         self.navigationController?.popViewController(animated: true)
     }
 }
