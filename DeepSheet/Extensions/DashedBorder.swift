@@ -8,9 +8,7 @@
 import UIKit
 
 extension UIView {
-  func addDashedBorder() {
-    let color = UIColor.lightSeaGreen.cgColor
-
+    func addDashedBorder(color: CGColor) {
     let shapeLayer:CAShapeLayer = CAShapeLayer()
     let frameSize = self.frame.size
     let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
