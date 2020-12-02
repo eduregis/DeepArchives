@@ -20,9 +20,70 @@ class BioViewController: UIViewController {
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         scroll.isScrollEnabled = true
-        scroll.alwaysBounceVertical = false
+        scroll.showsHorizontalScrollIndicator = false
+        scroll.showsVerticalScrollIndicator = false
         self.view.addSubview(scroll)
         return scroll
+    }()
+    
+    lazy var personalDescription: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.personalDescription, value: "Edvaldo Cleiton Rasta, fazendo a festa pra galera.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var ideology: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.ideology, value: "Fazer a galera debochar legal.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var traits: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.traits, value: "Cabeça de Gelo.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var woundsAndScars: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.woundsAndScars, value: "Nenhum.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var phobiasAndManias: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.phobiasAndManias, value: "Desconsiderar o nego.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var importantPersons: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.importantPersons, value: "Atalaia aí, ó.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var importantLocals: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.importantLocals, value: "Povoado Santo Antônio.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var possessions: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.possessions, value: "Primeiro DVD.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var tomesAndSpells: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.tomesAndSpells, value: "Fogo na Babilônia.\nChama\nAcende um pra relaxar\nVir para conquistar\nOlha a pedra", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var meetingWithEntities: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.meetingWithEntities, value: "nenhum.", multiline: true)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override func viewDidLoad() {
@@ -43,6 +104,16 @@ class BioViewController: UIViewController {
     
     private func configureLayout() {
         scrollingView.addSubview(headerButtons)
+        scrollingView.addSubview(personalDescription)
+        scrollingView.addSubview(ideology)
+        scrollingView.addSubview(traits)
+        scrollingView.addSubview(woundsAndScars)
+        scrollingView.addSubview(phobiasAndManias)
+        scrollingView.addSubview(importantPersons)
+        scrollingView.addSubview(importantLocals)
+        scrollingView.addSubview(possessions)
+        scrollingView.addSubview(tomesAndSpells)
+        scrollingView.addSubview(meetingWithEntities)
         
         NSLayoutConstraint.activate([
             scrollingView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
@@ -54,6 +125,47 @@ class BioViewController: UIViewController {
             headerButtons.heightAnchor.constraint(equalToConstant: 34),
             headerButtons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            personalDescription.topAnchor.constraint(equalTo: headerButtons.bottomAnchor, constant: 16),
+            personalDescription.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            personalDescription.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            ideology.topAnchor.constraint(equalTo: personalDescription.bottomAnchor, constant: 16),
+            ideology.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            ideology.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            traits.topAnchor.constraint(equalTo: ideology.bottomAnchor, constant: 16),
+            traits.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            traits.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            woundsAndScars.topAnchor.constraint(equalTo: traits.bottomAnchor, constant: 16),
+            woundsAndScars.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            woundsAndScars.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            phobiasAndManias.topAnchor.constraint(equalTo: woundsAndScars.bottomAnchor, constant: 16),
+            phobiasAndManias.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            phobiasAndManias.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            importantPersons.topAnchor.constraint(equalTo: phobiasAndManias.bottomAnchor, constant: 16),
+            importantPersons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            importantPersons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            importantLocals.topAnchor.constraint(equalTo: importantPersons.bottomAnchor, constant: 16),
+            importantLocals.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            importantLocals.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            possessions.topAnchor.constraint(equalTo: importantLocals.bottomAnchor, constant: 16),
+            possessions.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            possessions.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            tomesAndSpells.topAnchor.constraint(equalTo: possessions.bottomAnchor, constant: 16),
+            tomesAndSpells.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            tomesAndSpells.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            meetingWithEntities.topAnchor.constraint(equalTo: tomesAndSpells.bottomAnchor, constant: 16),
+            meetingWithEntities.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            meetingWithEntities.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            meetingWithEntities.bottomAnchor.constraint(equalTo: scrollingView.bottomAnchor)
             
         ])
     }

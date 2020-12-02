@@ -21,7 +21,8 @@ class ProfileViewController: UIViewController {
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         scroll.isScrollEnabled = true
-        scroll.alwaysBounceVertical = false
+        scroll.showsHorizontalScrollIndicator = false
+        scroll.showsVerticalScrollIndicator = false
         self.view.addSubview(scroll)
         return scroll
     }()
