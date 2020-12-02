@@ -77,6 +77,11 @@ class EditProfileModal: UIViewController {
     
     // MARK: - Second Group
     
+    lazy var playerView: EditModalComponent = {
+        let view = EditModalComponent(titleText: LocalizedStrings.playerName)
+        return view
+    }()
+    
     lazy var ocupationView: EditModalComponent = {
         let view = EditModalComponent(titleText: LocalizedStrings.ocupation)
         return view
@@ -87,13 +92,8 @@ class EditProfileModal: UIViewController {
         return view
     }()
     
-    lazy var genderView: EditModalComponent = {
-        let view = EditModalComponent(titleText: LocalizedStrings.gender)
-        return view
-    }()
-    
     lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [ocupationView, ageView, genderView])
+        let stack = UIStackView(arrangedSubviews: [playerView, ocupationView, ageView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -104,6 +104,11 @@ class EditProfileModal: UIViewController {
     }()
     
     // MARK: - Third Group
+    
+    lazy var genderView: EditModalComponent = {
+        let view = EditModalComponent(titleText: LocalizedStrings.gender)
+        return view
+    }()
     
     lazy var addressView: EditModalComponent = {
         let view = EditModalComponent(titleText: LocalizedStrings.address)
@@ -116,7 +121,7 @@ class EditProfileModal: UIViewController {
     }()
     
     lazy var thirdStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [addressView, birthPlaceView])
+        let stack = UIStackView(arrangedSubviews: [genderView, addressView, birthPlaceView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
