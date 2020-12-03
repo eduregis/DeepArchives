@@ -255,6 +255,22 @@ class AttackCardView: UIView {
 		return view
 	}()
 	
+	lazy var attackDiceButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.backgroundColor = .none
+		self.addSubview(button)
+		return button
+	}()
+	
+	lazy var damageDiceButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.backgroundColor = .none
+		self.addSubview(button)
+		return button
+	}()
+	
 	lazy var editButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -404,7 +420,17 @@ class AttackCardView: UIView {
 			diceImage.topAnchor.constraint(equalTo: diceBackground.topAnchor, constant: 3),
 			diceImage.bottomAnchor.constraint(equalTo: diceBackground.bottomAnchor, constant: -4),
 			diceImage.leftAnchor.constraint(equalTo: diceLabel.rightAnchor, constant: 5),
-			diceImage.rightAnchor.constraint(equalTo: diceImage.leftAnchor, constant: 30)
+			diceImage.rightAnchor.constraint(equalTo: diceImage.leftAnchor, constant: 30),
+			
+			attackDiceButton.topAnchor.constraint(equalTo: attackBaseChance.topAnchor),
+			attackDiceButton.bottomAnchor.constraint(equalTo: attackBaseChance.bottomAnchor),
+			attackDiceButton.leftAnchor.constraint(equalTo: attackBaseChance.leftAnchor),
+			attackDiceButton.rightAnchor.constraint(equalTo: attackBy5Chance.rightAnchor),
+			
+			damageDiceButton.topAnchor.constraint(equalTo: diceBackground.topAnchor),
+			damageDiceButton.bottomAnchor.constraint(equalTo: diceBackground.bottomAnchor),
+			damageDiceButton.leftAnchor.constraint(equalTo: diceBackground.leftAnchor),
+			damageDiceButton.rightAnchor.constraint(equalTo: diceBackground.rightAnchor)
 		])
 	}
 

@@ -79,4 +79,5 @@ class CombatViewController: UIViewController {
 			attackCard.bottomAnchor.constraint(equalTo: scrollingView.bottomAnchor, constant: -10)
         ])
     }
+	
 }
