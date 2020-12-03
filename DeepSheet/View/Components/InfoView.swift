@@ -7,7 +7,7 @@
 import UIKit
 
 class InfoView: UIButton {
-    
+    	
     lazy var characteristicLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -40,6 +40,7 @@ class InfoView: UIButton {
     
     init(characteristic: String, value: String, preValue: String = "") {
         super.init(frame: .zero)
+		
         configureLayout()
         characteristicLabel.text = characteristic
         
@@ -49,7 +50,7 @@ class InfoView: UIButton {
         
         valueTextField.isHidden = true
     }
-    
+	
     func beEditable() {
         isEnabled = false
         valueTextField.isHidden = false

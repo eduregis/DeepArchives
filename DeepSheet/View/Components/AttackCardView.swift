@@ -9,6 +9,10 @@ import UIKit
 
 class AttackCardView: UIView {
 
+	weak var combatDelegate: CombatDelegate?
+	
+	var damageDiceValue: String
+	
 	// MARK: - Components
 	
 	lazy var attackLabelBackground: UIImageView = {
@@ -259,17 +263,29 @@ class AttackCardView: UIView {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.backgroundColor = .none
+		button.addTarget(self, action: #selector(rollAttackDice), for: .touchUpInside)
 		self.addSubview(button)
 		return button
 	}()
+	
+	@objc func rollAttackDice() {
+		print("Attacking with \(attackLabel.text!)")
+		combatDelegate?.triggerDice(diceText: attackLabel.text!, diceType: "d100")
+	}
 	
 	lazy var damageDiceButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.backgroundColor = .none
+		button.addTarget(self, action: #selector(rollDamageDice), for: .touchUpInside)
 		self.addSubview(button)
 		return button
 	}()
+	
+	@objc func rollDamageDice() {
+		print("Damage caused by \(attackLabel.text!)")
+		combatDelegate?.triggerDice(diceText: attackLabel.text!, diceType: damageDiceValue)
+	}
 	
 	lazy var editButton: UIButton = {
 		let button = UIButton()
@@ -290,6 +306,8 @@ class AttackCardView: UIView {
 	
 	init(attackName: String, chance: Int, dice: String, reach: Int, num: Int, ammo: Int, malfunction: Int) {
 		
+		damageDiceValue = dice
+		
 		super.init(frame: .zero)
 		
 		configureLayout()
@@ -302,10 +320,14 @@ class AttackCardView: UIView {
 		reachLabel.text = "Alcance: \(reach) m"
 		malfuncLabel.text = "Malfunc.: \(malfunction)%"
 		
-		diceLabel.text = "Dado: \(dice) + DB"
+		diceLabel.text = "Dado: \(damageDiceValue) + DB"
 		numAttacksLabel.text = "Ataques: \(num)"
 		ammoLabel.text = "Munição:"
 		ammoField.text = "\(ammo)"
+	}
+	
+	func setCombatDelegate(with delegate: CombatDelegate) {
+		combatDelegate = delegate
 	}
 	
 	// MARK: - Layout Constraints
