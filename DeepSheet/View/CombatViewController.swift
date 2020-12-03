@@ -18,7 +18,17 @@ class CombatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.setTitle(LocalizedStrings.investigators, for: .normal)
+        button.tintColor = UIColor.ivory
+        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         additionalConfigurations()
+    }
+    
+    @objc func backAction() {
+        self.tabBarController?.navigationController?.popViewController(animated: true)
     }
     
     private func additionalConfigurations() {

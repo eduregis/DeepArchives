@@ -373,6 +373,28 @@ class LocalizedStrings {
     
     // MARK: - Strings for Header Buttons
     
+    static var investigators: String {
+        switch language {
+        case "EN":
+            return "Investigators"
+        case "PT":
+            return "Investigadores"
+        default:
+            return "Investigators"
+        }
+    }
+    
+    static var editButton: String {
+        switch language {
+        case "EN":
+            return "Edit"
+        case "PT":
+            return "Editar"
+        default:
+            return "Edit"
+        }
+    }
+    
     static var cancelButton: String {
         switch language {
         case "EN":
