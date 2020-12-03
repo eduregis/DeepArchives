@@ -170,6 +170,21 @@ class AttackCardView: UIView {
 		return label
 	}()
 	
+	lazy var ammoField: UITextField = {
+		let field = UITextField()
+		field.translatesAutoresizingMaskIntoConstraints = false
+		self.addSubview(field)
+		field.font = UIFont.josefinSansBold17()
+		field.textColor = .backgroundBlack
+		field.textAlignment = .center
+		field.backgroundColor = .ivory
+		field.layer.borderWidth = 1
+		field.layer.cornerRadius = 5
+		field.layer.borderColor = UIColor.systemGray3.cgColor
+		field.keyboardType = .numberPad
+		return field
+	}()
+	
 	lazy var numAttacksBackground: UIImageView = {
 		let view = UIImageView()
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -273,7 +288,8 @@ class AttackCardView: UIView {
 		
 		diceLabel.text = "Dado: \(dice) + DB"
 		numAttacksLabel.text = "Ataques: \(num)"
-		ammoLabel.text = "Munição: \(ammo)"
+		ammoLabel.text = "Munição:"
+		ammoField.text = "\(ammo)"
 	}
 	
 	// MARK: - Layout Constraints
@@ -370,6 +386,11 @@ class AttackCardView: UIView {
 			
 			ammoLabel.centerYAnchor.constraint(equalTo: ammoBackground.centerYAnchor),
 			ammoLabel.leftAnchor.constraint(equalTo: ammoBackground.leftAnchor, constant: 8),
+			
+			ammoField.topAnchor.constraint(equalTo: ammoBackground.topAnchor, constant: 5),
+			ammoField.bottomAnchor.constraint(equalTo: ammoBackground.bottomAnchor, constant: -5),
+			ammoField.leftAnchor.constraint(equalTo: ammoLabel.rightAnchor, constant: 5),
+			ammoField.rightAnchor.constraint(equalTo: ammoField.leftAnchor, constant: 45),
 			
 			diceBackground.topAnchor.constraint(equalTo: malfuncBackground.bottomAnchor, constant: 3),
 			diceBackground.bottomAnchor.constraint(equalTo: diceBackground.topAnchor, constant: 35),
