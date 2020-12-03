@@ -8,13 +8,13 @@
 import UIKit
 
 class CombatViewController: UIViewController {
-
-    lazy var additionCard: AdditionCardView = {
-        let card = AdditionCardView()
-        card.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(card)
-        return card
-    }()
+	
+	lazy var attackCard: AttackCardView = {
+		let attack = AttackCardView(attackName: "Revolver", chance: 25, dice: "1d4", reach: 20, num: 1, ammo: 5, malfunction: 15)
+		attack.translatesAutoresizingMaskIntoConstraints = false
+		self.view.addSubview(attack)
+		return attack
+	}()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,14 @@ class CombatViewController: UIViewController {
     
     private func additionalConfigurations() {
         configureLayout()
-        additionCard.additionCardLabel.text = "Adicionar Item"
         view.backgroundColor = .backgroundBlack
     }
     
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            additionCard.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200),
-            additionCard.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            additionCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+			attackCard.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200),
+			attackCard.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+			attackCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
     }
 }

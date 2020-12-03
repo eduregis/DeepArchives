@@ -51,7 +51,7 @@ class BioViewController: UIViewController {
     }()
 	
 	lazy var attackCard: AttackCardView = {
-		let attack = AttackCardView(attackName: "Revólver", chance: 25)
+		let attack = AttackCardView(attackName: "Revólver", chance: 25, dice: "1d4", reach: 20, num: 1, ammo: 5, malfunction: 15)
 		attack.translatesAutoresizingMaskIntoConstraints = false
 		self.view.addSubview(attack)
 		return attack
