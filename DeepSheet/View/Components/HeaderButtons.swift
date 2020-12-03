@@ -14,7 +14,7 @@ class HeaderButtons: UIView {
     lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitle("Cancelar", for: .normal)
+        button.setTitle(LocalizedStrings.cancelButton, for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         button.titleLabel?.font = .josefinSansButton()
         self.addSubview(button)
@@ -24,7 +24,7 @@ class HeaderButtons: UIView {
     lazy var confirmButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitle("Confirmar", for: .normal)
+        button.setTitle(LocalizedStrings.confirmButton, for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         button.titleLabel?.font = .josefinSansButton()
         self.addSubview(button)
@@ -34,7 +34,7 @@ class HeaderButtons: UIView {
     lazy var editButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Editar", for: .normal)
+        button.setTitle(LocalizedStrings.editButton, for: .normal)
         button.setTitleColor(.ivory, for: .normal)
         button.titleLabel?.font = .josefinSansButton()
         self.addSubview(button)

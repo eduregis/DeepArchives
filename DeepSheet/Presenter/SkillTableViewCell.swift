@@ -40,6 +40,7 @@ class SkillTableViewCell: UITableViewCell {
     lazy var skillValue: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = .josefinSansBold()
         self.diceView.addSubview(lbl)
         return lbl
     }()
@@ -47,6 +48,7 @@ class SkillTableViewCell: UITableViewCell {
     lazy var skillValueBy2: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = .josefinSansBold()
         self.addSubview(lbl)
         return lbl
     }()
@@ -54,6 +56,7 @@ class SkillTableViewCell: UITableViewCell {
     lazy var skillValueBy5: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = .josefinSansBold()
         self.addSubview(lbl)
         return lbl
     }()

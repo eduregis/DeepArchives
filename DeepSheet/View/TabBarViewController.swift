@@ -62,8 +62,4 @@ class TabBarViewController: UITabBarController {
         self.viewControllers = [profileNavigationController, skillsNavigationController, statsNavigationController, combatNavigationController, bioNavigationController]
         
     }
-    
-    func backAction() {
-        self.navigationController?.popViewController(animated: true)
-    }
 }
