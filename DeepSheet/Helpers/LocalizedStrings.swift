@@ -441,6 +441,17 @@ class LocalizedStrings {
         }
     }
     
+    static var playerName: String {
+        switch language {
+        case "EN":
+            return "Player Name"
+        case "PT":
+            return "Nome do Jogador"
+        default:
+            return "Player Name"
+        }
+    }
+    
     static var ocupation: String {
         switch language {
         case "EN":
