@@ -9,8 +9,6 @@ import Foundation
 
 class AspectsPresenter {
 	
-	weak private var aspectsViewDelegate: AspectsViewDelegate?
-	
 	//Remove once Presenter can store and get from Model
 	var tempLuck: (current: Int, maximum: Int) = (0, 0)
 	var tempMagic: (current: Int, maximum: Int) = (0, 0)
@@ -48,10 +46,6 @@ class AspectsPresenter {
 		
 		setPoints(with: placeholderPoints)
 		setCharacteristics(with: placeholderCharacteristics)
-	}
-	
-	func setAspectsDelegate(viewDelegate: AspectsViewDelegate) {
-		self.aspectsViewDelegate = viewDelegate
 	}
 	
 	// MARK: - Points Logic

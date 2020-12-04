@@ -7,7 +7,7 @@
 import UIKit
 
 class CharacteristicView: UIButton, DiceProtocol {
-    
+    	
     var testName: String
     
     var diceType: String
@@ -129,7 +129,7 @@ class CharacteristicView: UIButton, DiceProtocol {
 		valueTextField.isHidden = true
 
     }
-    
+	
     override func draw(_ rect: CGRect) {
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 5

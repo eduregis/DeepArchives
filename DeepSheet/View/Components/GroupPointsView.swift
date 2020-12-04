@@ -13,7 +13,7 @@ class GroupPointsView: UIView {
 	
 	// MARK: - Components
 	lazy var luckView: IndvPointsView = {
-		let points = IndvPointsView(pointName: LocalizedStrings.luckPoints, rollName: LocalizedStrings.luckRoll ,diceType: LocalizedStrings.rollDiceD100, diceButton: true)
+		let points = IndvPointsView(pointName: LocalizedStrings.luckPoints, rollName: LocalizedStrings.luckRoll, diceType: LocalizedStrings.rollDiceD100, diceButton: true)
 		points.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(points)
 		return points

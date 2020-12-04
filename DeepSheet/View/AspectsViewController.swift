@@ -6,9 +6,10 @@
 //
 import UIKit
 
-class AspectsViewController: UIViewController, UITextFieldDelegate, AspectsViewDelegate {
+class AspectsViewController: UIViewController, UITextFieldDelegate {
 
 	private let aspectsViewPresenter = AspectsPresenter()
+	
 	var isEditEnabled: Bool = false
 	
 	lazy var headerButtons: HeaderButtons = {
@@ -87,7 +88,6 @@ class AspectsViewController: UIViewController, UITextFieldDelegate, AspectsViewD
 		attributesInformation.setAllTextFieldDelegates(with: self)
 		pointsView.setAllTextFieldDelegates(with: self)
 		
-		aspectsViewPresenter.setAspectsDelegate(viewDelegate: self)
 		configureLayout()
 		
 		pointsView.updatePointsValues(with: aspectsViewPresenter.getPoints())

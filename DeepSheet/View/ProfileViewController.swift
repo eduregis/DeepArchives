@@ -142,6 +142,7 @@ class ProfileViewController: UIViewController {
             birthPlace.topAnchor.constraint(equalTo: address.bottomAnchor, constant: 16),
             birthPlace.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             birthPlace.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+			birthPlace.bottomAnchor.constraint(equalTo: scrollingView.bottomAnchor)
         ])
     }
 }
