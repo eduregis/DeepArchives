@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CharacterAttribute" representedClassName=".CharacterAttribute" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CharacterPoint" representedClassName=".CharacterPoint" syncable="YES" codeGenerationType="category">
+        <attribute name="currentPoints" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="totalPoints" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" customClassName="(int,int)"/>
+    </entity>
+    <entity name="CharacterSheet" representedClassName=".CharacterSheet" syncable="YES" codeGenerationType="category"/>
+    <entity name="CharacterState" representedClassName=".CharacterState" syncable="YES" codeGenerationType="category">
+        <attribute name="activated" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CharacterState" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="CharacterPoint" positionX="-54" positionY="9" width="128" height="74"/>
+        <element name="CharacterAttribute" positionX="-36" positionY="36" width="128" height="59"/>
+        <element name="CharacterSheet" positionX="-18" positionY="54" width="128" height="29"/>
+    </elements>
 </model>
