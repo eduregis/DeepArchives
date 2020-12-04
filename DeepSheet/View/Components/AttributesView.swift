@@ -16,7 +16,7 @@ class AttributesView: UIView {
         label.font = UIFont.josefinSansBold()
         label.textAlignment = .center
         label.textColor = .ivory
-        label.text = "Atributos"
+        label.text = "Attributes"
         return label
     }()
     

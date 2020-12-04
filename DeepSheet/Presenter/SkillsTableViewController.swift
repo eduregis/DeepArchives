@@ -41,6 +41,10 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         card.additionCardLabel.text = "Add skill"
         return card
     }()
+    
+    @objc func additionButton(_ sender: UITapGestureRecognizer) {
+        self.present(NewSkillModal(), animated: true, completion: nil)
+    }
 
     lazy var headerButtons: HeaderButtons = {
         let header = HeaderButtons()
@@ -70,6 +74,10 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }()
 
     private func setupSearchBar() {
+        self.additionCard.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.additionButton(_:)))
+        tap.numberOfTapsRequired = 1
+        self.additionCard.addGestureRecognizer(tap)
         self.tableView.tableHeaderView = headerView
     }
 
