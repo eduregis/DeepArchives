@@ -49,6 +49,13 @@ class BioViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+	
+	lazy var attackCard: AttackCardView = {
+		let attack = AttackCardView(attackName: "Revólver", chance: 25, dice: "1d4", reach: 20, num: 1, ammo: 5, malfunction: 15)
+		attack.translatesAutoresizingMaskIntoConstraints = false
+		self.view.addSubview(attack)
+		return attack
+	}()
     
     lazy var phobiasAndManias: ProfileComponent = {
         let view = ProfileComponent(titleText: LocalizedStrings.phobiasAndManias, value: "Desconsiderar o nego.", multiline: true)

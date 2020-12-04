@@ -108,7 +108,7 @@ class DiceAlert: UIView {
     func rollDice (rollText: String, rollType: String) {
         
         testNameLabel.text = rollText
-        diceTypeLabel.text = rollType
+        diceTypeLabel.text = "Roll: \(rollType)"
         
         let resultValue = Int.random(in: 1...100)
         resultLabel.text = "\(resultValue)"

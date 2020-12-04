@@ -259,7 +259,18 @@ class LocalizedStrings {
         }
     }
     
-    // MARK: - Strings for Characteristic Buttons
+    // MARK: - Strings for Characteristic
+	
+	static var characteristicsTitle: String {
+		switch language {
+		case "EN":
+			return "Attributes"
+		case "PT":
+			return "Atributos"
+		default:
+			return "Attributes"
+		}
+	}
     
     static var strAttributeText: String {
         switch language {

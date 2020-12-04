@@ -110,7 +110,7 @@ class SkillTableViewCell: UITableViewCell {
         skillValue.text = skill.skillPoints.description
         skillValueBy2.text = (skill.skillPoints/2).description
         skillValueBy5.text = (skill.skillPoints/5).description
-        if (!skill.isActivated) {
+        if !skill.isActivated {
             colorView.backgroundColor = .lightGray
         } else {
             colorView.backgroundColor = .lightSeaGreen

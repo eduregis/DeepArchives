@@ -177,7 +177,7 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.textLabel?.text = categories[indexPath.row]
         cell.backgroundColor = .ivory
         cell.tintColor = UIColor.lightSeaGreen
-        if (selectedCategoryIndex == indexPath.row) {
+        if selectedCategoryIndex == indexPath.row {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
