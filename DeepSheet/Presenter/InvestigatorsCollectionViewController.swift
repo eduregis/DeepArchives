@@ -11,11 +11,21 @@ private let reuseIdentifier = "Cell"
 
 class InvestigatorsCollectionViewController: UIViewController {
     
+    let investigatorPresenter = InvestigatorPresenter()
+    
+    var investigators: [Investigator] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.myCollectionView?.reloadData()
+                }
+            }
+    }
+    
     var myCollectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        self.fetchData()
         self.title = "Investigators"
         
         let view = UIView()
@@ -53,21 +63,29 @@ class InvestigatorsCollectionViewController: UIViewController {
 
 extension InvestigatorsCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return investigators.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! InvestigatorCollectionViewCell
+        let baseInv = Investigator(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+        baseInv.name = "Cleiton"
+        baseInv.occupation = "DJ"
         if indexPath.row == 0 {
-            myCell.set(name: "Cleiton", ocupation: "DJ", dashed: true)
+            myCell.set(investigator: baseInv, dashed: true)
         } else {
-            myCell.set(name: "Cleiton Rasta", ocupation: "DJ", dashed: false)
+            let inv = investigators[indexPath.row - 1]
+            myCell.set(investigator: inv, dashed: false)
         }
         return myCell
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    
+    func fetchData() {
+        self.investigators = self.investigatorPresenter.fetchInvestigators()
     }
 }
 
