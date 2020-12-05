@@ -29,6 +29,7 @@ class InvestigatorPresenter {
         } catch {
             fatalError("Unable to fetch data from core data ")
         }
+        print(self.investigators)
         return self.investigators
     }
 }

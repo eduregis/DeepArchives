@@ -68,11 +68,8 @@ extension InvestigatorsCollectionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! InvestigatorCollectionViewCell
-        let baseInv = Investigator(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
-        baseInv.name = "Cleiton"
-        baseInv.occupation = "DJ"
         if indexPath.row == 0 {
-            myCell.set(investigator: baseInv, dashed: true)
+            myCell.set(name: "Creito", occupation: "Dejay", dashed: true)
         } else {
             let inv = investigators[indexPath.row - 1]
             myCell.set(investigator: inv, dashed: false)
@@ -93,7 +90,7 @@ extension InvestigatorsCollectionViewController: UICollectionViewDelegate {
  
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let editModal = NewInvestigatorModal()
+            let editModal = NewInvestigatorModal(action: {self.fetchData()})
             present(editModal, animated: true, completion: nil)
         } else {
             print("User tapped on item \(indexPath.row) in \(indexPath.section)")
