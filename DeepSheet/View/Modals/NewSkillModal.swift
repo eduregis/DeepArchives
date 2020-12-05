@@ -12,10 +12,23 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var actualPage = 0
     var lastPage = 1
     
+    let skillsPresenter = SkillsPresenter()
+    
     var tableView = UITableView()
-    var categories: [String] = ["Arte", "Língua Nativa", "Ofício", "Outra Língua", "Pilotar", "Repasro Mecânico"]
+    var categories: [String] = ["Arte", "Língua Nativa", "Ofício", "Outra Língua", "Pilotar", "Reparo Mecânico"]
     var selectedCategoryIndex = 0
     
+    var editionAction: (() -> ())?
+
+      init(action: @escaping () -> ()) {
+        super.init(nibName: nil, bundle: nil)
+        editionAction = action
+      }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+      }
+
     // MARK: - NavBar
     
     lazy var navigationBar: UIView = {
@@ -125,7 +138,7 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     @objc func leftButtonBehavior() {
         if actualPage == 0 {
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: editionAction)
         } else {
             actualPage -= 1
         }
@@ -134,7 +147,8 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     @objc func rightButtonBehavior() {
         if actualPage == lastPage {
-            dismiss(animated: true, completion: nil)
+            createNewSkill()
+            dismiss(animated: true, completion: editionAction)
         } else {
             actualPage += 1
         }
@@ -194,6 +208,10 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.deselectRow(at: indexPath, animated: false)
         selectedCategoryIndex = indexPath.row
         tableView.reloadData()
+    }
+    
+    func createNewSkill() {
+        skillsPresenter.newSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!)!)
     }
     
     private func configureLayout() {

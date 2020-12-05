@@ -8,11 +8,16 @@
 import UIKit
 
 class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+        
+    let skillsPresenter = SkillsPresenter()
+    
     var skills: [Skill] = [] {
         didSet {
-        filteredSkill = skills
-        self.tableView.reloadData()
-        }
+            filteredSkill = skills
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                }
+            }
     }
     
     var isEditable = false
@@ -41,6 +46,12 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         card.additionCardLabel.text = "Add skill"
         return card
     }()
+    
+    @objc func additionButton(_ sender: UITapGestureRecognizer) {
+        self.present(NewSkillModal(action: {
+            self.fetchData()
+        }), animated: true, completion: nil)
+    }
 
     lazy var headerButtons: HeaderButtons = {
         let header = HeaderButtons()
@@ -70,6 +81,10 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }()
 
     private func setupSearchBar() {
+        self.additionCard.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.additionButton(_:)))
+        tap.numberOfTapsRequired = 1
+        self.additionCard.addGestureRecognizer(tap)
         self.tableView.tableHeaderView = headerView
     }
 
@@ -78,7 +93,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
             filteredSkill = skills
         } else {
             filteredSkill = skills.filter { item in
-                return item.skillName.lowercased().contains(textSearched.lowercased())
+                return item.name!.lowercased().contains(textSearched.lowercased())
             }
         }
         tableView.reloadData()
@@ -155,14 +170,25 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         if !isEditable {
-            diceAlert.rollDice(rollText: filteredSkill[indexPath.row].testName, rollType: filteredSkill[indexPath.row].diceType)
+            diceAlert.rollDice(rollText: filteredSkill[indexPath.row].name!, rollType: filteredSkill[indexPath.row].diceType!)
             UIView.animate(withDuration: 0.2, delay: 0, animations: {
                 self.diceAlert.layer.opacity = 1
                 self.dimmingOverlay.layer.opacity = 0.6
             })
         } else {
-            self.present(NewSkillModal(), animated: true, completion: nil)
+            self.present(NewSkillModal(action: {
+                self.fetchData()
+            }), animated: true, completion: nil)
         }
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "Delete"){ ( action, view, completionHandler) in
+            let skillToRemove = self.filteredSkill[indexPath.row]
+            self.skillsPresenter.deleteSkill(skillToRemove)
+            self.fetchData()
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
     }
     
     func configureConstraints() {
@@ -196,9 +222,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func fetchData() {
-        skills.append(Skill(skillName: "Run", skillPoints: 45, isActivated: true, testName: "Run (Skill)", diceType: LocalizedStrings.rollDiceD100))
-        skills.append(Skill(skillName: "Search", skillPoints: 25, isActivated: false, testName: "Search (Skill)", diceType: LocalizedStrings.rollDiceD100))
-        skills.append(Skill(skillName: "Seek", skillPoints: 1, isActivated: false, skillDesc: "Textin", testName: "Seek (Skill)", diceType: LocalizedStrings.rollDiceD100))
+        self.skills = skillsPresenter.fetchSkills()
     }
     
     @objc func enterEditing() {
