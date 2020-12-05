@@ -891,4 +891,37 @@ class LocalizedStrings {
             return "Add\nInvestigator"
         }
     }
+    
+    static var editSkillName: String {
+        switch language {
+        case "EN":
+            return "Edit Skill"
+        case "PT":
+            return "Editar Perícia"
+        default:
+            return "Edit Skill"
+        }
+    }
+    
+    static var category: String {
+        switch language {
+        case "EN":
+            return "Category"
+        case "PT":
+            return "Categoria"
+        default:
+            return "Category"
+        }
+    }
+    
+    static var isActivatedSkill: String {
+        switch language {
+        case "EN":
+            return "Skill active"
+        case "PT":
+            return "Perícia ativa"
+        default:
+            return "Skill active"
+        }
+    }
 }
