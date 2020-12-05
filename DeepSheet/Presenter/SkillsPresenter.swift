@@ -27,12 +27,13 @@ class SkillsPresenter {
         }
     }
     
-    func newSkill(_ skillName: String, _ skillValue: Int64, _ switcher: Bool) {
+    func newSkill(_ skillName: String, _ skillValue: Int64, _ switcher: Bool, _ desc: Int) {
         let newSkill = Skill(context: self.context)
         newSkill.name = skillName
         newSkill.value = skillValue
         newSkill.diceType = "d100"
         newSkill.isActivated = switcher
+        newSkill.desc = Int64(desc)
         newSkill.userCreated = true
         
         do {
@@ -48,7 +49,7 @@ class SkillsPresenter {
         editSkill.value = (skillValue != nil) ? skillValue! : skill.value
         editSkill.diceType = "d100"
         editSkill.isActivated = switcher
-        editSkill.userCreated = true
+        editSkill.userCreated = skill.userCreated
         
         do {
             try context.save()
