@@ -8,6 +8,11 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
+//    var investigator: Investigator = {
+//        let inv = Investigator
+//        
+//    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

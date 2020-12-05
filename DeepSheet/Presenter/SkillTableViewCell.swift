@@ -41,6 +41,7 @@ class SkillTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = .josefinSansBold()
+        lbl.textColor = .lightSeaGreen
         self.diceView.addSubview(lbl)
         return lbl
     }()
@@ -106,7 +107,7 @@ class SkillTableViewCell: UITableViewCell {
     
     func set(skill: Skill) {
         skillName.text = skill.name
-        skillDesc.text = skill.desc
+        skillDesc.text = skill.desc.description
         skillValue.text = skill.value.description
         skillValueBy2.text = (skill.value/2).description
         skillValueBy5.text = (skill.value/5).description

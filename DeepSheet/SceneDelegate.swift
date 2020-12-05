@@ -29,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print("Not first launch.")
         } else {
             print("First launch.")
+            SkillEnum.init()
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             UserDefaults.standard.setValue("PT", forKey: "Language")
             UserDefaults.standard.synchronize()

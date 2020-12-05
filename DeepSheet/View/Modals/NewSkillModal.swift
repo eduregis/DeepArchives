@@ -236,7 +236,7 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func createNewSkill() {
-        skillsPresenter.newSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!)!)
+        skillsPresenter.newSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!)!, isActivatedSwitch.isOn)
     }
     
     private func configureLayout() {
