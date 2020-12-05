@@ -27,13 +27,28 @@ class SkillsPresenter {
         }
     }
     
-    func newSkill(_ skillName: String, _ skillValue: Int64) {
+    func newSkill(_ skillName: String, _ skillValue: Int64, _ switcher: Bool) {
         let newSkill = Skill(context: self.context)
         newSkill.name = skillName
         newSkill.value = skillValue
         newSkill.diceType = "d100"
-        newSkill.isActivated = false
+        newSkill.isActivated = switcher
         newSkill.userCreated = true
+        
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+    
+    func editSkill(_ skillName: String, _ skillValue: Int64, _ switcher: Bool, _ skill: Skill) {
+        let editSkill = skill
+        editSkill.name = skillName
+        editSkill.value = skillValue
+        editSkill.diceType = "d100"
+        editSkill.isActivated = switcher
+        editSkill.userCreated = true
         
         do {
             try context.save()

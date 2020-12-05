@@ -169,6 +169,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        let selectedSkill = filteredSkill[indexPath.row]
         if !isEditable {
             diceAlert.rollDice(rollText: filteredSkill[indexPath.row].name!, rollType: filteredSkill[indexPath.row].diceType!)
             UIView.animate(withDuration: 0.2, delay: 0, animations: {
@@ -178,7 +179,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             self.present(EditSkillModal(action: {
                 self.fetchData()
-            }), animated: true, completion: nil)
+            }, selectedSkill), animated: true, completion: nil)
         }
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

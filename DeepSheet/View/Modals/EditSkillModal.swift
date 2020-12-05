@@ -16,11 +16,16 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var tableView = UITableView()
     var categories: [String] = ["Arte", "Língua Nativa", "Ofício", "Outra Língua", "Pilotar", "Reparo Mecânico"]
+    
+    var skill: Skill
+    
     var selectedCategoryIndex = 0
     
     var editionAction: (() -> ())?
 
-      init(action: @escaping () -> ()) {
+    init(action: @escaping () -> (), _ skillReceived : Skill) {
+        skill = skillReceived
+        print(skill)
         super.init(nibName: nil, bundle: nil)
         editionAction = action
       }
@@ -173,7 +178,7 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func rightButtonBehavior() {
         if actualPage == lastPage {
-            createNewSkill()
+            editSkill()
             dismiss(animated: true, completion: editionAction)
         } else {
             actualPage += 1
@@ -236,8 +241,8 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     
-    func createNewSkill() {
-        skillsPresenter.newSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!)!)
+    func editSkill() {
+        skillsPresenter.editSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!)!, isActivatedSwitch.isOn, skill)
     }
     
     private func configureLayout() {
