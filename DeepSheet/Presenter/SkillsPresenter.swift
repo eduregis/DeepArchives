@@ -12,7 +12,7 @@ class SkillsPresenter {
     
     var skills: [Skill] = []
     
-    func mockData(_ skillName: String, _ skillValue: Int64){
+    func mockData(_ skillName: String, _ skillValue: Int64) {
         let newSkill = Skill(context: self.context)
         newSkill.name = skillName
         newSkill.value = skillValue

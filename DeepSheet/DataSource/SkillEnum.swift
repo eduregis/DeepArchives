@@ -10,7 +10,6 @@ class SkillEnum {
     
     let skillPresenter = SkillsPresenter()
     
-    
     init() {
         skillPresenter.mockData("Accounting", 10)
         skillPresenter.mockData("Anthropology", 1)

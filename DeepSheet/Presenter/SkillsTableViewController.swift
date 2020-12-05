@@ -182,7 +182,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Delete"){ ( action, view, completionHandler) in
+        let action = UIContextualAction(style: .destructive, title: "Delete") { ( _, _, _) in
             let skillToRemove = self.filteredSkill[indexPath.row]
             self.skillsPresenter.deleteSkill(skillToRemove)
             self.fetchData()
