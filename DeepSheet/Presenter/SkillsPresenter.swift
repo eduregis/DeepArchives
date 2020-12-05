@@ -42,10 +42,10 @@ class SkillsPresenter {
         }
     }
     
-    func editSkill(_ skillName: String, _ skillValue: Int64, _ switcher: Bool, _ skill: Skill) {
+    func editSkill(_ skillName: String, _ skillValue: Int64?, _ switcher: Bool, _ skill: Skill) {
         let editSkill = skill
-        editSkill.name = skillName
-        editSkill.value = skillValue
+        editSkill.name = skill.name
+        editSkill.value = (skillValue != nil) ? skillValue! : skill.value
         editSkill.diceType = "d100"
         editSkill.isActivated = switcher
         editSkill.userCreated = true

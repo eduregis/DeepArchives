@@ -62,9 +62,9 @@ class InvestigatorCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = .clear
     }
     
-    func set(name: String, ocupation: String, image: UIImage? = nil, dashed: Bool) {
-        investigatorName.text = name
-        investigatorOcupation.text = ocupation
+    func set(investigator: Investigator, image: UIImage? = nil, dashed: Bool) {
+        investigatorName.text = investigator.name
+        investigatorOcupation.text = investigator.occupation
         if let image = image {
             investigatorImage.image = image
         }

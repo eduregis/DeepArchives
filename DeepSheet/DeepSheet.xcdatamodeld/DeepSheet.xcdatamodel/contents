@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Investigator" representedClassName="Investigator" syncable="YES" codeGenerationType="category">
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="occupation" attributeType="String" defaultValueString=""/>
         <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="investigator" inverseEntity="Skill"/>
     </entity>
     <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="category">
@@ -14,7 +15,7 @@
         <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="skills" inverseEntity="Investigator"/>
     </entity>
     <elements>
-        <element name="Investigator" positionX="18" positionY="108" width="128" height="59"/>
+        <element name="Investigator" positionX="18" positionY="108" width="128" height="74"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
     </elements>
 </model>

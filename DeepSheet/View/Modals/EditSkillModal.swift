@@ -242,7 +242,7 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func editSkill() {
-        skillsPresenter.editSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!)!, isActivatedSwitch.isOn, skill)
+        skillsPresenter.editSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!), isActivatedSwitch.isOn, skill)
     }
     
     private func configureLayout() {

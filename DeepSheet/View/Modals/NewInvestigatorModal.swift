@@ -9,6 +9,8 @@ import UIKit
 
 class NewInvestigatorModal: UIViewController {
     
+    let investigatorPresenter = InvestigatorPresenter()
+    
     // MARK: - NavBar
     
     lazy var navigationBar: UIView = {
@@ -86,12 +88,17 @@ class NewInvestigatorModal: UIViewController {
     }
     
     @objc func rightButtonBehavior() {
+        createNewInvestigator()
         dismiss(animated: true, completion: nil)
     }
     
     private func additionalConfigurations() {
         configureLayout()
         view.backgroundColor = .backgroundBlack
+    }
+    
+    func createNewInvestigator() {
+        self.investigatorPresenter.newInvestigator(investigatorNameView.valueText.text, ocupationView.valueText.text)
     }
     
     private func configureLayout() {
