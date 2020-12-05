@@ -5,9 +5,10 @@
         <attribute name="diceType" optional="YES" attributeType="String"/>
         <attribute name="isActivated" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="userCreated" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="value" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Skill" positionX="-27" positionY="18" width="128" height="104"/>
+        <element name="Skill" positionX="-27" positionY="18" width="128" height="119"/>
     </elements>
 </model>

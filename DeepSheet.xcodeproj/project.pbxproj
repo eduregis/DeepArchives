@@ -88,6 +88,7 @@
 		2EF1F00E256E925100BE0644 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1F00D256E925100BE0644 /* BioViewController.swift */; };
 		5BB9EC1B257AA522006E006E /* Skill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EC19257AA522006E006E /* Skill+CoreDataClass.swift */; };
 		5BB9EC32257AAC7D006E006E /* SkillsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EC31257AAC7D006E006E /* SkillsPresenter.swift */; };
+		5BB9EC37257BB4D8006E006E /* SkillEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EC36257BB4D8006E006E /* SkillEnum.swift */; };
 		5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */; };
 		5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */; };
 		5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */; };
@@ -184,6 +185,7 @@
 		2EF1F00D256E925100BE0644 /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		5BB9EC19257AA522006E006E /* Skill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skill+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5BB9EC31257AAC7D006E006E /* SkillsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsPresenter.swift; sourceTree = "<group>"; };
+		5BB9EC36257BB4D8006E006E /* SkillEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillEnum.swift; sourceTree = "<group>"; };
 		5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarGradient.swift; sourceTree = "<group>"; };
 		5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
 		5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 		2EF1EF112567EEEA00BE0644 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				5BB9EC36257BB4D8006E006E /* SkillEnum.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				2E7F67CD257685DE00976C85 /* InvestigatorCollectionViewCell.swift in Sources */,
 				00E630AA256FD73D00D397C0 /* AdditionCardView.swift in Sources */,
+				5BB9EC37257BB4D8006E006E /* SkillEnum.swift in Sources */,
 				92CB88E8256FE5D800B94B15 /* CombatDiceDelegate.swift in Sources */,
 				9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,

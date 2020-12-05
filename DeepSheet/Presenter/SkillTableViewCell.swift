@@ -41,6 +41,7 @@ class SkillTableViewCell: UITableViewCell {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = .josefinSansBold()
+        lbl.textColor = .lightSeaGreen
         self.diceView.addSubview(lbl)
         return lbl
     }()

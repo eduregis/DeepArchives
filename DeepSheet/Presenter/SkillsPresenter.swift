@@ -9,7 +9,23 @@ import Foundation
 import UIKit
 class SkillsPresenter {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var skills: [Skill] = []
+    
+    func mockData(_ skillName: String, _ skillValue: Int64){
+        let newSkill = Skill(context: self.context)
+        newSkill.name = skillName
+        newSkill.value = skillValue
+        newSkill.diceType = "d100"
+        newSkill.isActivated = false
+        newSkill.userCreated = false
+        
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
     
     func newSkill(_ skillName: String, _ skillValue: Int64) {
         let newSkill = Skill(context: self.context)
@@ -17,6 +33,7 @@ class SkillsPresenter {
         newSkill.value = skillValue
         newSkill.diceType = "d100"
         newSkill.isActivated = false
+        newSkill.userCreated = true
         
         do {
             try context.save()
