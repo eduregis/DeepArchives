@@ -17,8 +17,8 @@ class InvestigatorsCollectionViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.myCollectionView?.reloadData()
-                }
             }
+        }
     }
     
     var myCollectionView: UICollectionView?

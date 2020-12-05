@@ -8,6 +8,8 @@
 import UIKit
 
 class SkillTableViewCell: UITableViewCell {
+    
+    var categories: [String] = ["", LocalizedStrings.artSkill, LocalizedStrings.nativeLanguageSkill, LocalizedStrings.officeSkill, LocalizedStrings.otherLanguageSkill, LocalizedStrings.pilotSkill, LocalizedStrings.mechRepairSkill]
 	
     lazy var diceImage: UIImageView = {
         let imageView = UIImageView()
@@ -107,7 +109,7 @@ class SkillTableViewCell: UITableViewCell {
     
     func set(skill: Skill) {
         skillName.text = skill.name
-        skillDesc.text = skill.desc.description
+        skillDesc.text = categories[Int(skill.desc)]
         skillValue.text = skill.value.description
         skillValueBy2.text = (skill.value/2).description
         skillValueBy5.text = (skill.value/5).description

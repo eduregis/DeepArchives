@@ -16,8 +16,8 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
             filteredSkill = skills
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                }
             }
+        }
     }
     
     var isEditable = false

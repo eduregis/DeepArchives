@@ -15,7 +15,7 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     let skillsPresenter = SkillsPresenter()
     
     var tableView = UITableView()
-    var categories: [String] = ["Arte", "Língua Nativa", "Ofício", "Outra Língua", "Pilotar", "Reparo Mecânico"]
+    var categories: [String] = [LocalizedStrings.artSkill, LocalizedStrings.nativeLanguageSkill, LocalizedStrings.officeSkill, LocalizedStrings.otherLanguageSkill, LocalizedStrings.pilotSkill, LocalizedStrings.mechRepairSkill]
     
     var skill: Skill
     
@@ -151,7 +151,16 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
         additionalConfigurations()
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
-        skillNameView.valueText.isEditable = false
+        if !skill.userCreated {
+            skillNameView.valueText.isEditable = false
+            lastPage = 0
+            rightButton.setTitle(LocalizedStrings.confirmButton, for: .normal)
+        } else {
+            selectedCategoryIndex = Int(skill.desc - 1)
+        }
+        skillNameView.valueText.text = skill.name
+        valueView.valueText.text = "\(skill.value)"
+        isActivatedSwitch.isOn = skill.isActivated
         firstStack.isHidden = false
         secondStack.isHidden = true
     }
@@ -242,6 +251,9 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func editSkill() {
+        if skill.userCreated {
+            skill.desc = Int64(selectedCategoryIndex + 1)
+        }
         skillsPresenter.editSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!), isActivatedSwitch.isOn, skill)
     }
     
