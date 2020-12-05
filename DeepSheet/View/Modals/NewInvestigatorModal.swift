@@ -11,6 +11,17 @@ class NewInvestigatorModal: UIViewController {
     
     let investigatorPresenter = InvestigatorPresenter()
     
+    var editionAction: (() -> ())?
+
+      init(action: @escaping () -> ()) {
+        super.init(nibName: nil, bundle: nil)
+        editionAction = action
+      }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+      }
+    
     // MARK: - NavBar
     
     lazy var navigationBar: UIView = {
@@ -84,12 +95,12 @@ class NewInvestigatorModal: UIViewController {
     }
     
     @objc func leftButtonBehavior() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: editionAction)
     }
     
     @objc func rightButtonBehavior() {
         createNewInvestigator()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: editionAction)
     }
     
     private func additionalConfigurations() {
