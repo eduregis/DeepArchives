@@ -176,7 +176,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
                 self.dimmingOverlay.layer.opacity = 0.6
             })
         } else {
-            self.present(NewSkillModal(action: {
+            self.present(EditSkillModal(action: {
                 self.fetchData()
             }), animated: true, completion: nil)
         }

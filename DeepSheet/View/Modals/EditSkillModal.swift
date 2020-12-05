@@ -1,13 +1,13 @@
 //
-//  NewSkillModal.swift
+//  EditSkillModal.swift
 //  DeepSheet
 //
-//  Created by Eduardo Oliveira on 30/11/20.
+//  Created by Eduardo Oliveira on 05/12/20.
 //
 
 import UIKit
 
-class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var actualPage = 0
     var lastPage = 1
@@ -43,7 +43,7 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .ivory
-        label.text = LocalizedStrings.newSkillName
+        label.text = LocalizedStrings.editSkillName
         label.font = UIFont.josefinSansButton()
         self.view.addSubview(label)
         return label
@@ -146,6 +146,7 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
         additionalConfigurations()
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
+        skillNameView.valueText.isEditable = false
         firstStack.isHidden = false
         secondStack.isHidden = true
     }
@@ -266,3 +267,4 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
         ])
     }
 }
+
