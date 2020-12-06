@@ -44,8 +44,8 @@ class TabBarViewController: UITabBarController {
                                        selectedImage: UIImage(named: "combat-icon"))
         
         let bioViewController = BioViewController()
-        bioViewController.title = ("Bio")
-        bioViewController.tabBarItem = UITabBarItem(title: "Bio", image: UIImage(systemName: "book.fill"),
+        bioViewController.title = ("Historic")
+        bioViewController.tabBarItem = UITabBarItem(title: "Historic", image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))
 
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)

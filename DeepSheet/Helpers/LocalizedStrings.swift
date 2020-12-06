@@ -924,4 +924,72 @@ class LocalizedStrings {
             return "Skill active"
         }
     }
+    
+    // MARK: - Strings for Skill Categories
+    
+    static var artSkill: String {
+        switch language {
+        case "EN":
+            return "Art"
+        case "PT":
+            return "Arte"
+        default:
+            return "Art"
+        }
+    }
+    
+    static var nativeLanguageSkill: String {
+        switch language {
+        case "EN":
+            return "Native Language"
+        case "PT":
+            return "Língua Nativa"
+        default:
+            return "Native Language"
+        }
+    }
+    
+    static var officeSkill: String {
+        switch language {
+        case "EN":
+            return "Office"
+        case "PT":
+            return "Ofício"
+        default:
+            return "Office"
+        }
+    }
+    
+    static var pilotSkill: String {
+        switch language {
+        case "EN":
+            return "Pilot"
+        case "PT":
+            return "Pilotar"
+        default:
+            return "Pilot"
+        }
+    }
+    
+    static var otherLanguageSkill: String {
+        switch language {
+        case "EN":
+            return "Other Language"
+        case "PT":
+            return "Outra Língua"
+        default:
+            return "Other Language"
+        }
+    }
+    
+    static var mechRepairSkill: String {
+        switch language {
+        case "EN":
+            return "Mechanic Repair"
+        case "PT":
+            return "Reparo Mecânico"
+        default:
+            return "Mechanic Repair"
+        }
+    }
 }

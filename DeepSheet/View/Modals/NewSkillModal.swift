@@ -15,7 +15,7 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let skillsPresenter = SkillsPresenter()
     
     var tableView = UITableView()
-    var categories: [String] = ["Arte", "Língua Nativa", "Ofício", "Outra Língua", "Pilotar", "Reparo Mecânico"]
+    var categories: [String] = [LocalizedStrings.artSkill, LocalizedStrings.nativeLanguageSkill, LocalizedStrings.officeSkill, LocalizedStrings.otherLanguageSkill, LocalizedStrings.pilotSkill, LocalizedStrings.mechRepairSkill]
     var selectedCategoryIndex = 0
     
     var editionAction: (() -> ())?
@@ -236,7 +236,7 @@ class NewSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func createNewSkill() {
-        skillsPresenter.newSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!)!, isActivatedSwitch.isOn)
+        skillsPresenter.newSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!)!, isActivatedSwitch.isOn, selectedCategoryIndex + 1)
     }
     
     private func configureLayout() {
