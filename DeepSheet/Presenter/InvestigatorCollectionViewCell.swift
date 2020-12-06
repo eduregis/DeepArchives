@@ -62,7 +62,7 @@ class InvestigatorCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = .clear
     }
     
-    func set(investigator: Investigator? = nil, name: String? = nil, occupation: String? = nil,image: UIImage? = nil, dashed: Bool) {
+    func set(investigator: Investigator? = nil, name: String? = nil, occupation: String? = nil, image: UIImage? = nil, dashed: Bool) {
         investigatorName.text = (investigator != nil) ? investigator?.name! : name
         investigatorOcupation.text = (investigator != nil) ? investigator?.occupation! : occupation
         if let image = image {

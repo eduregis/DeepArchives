@@ -12,12 +12,12 @@ class SkillEnum {
     
     init() {
         skillPresenter.mockData("Accounting", 10)
-        skillPresenter.mockData("Anthropology", 1)
-        skillPresenter.mockData("Archaeology", 1)
+        skillPresenter.mockData("Chemistry", 1)
         skillPresenter.mockData("Art", 5)
         skillPresenter.mockData("Astronomy", 1)
+        skillPresenter.mockData("Anthropology", 1)
         skillPresenter.mockData("Bargain", 5)
+        skillPresenter.mockData("Archaeology", 1)
         skillPresenter.mockData("Biology", 1)
-        skillPresenter.mockData("Chemistry", 1)
     }
 }

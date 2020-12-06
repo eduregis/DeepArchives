@@ -284,4 +284,3 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
         ])
     }
 }
-
