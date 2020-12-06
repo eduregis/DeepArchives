@@ -23,7 +23,7 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var editionAction: (() -> ())?
 
-    init(action: @escaping () -> (), _ skillReceived : Skill) {
+    init(action: @escaping () -> (), _ skillReceived: Skill) {
         skill = skillReceived
         print(skill)
         super.init(nibName: nil, bundle: nil)
@@ -284,4 +284,3 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
         ])
     }
 }
-

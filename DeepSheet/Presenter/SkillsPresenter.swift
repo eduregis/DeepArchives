@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import CoreData
+
 class SkillsPresenter {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -59,8 +61,14 @@ class SkillsPresenter {
     }
     
     func fetchSkills() -> [Skill] {
+        let fetch = Skill.fetchRequest() as NSFetchRequest<Skill>
+        //let pred = NSPredicate(format: "isActivated == %@", NSNumber(value: true))
+        let sortActivated = NSSortDescriptor(key: "isActivated", ascending: false)
+        let sortName = NSSortDescriptor(key: "name", ascending: true)
+
+        fetch.sortDescriptors = [sortActivated, sortName]
         do {
-            self.skills  = try context.fetch(Skill.fetchRequest())
+            self.skills  = try context.fetch(fetch)
         } catch {
             fatalError("Unable to fetch data from core data ")
         }
@@ -68,11 +76,13 @@ class SkillsPresenter {
     }
     
     func deleteSkill(_ skill: Skill) {
-        context.delete(skill)
-        do {
-            try context.save()
-        } catch {
-            fatalError("Unable to fetch data from core data ")
+        if skill.userCreated {
+            context.delete(skill)
+            do {
+                try context.save()
+            } catch {
+                fatalError("Unable to fetch data from core data ")
+            }
         }
     }
 }
