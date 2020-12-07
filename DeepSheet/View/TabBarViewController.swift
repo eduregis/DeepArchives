@@ -49,7 +49,7 @@ class TabBarViewController: UITabBarController {
         combatViewController.tabBarItem = UITabBarItem(title: "Combat", image: UIImage(named: "combat-icon"),
                                        selectedImage: UIImage(named: "combat-icon"))
         
-        let bioViewController = BioViewController()
+        let bioViewController = BioViewController(self.investigator)
         bioViewController.title = ("Historic")
         bioViewController.tabBarItem = UITabBarItem(title: "Historic", image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))

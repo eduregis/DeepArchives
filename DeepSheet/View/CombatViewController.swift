@@ -56,6 +56,16 @@ class CombatViewController: UIViewController, CombatDelegate {
 		self.view.addSubview(alert)
 		return alert
 	}()
+    
+    lazy var itemCard: ItemCardView = {
+        let item = ItemCardView()
+        self.view.addSubview(item)
+        item.translatesAutoresizingMaskIntoConstraints = false
+        item.itemNameLabel.text = "Medkit"
+        item.itemDescriptionTextView.text = "Cura as galera tudo."
+        item.itemUsesTextField.text = "999"
+        return item
+    }()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +116,10 @@ class CombatViewController: UIViewController, CombatDelegate {
 			dimmingOverlay.rightAnchor.constraint(equalTo: self.view.rightAnchor),
 			dimmingOverlay.topAnchor.constraint(equalTo: self.view.topAnchor),
 			dimmingOverlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            
+            itemCard.topAnchor.constraint(equalTo: attackCard.bottomAnchor, constant: 10),
+            itemCard.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
+            itemCard.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
 			
 			diceAlert.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
 			diceAlert.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
