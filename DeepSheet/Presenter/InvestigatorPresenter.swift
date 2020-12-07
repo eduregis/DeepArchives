@@ -15,7 +15,6 @@ class InvestigatorPresenter {
         let newInvestigator = Investigator(context: self.context)
         newInvestigator.name = name
         newInvestigator.occupation = occupation
-        print(newInvestigator)
         do {
             try context.save()
         } catch {
@@ -29,7 +28,6 @@ class InvestigatorPresenter {
         } catch {
             fatalError("Unable to fetch data from core data ")
         }
-        print(self.investigators)
         return self.investigators
     }
 }

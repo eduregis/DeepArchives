@@ -93,8 +93,8 @@ extension InvestigatorsCollectionViewController: UICollectionViewDelegate {
             let editModal = NewInvestigatorModal(action: {self.fetchData()})
             present(editModal, animated: true, completion: nil)
         } else {
-            print("User tapped on item \(indexPath.row) in \(indexPath.section)")
-            let dest = TabBarViewController()
+            let selectedInvestigator = investigators[indexPath.row - 1]
+            let dest = TabBarViewController(selectedInvestigator)
             self.navigationController?.pushViewController(dest, animated: true)
         }
     }

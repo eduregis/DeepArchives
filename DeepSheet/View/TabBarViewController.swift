@@ -8,10 +8,17 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-//    var investigator: Investigator = {
-//        let inv = Investigator
-//        
-//    }()
+
+    let investigator:Investigator
+    
+    init(_ investigator: Investigator) {
+        self.investigator = investigator
+        super.init(nibName: nil, bundle: nil)
+      }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+      }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +39,7 @@ class TabBarViewController: UITabBarController {
         statsViewController.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "characteristic-icon"),
                                        selectedImage: UIImage(named: "characteristic-icon"))
         
-        let skillsViewController = SkillsTableViewController()
+        let skillsViewController = SkillsTableViewController(self.investigator)
         skillsViewController.title = ("Skills")
         skillsViewController.tabBarItem = UITabBarItem(title: "Skills", image: UIImage(named: "skill-icon"),
                                        selectedImage: UIImage(named: "skill-icon"))
