@@ -14,6 +14,15 @@ class SkillsPresenter {
     
     var skills: [Skill] = []
     
+    let investigator: Investigator
+    
+    init(_ investigator: Investigator) {
+        self.investigator = investigator
+        if (investigator.skills?.anyObject()) == nil {
+            _ = SkillEnum.init(self)
+        }
+    }
+    
     func mockData(_ skillName: String, _ skillValue: Int64) {
         let newSkill = Skill(context: self.context)
         newSkill.name = skillName
@@ -21,6 +30,7 @@ class SkillsPresenter {
         newSkill.diceType = "d100"
         newSkill.isActivated = false
         newSkill.userCreated = false
+        newSkill.investigator = self.investigator
         
         do {
             try context.save()
@@ -37,7 +47,8 @@ class SkillsPresenter {
         newSkill.isActivated = switcher
         newSkill.desc = Int64(desc)
         newSkill.userCreated = true
-        
+        newSkill.investigator = self.investigator
+
         do {
             try context.save()
         } catch {
@@ -62,10 +73,10 @@ class SkillsPresenter {
     
     func fetchSkills() -> [Skill] {
         let fetch = Skill.fetchRequest() as NSFetchRequest<Skill>
-        //let pred = NSPredicate(format: "isActivated == %@", NSNumber(value: true))
+        let pred = NSPredicate(format: "investigator == %@", investigator)
         let sortActivated = NSSortDescriptor(key: "isActivated", ascending: false)
         let sortName = NSSortDescriptor(key: "name", ascending: true)
-
+        fetch.predicate = pred
         fetch.sortDescriptors = [sortActivated, sortName]
         do {
             self.skills  = try context.fetch(fetch)

@@ -8,8 +8,19 @@
 import UIKit
 
 class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-        
-    let skillsPresenter = SkillsPresenter()
+    
+    let investigator: Investigator
+    let skillsPresenter: SkillsPresenter
+    
+    init(_ inv: Investigator) {
+        self.investigator = inv
+        self.skillsPresenter = SkillsPresenter(self.investigator)
+        super.init(nibName: nil, bundle: nil)
+      }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+      }
     
     var skills: [Skill] = [] {
         didSet {
@@ -50,7 +61,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func additionButton(_ sender: UITapGestureRecognizer) {
         self.present(NewSkillModal(action: {
             self.fetchData()
-        }), animated: true, completion: nil)
+        }, self.skillsPresenter), animated: true, completion: nil)
     }
 
     lazy var headerButtons: HeaderButtons = {
@@ -179,7 +190,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             self.present(EditSkillModal(action: {
                 self.fetchData()
-            }, selectedSkill), animated: true, completion: nil)
+            }, selectedSkill, self.skillsPresenter), animated: true, completion: nil)
         }
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
