@@ -28,11 +28,11 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.skillsPresenter = presenter
         super.init(nibName: nil, bundle: nil)
         editionAction = action
-      }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-      }
+    }
 
     // MARK: - NavBar
     

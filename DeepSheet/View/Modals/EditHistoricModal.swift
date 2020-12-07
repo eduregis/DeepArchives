@@ -12,6 +12,22 @@ class EditHistoricModal: UIViewController {
     var actualPage = 0
     var lastPage = 4
     
+    var historic: Historic
+    
+    let historicPresenter: HistoricPresenter
+    
+    var editionAction: (() -> ())?
+
+    init(action: @escaping () -> (), _ historicReceived: Historic, _ presenter: HistoricPresenter) {
+        historic = historicReceived
+        self.historicPresenter = presenter
+        super.init(nibName: nil, bundle: nil)
+        editionAction = action
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     // MARK: - NavBar
     
     lazy var navigationBar: UIView = {

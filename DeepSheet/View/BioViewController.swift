@@ -8,6 +8,36 @@ import UIKit
 
 class BioViewController: UIViewController {
     
+    let investigator: Investigator
+    let historicPresenter: HistoricPresenter
+    
+    init(_ inv: Investigator) {
+        self.investigator = inv
+        self.historicPresenter = HistoricPresenter(self.investigator)
+        self.historic = historicPresenter.fetchHistoric()
+        super.init(nibName: nil, bundle: nil)
+        self.fillInFields()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var historic: Historic
+    
+    func fillInFields() {
+        self.personalDescription.valueText.text = self.historic.personalDescription
+        self.ideology.valueText.text = self.historic.ideology
+        self.traits.valueText.text = self.historic.traits
+        self.woundsAndScars.valueText.text = self.historic.woundsAndScars
+        self.phobiasAndManias.valueText.text = self.historic.phobiasAndManias
+        self.importantPersons.valueText.text = self.historic.importantPersons
+        self.importantLocals.valueText.text = self.historic.importantLocals
+        self.possessions.valueText.text = self.historic.possessions
+        self.tomesAndSpells.valueText.text = self.historic.tomesAndSpells
+        self.meetingWithEntities.valueText.text = self.historic.meetingWithEntities
+    }
+    
     lazy var headerButtons: HeaderButtons = {
         let header = HeaderButtons()
         header.translatesAutoresizingMaskIntoConstraints = false
@@ -108,8 +138,8 @@ class BioViewController: UIViewController {
     }
     
     @objc func triggerModal () {
-        let editModal = EditHistoricModal()
-        present(editModal, animated: true, completion: nil)
+        self.present(EditHistoricModal(action: {
+        }, historic, self.historicPresenter), animated: true, completion: nil)
     }
     
     private func configureLayout() {

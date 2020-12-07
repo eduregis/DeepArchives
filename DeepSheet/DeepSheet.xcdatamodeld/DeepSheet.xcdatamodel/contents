@@ -3,7 +3,7 @@
     <entity name="Historic" representedClassName="Historic" syncable="YES" codeGenerationType="category">
         <attribute name="ideology" optional="YES" attributeType="String"/>
         <attribute name="importantLocals" optional="YES" attributeType="String"/>
-        <attribute name="importPersons" optional="YES" attributeType="String"/>
+        <attribute name="importantPersons" optional="YES" attributeType="String"/>
         <attribute name="meetingWithEntities" optional="YES" attributeType="String"/>
         <attribute name="personalDescription" optional="YES" attributeType="String"/>
         <attribute name="phobiasAndManias" optional="YES" attributeType="String"/>
@@ -11,10 +11,12 @@
         <attribute name="tomesAndSpells" optional="YES" attributeType="String"/>
         <attribute name="traits" optional="YES" attributeType="String"/>
         <attribute name="woundsAndScars" optional="YES" attributeType="String"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="historic" inverseEntity="Investigator"/>
     </entity>
     <entity name="Investigator" representedClassName="Investigator" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="occupation" attributeType="String" defaultValueString=""/>
+        <relationship name="historic" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Historic" inverseName="investigator" inverseEntity="Historic"/>
         <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="investigator" inverseEntity="Skill"/>
     </entity>
     <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="category">
@@ -27,8 +29,8 @@
         <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="skills" inverseEntity="Investigator"/>
     </entity>
     <elements>
-        <element name="Investigator" positionX="18" positionY="108" width="128" height="74"/>
+        <element name="Historic" positionX="9" positionY="99" width="128" height="208"/>
+        <element name="Investigator" positionX="18" positionY="108" width="128" height="103"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
-        <element name="Historic" positionX="9" positionY="99" width="128" height="193"/>
     </elements>
 </model>
