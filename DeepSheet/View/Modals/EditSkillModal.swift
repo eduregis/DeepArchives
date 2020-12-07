@@ -12,7 +12,7 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     var actualPage = 0
     var lastPage = 1
     
-    let skillsPresenter = SkillsPresenter()
+    let skillsPresenter: SkillsPresenter
     
     var tableView = UITableView()
     var categories: [String] = [LocalizedStrings.artSkill, LocalizedStrings.nativeLanguageSkill, LocalizedStrings.officeSkill, LocalizedStrings.otherLanguageSkill, LocalizedStrings.pilotSkill, LocalizedStrings.mechRepairSkill]
@@ -23,9 +23,9 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var editionAction: (() -> ())?
 
-    init(action: @escaping () -> (), _ skillReceived: Skill) {
+    init(action: @escaping () -> (), _ skillReceived: Skill, _ presenter: SkillsPresenter) {
         skill = skillReceived
-        print(skill)
+        self.skillsPresenter = presenter
         super.init(nibName: nil, bundle: nil)
         editionAction = action
       }

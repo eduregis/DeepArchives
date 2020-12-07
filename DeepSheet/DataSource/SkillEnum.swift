@@ -8,9 +8,10 @@
 import Foundation
 class SkillEnum {
     
-    let skillPresenter = SkillsPresenter()
+    let skillPresenter: SkillsPresenter
     
-    init() {
+    init(_ presenter: SkillsPresenter) {
+        self.skillPresenter = presenter
         skillPresenter.mockData("Accounting", 10)
         skillPresenter.mockData("Chemistry", 1)
         skillPresenter.mockData("Art", 5)
