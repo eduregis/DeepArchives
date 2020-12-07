@@ -27,6 +27,8 @@
 		2E7F67E6257BB9E100976C85 /* EditSkillModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67E5257BB9E100976C85 /* EditSkillModal.swift */; };
 		2E7F67F5257E599A00976C85 /* Historic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */; };
 		2E7F680A257E626800976C85 /* HistoricPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F6809257E626800976C85 /* HistoricPresenter.swift */; };
+		2E7F6818257E9DC800976C85 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F6817257E9DC800976C85 /* ProfilePresenter.swift */; };
+		2E7F6821257E9F8100976C85 /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F681F257E9F8100976C85 /* Profile+CoreDataClass.swift */; };
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
@@ -152,6 +154,8 @@
 		2E7F67E5257BB9E100976C85 /* EditSkillModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillModal.swift; sourceTree = "<group>"; };
 		2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Historic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2E7F6809257E626800976C85 /* HistoricPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricPresenter.swift; sourceTree = "<group>"; };
+		2E7F6817257E9DC800976C85 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		2E7F681F257E9F8100976C85 /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */,
+				2E7F681F257E9F8100976C85 /* Profile+CoreDataClass.swift */,
 				5BB9EC19257AA522006E006E /* Skill+CoreDataClass.swift */,
 				5BB9EC3F257BBECB006E006E /* Investigator+CoreDataClass.swift */,
 			);
@@ -346,6 +351,7 @@
 				5BB9EC31257AAC7D006E006E /* SkillsPresenter.swift */,
 				5BB9EC60257BC29D006E006E /* InvestigatorPresenter.swift */,
 				2E7F6809257E626800976C85 /* HistoricPresenter.swift */,
+				2E7F6817257E9DC800976C85 /* ProfilePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
 				0040D1FF257DC00700BD35D3 /* ItemCardView.swift in Sources */,
 				92E38744256EA21D0016D072 /* AspectsViewController.swift in Sources */,
+				2E7F6818257E9DC800976C85 /* ProfilePresenter.swift in Sources */,
 				9227B5C3256F00F600399CCB /* GroupPointsView.swift in Sources */,
 				00E630BA256FDB4800D397C0 /* DashedBorder.swift in Sources */,
 				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,
@@ -705,6 +712,7 @@
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
 				9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */,
 				5BB9EC32257AAC7D006E006E /* SkillsPresenter.swift in Sources */,
+				2E7F6821257E9F8100976C85 /* Profile+CoreDataClass.swift in Sources */,
 				2E7F67872575195400976C85 /* EditCombatModal.swift in Sources */,
 				2E7F676F2570556200976C85 /* EditProfileModal.swift in Sources */,
 				92E3873F256E88950016D072 /* CustomViewController.swift in Sources */,

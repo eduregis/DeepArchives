@@ -17,7 +17,16 @@
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="occupation" attributeType="String" defaultValueString=""/>
         <relationship name="historic" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Historic" inverseName="investigator" inverseEntity="Historic"/>
-        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="investigator" inverseEntity="Skill"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Profile" inverseName="investigator" inverseEntity="Profile"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Skill" inverseName="investigator" inverseEntity="Skill"/>
+    </entity>
+    <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="category">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="age" optional="YES" attributeType="String"/>
+        <attribute name="birthPlace" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="playerName" optional="YES" attributeType="String"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="profile" inverseEntity="Investigator"/>
     </entity>
     <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="category">
         <attribute name="desc" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -30,7 +39,8 @@
     </entity>
     <elements>
         <element name="Historic" positionX="9" positionY="99" width="128" height="208"/>
-        <element name="Investigator" positionX="18" positionY="108" width="128" height="103"/>
+        <element name="Investigator" positionX="18" positionY="108" width="128" height="118"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
+        <element name="Profile" positionX="18" positionY="171" width="128" height="133"/>
     </elements>
 </model>

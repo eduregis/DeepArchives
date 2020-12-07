@@ -9,6 +9,33 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    let investigator: Investigator
+    let profilePresenter: ProfilePresenter
+    
+    init(_ inv: Investigator) {
+        self.investigator = inv
+        self.profilePresenter = ProfilePresenter(self.investigator)
+        self.profile = profilePresenter.fetchProfile()
+        super.init(nibName: nil, bundle: nil)
+        self.fillInFields()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var profile: Profile
+    
+    func fillInFields() {
+        self.profile = profilePresenter.fetchProfile()
+        
+        self.namePlayer.valueText.text = self.profile.playerName
+        self.age.valueText.text = self.profile.age
+        self.gender.valueText.text = self.profile.gender
+        self.address.valueText.text = self.profile.address
+        self.birthPlace.valueText.text = self.profile.birthPlace
+    }
+    
     lazy var headerButtons: HeaderButtons = {
         let header = HeaderButtons()
         header.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +55,7 @@ class ProfileViewController: UIViewController {
     }()
     
     lazy var nameInvestigator: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.investigatorName, value: "Cleiton")
+        let view = ProfileComponent(titleText: LocalizedStrings.investigatorName, value: "")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -39,32 +66,38 @@ class ProfileViewController: UIViewController {
         return illustration
     }()
     
+    lazy var occupation: ProfileComponent = {
+        let view = ProfileComponent(titleText: LocalizedStrings.occupation, value: "")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var namePlayer: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.playerName, value: "Eduardo")
+        let view = ProfileComponent(titleText: LocalizedStrings.playerName, value: "")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var age: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.age, value: "30")
+        let view = ProfileComponent(titleText: LocalizedStrings.age, value: "")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var gender: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.gender, value: "Masculino")
+        let view = ProfileComponent(titleText: LocalizedStrings.gender, value: "")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var address: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.address, value: "Povoado Santo Antônio")
+        let view = ProfileComponent(titleText: LocalizedStrings.address, value: "")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var birthPlace: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.birthPlace, value: "Fortaleza, Ceará")
+        let view = ProfileComponent(titleText: LocalizedStrings.birthPlace, value: "")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -91,14 +124,16 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func triggerModal () {
-        let editModal = EditProfileModal()
-        present(editModal, animated: true, completion: nil)
+        self.present(EditProfileModal(action: {
+            self.fillInFields()
+         }, profile, self.profilePresenter), animated: true, completion: nil)
     }
     
     private func configureLayout() {
         scrollingView.addSubview(headerButtons)
         scrollingView.addSubview(nameInvestigator)
         scrollingView.addSubview(characterIllustration)
+        scrollingView.addSubview(occupation)
         scrollingView.addSubview(namePlayer)
         scrollingView.addSubview(age)
         scrollingView.addSubview(gender)
@@ -123,7 +158,11 @@ class ProfileViewController: UIViewController {
             characterIllustration.topAnchor.constraint(equalTo: nameInvestigator.bottomAnchor, constant: -24),
             characterIllustration.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
-            namePlayer.topAnchor.constraint(equalTo: characterIllustration.bottomAnchor, constant: 276),
+            occupation.topAnchor.constraint(equalTo: characterIllustration.bottomAnchor, constant: 276),
+            occupation.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            occupation.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            
+            namePlayer.topAnchor.constraint(equalTo: occupation.bottomAnchor, constant: 16),
             namePlayer.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             namePlayer.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             

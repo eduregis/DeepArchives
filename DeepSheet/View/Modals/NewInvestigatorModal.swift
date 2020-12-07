@@ -70,7 +70,7 @@ class NewInvestigatorModal: UIViewController {
     }()
 
     lazy var ocupationView: EditModalComponent = {
-        let view = EditModalComponent(titleText: LocalizedStrings.ocupation)
+        let view = EditModalComponent(titleText: LocalizedStrings.occupation)
         return view
     }()
     

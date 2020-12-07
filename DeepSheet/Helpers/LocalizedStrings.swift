@@ -485,14 +485,14 @@ class LocalizedStrings {
         }
     }
     
-    static var ocupation: String {
+    static var occupation: String {
         switch language {
         case "EN":
-            return "Ocupation"
+            return "Occupation"
         case "PT":
             return "Ocupação"
         default:
-            return "Ocupation"
+            return "Occupation"
         }
     }
     
