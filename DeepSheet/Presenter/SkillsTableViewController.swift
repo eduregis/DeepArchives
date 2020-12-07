@@ -140,6 +140,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     var tableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setNavigationBarStyle()
         self.tableView.tableHeaderView?.layoutIfNeeded()
         self.tableView.tableHeaderView = self.tableView.tableHeaderView
         setupSearchBar()

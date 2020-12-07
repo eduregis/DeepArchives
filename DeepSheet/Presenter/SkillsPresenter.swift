@@ -22,6 +22,22 @@ class SkillsPresenter {
             _ = SkillEnum.init(self)
         }
     }
+    // MARK: - Business rules functions
+    func checkIfSkillAlreadyExists(_ skillName: String) -> Bool {
+        let pred = NSPredicate(format: "name == %@", skillName)
+        let fetch = Skill.fetchRequest() as NSFetchRequest<Skill>
+        fetch.predicate = pred
+        do {
+            let skill  = try context.fetch(fetch)
+            if skill.isEmpty {
+                return false
+            }
+        } catch {
+            fatalError("Unable to fetch data from core data ")
+        }
+        return true
+    }
+    // MARK: - Core data functions
     
     func mockData(_ skillName: String, _ skillValue: Int64) {
         let newSkill = Skill(context: self.context)
@@ -39,7 +55,13 @@ class SkillsPresenter {
         }
     }
     
-    func newSkill(_ skillName: String, _ skillValue: Int64, _ switcher: Bool, _ desc: Int) {
+    func newSkill(_ skillName: String, _ skillValue: Int64, _ switcher: Bool, _ desc: Int) -> Bool {
+        if !BusinessRules.checkIfIsPercentageValue(skillValue) {
+            return false
+        }
+        if checkIfSkillAlreadyExists(skillName) {
+            return false
+        }
         let newSkill = Skill(context: self.context)
         newSkill.name = skillName
         newSkill.value = skillValue
@@ -48,18 +70,25 @@ class SkillsPresenter {
         newSkill.desc = Int64(desc)
         newSkill.userCreated = true
         newSkill.investigator = self.investigator
-
         do {
             try context.save()
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return true
+
     }
     
-    func editSkill(_ skillName: String, _ skillValue: Int64?, _ switcher: Bool, _ skill: Skill) {
+    func editSkill(_ skillName: String, _ skillValue: Int64?, _ switcher: Bool, _ skill: Skill) -> Bool {
+        if !BusinessRules.checkIfIsPercentageValue((skillValue != nil) ? skillValue! : skill.value) {
+            return false
+        }
+        if skillName != skill.name && checkIfSkillAlreadyExists(skillName) {
+            return false
+        }
         let editSkill = skill
         editSkill.name = skill.name
-        editSkill.value = (skillValue != nil) ? skillValue! : skill.value
+        editSkill.value = skillValue!
         editSkill.diceType = "d100"
         editSkill.isActivated = switcher
         editSkill.userCreated = skill.userCreated
@@ -69,6 +98,7 @@ class SkillsPresenter {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
+        return true
     }
     
     func fetchSkills() -> [Skill] {
