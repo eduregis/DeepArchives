@@ -192,6 +192,17 @@ class EditHistoricModal: UIViewController {
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
         
+        personalDescriptionView.valueText.text = historic.personalDescription
+        ideologyView.valueText.text = historic.ideology
+        traitsView.valueText.text = historic.traits
+        woundsAndScarsView.valueText.text = historic.woundsAndScars
+        phobiasAndManiasView.valueText.text = historic.phobiasAndManias
+        importantPersonsView.valueText.text = historic.importantPersons
+        importantLocalsView.valueText.text = historic.importantLocals
+        possessionsView.valueText.text = historic.possessions
+        tomesAndSpellsView.valueText.text = historic.tomesAndSpells
+        meetingWithEntitiesView.valueText.text = historic.meetingWithEntities
+        
         firstStack.isHidden = false
         secondStack.isHidden = true
         thirdStack.isHidden = true
@@ -201,7 +212,7 @@ class EditHistoricModal: UIViewController {
     
     @objc func leftButtonBehavior() {
         if actualPage == 0 {
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: editionAction)
         } else {
             actualPage -= 1
         }
@@ -210,7 +221,8 @@ class EditHistoricModal: UIViewController {
     
     @objc func rightButtonBehavior() {
         if actualPage == lastPage {
-            dismiss(animated: true, completion: nil)
+            editHistoric()
+            dismiss(animated: true, completion: editionAction)
         } else {
             actualPage += 1
         }
@@ -269,6 +281,10 @@ class EditHistoricModal: UIViewController {
     private func additionalConfigurations() {
         configureLayout()
         view.backgroundColor = .backgroundBlack
+    }
+    
+    func editHistoric() {
+        historicPresenter.editHistoric(personalDescriptionView.valueText.text, ideologyView.valueText.text, traitsView.valueText.text, woundsAndScarsView.valueText.text, importantPersonsView.valueText.text, importantLocalsView.valueText.text, phobiasAndManiasView.valueText.text, possessionsView.valueText.text, meetingWithEntitiesView.valueText.text, tomesAndSpellsView.valueText.text, historic)
     }
     
     private func configureLayout() {

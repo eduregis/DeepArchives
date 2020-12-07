@@ -15,7 +15,7 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     let skillsPresenter: SkillsPresenter
     
     var tableView = UITableView()
-    var categories: [String] = [LocalizedStrings.artSkill, LocalizedStrings.nativeLanguageSkill, LocalizedStrings.officeSkill, LocalizedStrings.otherLanguageSkill, LocalizedStrings.pilotSkill, LocalizedStrings.mechRepairSkill]
+    var categories: [String] = [LocalizedStrings.noneSkill, LocalizedStrings.artSkill, LocalizedStrings.nativeLanguageSkill, LocalizedStrings.officeSkill, LocalizedStrings.otherLanguageSkill, LocalizedStrings.pilotSkill, LocalizedStrings.mechRepairSkill]
     
     var skill: Skill
     

@@ -927,6 +927,17 @@ class LocalizedStrings {
     
     // MARK: - Strings for Skill Categories
     
+    static var noneSkill: String {
+        switch language {
+        case "EN":
+            return "None"
+        case "PT":
+            return "Nenhuma"
+        default:
+            return "None"
+        }
+    }
+    
     static var artSkill: String {
         switch language {
         case "EN":

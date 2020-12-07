@@ -26,6 +26,8 @@ class BioViewController: UIViewController {
     var historic: Historic
     
     func fillInFields() {
+        self.historic = historicPresenter.fetchHistoric()
+        
         self.personalDescription.valueText.text = self.historic.personalDescription
         self.ideology.valueText.text = self.historic.ideology
         self.traits.valueText.text = self.historic.traits
@@ -57,55 +59,55 @@ class BioViewController: UIViewController {
     }()
     
     lazy var personalDescription: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.personalDescription, value: "Edvaldo Cleiton Rasta, fazendo a festa pra galera.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.personalDescription, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var ideology: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.ideology, value: "Fazer a galera debochar legal.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.ideology, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var traits: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.traits, value: "Cabeça de Gelo.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.traits, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var woundsAndScars: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.woundsAndScars, value: "Nenhum.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.woundsAndScars, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 	
     lazy var phobiasAndManias: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.phobiasAndManias, value: "Desconsiderar o nego.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.phobiasAndManias, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var importantPersons: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.importantPersons, value: "Atalaia aí, ó.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.importantPersons, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var importantLocals: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.importantLocals, value: "Povoado Santo Antônio.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.importantLocals, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var possessions: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.possessions, value: "Primeiro DVD.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.possessions, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var tomesAndSpells: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.tomesAndSpells, value: "Fogo na Babilônia.\nChama\nAcende um pra relaxar\nVir para conquistar\nOlha a pedra", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.tomesAndSpells, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -139,7 +141,8 @@ class BioViewController: UIViewController {
     
     @objc func triggerModal () {
         self.present(EditHistoricModal(action: {
-        }, historic, self.historicPresenter), animated: true, completion: nil)
+            self.fillInFields()
+         }, historic, self.historicPresenter), animated: true, completion: nil)
     }
     
     private func configureLayout() {
