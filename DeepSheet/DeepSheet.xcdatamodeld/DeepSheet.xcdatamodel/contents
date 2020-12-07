@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Historic" representedClassName="Historic" syncable="YES" codeGenerationType="category">
+        <attribute name="ideology" optional="YES" attributeType="String"/>
+        <attribute name="importantLocals" optional="YES" attributeType="String"/>
+        <attribute name="importPersons" optional="YES" attributeType="String"/>
+        <attribute name="meetingWithEntities" optional="YES" attributeType="String"/>
+        <attribute name="personalDescription" optional="YES" attributeType="String"/>
+        <attribute name="phobiasAndManias" optional="YES" attributeType="String"/>
+        <attribute name="possessions" optional="YES" attributeType="String"/>
+        <attribute name="tomesAndSpells" optional="YES" attributeType="String"/>
+        <attribute name="traits" optional="YES" attributeType="String"/>
+        <attribute name="woundsAndScars" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Investigator" representedClassName="Investigator" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="occupation" attributeType="String" defaultValueString=""/>
@@ -17,5 +29,6 @@
     <elements>
         <element name="Investigator" positionX="18" positionY="108" width="128" height="74"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
+        <element name="Historic" positionX="9" positionY="99" width="128" height="193"/>
     </elements>
 </model>

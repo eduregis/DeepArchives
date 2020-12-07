@@ -24,6 +24,7 @@
 		2E7F67CD257685DE00976C85 /* InvestigatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67CC257685DE00976C85 /* InvestigatorCollectionViewCell.swift */; };
 		2E7F67D82577BB0600976C85 /* ProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67D72577BB0600976C85 /* ProfileComponent.swift */; };
 		2E7F67E6257BB9E100976C85 /* EditSkillModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67E5257BB9E100976C85 /* EditSkillModal.swift */; };
+		2E7F67F5257E599A00976C85 /* Historic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */; };
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
@@ -145,6 +146,7 @@
 		2E7F67CC257685DE00976C85 /* InvestigatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestigatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E7F67D72577BB0600976C85 /* ProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponent.swift; sourceTree = "<group>"; };
 		2E7F67E5257BB9E100976C85 /* EditSkillModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillModal.swift; sourceTree = "<group>"; };
+		2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Historic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 		2EF1EF0C2567EEC300BE0644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */,
 				5BB9EC19257AA522006E006E /* Skill+CoreDataClass.swift */,
 				5BB9EC3F257BBECB006E006E /* Investigator+CoreDataClass.swift */,
 			);
@@ -652,6 +655,7 @@
 				5BB9EC42257BBECB006E006E /* Investigator+CoreDataClass.swift in Sources */,
 				00E630B2256FD95C00D397C0 /* CombatViewController.swift in Sources */,
 				2E7F67AA257567A100976C85 /* NewInvestigatorModal.swift in Sources */,
+				2E7F67F5257E599A00976C85 /* Historic+CoreDataClass.swift in Sources */,
 				2E7F677F2571364800976C85 /* EditModalComponent.swift in Sources */,
 				92CB88E3256FE34400B94B15 /* AspectsPresenter.swift in Sources */,
 				2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */,
