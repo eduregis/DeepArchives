@@ -22,6 +22,18 @@ class InvestigatorPresenter {
         }
     }
     
+    func editInvestigator(_ name: String, _ occupation: String, _ investigator: Investigator) {
+        let editInvestigator = investigator
+        editInvestigator.name = name
+        editInvestigator.occupation = occupation
+        
+        do {
+            try context.save()
+        } catch {
+            fatalError("Unable to save data in coredata model")
+        }
+    }
+    
     func fetchInvestigators() -> [Investigator] {
         do {
             self.investigators  = try context.fetch(Investigator.fetchRequest())

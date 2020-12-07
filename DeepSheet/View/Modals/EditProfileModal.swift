@@ -12,6 +12,27 @@ class EditProfileModal: UIViewController {
     var actualPage = 0
     var lastPage = 2
     
+    var profile: Profile
+    let profilePresenter: ProfilePresenter
+    
+    var investigator: Investigator
+    let investigatorPresenter: InvestigatorPresenter
+    
+    var editionAction: (() -> ())?
+
+    init(action: @escaping () -> (), _ profileReceived: Profile, _ profilePresenter: ProfilePresenter, _ investigatorReceived: Investigator, _ investigatorPresenter: InvestigatorPresenter) {
+        profile = profileReceived
+        self.profilePresenter = profilePresenter
+        investigator = investigatorReceived
+        self.investigatorPresenter = investigatorPresenter
+        super.init(nibName: nil, bundle: nil)
+        editionAction = action
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - NavBar
     
     lazy var navigationBar: UIView = {
@@ -82,8 +103,8 @@ class EditProfileModal: UIViewController {
         return view
     }()
     
-    lazy var ocupationView: EditModalComponent = {
-        let view = EditModalComponent(titleText: LocalizedStrings.ocupation)
+    lazy var occupationView: EditModalComponent = {
+        let view = EditModalComponent(titleText: LocalizedStrings.occupation)
         return view
     }()
     
@@ -93,7 +114,7 @@ class EditProfileModal: UIViewController {
     }()
     
     lazy var secondStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [playerView, ocupationView, ageView])
+        let stack = UIStackView(arrangedSubviews: [playerView, occupationView, ageView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -140,6 +161,14 @@ class EditProfileModal: UIViewController {
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
         
+        investigatorView.valueText.text = investigator.name
+        occupationView.valueText.text = investigator.occupation
+        playerView.valueText.text = profile.playerName
+        ageView.valueText.text = profile.age
+        genderView.valueText.text = profile.gender
+        addressView.valueText.text = profile.address
+        birthPlaceView.valueText.text = profile.birthPlace
+        
         firstStack.isHidden = false
         secondStack.isHidden = true
         thirdStack.isHidden = true
@@ -147,7 +176,7 @@ class EditProfileModal: UIViewController {
     
     @objc func leftButtonBehavior() {
         if actualPage == 0 {
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: editionAction)
         } else {
             actualPage -= 1
         }
@@ -156,7 +185,8 @@ class EditProfileModal: UIViewController {
     
     @objc func rightButtonBehavior() {
         if actualPage == lastPage {
-            dismiss(animated: true, completion: nil)
+            editProfile()
+            dismiss(animated: true, completion: editionAction)
         } else {
             actualPage += 1
         }
@@ -197,6 +227,12 @@ class EditProfileModal: UIViewController {
     private func additionalConfigurations() {
         configureLayout()
         view.backgroundColor = .backgroundBlack
+    }
+    
+    func editProfile() {
+        investigatorPresenter.editInvestigator(investigatorView.valueText.text, occupationView.valueText.text, investigator)
+        
+        profilePresenter.editProfile(playerView.valueText.text, ageView.valueText.text, genderView.valueText.text, addressView.valueText.text, birthPlaceView.valueText.text, profile)
     }
     
     private func configureLayout() {
