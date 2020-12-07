@@ -10,10 +10,12 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     let investigator: Investigator
+    let investigatorPresenter: InvestigatorPresenter
     let profilePresenter: ProfilePresenter
     
     init(_ inv: Investigator) {
         self.investigator = inv
+        self.investigatorPresenter = InvestigatorPresenter()
         self.profilePresenter = ProfilePresenter(self.investigator)
         self.profile = profilePresenter.fetchProfile()
         super.init(nibName: nil, bundle: nil)
@@ -28,7 +30,8 @@ class ProfileViewController: UIViewController {
     
     func fillInFields() {
         self.profile = profilePresenter.fetchProfile()
-        
+        self.nameInvestigator.valueText.text = self.investigator.name
+        self.occupation.valueText.text = self.investigator.occupation
         self.namePlayer.valueText.text = self.profile.playerName
         self.age.valueText.text = self.profile.age
         self.gender.valueText.text = self.profile.gender
@@ -126,7 +129,7 @@ class ProfileViewController: UIViewController {
     @objc func triggerModal () {
         self.present(EditProfileModal(action: {
             self.fillInFields()
-         }, profile, self.profilePresenter), animated: true, completion: nil)
+         }, profile, self.profilePresenter, investigator, self.investigatorPresenter), animated: true, completion: nil)
     }
     
     private func configureLayout() {

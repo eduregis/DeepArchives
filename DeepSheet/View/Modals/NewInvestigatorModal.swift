@@ -69,13 +69,13 @@ class NewInvestigatorModal: UIViewController {
         return view
     }()
 
-    lazy var ocupationView: EditModalComponent = {
+    lazy var occupationView: EditModalComponent = {
         let view = EditModalComponent(titleText: LocalizedStrings.occupation)
         return view
     }()
     
     lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [investigatorNameView, ocupationView])
+        let stack = UIStackView(arrangedSubviews: [investigatorNameView, occupationView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -109,7 +109,7 @@ class NewInvestigatorModal: UIViewController {
     }
     
     func createNewInvestigator() {
-        self.investigatorPresenter.newInvestigator(investigatorNameView.valueText.text, ocupationView.valueText.text)
+        self.investigatorPresenter.newInvestigator(investigatorNameView.valueText.text, occupationView.valueText.text)
     }
     
     private func configureLayout() {

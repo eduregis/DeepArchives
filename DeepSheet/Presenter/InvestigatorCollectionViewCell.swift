@@ -19,7 +19,7 @@ class InvestigatorCollectionViewCell: UICollectionViewCell {
         return lbl
     }()
     
-    lazy var investigatorOcupation: UILabel = {
+    lazy var investigatorOccupation: UILabel = {
        let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = .josefinSansSkillDesc()
@@ -64,20 +64,20 @@ class InvestigatorCollectionViewCell: UICollectionViewCell {
     
     func set(investigator: Investigator? = nil, name: String? = nil, occupation: String? = nil, image: UIImage? = nil, dashed: Bool) {
         investigatorName.text = (investigator != nil) ? investigator?.name! : name
-        investigatorOcupation.text = (investigator != nil) ? investigator?.occupation! : occupation
+        investigatorOccupation.text = (investigator != nil) ? investigator?.occupation! : occupation
         if let image = image {
             investigatorImage.image = image
         }
         if dashed {
             self.addDashedBorder(color: UIColor.goldenYellow.cgColor)
             investigatorName.isHidden = true
-            investigatorOcupation.isHidden = true
+            investigatorOccupation.isHidden = true
             investigatorImage.isHidden = true
             addInvestigator.isHidden = false
         } else {
             self.layer.borderColor = UIColor.goldenYellow.cgColor
             investigatorName.isHidden = false
-            investigatorOcupation.isHidden = false
+            investigatorOccupation.isHidden = false
             investigatorImage.isHidden = false
             addInvestigator.isHidden = true
         }
@@ -95,11 +95,11 @@ class InvestigatorCollectionViewCell: UICollectionViewCell {
             investigatorImage.widthAnchor.constraint(equalTo: self.widthAnchor),
             investigatorImage.heightAnchor.constraint(equalTo: self.heightAnchor),
             
-            investigatorOcupation.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            investigatorOcupation.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            investigatorOccupation.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+            investigatorOccupation.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             
-            investigatorName.bottomAnchor.constraint(equalTo: investigatorOcupation.topAnchor, constant: -4),
-            investigatorName.leadingAnchor.constraint(equalTo: investigatorOcupation.leadingAnchor)
+            investigatorName.bottomAnchor.constraint(equalTo: investigatorOccupation.topAnchor, constant: -4),
+            investigatorName.leadingAnchor.constraint(equalTo: investigatorOccupation.leadingAnchor)
         ])
     }
 }
