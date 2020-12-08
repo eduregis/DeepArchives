@@ -16,11 +16,11 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         self.investigator = inv
         self.skillsPresenter = SkillsPresenter(self.investigator)
         super.init(nibName: nil, bundle: nil)
-      }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-      }
+    }
     
     var skills: [Skill] = [] {
         didSet {
@@ -140,6 +140,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     var tableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setNavigationBarStyle()
         self.tableView.tableHeaderView?.layoutIfNeeded()
         self.tableView.tableHeaderView = self.tableView.tableHeaderView
         setupSearchBar()

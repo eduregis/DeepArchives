@@ -8,6 +8,38 @@ import UIKit
 
 class BioViewController: UIViewController {
     
+    let investigator: Investigator
+    let historicPresenter: HistoricPresenter
+    
+    init(_ inv: Investigator) {
+        self.investigator = inv
+        self.historicPresenter = HistoricPresenter(self.investigator)
+        self.historic = historicPresenter.fetchHistoric()
+        super.init(nibName: nil, bundle: nil)
+        self.fillInFields()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var historic: Historic
+    
+    func fillInFields() {
+        self.historic = historicPresenter.fetchHistoric()
+        
+        self.personalDescription.valueText.text = self.historic.personalDescription
+        self.ideology.valueText.text = self.historic.ideology
+        self.traits.valueText.text = self.historic.traits
+        self.woundsAndScars.valueText.text = self.historic.woundsAndScars
+        self.phobiasAndManias.valueText.text = self.historic.phobiasAndManias
+        self.importantPersons.valueText.text = self.historic.importantPersons
+        self.importantLocals.valueText.text = self.historic.importantLocals
+        self.possessions.valueText.text = self.historic.possessions
+        self.tomesAndSpells.valueText.text = self.historic.tomesAndSpells
+        self.meetingWithEntities.valueText.text = self.historic.meetingWithEntities
+    }
+    
     lazy var headerButtons: HeaderButtons = {
         let header = HeaderButtons()
         header.translatesAutoresizingMaskIntoConstraints = false
@@ -27,62 +59,55 @@ class BioViewController: UIViewController {
     }()
     
     lazy var personalDescription: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.personalDescription, value: "Edvaldo Cleiton Rasta, fazendo a festa pra galera.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.personalDescription, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var ideology: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.ideology, value: "Fazer a galera debochar legal.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.ideology, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var traits: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.traits, value: "Cabeça de Gelo.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.traits, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var woundsAndScars: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.woundsAndScars, value: "Nenhum.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.woundsAndScars, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 	
-	lazy var attackCard: AttackCardView = {
-		let attack = AttackCardView(attackName: "Revólver", chance: 25, dice: "1d4", reach: 20, num: 1, ammo: 5, malfunction: 15)
-		attack.translatesAutoresizingMaskIntoConstraints = false
-		self.view.addSubview(attack)
-		return attack
-	}()
-    
     lazy var phobiasAndManias: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.phobiasAndManias, value: "Desconsiderar o nego.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.phobiasAndManias, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var importantPersons: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.importantPersons, value: "Atalaia aí, ó.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.importantPersons, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var importantLocals: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.importantLocals, value: "Povoado Santo Antônio.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.importantLocals, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var possessions: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.possessions, value: "Primeiro DVD.", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.possessions, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var tomesAndSpells: ProfileComponent = {
-        let view = ProfileComponent(titleText: LocalizedStrings.tomesAndSpells, value: "Fogo na Babilônia.\nChama\nAcende um pra relaxar\nVir para conquistar\nOlha a pedra", multiline: true)
+        let view = ProfileComponent(titleText: LocalizedStrings.tomesAndSpells, value: "", multiline: true)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -115,8 +140,9 @@ class BioViewController: UIViewController {
     }
     
     @objc func triggerModal () {
-        let editModal = EditHistoricModal()
-        present(editModal, animated: true, completion: nil)
+        self.present(EditHistoricModal(action: {
+            self.fillInFields()
+         }, historic, self.historicPresenter), animated: true, completion: nil)
     }
     
     private func configureLayout() {

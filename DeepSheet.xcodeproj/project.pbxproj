@@ -25,6 +25,10 @@
 		2E7F67CD257685DE00976C85 /* InvestigatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67CC257685DE00976C85 /* InvestigatorCollectionViewCell.swift */; };
 		2E7F67D82577BB0600976C85 /* ProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67D72577BB0600976C85 /* ProfileComponent.swift */; };
 		2E7F67E6257BB9E100976C85 /* EditSkillModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67E5257BB9E100976C85 /* EditSkillModal.swift */; };
+		2E7F67F5257E599A00976C85 /* Historic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */; };
+		2E7F680A257E626800976C85 /* HistoricPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F6809257E626800976C85 /* HistoricPresenter.swift */; };
+		2E7F6818257E9DC800976C85 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F6817257E9DC800976C85 /* ProfilePresenter.swift */; };
+		2E7F6821257E9F8100976C85 /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F681F257E9F8100976C85 /* Profile+CoreDataClass.swift */; };
 		2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED32567EDE300BE0644 /* AppDelegate.swift */; };
 		2EF1EED62567EDE300BE0644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */; };
 		2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1EEDC2567EDE300BE0644 /* DeepSheet.xcdatamodeld */; };
@@ -93,6 +97,7 @@
 		5BB9EC37257BB4D8006E006E /* SkillEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EC36257BB4D8006E006E /* SkillEnum.swift */; };
 		5BB9EC42257BBECB006E006E /* Investigator+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EC3F257BBECB006E006E /* Investigator+CoreDataClass.swift */; };
 		5BB9EC61257BC29D006E006E /* InvestigatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EC60257BC29D006E006E /* InvestigatorPresenter.swift */; };
+		5BB9EC7B257E763D006E006E /* BusinessRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EC7A257E763D006E006E /* BusinessRules.swift */; };
 		5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */; };
 		5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */; };
 		5BFC57D7256D303000B8B232 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */; };
@@ -149,6 +154,10 @@
 		2E7F67CC257685DE00976C85 /* InvestigatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestigatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E7F67D72577BB0600976C85 /* ProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponent.swift; sourceTree = "<group>"; };
 		2E7F67E5257BB9E100976C85 /* EditSkillModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillModal.swift; sourceTree = "<group>"; };
+		2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Historic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E7F6809257E626800976C85 /* HistoricPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricPresenter.swift; sourceTree = "<group>"; };
+		2E7F6817257E9DC800976C85 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		2E7F681F257E9F8100976C85 /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2EF1EED02567EDE300BE0644 /* DeepSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF1EED32567EDE300BE0644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF1EED52567EDE300BE0644 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +205,7 @@
 		5BB9EC36257BB4D8006E006E /* SkillEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillEnum.swift; sourceTree = "<group>"; };
 		5BB9EC3F257BBECB006E006E /* Investigator+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Investigator+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5BB9EC60257BC29D006E006E /* InvestigatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestigatorPresenter.swift; sourceTree = "<group>"; };
+		5BB9EC7A257E763D006E006E /* BusinessRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRules.swift; sourceTree = "<group>"; };
 		5BFC57C6256C379A00B8B232 /* NavigationBarGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarGradient.swift; sourceTree = "<group>"; };
 		5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
 		5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
@@ -325,6 +335,8 @@
 		2EF1EF0C2567EEC300BE0644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */,
+				2E7F681F257E9F8100976C85 /* Profile+CoreDataClass.swift */,
 				5BB9EC19257AA522006E006E /* Skill+CoreDataClass.swift */,
 				5BB9EC3F257BBECB006E006E /* Investigator+CoreDataClass.swift */,
 			);
@@ -342,6 +354,8 @@
 				92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */,
 				5BB9EC31257AAC7D006E006E /* SkillsPresenter.swift */,
 				5BB9EC60257BC29D006E006E /* InvestigatorPresenter.swift */,
+				2E7F6809257E626800976C85 /* HistoricPresenter.swift */,
+				2E7F6817257E9DC800976C85 /* ProfilePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -351,6 +365,7 @@
 			children = (
 				2EF1EFD1256BF98100BE0644 /* LocalizedStrings.swift */,
 				92CB88E7256FE5D800B94B15 /* CombatDiceDelegate.swift */,
+				5BB9EC7A257E763D006E006E /* BusinessRules.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -658,9 +673,11 @@
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2E7F678C25751F6F00976C85 /* NewItemModal.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
+				5BB9EC7B257E763D006E006E /* BusinessRules.swift in Sources */,
 				5BB9EC42257BBECB006E006E /* Investigator+CoreDataClass.swift in Sources */,
 				00E630B2256FD95C00D397C0 /* CombatViewController.swift in Sources */,
 				2E7F67AA257567A100976C85 /* NewInvestigatorModal.swift in Sources */,
+				2E7F67F5257E599A00976C85 /* Historic+CoreDataClass.swift in Sources */,
 				2E7F677F2571364800976C85 /* EditModalComponent.swift in Sources */,
 				92CB88E3256FE34400B94B15 /* AspectsPresenter.swift in Sources */,
 				2EF1EFE3256D34AC00BE0644 /* IllustrationView.swift in Sources */,
@@ -677,6 +694,7 @@
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				2E7F67CD257685DE00976C85 /* InvestigatorCollectionViewCell.swift in Sources */,
 				2E7F67E6257BB9E100976C85 /* EditSkillModal.swift in Sources */,
+				2E7F680A257E626800976C85 /* HistoricPresenter.swift in Sources */,
 				00E630AA256FD73D00D397C0 /* AdditionCardView.swift in Sources */,
 				5BB9EC37257BB4D8006E006E /* SkillEnum.swift in Sources */,
 				92CB88E8256FE5D800B94B15 /* CombatDiceDelegate.swift in Sources */,
@@ -689,6 +707,7 @@
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
 				0040D1FF257DC00700BD35D3 /* ItemCardView.swift in Sources */,
 				92E38744256EA21D0016D072 /* AspectsViewController.swift in Sources */,
+				2E7F6818257E9DC800976C85 /* ProfilePresenter.swift in Sources */,
 				9227B5C3256F00F600399CCB /* GroupPointsView.swift in Sources */,
 				00E630BA256FDB4800D397C0 /* DashedBorder.swift in Sources */,
 				92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */,
@@ -700,6 +719,7 @@
 				2EF1EFD2256BF98100BE0644 /* LocalizedStrings.swift in Sources */,
 				9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */,
 				5BB9EC32257AAC7D006E006E /* SkillsPresenter.swift in Sources */,
+				2E7F6821257E9F8100976C85 /* Profile+CoreDataClass.swift in Sources */,
 				2E7F67872575195400976C85 /* EditCombatModal.swift in Sources */,
 				2E7F676F2570556200976C85 /* EditProfileModal.swift in Sources */,
 				92E3873F256E88950016D072 /* CustomViewController.swift in Sources */,

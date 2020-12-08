@@ -25,7 +25,6 @@ class InvestigatorsCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchData()
         self.title = "Investigators"
         
         let view = UIView()
@@ -51,6 +50,7 @@ class InvestigatorsCollectionViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.fetchData()
         self.navigationController?.navigationBar.isHidden = false
     }
     

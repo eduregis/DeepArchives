@@ -485,14 +485,14 @@ class LocalizedStrings {
         }
     }
     
-    static var ocupation: String {
+    static var occupation: String {
         switch language {
         case "EN":
-            return "Ocupation"
+            return "Occupation"
         case "PT":
             return "Ocupação"
         default:
-            return "Ocupation"
+            return "Occupation"
         }
     }
     
@@ -926,6 +926,17 @@ class LocalizedStrings {
     }
     
     // MARK: - Strings for Skill Categories
+    
+    static var noneSkill: String {
+        switch language {
+        case "EN":
+            return "None"
+        case "PT":
+            return "Nenhuma"
+        default:
+            return "None"
+        }
+    }
     
     static var artSkill: String {
         switch language {

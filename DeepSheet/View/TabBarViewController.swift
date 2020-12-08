@@ -27,7 +27,7 @@ class TabBarViewController: UITabBarController {
         self.tabBar.tintColor = UIColor.lightSeaGreen
         //self.tabBar.unselectedItemTintColor = .darkText
 
-        let profileViewController = ProfileViewController()
+        let profileViewController = ProfileViewController(self.investigator)
         profileViewController.title = ("Profile")
         let profileViewControllerItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"),
                                        selectedImage: UIImage(systemName: "person.fill"))
@@ -49,7 +49,7 @@ class TabBarViewController: UITabBarController {
         combatViewController.tabBarItem = UITabBarItem(title: "Combat", image: UIImage(named: "combat-icon"),
                                        selectedImage: UIImage(named: "combat-icon"))
         
-        let bioViewController = BioViewController()
+        let bioViewController = BioViewController(self.investigator)
         bioViewController.title = ("Historic")
         bioViewController.tabBarItem = UITabBarItem(title: "Historic", image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))
@@ -57,7 +57,6 @@ class TabBarViewController: UITabBarController {
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
         profileNavigationController.overrideUserInterfaceStyle = .dark        
         let skillsNavigationController = UINavigationController(rootViewController: skillsViewController)
-        skillsNavigationController.overrideUserInterfaceStyle = .dark
         let statsNavigationController = UINavigationController(rootViewController: statsViewController)
         statsNavigationController.overrideUserInterfaceStyle = .dark
         let combatNavigationController = UINavigationController(rootViewController: combatViewController)
@@ -66,7 +65,6 @@ class TabBarViewController: UITabBarController {
         bioNavigationController.overrideUserInterfaceStyle = .dark
         
         profileNavigationController.navigationBar.setNavigationBarStyle()
-        skillsNavigationController.navigationBar.setNavigationBarStyle()
         statsNavigationController.navigationBar.setNavigationBarStyle()
         combatNavigationController.navigationBar.setNavigationBarStyle()
         bioNavigationController.navigationBar.setNavigationBarStyle()
