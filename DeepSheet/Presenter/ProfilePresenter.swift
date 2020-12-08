@@ -30,6 +30,7 @@ class ProfilePresenter {
         newProfile.gender = ""
         newProfile.address = ""
         newProfile.birthPlace = ""
+        newProfile.image = Data()
         newProfile.investigator = self.investigator
 
         do {
@@ -39,13 +40,14 @@ class ProfilePresenter {
         }
     }
 
-    func editProfile(_ playerName: String, _ age: String, _ gender: String, _ address: String, _ birthPlace: String, _ profile: Profile) {
+    func editProfile(_ playerName: String, _ age: String, _ gender: String, _ address: String, _ birthPlace: String, _ image: Data, _ profile: Profile) {
         let editProfile = profile
         editProfile.playerName = playerName
         editProfile.age = age
         editProfile.gender = gender
         editProfile.address = address
         editProfile.birthPlace = birthPlace
+        editProfile.image = image
         
         do {
             try context.save()
