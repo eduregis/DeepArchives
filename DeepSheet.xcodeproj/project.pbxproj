@@ -102,6 +102,7 @@
 		9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227B5C7256F010B00399CCB /* IndvPointsView.swift */; };
 		9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */; };
 		9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237DFE0256D958400EEAE80 /* GroupStatesView.swift */; };
+		926E0C21257FA39A009B0584 /* GroupItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E0C20257FA39A009B0584 /* GroupItemsView.swift */; };
 		92876D402577BCB40071BFE7 /* AttackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92876D3F2577BCB40071BFE7 /* AttackCardView.swift */; };
 		92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */; };
 		92CB88E3256FE34400B94B15 /* AspectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */; };
@@ -109,6 +110,7 @@
 		92D3ABB0256D45A400C49FAB /* CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3ABAF256D45A400C49FAB /* CustomImages.swift */; };
 		92E3873F256E88950016D072 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3873E256E88950016D072 /* CustomViewController.swift */; };
 		92E38744256EA21D0016D072 /* AspectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E38743256EA21D0016D072 /* AspectsViewController.swift */; };
+		92E87DD8257E79C400A85E6B /* GroupAttackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E87DD7257E79C400A85E6B /* GroupAttackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +205,7 @@
 		9227B5C7256F010B00399CCB /* IndvPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndvPointsView.swift; sourceTree = "<group>"; };
 		9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndvStatesView.swift; sourceTree = "<group>"; };
 		9237DFE0256D958400EEAE80 /* GroupStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStatesView.swift; sourceTree = "<group>"; };
+		926E0C20257FA39A009B0584 /* GroupItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItemsView.swift; sourceTree = "<group>"; };
 		92876D3F2577BCB40071BFE7 /* AttackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackCardView.swift; sourceTree = "<group>"; };
 		92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = DeepSheet/View/TabBarViewController.swift; sourceTree = SOURCE_ROOT; };
 		92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsPresenter.swift; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 		92D3ABAF256D45A400C49FAB /* CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImages.swift; sourceTree = "<group>"; };
 		92E3873E256E88950016D072 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		92E38743256EA21D0016D072 /* AspectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsViewController.swift; sourceTree = "<group>"; };
+		92E87DD7257E79C400A85E6B /* GroupAttackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAttackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,12 +395,13 @@
 			isa = PBXGroup;
 			children = (
 				00E630A9256FD73D00D397C0 /* AdditionCardView.swift */,
-				0040D1FE257DC00700BD35D3 /* ItemCardView.swift */,
 				92876D3F2577BCB40071BFE7 /* AttackCardView.swift */,
 				2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */,
 				2EF1EF222567F3A700BE0644 /* CharacteristicView.swift */,
 				2E7F677E2571364800976C85 /* EditModalComponent.swift */,
 				2EF1F000256D8BCD00BE0644 /* GeneralCombatView.swift */,
+				92E87DD7257E79C400A85E6B /* GroupAttackView.swift */,
+				926E0C20257FA39A009B0584 /* GroupItemsView.swift */,
 				9227B5C2256F00F600399CCB /* GroupPointsView.swift */,
 				9237DFE0256D958400EEAE80 /* GroupStatesView.swift */,
 				2EF1EFF6256D457A00BE0644 /* HeaderButtons.swift */,
@@ -404,6 +409,7 @@
 				9227B5C7256F010B00399CCB /* IndvPointsView.swift */,
 				9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */,
 				2EF1EFFB256D8A0A00BE0644 /* InfoView.swift */,
+				0040D1FE257DC00700BD35D3 /* ItemCardView.swift */,
 				2E7F67D72577BB0600976C85 /* ProfileComponent.swift */,
 			);
 			path = Components;
@@ -678,6 +684,7 @@
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */,
 				5BFC58092571328500B8B232 /* InvestigatorsCollectionViewController.swift in Sources */,
+				926E0C21257FA39A009B0584 /* GroupItemsView.swift in Sources */,
 				2E7F67D82577BB0600976C85 /* ProfileComponent.swift in Sources */,
 				2EF1EED42567EDE300BE0644 /* AppDelegate.swift in Sources */,
 				0040D1FF257DC00700BD35D3 /* ItemCardView.swift in Sources */,
@@ -702,6 +709,7 @@
 				92876D402577BCB40071BFE7 /* AttackCardView.swift in Sources */,
 				9237DFE1256D958400EEAE80 /* GroupStatesView.swift in Sources */,
 				2EF1EFA4256BDC5A00BE0644 /* CustomFonts.swift in Sources */,
+				92E87DD8257E79C400A85E6B /* GroupAttackView.swift in Sources */,
 				5BB9EC1B257AA522006E006E /* Skill+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
