@@ -67,4 +67,3 @@ class ProfilePresenter {
         return self.profile!
     }
 }
-

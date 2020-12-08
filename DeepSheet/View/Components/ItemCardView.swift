@@ -137,7 +137,6 @@ class ItemCardView: UIView {
             itemUsesTextField.widthAnchor.constraint(equalToConstant: 32),
             itemUsesTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            
             itemDescriptionTextView.leadingAnchor.constraint(equalTo: stack.leadingAnchor)
         ])
     }
