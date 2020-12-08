@@ -70,6 +70,7 @@ class InvestigatorCollectionViewCell: UICollectionViewCell {
         }
         if dashed {
             self.addDashedBorder(color: UIColor.goldenYellow.cgColor)
+            self.layer.borderColor = .none
             investigatorName.isHidden = true
             investigatorOccupation.isHidden = true
             investigatorImage.isHidden = true
