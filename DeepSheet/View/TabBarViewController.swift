@@ -44,7 +44,7 @@ class TabBarViewController: UITabBarController {
         skillsViewController.tabBarItem = UITabBarItem(title: "Skills", image: UIImage(named: "skill-icon"),
                                        selectedImage: UIImage(named: "skill-icon"))
         
-        let combatViewController = CombatViewController()
+		let combatViewController = CombatViewController(self.investigator)
         combatViewController.title = ("Combat")
         combatViewController.tabBarItem = UITabBarItem(title: "Combat", image: UIImage(named: "combat-icon"),
                                        selectedImage: UIImage(named: "combat-icon"))
@@ -66,7 +66,6 @@ class TabBarViewController: UITabBarController {
         
         profileNavigationController.navigationBar.setNavigationBarStyle()
         statsNavigationController.navigationBar.setNavigationBarStyle()
-        combatNavigationController.navigationBar.setNavigationBarStyle()
         bioNavigationController.navigationBar.setNavigationBarStyle()
         self.viewControllers = [profileNavigationController, skillsNavigationController, statsNavigationController, combatNavigationController, bioNavigationController]
         
