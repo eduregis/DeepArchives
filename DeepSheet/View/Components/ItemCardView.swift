@@ -9,13 +9,6 @@ import UIKit
 
 class ItemCardView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     lazy var itemNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -100,9 +93,14 @@ class ItemCardView: UIView {
         self.layer.borderColor = UIColor.lightSeaGreen.cgColor
     }
   
-    override init(frame: CGRect) {
+	init(itemName: String, itemDescription: String, itemUses: Int) {
+		
         super.init(frame: .zero)
         configureLayout()
+		
+		itemNameLabel.text = itemName
+		itemDescriptionTextView.text = itemDescription
+		itemUsesTextField.text = "\(itemUses)"
     }
     
     required init?(coder: NSCoder) {

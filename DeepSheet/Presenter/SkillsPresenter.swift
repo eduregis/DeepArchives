@@ -55,13 +55,15 @@ class SkillsPresenter {
         }
     }
     
-    func newSkill(_ skillName: String, _ skillValue: Int64, _ switcher: Bool, _ desc: Int) -> Bool {
-        if !BusinessRules.checkIfIsPercentageValue(skillValue) {
-            return false
-        }
+    func newSkill(_ skillName: String, _ skillValue: Int64, _ switcher: Bool, _ desc: Int) -> (Bool, Int) {
         if checkIfSkillAlreadyExists(skillName) {
-            return false
+            return (false, 2)
         }
+        
+        if !BusinessRules.checkIfIsPercentageValue(skillValue) {
+            return (false, 1)
+        }
+        
         let newSkill = Skill(context: self.context)
         newSkill.name = skillName
         newSkill.value = skillValue
@@ -75,17 +77,19 @@ class SkillsPresenter {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
-        return true
+        return (true, 0)
 
     }
     
-    func editSkill(_ skillName: String, _ skillValue: Int64?, _ switcher: Bool, _ skill: Skill) -> Bool {
-        if !BusinessRules.checkIfIsPercentageValue((skillValue != nil) ? skillValue! : skill.value) {
-            return false
-        }
+    func editSkill(_ skillName: String, _ skillValue: Int64?, _ switcher: Bool, _ skill: Skill) -> (Bool, Int) {
         if skillName != skill.name && checkIfSkillAlreadyExists(skillName) {
-            return false
+            return (false, 2)
         }
+        
+        if !BusinessRules.checkIfIsPercentageValue((skillValue != nil) ? skillValue! : skill.value) {
+            return (false, 1)
+        }
+        
         let editSkill = skill
         editSkill.name = skill.name
         editSkill.value = skillValue!
@@ -98,7 +102,7 @@ class SkillsPresenter {
         } catch {
             fatalError("Unable to save data in coredata model")
         }
-        return true
+        return (true, 0)
     }
     
     func fetchSkills() -> [Skill] {

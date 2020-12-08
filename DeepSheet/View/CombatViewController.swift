@@ -22,13 +22,19 @@ class CombatViewController: UIViewController, CombatDelegate {
 		return combat
 	}()
 	
-	lazy var attackCard: AttackCardView = {
-		let attack = AttackCardView(attackName: "Revolver", chance: 25, dice: "1d4", reach: 20, num: 1, ammo: 5, malfunction: 15)
-		attack.translatesAutoresizingMaskIntoConstraints = false
-		return attack
+	lazy var attacksView: GroupAttackView = {
+		let stack = GroupAttackView()
+		stack.translatesAutoresizingMaskIntoConstraints = false
+		return stack
+	}()
+	
+	lazy var itemsView: GroupItemsView = {
+		let stack = GroupItemsView()
+		stack.translatesAutoresizingMaskIntoConstraints = false
+		return stack
 	}()
     
-	lazy var scrollingView: UIScrollView = {
+	lazy var mainScrollingView: UIScrollView = {
 		let scroll = UIScrollView()
 		scroll.translatesAutoresizingMaskIntoConstraints = false
 		scroll.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
@@ -56,16 +62,6 @@ class CombatViewController: UIViewController, CombatDelegate {
 		self.view.addSubview(alert)
 		return alert
 	}()
-    
-    lazy var itemCard: ItemCardView = {
-        let item = ItemCardView()
-        self.view.addSubview(item)
-        item.translatesAutoresizingMaskIntoConstraints = false
-        item.itemNameLabel.text = "Medkit"
-        item.itemDescriptionTextView.text = "Cura as galera tudo."
-        item.itemUsesTextField.text = "999"
-        return item
-    }()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,43 +79,66 @@ class CombatViewController: UIViewController, CombatDelegate {
     
     private func additionalConfigurations() {
         configureLayout()
+		
+		self.attacksView.addButton.isUserInteractionEnabled = true
+		let tapAttack = UITapGestureRecognizer(target: self, action: #selector(self.addAttackButton(_:)))
+		tapAttack.numberOfTapsRequired = 1
+		self.attacksView.addButton.addGestureRecognizer(tapAttack)
+		
+		self.itemsView.addButton.isUserInteractionEnabled = true
+		let tapItem = UITapGestureRecognizer(target: self, action: #selector(self.addItemButton(_:)))
+		tapItem.numberOfTapsRequired = 1
+		self.itemsView.addButton.addGestureRecognizer(tapItem)
+		
 		setCombatDelegates()
         view.backgroundColor = .backgroundBlack
     }
     
+	@objc func addAttackButton(_ sender: UITapGestureRecognizer) {
+		attacksView.addAttack()
+		attacksView.setAttacksDelegate(with: self)
+	}
+	
+	@objc func addItemButton(_ sender: UITapGestureRecognizer) {
+		itemsView.addItem()
+	}
+	
     private func configureLayout() {
-		scrollingView.addSubview(generalCombat)
-		scrollingView.addSubview(headerButtons)
-		scrollingView.addSubview(attackCard)
+		mainScrollingView.addSubview(generalCombat)
+		mainScrollingView.addSubview(headerButtons)
+		mainScrollingView.addSubview(attacksView)
+		mainScrollingView.addSubview(itemsView)
 		
         NSLayoutConstraint.activate([
-			scrollingView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
-			scrollingView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
-			scrollingView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
-			scrollingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
+			mainScrollingView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
+			mainScrollingView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
+			mainScrollingView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+			mainScrollingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
 			
-			generalCombat.topAnchor.constraint(equalTo: scrollingView.topAnchor, constant: 0),
+			generalCombat.topAnchor.constraint(equalTo: mainScrollingView.topAnchor, constant: 0),
 			generalCombat.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
 			generalCombat.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 			
-			headerButtons.topAnchor.constraint(equalTo: scrollingView.topAnchor, constant: 0),
+			headerButtons.topAnchor.constraint(equalTo: mainScrollingView.topAnchor, constant: 0),
 			headerButtons.heightAnchor.constraint(equalToConstant: 34),
 			headerButtons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
 			headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 			
-			attackCard.topAnchor.constraint(equalTo: generalCombat.bottomAnchor, constant: 10),
-			attackCard.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-			attackCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-			attackCard.bottomAnchor.constraint(equalTo: scrollingView.bottomAnchor, constant: -10),
+			attacksView.topAnchor.constraint(equalTo: generalCombat.bottomAnchor, constant: 30),
+			attacksView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+			attacksView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+			attacksView.bottomAnchor.constraint(equalTo: attacksView.topAnchor, constant: 400),
 			
 			dimmingOverlay.leftAnchor.constraint(equalTo: self.view.leftAnchor),
 			dimmingOverlay.rightAnchor.constraint(equalTo: self.view.rightAnchor),
 			dimmingOverlay.topAnchor.constraint(equalTo: self.view.topAnchor),
 			dimmingOverlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             
-            itemCard.topAnchor.constraint(equalTo: attackCard.bottomAnchor, constant: 10),
-            itemCard.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
-            itemCard.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+            itemsView.topAnchor.constraint(equalTo: attacksView.bottomAnchor, constant: 30),
+			itemsView.heightAnchor.constraint(equalToConstant: 400),
+			itemsView.bottomAnchor.constraint(equalTo: mainScrollingView.bottomAnchor),
+			itemsView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
+			itemsView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
 			
 			diceAlert.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
 			diceAlert.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
@@ -137,7 +156,7 @@ class CombatViewController: UIViewController, CombatDelegate {
 	
 	// MARK: - Dice Roll Logic
 	func setCombatDelegates() {
-		attackCard.setCombatDelegate(with: self)
+		attacksView.setAttacksDelegate(with: self)
 	}
 	
 	func triggerDice(diceText: String, diceType: String) {
