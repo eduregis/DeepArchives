@@ -44,7 +44,7 @@ class HistoricPresenter {
         }
     }
     
-    func editHistoric(_ personalDescription: String, _ ideology: String, _ traits: String, _ woundsAndScars: String, _ importantPersons: String, _ importantLocals: String,_ phobiasAndManias: String, _ possessions: String, _ meetingWithEntities: String, _ tomesAndSpells: String, _ historic: Historic) {
+    func editHistoric(_ personalDescription: String, _ ideology: String, _ traits: String, _ woundsAndScars: String, _ importantPersons: String, _ importantLocals: String, _ phobiasAndManias: String, _ possessions: String, _ meetingWithEntities: String, _ tomesAndSpells: String, _ historic: Historic) {
         let editHistoric = historic
         editHistoric.personalDescription = personalDescription
         editHistoric.ideology = ideology
