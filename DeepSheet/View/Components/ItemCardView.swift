@@ -29,6 +29,7 @@ class ItemCardView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.font = UIFont.systemFont(ofSize: 17.0)
         field.textColor = .ivory
+        field.backgroundColor = .backgroundBlack
         field.isEditable = false
         field.layer.borderWidth = 1
         field.layer.cornerRadius = 5
@@ -83,9 +84,9 @@ class ItemCardView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(field)
         field.font = UIFont.josefinSansBold17()
-        field.textColor = .backgroundBlack
+        field.textColor = .ivory
+        field.backgroundColor = .darkGray
         field.textAlignment = .center
-        field.backgroundColor = .ivory
         field.layer.borderWidth = 1
         field.layer.cornerRadius = 5
         field.layer.borderColor = UIColor.systemGray3.cgColor
