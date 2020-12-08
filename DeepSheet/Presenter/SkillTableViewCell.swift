@@ -9,7 +9,7 @@ import UIKit
 
 class SkillTableViewCell: UITableViewCell {
     
-    var categories: [String] = ["", LocalizedStrings.noneSkill, LocalizedStrings.artSkill, LocalizedStrings.nativeLanguageSkill, LocalizedStrings.officeSkill, LocalizedStrings.otherLanguageSkill, LocalizedStrings.pilotSkill, LocalizedStrings.mechRepairSkill]
+    var categories: [String] = ["", "", LocalizedStrings.artSkill, LocalizedStrings.nativeLanguageSkill, LocalizedStrings.officeSkill, LocalizedStrings.otherLanguageSkill, LocalizedStrings.pilotSkill, LocalizedStrings.mechRepairSkill]
 	
     lazy var diceImage: UIImageView = {
         let imageView = UIImageView()

@@ -81,8 +81,48 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
         return stack
     }()
     
+    lazy var skillNameDetail: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .systemRed
+        label.font = UIFont.josefinSansRegular()
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
+    
+    lazy var skillNameStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [skillNameView, skillNameDetail])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 0
+        return stack
+    }()
+    
     lazy var valueView: EditModalComponent = {
         let stack = EditModalComponent(titleText: LocalizedStrings.value)
+        return stack
+    }()
+    
+    lazy var valueDetail: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .systemRed
+        label.font = UIFont.josefinSansRegular()
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
+    
+    lazy var valueStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [valueView, valueDetail])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 0
         return stack
     }()
     
@@ -112,7 +152,7 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     }()
     
     lazy var firstStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [skillNameView, valueView, isActivatedStack])
+        let stack = UIStackView(arrangedSubviews: [skillNameStack, valueStack, isActivatedStack])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -188,7 +228,6 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc func rightButtonBehavior() {
         if actualPage == lastPage {
             editSkill()
-            dismiss(animated: true, completion: editionAction)
         } else {
             actualPage += 1
         }
@@ -254,7 +293,28 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
         if skill.userCreated {
             skill.desc = Int64(selectedCategoryIndex + 1)
         }
-        skillsPresenter.editSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!), isActivatedSwitch.isOn, skill)
+        
+        let result: (Bool, Int) = skillsPresenter.editSkill(skillNameView.valueText.text!, Int64(valueView.valueText.text!), isActivatedSwitch.isOn, skill)
+        
+        if result.0 {
+            dismiss(animated: true, completion: editionAction)
+        } else {
+            switch result.1 {
+            case 1:
+                valueDetail.isHidden = false
+                skillNameDetail.isHidden = true
+                valueDetail.text = "Percentage out of range."
+            case 2:
+                valueDetail.isHidden = true
+                skillNameDetail.isHidden = false
+                skillNameDetail.text = "Skill already exists."
+            default:
+                valueDetail.isHidden = true
+                skillNameDetail.isHidden = true
+            }
+            actualPage = 0
+            atualizeUI()
+        }
     }
     
     private func configureLayout() {
