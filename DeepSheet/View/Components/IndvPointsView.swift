@@ -15,7 +15,7 @@ class IndvPointsView: UIView {
 	
 	var hasDiceButton: Bool
 	
-	var pointsValue: (current: Int, maximum: Int) = (0, 0)
+	var pointsValue: (current: Int64, maximum: Int64) = (0, 0)
 	
 	var isEditModeEnabled: Bool = false
 	
@@ -202,8 +202,9 @@ class IndvPointsView: UIView {
 	
 	func rewritePoints(is bool: Bool) {
 		if bool {
-			pointsValue.current = (currentValueField.text! as NSString).integerValue
-			pointsValue.maximum = (maxValueField.text! as NSString).integerValue
+            pointsValue.current = Int64((currentValueField.text! as NSString).integerValue)
+            pointsValue.maximum = Int64(maxValueField.text!)!
+//            (maxValueField.text! as NSString).integerValue
 		} else {
 			currentValueField.text = "\(pointsValue.current)"
 			maxValueField.text = "\(pointsValue.maximum)"
@@ -211,7 +212,7 @@ class IndvPointsView: UIView {
 		updatePointsDisplay(with: pointsValue)
 	}
 	
-	func updatePointsDisplay(with new: (current: Int, maximum: Int)) {
+	func updatePointsDisplay(with new: (current: Int64, maximum: Int64)) {
 		pointsValue.current = new.current
 		pointsValue.maximum = new.maximum
 		

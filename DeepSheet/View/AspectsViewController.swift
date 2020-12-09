@@ -8,10 +8,21 @@ import UIKit
 
 class AspectsViewController: UIViewController, UITextFieldDelegate {
 
-	private let aspectsViewPresenter = AspectsPresenter()
-	
+    private let aspectsViewPresenter:AspectsPresenter
+    let investigator: Investigator
+
 	var isEditEnabled: Bool = false
 	
+    init(_ inv: Investigator) {
+        self.investigator = inv
+        self.aspectsViewPresenter = AspectsPresenter(self.investigator)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 	lazy var headerButtons: HeaderButtons = {
 		let header = HeaderButtons()
 		header.editButton.addTarget(self, action: #selector(self.enterEditing), for: .touchUpInside)
@@ -35,6 +46,10 @@ class AspectsViewController: UIViewController, UITextFieldDelegate {
 
 	lazy var statesView: GroupStatesView = {
 		let states = GroupStatesView()
+        states.woundView.stateButton.addTarget(self, action: #selector(setStates), for: .touchUpInside)
+        states.indefInsView.stateButton.addTarget(self, action: #selector(setStates), for: .touchUpInside)
+        states.incapacView.stateButton.addTarget(self, action: #selector(setStates), for: .touchUpInside)
+        states.tempInsView.stateButton.addTarget(self, action: #selector(setStates), for: .touchUpInside)
 		states.translatesAutoresizingMaskIntoConstraints = false
 		return states
 	}()
@@ -70,6 +85,7 @@ class AspectsViewController: UIViewController, UITextFieldDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        getStates()
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         button.setTitle(LocalizedStrings.investigators, for: .normal)
@@ -83,6 +99,22 @@ class AspectsViewController: UIViewController, UITextFieldDelegate {
     
     @objc func backAction() {
         self.tabBarController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func getStates() {
+        let states = aspectsViewPresenter.getStates()
+        statesView.setStates(states)
+    }
+    
+    @objc func setStates(_ sender: UIButton) {
+        let stateSender = sender.superview as? IndvStatesView
+        stateSender?.callCheckState()
+        aspectsViewPresenter.setStates(with: [
+            statesView.tempInsView.stateChecked,
+            statesView.indefInsView.stateChecked,
+            statesView.incapacView.stateChecked,
+            statesView.woundView.stateChecked
+        ])
     }
 	
 	private func additionalConfigurations() {

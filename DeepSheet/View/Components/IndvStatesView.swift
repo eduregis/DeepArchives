@@ -37,7 +37,6 @@ class IndvStatesView: UIView {
 	lazy var stateButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(self.callCheckState), for: .touchUpInside)
 		button.backgroundColor = .clear
 		self.addSubview(button)
 		return button
@@ -58,8 +57,6 @@ class IndvStatesView: UIView {
 		configureLayout()
 		
 		stateLabel.text = stateName
-		// MARK: - Call presenter to get check state from Model
-		//stateChecked = getStateFromModel()
 		
 		toggleCheckMark()
 	}
@@ -105,13 +102,15 @@ class IndvStatesView: UIView {
 		}
 	}
 	
-	@objc func callCheckState(sender: UIButton) {
-		// MARK: - Call presenter to update state from Model
-		//stateChecked = updateStateFromModel()
+    func callCheckState() {
 		stateChecked = !stateChecked //Remove once Presenter is in place
-		print("Check State for \(stateLabel.text!)")
 		toggleCheckMark()
 	}
+    
+    func getFromStates(_ state: Bool){
+        stateChecked = state
+        toggleCheckMark()
+    }
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
