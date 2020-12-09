@@ -12,6 +12,8 @@ class CombatViewController: UIViewController, CombatDelegate {
 	let investigator: Investigator
 	let combatPresenter: CombatPresenter
 	
+	var generalCombat: [GeneralCombat] = []
+	
 	var items: [Item] = []
 	
 	var attacks: [Attack] = []
@@ -19,6 +21,11 @@ class CombatViewController: UIViewController, CombatDelegate {
 	init(_ inv: Investigator) {
 		self.investigator = inv
 		self.combatPresenter = CombatPresenter(self.investigator)
+		
+		//Change once Presenter can fetch from Aspects Model
+		//self.generalCombat = combatPresenter.fetchGeneralCombat()
+		self.generalCombat = combatPresenter.generalCombat
+		
 		self.items = combatPresenter.fetchItems()
 		self.attacks = combatPresenter.fetchAttacks()
 		super.init(nibName: nil, bundle: nil)
@@ -37,8 +44,8 @@ class CombatViewController: UIViewController, CombatDelegate {
 		return header
 	}()
 	
-	lazy var generalCombat: GeneralCombatView = {
-		let combat = GeneralCombatView()
+	lazy var generalCombatView: GeneralCombatView = {
+		let combat = GeneralCombatView(with: generalCombat[0])
 		combat.translatesAutoresizingMaskIntoConstraints = false
 		return combat
 	}()
@@ -141,7 +148,7 @@ class CombatViewController: UIViewController, CombatDelegate {
 	}
     
     private func configureLayout() {
-		mainScrollingView.addSubview(generalCombat)
+		mainScrollingView.addSubview(generalCombatView)
 		mainScrollingView.addSubview(headerButtons)
 		mainScrollingView.addSubview(attacksView)
 		mainScrollingView.addSubview(itemsView)
@@ -152,16 +159,16 @@ class CombatViewController: UIViewController, CombatDelegate {
 			mainScrollingView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
 			mainScrollingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
 			
-			generalCombat.topAnchor.constraint(equalTo: mainScrollingView.topAnchor, constant: 0),
-			generalCombat.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-			generalCombat.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+			generalCombatView.topAnchor.constraint(equalTo: mainScrollingView.topAnchor, constant: 0),
+			generalCombatView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+			generalCombatView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 			
 			headerButtons.topAnchor.constraint(equalTo: mainScrollingView.topAnchor, constant: 0),
 			headerButtons.heightAnchor.constraint(equalToConstant: 34),
 			headerButtons.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
 			headerButtons.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 			
-			attacksView.topAnchor.constraint(equalTo: generalCombat.bottomAnchor, constant: 30),
+			attacksView.topAnchor.constraint(equalTo: generalCombatView.bottomAnchor, constant: 30),
 			attacksView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
 			attacksView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
 			attacksView.bottomAnchor.constraint(equalTo: attacksView.topAnchor, constant: 400),
@@ -187,8 +194,14 @@ class CombatViewController: UIViewController, CombatDelegate {
 	}
 	
 	@objc func triggerGeneralModal() {
-		let editModal = EditCombatModal()
-		present(editModal, animated: true, completion: nil)
+		self.present(EditCombatModal(action: {
+			self.fetchGeneralCombat()
+		}, self.combatPresenter), animated: true, completion: nil)
+	}
+	
+	func fetchGeneralCombat() {
+		self.generalCombat = combatPresenter.fetchGeneralCombat()
+		generalCombatView.updateGeneralCombat(with: generalCombat[0])
 	}
 	
 	// MARK: - Dice Roll Logic

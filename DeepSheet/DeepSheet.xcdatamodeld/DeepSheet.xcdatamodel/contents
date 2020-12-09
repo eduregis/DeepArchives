@@ -10,6 +10,12 @@
         <attribute name="reach" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="attack" inverseEntity="Investigator"/>
     </entity>
+    <entity name="GeneralCombat" representedClassName="GeneralCombat" syncable="YES" codeGenerationType="category">
+        <attribute name="body" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="damageBonus" optional="YES" attributeType="String"/>
+        <attribute name="dodgeValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="generalCombat" inverseEntity="Investigator"/>
+    </entity>
     <entity name="Historic" representedClassName="Historic" syncable="YES" codeGenerationType="category">
         <attribute name="ideology" optional="YES" attributeType="String"/>
         <attribute name="importantLocals" optional="YES" attributeType="String"/>
@@ -27,6 +33,7 @@
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="occupation" attributeType="String" defaultValueString=""/>
         <relationship name="attack" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attack" inverseName="investigator" inverseEntity="Attack"/>
+        <relationship name="generalCombat" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="GeneralCombat" inverseName="investigator" inverseEntity="GeneralCombat"/>
         <relationship name="historic" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Historic" inverseName="investigator" inverseEntity="Historic"/>
         <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="investigator" inverseEntity="Item"/>
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Profile" inverseName="investigator" inverseEntity="Profile"/>
@@ -57,11 +64,12 @@
         <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="skills" inverseEntity="Investigator"/>
     </entity>
     <elements>
+        <element name="Attack" positionX="9" positionY="153" width="128" height="163"/>
         <element name="Historic" positionX="9" positionY="99" width="128" height="208"/>
-        <element name="Investigator" positionX="18" positionY="108" width="128" height="148"/>
+        <element name="Investigator" positionX="18" positionY="108" width="128" height="163"/>
         <element name="Item" positionX="9" positionY="153" width="128" height="103"/>
         <element name="Profile" positionX="18" positionY="171" width="128" height="148"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
-        <element name="Attack" positionX="9" positionY="153" width="128" height="163"/>
+        <element name="GeneralCombat" positionX="18" positionY="162" width="128" height="103"/>
     </elements>
 </model>
