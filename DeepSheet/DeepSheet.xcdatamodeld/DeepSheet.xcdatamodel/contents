@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AspectsAttributes" representedClassName="AspectsAttributes" syncable="YES" codeGenerationType="class">
+        <attribute name="app" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="con" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dex" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="edu" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="int" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mov" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pow" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="siz" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="str" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="AspectsPoints" representedClassName="AspectsPoints" syncable="YES" codeGenerationType="class">
+        <attribute name="health" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="luck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="magic" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sanity" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="AspectsStates" representedClassName="AspectsStates" syncable="YES" codeGenerationType="class">
+        <attribute name="gravelyWounded" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="incapacitated" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="indefinitelyInsane" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="temporarilyInsane" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Historic" representedClassName="Historic" syncable="YES" codeGenerationType="category">
         <attribute name="ideology" optional="YES" attributeType="String"/>
         <attribute name="importantLocals" optional="YES" attributeType="String"/>
@@ -43,5 +66,8 @@
         <element name="Investigator" positionX="18" positionY="108" width="128" height="118"/>
         <element name="Profile" positionX="18" positionY="171" width="128" height="148"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
+        <element name="AspectsAttributes" positionX="18" positionY="162" width="128" height="178"/>
+        <element name="AspectsPoints" positionX="27" positionY="171" width="128" height="103"/>
+        <element name="AspectsStates" positionX="36" positionY="180" width="128" height="103"/>
     </elements>
 </model>
