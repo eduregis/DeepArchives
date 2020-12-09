@@ -96,6 +96,25 @@ class CombatPresenter {
 		}
 	}
 	
+	func updateAttack(for modAttack: Attack, newName: String, newChance: Int, newDice: String, newReach: Int, newNum: Int, newAmmo: Int, newMalfunction: Int) {
+		
+		let editAttack = modAttack
+		editAttack.name = newName
+		editAttack.chance = Int64(newChance)
+		editAttack.dice = newDice
+		editAttack.reach = Int64(newReach)
+		editAttack.number = Int64(newNum)
+		editAttack.ammo = Int64(newAmmo)
+		editAttack.malfunction = Int64(newMalfunction)
+		editAttack.investigator = self.investigator
+		
+		do {
+			try dataContext.save()
+		} catch {
+			fatalError("Unable to SAVE ATTACK DATA to core data model!")
+		}
+	}
+	
 	func updateAttackAmmo(for modAttack: Attack, with modAmmo: Int) {
 		
 		let editAttack = modAttack

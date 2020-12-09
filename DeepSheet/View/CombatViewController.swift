@@ -123,6 +123,7 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		
 		setCombatDelegates()
 		setTextFieldDelegates(with: self)
+		connectEditAttack()
 		connectEditItem()
         view.backgroundColor = .backgroundBlack
     }
@@ -138,6 +139,7 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		attacksView.updateAttacks(with: attacks, and: self)
 		setCombatDelegates()
 		setTextFieldDelegates(with: self)
+		connectEditAttack()
 	}
 	
 	@objc func addItemButton(_ sender: UITapGestureRecognizer) {
@@ -208,6 +210,29 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 	func fetchGeneralCombat() {
 		self.generalCombat = combatPresenter.fetchGeneralCombat()
         generalCombatView.updateGeneralCombat(with: generalCombat[0])
+	}
+	
+	// MARK: - Edit Attack Logic
+	
+	func connectEditAttack() {
+		
+		for attack in attacksView.attacksStack.arrangedSubviews {
+			let actualAttack = attack as! AttackCardView
+			actualAttack.editButton.addTarget(self, action: #selector(self.presentEditAttack(_:)), for: .touchUpInside)
+		}
+	}
+	
+	@objc func presentEditAttack(_ sender: UIButton) {
+		
+		let attackCard = sender.superview as! AttackCardView
+		
+		for attack in attacks {
+			if attack.name == attackCard.attackLabel.text && attack.dice == attackCard.damageDiceValue {
+				self.present(EditWeaponModal(action: {
+					self.fetchAttackData()
+				}, self.combatPresenter, attack), animated: true, completion: nil)
+			}
+		}
 	}
 	
 	// MARK: - Edit Item Logic

@@ -187,7 +187,7 @@ class NewWeaponModal: UIViewController {
     @objc func rightButtonBehavior() {
 		var valueChecks = false
 		
-		if BusinessRules.checkIfIsPercentageValue(Int64(pointsView.valueText.text)!) {
+		if actualPage == lastPage && BusinessRules.checkIfIsPercentageValue(Int64(pointsView.valueText.text)!) {
 			if BusinessRules.checkIfIsPercentageValue(Int64(malfunctionView.valueText.text)!) {
 				valueChecks = true
 			}
