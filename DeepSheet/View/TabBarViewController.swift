@@ -63,10 +63,6 @@ class TabBarViewController: UITabBarController {
         combatNavigationController.overrideUserInterfaceStyle = .dark
         let bioNavigationController = UINavigationController(rootViewController: bioViewController)
         bioNavigationController.overrideUserInterfaceStyle = .dark
-        
-        profileNavigationController.navigationBar.setNavigationBarStyle()
-        statsNavigationController.navigationBar.setNavigationBarStyle()
-        bioNavigationController.navigationBar.setNavigationBarStyle()
         self.viewControllers = [profileNavigationController, skillsNavigationController, statsNavigationController, combatNavigationController, bioNavigationController]
         
     }
