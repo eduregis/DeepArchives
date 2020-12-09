@@ -103,7 +103,8 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         
-        generalCombatView.damageView.addTarget(self, action: #selector(triggerCustomDice(_ :)), for: .touchUpInside)
+        generalCombatView.damageView.addTarget(self, action: #selector(triggerInfoDice(_ :)), for: .touchUpInside)
+		generalCombatView.dodgeView.addTarget(self, action: #selector(triggerCharDice(_:)), for: .touchUpInside)
 		
         additionalConfigurations()
     }
@@ -305,8 +306,6 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 			self.diceAlert.layer.opacity = 1
 			self.dimmingOverlay.layer.opacity = 0.6
 		})
-		
-		print("Presented attack with \(diceText)")
 	}
 	
 	func triggerDamageDice(attackName: String, diceType: String) {
@@ -318,15 +317,30 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		})
 	}
     
-    @objc func triggerCustomDice(_ sender: InfoView) {
+    @objc func triggerInfoDice(_ sender: InfoView) {
         diceAlert.rollCustomDice(rollText: sender.characteristicLabel.text ?? "", rollType: sender.valueLabel.text ?? "")
         
         UIView.animate(withDuration: 0.2, delay: 0, animations: {
             self.diceAlert.layer.opacity = 1
             self.dimmingOverlay.layer.opacity = 0.6
         })
-    
     }
+	
+	@objc func triggerCharDice(_ sender: CharacteristicView) {
+		diceAlert.rollDice(rollText: LocalizedStrings.dodgeTitle, rollType: "d100")
+		
+		UIView.animate(withDuration: 0.2, delay: 0, animations: {
+			self.diceAlert.layer.opacity = 1
+			self.dimmingOverlay.layer.opacity = 0.6
+		})
+//
+//		diceAlert.rollCustomDice(rollText: sender.characteristicLabel.text ?? "", rollType: sender.valueLabel.text ?? "")
+//
+//		UIView.animate(withDuration: 0.2, delay: 0, animations: {
+//			self.diceAlert.layer.opacity = 1
+//			self.dimmingOverlay.layer.opacity = 0.6
+//		})
+	}
 	
 	@objc func dismissAlert() {
 		UIView.animate(withDuration: 0.2, delay: 0, animations: {

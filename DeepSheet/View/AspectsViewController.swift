@@ -218,7 +218,7 @@ class AspectsViewController: UIViewController, UITextFieldDelegate {
 		//Presenter gets all values in View and formats
 		pointsView.rewriteAllPoints(is: true)
 		aspectsViewPresenter.setPoints(with: pointsView.getAllPointsValues())
-		aspectsViewPresenter.setCharacteristics(with: attributesInformation.getAllCharacteristicValues())
+		aspectsViewPresenter.setCharacteristics(with: attributesInformation.getAllCharacteristicFields())
 		
 		//Presenter uses formatted values to update Model
 		

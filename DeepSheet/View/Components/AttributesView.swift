@@ -188,6 +188,22 @@ class AttributesView: UIView {
 		return arr
 	}
 	
+	func getAllCharacteristicFields() -> [Int64] {
+		let arr = [
+			strView.getCharacteristicFieldValue(),
+			dexView.getCharacteristicFieldValue(),
+			intView.getCharacteristicFieldValue(),
+			conView.getCharacteristicFieldValue(),
+			appView.getCharacteristicFieldValue(),
+			powView.getCharacteristicFieldValue(),
+			sizView.getCharacteristicFieldValue(),
+			eduView.getCharacteristicFieldValue(),
+			movView.getCharacteristicFieldValue()
+		]
+		
+		return arr
+	}
+	
 	func overwriteAllCharacteristicValues() {
 		
 		strView.overwriteCharacteristicValues()

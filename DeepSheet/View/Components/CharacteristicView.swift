@@ -190,6 +190,12 @@ class CharacteristicView: UIButton, DiceProtocol {
 		return intValue
 	}
 	
+	func getCharacteristicFieldValue() -> Int64 {
+		guard let intValue = Int64(valueTextField.text!) else { fatalError() }
+		
+		return intValue
+	}
+	
 	func overwriteCharacteristicValues() {
 		let valueFromField = (valueTextField.text! as NSString).integerValue
 		

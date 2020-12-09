@@ -17,7 +17,7 @@ class GeneralCombatView: UIView {
         label.font = UIFont.josefinSansBold()
         label.textAlignment = .center
         label.textColor = .ivory
-        label.text = "Geral"
+		label.text = LocalizedStrings.generalCombatTitle
         return label
     }()
     
@@ -30,7 +30,7 @@ class GeneralCombatView: UIView {
     }()
     
     let bodyView: InfoView = {
-        let view = InfoView(characteristic: "Corpo", value: "1")
+		let view = InfoView(characteristic: LocalizedStrings.combatBodyTitle, value: "1")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
