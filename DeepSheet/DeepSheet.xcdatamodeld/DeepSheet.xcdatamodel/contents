@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AspectsAttributes" representedClassName="AspectsAttributes" syncable="YES" codeGenerationType="category">
+        <attribute name="app" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="con" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dex" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="edu" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="int" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mov" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pow" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="siz" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="str" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="aspectAttributes" inverseEntity="Investigator"/>
+    </entity>
+    <entity name="AspectsPoints" representedClassName="AspectsPoints" syncable="YES" codeGenerationType="category">
+        <attribute name="currentHealth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="currentLuck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="currentMagic" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="currentSanity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalHealth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalLuck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalMagic" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalSanity" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="aspectPoints" inverseEntity="Investigator"/>
+    </entity>
+    <entity name="AspectsStates" representedClassName="AspectsStates" syncable="YES" codeGenerationType="category">
+        <attribute name="gravelyWounded" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="incapacitated" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="indefinitelyInsane" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="temporarilyInsane" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="aspectsStates" inverseEntity="Investigator"/>
+    </entity>
     <entity name="Attack" representedClassName="Attack" syncable="YES" codeGenerationType="category">
         <attribute name="ammo" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="chance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -32,6 +62,9 @@
     <entity name="Investigator" representedClassName="Investigator" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="occupation" attributeType="String" defaultValueString=""/>
+        <relationship name="aspectAttributes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AspectsAttributes" inverseName="investigator" inverseEntity="AspectsAttributes"/>
+        <relationship name="aspectPoints" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AspectsPoints" inverseName="investigator" inverseEntity="AspectsPoints"/>
+        <relationship name="aspectsStates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AspectsStates" inverseName="investigator" inverseEntity="AspectsStates"/>
         <relationship name="attack" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attack" inverseName="investigator" inverseEntity="Attack"/>
         <relationship name="generalCombat" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="GeneralCombat" inverseName="investigator" inverseEntity="GeneralCombat"/>
         <relationship name="historic" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Historic" inverseName="investigator" inverseEntity="Historic"/>
@@ -63,13 +96,28 @@
         <attribute name="value" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="skills" inverseEntity="Investigator"/>
     </entity>
+    <configuration name="CloudKit" usedWithCloudKit="YES">
+        <memberEntity name="Profile"/>
+        <memberEntity name="Item"/>
+        <memberEntity name="Investigator"/>
+        <memberEntity name="Historic"/>
+        <memberEntity name="GeneralCombat"/>
+        <memberEntity name="Attack"/>
+        <memberEntity name="AspectsStates"/>
+        <memberEntity name="AspectsPoints"/>
+        <memberEntity name="AspectsAttributes"/>
+        <memberEntity name="Skill"/>
+    </configuration>
     <elements>
+        <element name="AspectsAttributes" positionX="18" positionY="162" width="128" height="179"/>
+        <element name="AspectsPoints" positionX="27" positionY="171" width="128" height="164"/>
+        <element name="AspectsStates" positionX="36" positionY="180" width="128" height="104"/>
         <element name="Attack" positionX="9" positionY="153" width="128" height="163"/>
+        <element name="GeneralCombat" positionX="18" positionY="162" width="128" height="103"/>
         <element name="Historic" positionX="9" positionY="99" width="128" height="208"/>
-        <element name="Investigator" positionX="18" positionY="108" width="128" height="163"/>
+        <element name="Investigator" positionX="18" positionY="108" width="128" height="179"/>
         <element name="Item" positionX="9" positionY="153" width="128" height="103"/>
         <element name="Profile" positionX="18" positionY="171" width="128" height="148"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
-        <element name="GeneralCombat" positionX="18" positionY="162" width="128" height="103"/>
     </elements>
 </model>

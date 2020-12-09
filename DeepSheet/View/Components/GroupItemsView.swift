@@ -15,7 +15,7 @@ class GroupItemsView: UIView {
 		var label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.font = UIFont.josefinSansBold()
-		label.text = "Items"
+		label.text = LocalizedStrings.itemsTitle
 		label.textAlignment = .center
 		label.textColor = .ivory
 		label.backgroundColor = .clear
@@ -26,7 +26,7 @@ class GroupItemsView: UIView {
 	lazy var addButton: AdditionCardView = {
 		let addCard = AdditionCardView()
 		addCard.translatesAutoresizingMaskIntoConstraints = false
-		addCard.additionCardLabel.text = "Adicionar Item"
+		addCard.additionCardLabel.text = LocalizedStrings.addItemsButton
 		self.addSubview(addCard)
 		return addCard
 	}()
@@ -90,6 +90,13 @@ class GroupItemsView: UIView {
 	
 	// MARK: - Logic
 	
+	func setTextDelegates(with delegate: UITextFieldDelegate) {
+		for item in itemStack.arrangedSubviews {
+			var actualItem = item as! ItemCardView
+			actualItem.setItemUsesDelegate(with: delegate)
+		}
+	}
+	
 	func updateItems(with items: [Item]) {
 		
 		for item in itemStack.arrangedSubviews {
@@ -100,10 +107,6 @@ class GroupItemsView: UIView {
 			var newItem = ItemCardView(itemName: new.name!, itemDescription: new.descript!, itemUses: Int(new.uses))
 			itemStack.addArrangedSubview(newItem)
 		}
-		
-		print("************************************")
-		print(itemStack.arrangedSubviews)
-		print("************************************")
 	}
 
 }

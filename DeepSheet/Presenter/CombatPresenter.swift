@@ -34,18 +34,8 @@ class CombatPresenter {
 			tempGeneral.dodgeValue = 75
 			tempGeneral.investigator = self.investigator
 			generalCombat = [tempGeneral]
-			print("""
-				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-				First General Combat
-				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-			""")
 		} else {
 			generalCombat = fetchGeneralCombat()
-			print("""
-				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-				Existing General Combat
-				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-			""")
 		}
 		
 	}
@@ -106,6 +96,44 @@ class CombatPresenter {
 		}
 	}
 	
+	func updateAttack(for modAttack: Attack, newName: String, newChance: Int, newDice: String, newReach: Int, newNum: Int, newAmmo: Int, newMalfunction: Int) {
+		
+		let editAttack = modAttack
+		editAttack.name = newName
+		editAttack.chance = Int64(newChance)
+		editAttack.dice = newDice
+		editAttack.reach = Int64(newReach)
+		editAttack.number = Int64(newNum)
+		editAttack.ammo = Int64(newAmmo)
+		editAttack.malfunction = Int64(newMalfunction)
+		editAttack.investigator = self.investigator
+		
+		do {
+			try dataContext.save()
+		} catch {
+			fatalError("Unable to SAVE ATTACK DATA to core data model!")
+		}
+	}
+	
+	func updateAttackAmmo(for modAttack: Attack, with modAmmo: Int) {
+		
+		let editAttack = modAttack
+		editAttack.name = modAttack.name
+		editAttack.chance = modAttack.chance
+		editAttack.dice = modAttack.dice
+		editAttack.reach = modAttack.reach
+		editAttack.number = modAttack.number
+		editAttack.ammo = Int64(modAmmo)
+		editAttack.malfunction = modAttack.malfunction
+		editAttack.investigator = modAttack.investigator
+		
+		do {
+			try dataContext.save()
+		} catch {
+			fatalError("Unable to SAVE ATTACK DATA to core data model!")
+		}
+	}
+	
 	func fetchAttacks() -> [Attack] {
 		
 		let fetch = Attack.fetchRequest() as NSFetchRequest<Attack>
@@ -141,6 +169,36 @@ class CombatPresenter {
 		}
 	}
 	
+	func updateItem(for modItem: Item, newName: String, newUses: Int, newDescription: String) {
+		
+		let editItem = modItem
+		editItem.name = newName
+		editItem.descript = newDescription
+		editItem.uses = Int64(newUses)
+		editItem.investigator = modItem.investigator
+		
+		do {
+			try dataContext.save()
+		} catch {
+			fatalError("Unable to SAVE ITEM DATA to core data model!")
+		}
+	}
+	
+	func updateItemUses(for modItem: Item, with modUses: Int) {
+		
+		let editItem = modItem
+		editItem.name = modItem.name
+		editItem.descript = modItem.descript
+		editItem.uses = Int64(modUses)
+		editItem.investigator = modItem.investigator
+		
+		do {
+			try dataContext.save()
+		} catch {
+			fatalError("Unable to SAVE ITEM DATA to core data model!")
+		}
+	}
+
 	func fetchItems() -> [Item] {
 		let fetch = Item.fetchRequest() as NSFetchRequest<Item>
 		let pred = NSPredicate(format: "investigator == %@", investigator)

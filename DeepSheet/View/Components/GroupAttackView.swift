@@ -15,7 +15,7 @@ class GroupAttackView: UIView {
 		var label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.font = UIFont.josefinSansBold()
-		label.text = "Golpes"
+		label.text = LocalizedStrings.attacksTitle
 		label.textAlignment = .center
 		label.textColor = .ivory
 		label.backgroundColor = .clear
@@ -26,7 +26,7 @@ class GroupAttackView: UIView {
 	lazy var addButton: AdditionCardView = {
 		let addCard = AdditionCardView()
 		addCard.translatesAutoresizingMaskIntoConstraints = false
-		addCard.additionCardLabel.text = "Adicionar Golpe"
+		addCard.additionCardLabel.text = LocalizedStrings.addAttacksButton
 		self.addSubview(addCard)
 		return addCard
 	}()
@@ -91,6 +91,13 @@ class GroupAttackView: UIView {
 	}
 	
 	// MARK: - Logic
+	
+	func setTextDelegates(with delegate: UITextFieldDelegate) {
+		for attack in attacksStack.arrangedSubviews {
+			var actualAttack = attack as! AttackCardView
+			actualAttack.setAmmoFieldDelegate(with: delegate)
+		}
+	}
 	
 	func updateAttacks(with attacks: [Attack], and delegate: CombatDelegate) {
 		

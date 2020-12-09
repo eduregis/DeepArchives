@@ -67,7 +67,7 @@ class ItemCardView: UIView {
         label.textAlignment = .center
         label.textColor = .ivory
         label.backgroundColor = .clear
-        label.text = "Usos:"
+		label.text = LocalizedStrings.itemUsesTitle
         self.addSubview(label)
         return label
     }()
@@ -139,4 +139,8 @@ class ItemCardView: UIView {
             itemDescriptionTextView.leadingAnchor.constraint(equalTo: stack.leadingAnchor)
         ])
     }
+	
+	func setItemUsesDelegate(with delegate: UITextFieldDelegate) {
+		itemUsesTextField.delegate = delegate
+	}
 }

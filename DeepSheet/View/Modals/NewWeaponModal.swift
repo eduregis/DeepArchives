@@ -69,7 +69,7 @@ class NewWeaponModal: UIViewController {
     // MARK: - First Group
     
     lazy var weaponNameView: EditModalComponent = {
-        let stack = EditModalComponent(titleText: LocalizedStrings.investigatorName)
+        let stack = EditModalComponent(titleText: LocalizedStrings.newWeaponName)
         return stack
     }()
     
@@ -185,7 +185,15 @@ class NewWeaponModal: UIViewController {
     }
     
     @objc func rightButtonBehavior() {
-        if actualPage == lastPage {
+		var valueChecks = false
+		
+		if actualPage == lastPage && BusinessRules.checkIfIsPercentageValue(Int64(pointsView.valueText.text)!) {
+			if BusinessRules.checkIfIsPercentageValue(Int64(malfunctionView.valueText.text)!) {
+				valueChecks = true
+			}
+		}
+		
+		if actualPage == lastPage && valueChecks {
 			createNewAttack()
             dismiss(animated: true, completion: editingAction)
         } else {

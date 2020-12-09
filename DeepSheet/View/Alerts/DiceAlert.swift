@@ -20,7 +20,7 @@ class DiceAlert: UIView {
         label.font = UIFont.josefinSansBold()
         label.textAlignment = .center
         label.textColor = .ivory
-        label.text = "Rolar Dados"
+		label.text = LocalizedStrings.diceRollTitle
         return label
     }()
     
@@ -31,7 +31,7 @@ class DiceAlert: UIView {
         label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .ivory
-        label.text = "Test:"
+		label.text = LocalizedStrings.diceTestName
         return label
     }()
     
@@ -42,7 +42,7 @@ class DiceAlert: UIView {
         label.font = UIFont.josefinSansDetail()
         label.textAlignment = .center
         label.textColor = .ivory
-        label.text = "Roll:"
+		label.text = LocalizedStrings.diceRollName
         return label
     }()
     
@@ -60,7 +60,7 @@ class DiceAlert: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = false
         button.contentMode = .scaleAspectFit
-        button.setTitle("Ok", for: .normal)
+        button.setTitle("OK", for: .normal)
         button.titleLabel?.font = UIFont.josefinSansRegular()
         button.setTitleColor(.lightSeaGreen, for: .normal)
         self.addSubview(button)
@@ -90,8 +90,8 @@ class DiceAlert: UIView {
         super.init(frame: .zero)
         diceImage.image = UIImage(named: "d10-green")
         
-        testNameLabel.text = "Teste: \(test)"
-        diceTypeLabel.text = "Rolagem: \(roll)"
+		testNameLabel.text = LocalizedStrings.diceTestName + " \(test)"
+		diceTypeLabel.text = LocalizedStrings.diceRollName + " \(roll)"
         
         let resultValue = Int.random(in: 1...100)
         resultLabel.text = "\(resultValue)"
@@ -108,7 +108,7 @@ class DiceAlert: UIView {
     func rollDice (rollText: String, rollType: String) {
         
         testNameLabel.text = rollText
-        diceTypeLabel.text = "Roll: \(rollType)"
+        diceTypeLabel.text = LocalizedStrings.diceRollName + " \(rollType)"
         
         let resultValue = Int.random(in: 1...100)
         resultLabel.text = "\(resultValue)"
@@ -136,7 +136,7 @@ class DiceAlert: UIView {
             }
         }
         
-        diceTypeLabel.text = "Roll: \(values)"
+        diceTypeLabel.text = LocalizedStrings.diceRollName + " \(rollType)"
         
         resultLabel.text = "\(finalValue)"
         

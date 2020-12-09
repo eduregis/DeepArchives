@@ -184,8 +184,14 @@ class CharacteristicView: UIButton, DiceProtocol {
 		valueTextField.delegate = delegate
 	}
 	
-	func getCharacteristicValue() -> Int {
-		let intValue = (valueLabel.text! as NSString).integerValue
+	func getCharacteristicValue() -> Int64 {
+        guard let intValue = Int64(valueLabel.text!) else { fatalError() }
+		
+		return intValue
+	}
+	
+	func getCharacteristicFieldValue() -> Int64 {
+		guard let intValue = Int64(valueTextField.text!) else { fatalError() }
 		
 		return intValue
 	}
@@ -198,7 +204,7 @@ class CharacteristicView: UIButton, DiceProtocol {
 		valueBy5Label.text = "\(Int(valueFromField/5))"
 	}
 	
-	func changeCharacteristicValues(with newValue: Int) {
+	func changeCharacteristicValues(with newValue: Int64) {
 		valueLabel.text = preValue + "\(newValue)"
 		valueTextField.text = "\(newValue)"
 		

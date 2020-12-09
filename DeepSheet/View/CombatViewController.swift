@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CombatViewController: UIViewController, CombatDelegate {
+class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegate {
 	
 	let investigator: Investigator
 	let combatPresenter: CombatPresenter
@@ -113,7 +113,8 @@ class CombatViewController: UIViewController, CombatDelegate {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: configButton)
 
         
-        generalCombatView.damageView.addTarget(self, action: #selector(triggerCustomDice(_ :)), for: .touchUpInside)
+        generalCombatView.damageView.addTarget(self, action: #selector(triggerInfoDice(_ :)), for: .touchUpInside)
+		generalCombatView.dodgeView.addTarget(self, action: #selector(triggerCharDice(_:)), for: .touchUpInside)
 		
         additionalConfigurations()
     }
@@ -132,6 +133,9 @@ class CombatViewController: UIViewController, CombatDelegate {
 		self.itemsView.addButton.addGestureRecognizer(tapItem)
 		
 		setCombatDelegates()
+		setTextFieldDelegates(with: self)
+		connectEditAttack()
+		connectEditItem()
         view.backgroundColor = .backgroundBlack
     }
     
@@ -144,6 +148,9 @@ class CombatViewController: UIViewController, CombatDelegate {
 	func fetchAttackData() {
 		self.attacks = combatPresenter.fetchAttacks()
 		attacksView.updateAttacks(with: attacks, and: self)
+		setCombatDelegates()
+		setTextFieldDelegates(with: self)
+		connectEditAttack()
 	}
 	
 	@objc func addItemButton(_ sender: UITapGestureRecognizer) {
@@ -155,6 +162,8 @@ class CombatViewController: UIViewController, CombatDelegate {
 	func fetchItemData() {
 		self.items = combatPresenter.fetchItems()
 		itemsView.updateItems(with: items)
+		setTextFieldDelegates(with: self)
+		connectEditItem()
 	}
     
     private func configureLayout() {
@@ -214,31 +223,134 @@ class CombatViewController: UIViewController, CombatDelegate {
         generalCombatView.updateGeneralCombat(with: generalCombat[0])
 	}
 	
-	// MARK: - Dice Roll Logic
+	// MARK: - Edit Attack Logic
+	
+	func connectEditAttack() {
+		
+		for attack in attacksView.attacksStack.arrangedSubviews {
+			let actualAttack = attack as! AttackCardView
+			actualAttack.editButton.addTarget(self, action: #selector(self.presentEditAttack(_:)), for: .touchUpInside)
+		}
+	}
+	
+	@objc func presentEditAttack(_ sender: UIButton) {
+		
+		let attackCard = sender.superview as! AttackCardView
+		
+		for attack in attacks {
+			if attack.name == attackCard.attackLabel.text && attack.dice == attackCard.damageDiceValue {
+				self.present(EditWeaponModal(action: {
+					self.fetchAttackData()
+				}, self.combatPresenter, attack), animated: true, completion: nil)
+			}
+		}
+	}
+	
+	// MARK: - Edit Item Logic
+	
+	func connectEditItem() {
+		
+		for item in itemsView.itemStack.arrangedSubviews {
+			let actualItem = item as! ItemCardView
+			actualItem.itemUsesEditButton.addTarget(self, action: #selector(self.presentEditItem(_:)), for: .touchUpInside)
+		}
+	}
+	
+	@objc func presentEditItem(_ sender: UIButton) {
+		
+		let itemCard = sender.superview as! ItemCardView
+		
+		for item in items {
+			if item.name == itemCard.itemNameLabel.text {
+				self.present(EditItemModal(action: {
+					self.fetchItemData()
+				}, self.combatPresenter, item), animated: true, completion: nil)
+			}
+		}
+	}
+	
+	// MARK: - Text Fields Logic
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		if textField.superview is AttackCardView {
+			
+			let editedAttack = textField.superview as! AttackCardView
+			updateAttackAmmo(with: editedAttack)
+		} else if textField.superview is ItemCardView {
+			
+			let editedItem = textField.superview as! ItemCardView
+			updateItemUses(with: editedItem)
+		}
+	}
+	
+	func updateAttackAmmo(with editedAttack: AttackCardView) {
+		for att in attacks {
+			if editedAttack.attackLabel.text == att.name && editedAttack.damageDiceValue == att.dice {
+				combatPresenter.updateAttackAmmo(for: att, with: Int(editedAttack.ammoField.text!)!)
+			}
+		}
+	}
+	
+	func updateItemUses(with editedItem: ItemCardView) {
+		for it in items {
+			if editedItem.itemNameLabel.text == it.name {
+				combatPresenter.updateItemUses(for: it, with: Int(editedItem.itemUsesTextField.text!)!)
+			}
+		}
+	}
+	
 	func setCombatDelegates() {
 		attacksView.setAttacksDelegate(with: self)
 	}
 	
-    func triggerDice(diceText: String, diceType: String) {
+	func setTextFieldDelegates(with delegate: UITextFieldDelegate) {
+		attacksView.setTextDelegates(with: delegate)
+		itemsView.setTextDelegates(with: delegate)
+	}
+	
+	// MARK: - Dice Roll Logic
+	func triggerDice(diceText: String, diceType: String) {
 		diceAlert.rollDice(rollText: diceText, rollType: diceType)
 		
 		UIView.animate(withDuration: 0.2, delay: 0, animations: {
 			self.diceAlert.layer.opacity = 1
 			self.dimmingOverlay.layer.opacity = 0.6
 		})
+	}
+	
+	func triggerDamageDice(attackName: String, diceType: String) {
+		diceAlert.rollCustomDice(rollText: attackName ?? "", rollType: diceType ?? "")
 		
-		print("Presented attack with \(diceText)")
+		UIView.animate(withDuration: 0.2, delay: 0, animations: {
+			self.diceAlert.layer.opacity = 1
+			self.dimmingOverlay.layer.opacity = 0.6
+		})
 	}
     
-    @objc func triggerCustomDice(_ sender: InfoView) {
+    @objc func triggerInfoDice(_ sender: InfoView) {
         diceAlert.rollCustomDice(rollText: sender.characteristicLabel.text ?? "", rollType: sender.valueLabel.text ?? "")
         
         UIView.animate(withDuration: 0.2, delay: 0, animations: {
             self.diceAlert.layer.opacity = 1
             self.dimmingOverlay.layer.opacity = 0.6
         })
-    
     }
+	
+	@objc func triggerCharDice(_ sender: CharacteristicView) {
+		diceAlert.rollDice(rollText: LocalizedStrings.dodgeTitle, rollType: "d100")
+		
+		UIView.animate(withDuration: 0.2, delay: 0, animations: {
+			self.diceAlert.layer.opacity = 1
+			self.dimmingOverlay.layer.opacity = 0.6
+		})
+//
+//		diceAlert.rollCustomDice(rollText: sender.characteristicLabel.text ?? "", rollType: sender.valueLabel.text ?? "")
+//
+//		UIView.animate(withDuration: 0.2, delay: 0, animations: {
+//			self.diceAlert.layer.opacity = 1
+//			self.dimmingOverlay.layer.opacity = 0.6
+//		})
+	}
 	
 	@objc func dismissAlert() {
 		UIView.animate(withDuration: 0.2, delay: 0, animations: {

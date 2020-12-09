@@ -28,30 +28,30 @@ class TabBarViewController: UITabBarController {
         //self.tabBar.unselectedItemTintColor = .darkText
 
         let profileViewController = ProfileViewController(self.investigator)
-        profileViewController.title = ("Profile")
-        let profileViewControllerItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"),
+		profileViewController.title = (LocalizedStrings.tabProfileTitle)
+		let profileViewControllerItem = UITabBarItem(title: LocalizedStrings.tabProfileTitle, image: UIImage(systemName: "person.fill"),
                                        selectedImage: UIImage(systemName: "person.fill"))
-        profileViewControllerItem.title = "Profile"
+		profileViewControllerItem.title = LocalizedStrings.tabProfileTitle
         profileViewController.tabBarItem = profileViewControllerItem
         
-        let statsViewController = AspectsViewController()
-        statsViewController.title = ("Stats")
-        statsViewController.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "characteristic-icon"),
+        let statsViewController = AspectsViewController(self.investigator)
+		statsViewController.title = (LocalizedStrings.tabStatsTitle)
+		statsViewController.tabBarItem = UITabBarItem(title: LocalizedStrings.tabStatsTitle, image: UIImage(named: "characteristic-icon"),
                                        selectedImage: UIImage(named: "characteristic-icon"))
         
         let skillsViewController = SkillsTableViewController(self.investigator)
-        skillsViewController.title = ("Skills")
-        skillsViewController.tabBarItem = UITabBarItem(title: "Skills", image: UIImage(named: "skill-icon"),
+		skillsViewController.title = (LocalizedStrings.tabSkillsTitle)
+		skillsViewController.tabBarItem = UITabBarItem(title: LocalizedStrings.tabSkillsTitle, image: UIImage(named: "skill-icon"),
                                        selectedImage: UIImage(named: "skill-icon"))
         
 		let combatViewController = CombatViewController(self.investigator)
-        combatViewController.title = ("Combat")
-        combatViewController.tabBarItem = UITabBarItem(title: "Combat", image: UIImage(named: "combat-icon"),
+		combatViewController.title = (LocalizedStrings.tabCombatTitle)
+		combatViewController.tabBarItem = UITabBarItem(title: LocalizedStrings.tabCombatTitle, image: UIImage(named: "combat-icon"),
                                        selectedImage: UIImage(named: "combat-icon"))
         
         let bioViewController = BioViewController(self.investigator)
-        bioViewController.title = ("Historic")
-        bioViewController.tabBarItem = UITabBarItem(title: "Historic", image: UIImage(systemName: "book.fill"),
+		bioViewController.title = (LocalizedStrings.tabBioTitle)
+		bioViewController.tabBarItem = UITabBarItem(title: LocalizedStrings.tabBioTitle, image: UIImage(systemName: "book.fill"),
                                        selectedImage: UIImage(systemName: "book.fill"))
 
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)

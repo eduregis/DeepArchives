@@ -269,7 +269,6 @@ class AttackCardView: UIView {
 	}()
 	
 	@objc func rollAttackDice() {
-		print("Attacking with \(attackLabel.text!)")
 		combatDelegate?.triggerDice(diceText: attackLabel.text!, diceType: "d100")
 	}
 	
@@ -283,8 +282,7 @@ class AttackCardView: UIView {
 	}()
 	
 	@objc func rollDamageDice() {
-		print("Damage caused by \(attackLabel.text!)")
-		combatDelegate?.triggerDice(diceText: attackLabel.text!, diceType: damageDiceValue)
+		combatDelegate?.triggerDamageDice(attackName: attackLabel.text!, diceType: damageDiceValue)
 	}
 	
 	lazy var editButton: UIButton = {
@@ -317,12 +315,12 @@ class AttackCardView: UIView {
 		attackChanceBy2Value.text = "\(Int(chance / 2))"
 		attackChanceBy5Value.text = "\(Int(chance / 5))"
 		
-		reachLabel.text = "Alcance: \(reach) m"
-		malfuncLabel.text = "Malfunc.: \(malfunction)%"
+		reachLabel.text = LocalizedStrings.attackRangeTitle + "\(reach) m"
+		malfuncLabel.text = LocalizedStrings.attackMalfunctionTitle + "\(malfunction)%"
 		
-		diceLabel.text = "Dado: \(damageDiceValue) + DB"
-		numAttacksLabel.text = "Ataques: \(num)"
-		ammoLabel.text = "Munição:"
+		diceLabel.text = LocalizedStrings.attackDiceTitle + "\(damageDiceValue)"
+		numAttacksLabel.text = LocalizedStrings.attackNumAttackTitle + "\(num)"
+		ammoLabel.text = LocalizedStrings.attackAmmoTitle
 		ammoField.text = "\(ammo)"
 	}
 	
@@ -458,5 +456,9 @@ class AttackCardView: UIView {
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	func setAmmoFieldDelegate(with delegate: UITextFieldDelegate) {
+		ammoField.delegate = delegate
 	}
 }
