@@ -90,6 +90,13 @@ class GroupItemsView: UIView {
 	
 	// MARK: - Logic
 	
+	func setTextDelegates(with delegate: UITextFieldDelegate) {
+		for item in itemStack.arrangedSubviews {
+			var actualItem = item as! ItemCardView
+			actualItem.setItemUsesDelegate(with: delegate)
+		}
+	}
+	
 	func updateItems(with items: [Item]) {
 		
 		for item in itemStack.arrangedSubviews {
@@ -100,10 +107,6 @@ class GroupItemsView: UIView {
 			var newItem = ItemCardView(itemName: new.name!, itemDescription: new.descript!, itemUses: Int(new.uses))
 			itemStack.addArrangedSubview(newItem)
 		}
-		
-		print("************************************")
-		print(itemStack.arrangedSubviews)
-		print("************************************")
 	}
 
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CombatViewController: UIViewController, CombatDelegate {
+class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegate {
 	
 	let investigator: Investigator
 	let combatPresenter: CombatPresenter
@@ -120,6 +120,7 @@ class CombatViewController: UIViewController, CombatDelegate {
 		self.itemsView.addButton.addGestureRecognizer(tapItem)
 		
 		setCombatDelegates()
+		setTextFieldDelegates(with: self)
         view.backgroundColor = .backgroundBlack
     }
     
@@ -132,6 +133,8 @@ class CombatViewController: UIViewController, CombatDelegate {
 	func fetchAttackData() {
 		self.attacks = combatPresenter.fetchAttacks()
 		attacksView.updateAttacks(with: attacks, and: self)
+		setCombatDelegates()
+		setTextFieldDelegates(with: self)
 	}
 	
 	@objc func addItemButton(_ sender: UITapGestureRecognizer) {
@@ -143,6 +146,7 @@ class CombatViewController: UIViewController, CombatDelegate {
 	func fetchItemData() {
 		self.items = combatPresenter.fetchItems()
 		itemsView.updateItems(with: items)
+		setTextFieldDelegates(with: self)
 	}
 	
     private func configureLayout() {
@@ -202,9 +206,44 @@ class CombatViewController: UIViewController, CombatDelegate {
 		generalCombatView.updateGeneralCombat(with: generalCombat[0])
 	}
 	
+	// MARK: - Text Fields Logic
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		if textField.superview is AttackCardView {
+			
+			let editedAttack = textField.superview as! AttackCardView
+			updateAttackAmmo(with: editedAttack)
+		} else if textField.superview is ItemCardView {
+			
+			let editedItem = textField.superview as! ItemCardView
+			updateItemUses(with: editedItem)
+		}
+	}
+	
+	func updateAttackAmmo(with editedAttack: AttackCardView) {
+		for att in attacks {
+			if editedAttack.attackLabel.text == att.name && editedAttack.damageDiceValue == att.dice {
+				combatPresenter.updateAttackAmmo(for: att, with: Int(editedAttack.ammoField.text!)!)
+			}
+		}
+	}
+	
+	func updateItemUses(with editedItem: ItemCardView) {
+		for it in items {
+			if editedItem.itemNameLabel.text == it.name {
+				combatPresenter.updateItemUses(for: it, with: Int(editedItem.itemUsesTextField.text!)!)
+			}
+		}
+	}
+	
 	// MARK: - Dice Roll Logic
 	func setCombatDelegates() {
 		attacksView.setAttacksDelegate(with: self)
+	}
+	
+	func setTextFieldDelegates(with delegate: UITextFieldDelegate) {
+		attacksView.setTextDelegates(with: delegate)
+		itemsView.setTextDelegates(with: delegate)
 	}
 	
 	func triggerDice(diceText: String, diceType: String) {

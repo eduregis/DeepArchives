@@ -459,4 +459,8 @@ class AttackCardView: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+	
+	func setAmmoFieldDelegate(with delegate: UITextFieldDelegate) {
+		ammoField.delegate = delegate
+	}
 }
