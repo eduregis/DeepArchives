@@ -59,7 +59,6 @@ extension ConfigViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = configTableView.dequeueReusableCell(withIdentifier: "ConfigCell") as! ConfigTableViewCell
         cell.configCellLabel.text = languages[indexPath.row]
         cell.configCellLabel.textColor = .ivory
-        print("serula")
         return cell
     }
 }
