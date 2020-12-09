@@ -14,10 +14,13 @@ class CombatViewController: UIViewController, CombatDelegate {
 	
 	var items: [Item] = []
 	
+	var attacks: [Attack] = []
+	
 	init(_ inv: Investigator) {
 		self.investigator = inv
 		self.combatPresenter = CombatPresenter(self.investigator)
 		self.items = combatPresenter.fetchItems()
+		self.attacks = combatPresenter.fetchAttacks()
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -41,7 +44,7 @@ class CombatViewController: UIViewController, CombatDelegate {
 	}()
 	
 	lazy var attacksView: GroupAttackView = {
-		let stack = GroupAttackView()
+		let stack = GroupAttackView(with: attacks, and: self)
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		return stack
 	}()
@@ -114,8 +117,14 @@ class CombatViewController: UIViewController, CombatDelegate {
     }
     
 	@objc func addAttackButton(_ sender: UITapGestureRecognizer) {
-		attacksView.addAttack()
-		attacksView.setAttacksDelegate(with: self)
+		self.present(NewWeaponModal(action: {
+			self.fetchAttackData()
+		}, self.combatPresenter), animated: true, completion: nil)
+	}
+	
+	func fetchAttackData() {
+		self.attacks = combatPresenter.fetchAttacks()
+		attacksView.updateAttacks(with: attacks, and: self)
 	}
 	
 	@objc func addItemButton(_ sender: UITapGestureRecognizer) {

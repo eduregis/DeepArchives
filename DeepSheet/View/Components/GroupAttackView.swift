@@ -50,14 +50,15 @@ class GroupAttackView: UIView {
 		return scroll
 	}()
 	
-	init() {
+	init(with attacks: [Attack], and delegate: CombatDelegate) {
 		super.init(frame: .zero)
-		let attacks = [
-			AttackCardView(attackName: "Revolver", chance: 25, dice: "1d4", reach: 20, num: 1, ammo: 5, malfunction: 15),
-			AttackCardView(attackName: "Scimitar", chance: 95, dice: "1d8", reach: 3, num: 2, ammo: 0, malfunction: 0)
-			]
-		attacksStack.addArrangedSubview(attacks[0])
-		attacksStack.addArrangedSubview(attacks[1])
+		
+		for new in attacks {
+			var newAttack = AttackCardView(attackName: new.name!, chance: Int(new.chance), dice: new.dice!, reach: Int(new.reach), num: Int(new.number), ammo: Int(new.ammo), malfunction: Int(new.malfunction))
+			attacksStack.addArrangedSubview(newAttack)
+		}
+		
+		setAttacksDelegate(with: delegate)
 
 		configureLayout()
 	}
@@ -91,9 +92,18 @@ class GroupAttackView: UIView {
 	
 	// MARK: - Logic
 	
-	func addAttack() {
-		let attack = AttackCardView(attackName: "EXCALIBUR", chance: 100, dice: "1d20", reach: 100, num: 20, ammo: 0, malfunction: 0)
-		attacksStack.addArrangedSubview(attack)
+	func updateAttacks(with attacks: [Attack], and delegate: CombatDelegate) {
+		
+		for attack in attacksStack.arrangedSubviews {
+			attack.removeFromSuperview()
+		}
+		
+		for new in attacks {
+			var newAttack = AttackCardView(attackName: new.name!, chance: Int(new.chance), dice: new.dice!, reach: Int(new.reach), num: Int(new.number), ammo: Int(new.ammo), malfunction: Int(new.malfunction))
+			attacksStack.addArrangedSubview(newAttack)
+		}
+		
+		setAttacksDelegate(with: delegate)
 	}
 	
 	func setAttacksDelegate(with delegate: CombatDelegate) {

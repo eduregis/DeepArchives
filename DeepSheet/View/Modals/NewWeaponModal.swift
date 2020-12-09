@@ -9,8 +9,22 @@ import UIKit
 
 class NewWeaponModal: UIViewController {
     
+	let combatPresenter: CombatPresenter
+	
+	var editingAction: (() -> Void)?
+	
     var actualPage = 0
     var lastPage = 2
+	
+	init(action: @escaping () -> Void, _ presenter: CombatPresenter) {
+		self.combatPresenter = presenter
+		super.init(nibName: nil, bundle: nil)
+		editingAction = action
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
     
     // MARK: - NavBar
     
@@ -172,12 +186,17 @@ class NewWeaponModal: UIViewController {
     
     @objc func rightButtonBehavior() {
         if actualPage == lastPage {
-            dismiss(animated: true, completion: nil)
+			createNewAttack()
+            dismiss(animated: true, completion: editingAction)
         } else {
             actualPage += 1
         }
         atualizeUI()
     }
+	
+	private func createNewAttack() {
+		combatPresenter.newAttack(attackName: weaponNameView.valueText.text, chance: Int(pointsView.valueText.text)!, dice: damageView.valueText.text, reach: Int(rangeView.valueText.text)!, num: Int(attackView.valueText.text)!, ammo: Int(ammoView.valueText.text)!, malfunction: Int(malfunctionView.valueText.text)!)
+	}
     
     func atualizeUI() {
         if actualPage == 0 {
