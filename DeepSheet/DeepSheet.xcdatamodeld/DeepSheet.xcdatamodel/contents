@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="AspectsAttributes" representedClassName="AspectsAttributes" syncable="YES" codeGenerationType="class">
+    <entity name="Aspects" representedClassName="Aspects" syncable="YES" codeGenerationType="category">
+        <relationship name="aspectsAttributes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AspectsAttributes" inverseName="aspect" inverseEntity="AspectsAttributes"/>
+        <relationship name="aspectsPoints" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AspectsPoints" inverseName="aspect" inverseEntity="AspectsPoints"/>
+        <relationship name="aspectsStates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AspectsStates" inverseName="aspect" inverseEntity="AspectsStates"/>
+    </entity>
+    <entity name="AspectsAttributes" representedClassName="AspectsAttributes" syncable="YES" codeGenerationType="category">
         <attribute name="app" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="con" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dex" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -10,18 +15,25 @@
         <attribute name="pow" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="siz" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="str" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="aspect" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Aspects" inverseName="aspectsAttributes" inverseEntity="Aspects"/>
     </entity>
-    <entity name="AspectsPoints" representedClassName="AspectsPoints" syncable="YES" codeGenerationType="class">
-        <attribute name="health" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="luck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="magic" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="sanity" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+    <entity name="AspectsPoints" representedClassName="AspectsPoints" syncable="YES" codeGenerationType="category">
+        <attribute name="currentHealth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="currentLuck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="currentMagic" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="currentSanity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalHealth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalLuck" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalMagic" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalSanity" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="aspect" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Aspects" inverseName="aspectsPoints" inverseEntity="Aspects"/>
     </entity>
-    <entity name="AspectsStates" representedClassName="AspectsStates" syncable="YES" codeGenerationType="class">
+    <entity name="AspectsStates" representedClassName="AspectsStates" syncable="YES" codeGenerationType="category">
         <attribute name="gravelyWounded" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="incapacitated" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="indefinitelyInsane" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="temporarilyInsane" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="aspect" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Aspects" inverseName="aspectsStates" inverseEntity="Aspects"/>
     </entity>
     <entity name="Historic" representedClassName="Historic" syncable="YES" codeGenerationType="category">
         <attribute name="ideology" optional="YES" attributeType="String"/>
@@ -62,12 +74,13 @@
         <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="skills" inverseEntity="Investigator"/>
     </entity>
     <elements>
+        <element name="AspectsAttributes" positionX="18" positionY="162" width="128" height="193"/>
+        <element name="AspectsPoints" positionX="27" positionY="171" width="128" height="178"/>
+        <element name="AspectsStates" positionX="36" positionY="180" width="128" height="118"/>
         <element name="Historic" positionX="9" positionY="99" width="128" height="208"/>
         <element name="Investigator" positionX="18" positionY="108" width="128" height="118"/>
         <element name="Profile" positionX="18" positionY="171" width="128" height="148"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
-        <element name="AspectsAttributes" positionX="18" positionY="162" width="128" height="178"/>
-        <element name="AspectsPoints" positionX="27" positionY="171" width="128" height="103"/>
-        <element name="AspectsStates" positionX="36" positionY="180" width="128" height="103"/>
+        <element name="Aspects" positionX="9" positionY="162" width="128" height="88"/>
     </elements>
 </model>

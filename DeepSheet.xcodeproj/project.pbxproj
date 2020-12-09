@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0040D1FF257DC00700BD35D3 /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0040D1FE257DC00700BD35D3 /* ItemCardView.swift */; };
+		006C08002580BDCD0068679A /* AspectsStates+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C07FA2580BDCC0068679A /* AspectsStates+CoreDataClass.swift */; };
+		006C08022580BDCD0068679A /* AspectsPoints+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C07FC2580BDCC0068679A /* AspectsPoints+CoreDataClass.swift */; };
+		006C08042580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C07FE2580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift */; };
+		006C080E2580F5A50068679A /* Aspects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C080C2580F5A50068679A /* Aspects+CoreDataClass.swift */; };
 		00E630AA256FD73D00D397C0 /* AdditionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E630A9256FD73D00D397C0 /* AdditionCardView.swift */; };
 		00E630B2256FD95C00D397C0 /* CombatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E630B1256FD95C00D397C0 /* CombatViewController.swift */; };
 		00E630BA256FDB4800D397C0 /* DashedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E630B9256FDB4800D397C0 /* DashedBorder.swift */; };
@@ -138,6 +142,10 @@
 
 /* Begin PBXFileReference section */
 		0040D1FE257DC00700BD35D3 /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
+		006C07FA2580BDCC0068679A /* AspectsStates+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AspectsStates+CoreDataClass.swift"; sourceTree = "<group>"; };
+		006C07FC2580BDCC0068679A /* AspectsPoints+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AspectsPoints+CoreDataClass.swift"; sourceTree = "<group>"; };
+		006C07FE2580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AspectsAttributes+CoreDataClass.swift"; sourceTree = "<group>"; };
+		006C080C2580F5A50068679A /* Aspects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aspects+CoreDataClass.swift"; sourceTree = "<group>"; };
 		00E630A9256FD73D00D397C0 /* AdditionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionCardView.swift; sourceTree = "<group>"; };
 		00E630B1256FD95C00D397C0 /* CombatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatViewController.swift; sourceTree = "<group>"; };
 		00E630B9256FDB4800D397C0 /* DashedBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedBorder.swift; sourceTree = "<group>"; };
@@ -337,6 +345,10 @@
 		2EF1EF0C2567EEC300BE0644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				006C080C2580F5A50068679A /* Aspects+CoreDataClass.swift */,
+				006C07FA2580BDCC0068679A /* AspectsStates+CoreDataClass.swift */,
+				006C07FC2580BDCC0068679A /* AspectsPoints+CoreDataClass.swift */,
+				006C07FE2580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift */,
 				2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */,
 				2E7F681F257E9F8100976C85 /* Profile+CoreDataClass.swift */,
 				5BB9EC19257AA522006E006E /* Skill+CoreDataClass.swift */,
@@ -676,6 +688,7 @@
 				5BFC57C7256C379A00B8B232 /* NavigationBarGradient.swift in Sources */,
 				2E7F678C25751F6F00976C85 /* NewItemModal.swift in Sources */,
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
+				006C08022580BDCD0068679A /* AspectsPoints+CoreDataClass.swift in Sources */,
 				5BB9EC7B257E763D006E006E /* BusinessRules.swift in Sources */,
 				5BB9EC42257BBECB006E006E /* Investigator+CoreDataClass.swift in Sources */,
 				00E630B2256FD95C00D397C0 /* CombatViewController.swift in Sources */,
@@ -693,6 +706,7 @@
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
 				5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */,
 				2E7F67A525753BBB00976C85 /* EditHistoricModal.swift in Sources */,
+				006C08002580BDCD0068679A /* AspectsStates+CoreDataClass.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
 				2E7F67CD257685DE00976C85 /* InvestigatorCollectionViewCell.swift in Sources */,
@@ -702,6 +716,7 @@
 				5BB9EC37257BB4D8006E006E /* SkillEnum.swift in Sources */,
 				92CB88E8256FE5D800B94B15 /* CombatDiceDelegate.swift in Sources */,
 				9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */,
+				006C080E2580F5A50068679A /* Aspects+CoreDataClass.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */,
 				5BFC58092571328500B8B232 /* InvestigatorsCollectionViewController.swift in Sources */,
@@ -724,6 +739,7 @@
 				9227B5C8256F010C00399CCB /* IndvPointsView.swift in Sources */,
 				5BB9EC32257AAC7D006E006E /* SkillsPresenter.swift in Sources */,
 				2E7F6821257E9F8100976C85 /* Profile+CoreDataClass.swift in Sources */,
+				006C08042580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift in Sources */,
 				2E7F67872575195400976C85 /* EditCombatModal.swift in Sources */,
 				2E7F676F2570556200976C85 /* EditProfileModal.swift in Sources */,
 				92E3873F256E88950016D072 /* CustomViewController.swift in Sources */,
