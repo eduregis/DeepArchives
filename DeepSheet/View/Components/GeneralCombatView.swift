@@ -60,7 +60,7 @@ class GeneralCombatView: UIView {
 		
 		damageView.valueLabel.text = generalCombat.damageBonus
 		bodyView.valueLabel.text = "\(generalCombat.body)"
-		dodgeView.changeCharacteristicValues(with: Int(generalCombat.dodgeValue))
+		dodgeView.changeCharacteristicValues(with: Int64(generalCombat.dodgeValue))
     }
     
     required init?(coder: NSCoder) {
@@ -82,6 +82,6 @@ class GeneralCombatView: UIView {
 	func updateGeneralCombat(with newGeneral: GeneralCombat) {
 		damageView.valueLabel.text = newGeneral.damageBonus
 		bodyView.valueLabel.text = "\(newGeneral.body)"
-		dodgeView.changeCharacteristicValues(with: Int(newGeneral.dodgeValue))
+		dodgeView.changeCharacteristicValues(with: Int64(newGeneral.dodgeValue))
 	}
 }
