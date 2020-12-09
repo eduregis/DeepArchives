@@ -22,8 +22,7 @@ class AspectsPresenter {
             newAspects()
         }
     }
-    
-    
+
     func newAspects() {
         let points = AspectsPoints(context: context)
         
@@ -60,7 +59,6 @@ class AspectsPresenter {
         states.investigator = self.investigator
         attributes.investigator = self.investigator
 
-        
         do {
             try context.save()
         } catch {
