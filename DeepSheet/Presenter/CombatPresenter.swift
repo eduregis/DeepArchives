@@ -13,6 +13,8 @@ class CombatPresenter {
 	
 	let dataContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 	
+	var generalCombat: [GeneralCombat] = []
+	
 	var items: [Item] = []
 	
 	var attacks: [Attack] = []
@@ -23,6 +25,64 @@ class CombatPresenter {
 		self.investigator = investigator
 		items = fetchItems()
 		attacks = fetchAttacks()
+		
+		if investigator.generalCombat == nil {
+			//Remove once Presenter can access Stats Model
+			let tempGeneral = GeneralCombat(context: self.dataContext)
+			tempGeneral.damageBonus = "+1d8"
+			tempGeneral.body = -1
+			tempGeneral.dodgeValue = 75
+			tempGeneral.investigator = self.investigator
+			generalCombat = [tempGeneral]
+			print("""
+				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				First General Combat
+				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			""")
+		} else {
+			generalCombat = fetchGeneralCombat()
+			print("""
+				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				Existing General Combat
+				@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			""")
+		}
+		
+	}
+	
+	// MARK: - General Combat Logic
+	
+	func fetchGeneralCombat() -> [GeneralCombat] {
+		
+		let fetch = GeneralCombat.fetchRequest() as NSFetchRequest<GeneralCombat>
+		let pred = NSPredicate(format: "investigator == %@", investigator)
+		
+		fetch.predicate = pred
+		
+		do {
+			self.generalCombat = try dataContext.fetch(fetch)
+		} catch {
+			fatalError("Unable to FETCH GENERAL COMBAT DATA from core data model!")
+		}
+		
+		return self.generalCombat
+	}
+	
+	func editGeneralCombat(newDamage: String, newDodge: Int) {
+	
+		let newGeneral = GeneralCombat(context: self.dataContext)
+		newGeneral.damageBonus = newDamage
+		newGeneral.body = generalCombat[0].body
+		newGeneral.dodgeValue = Int64(newDodge)
+		newGeneral.investigator = investigator
+		
+		do {
+			try dataContext.save()
+		} catch {
+			fatalError("Unable to SAVE GENERAL COMBAT DATA to core data model!")
+		}
+		
+		generalCombat = fetchGeneralCombat()
 	}
 	
 	// MARK: - Attack Data Logic

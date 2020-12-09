@@ -9,6 +9,20 @@ import UIKit
 
 class EditCombatModal: UIViewController {
     
+	let combatPresenter: CombatPresenter
+	
+	var editingAction: (() -> Void)?
+	
+	init(action: @escaping () -> Void, _ presenter: CombatPresenter) {
+		self.combatPresenter = presenter
+		super.init(nibName: nil, bundle: nil)
+		editingAction = action
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     // MARK: - NavBar
     
     lazy var navigationBar: UIView = {
@@ -108,7 +122,11 @@ class EditCombatModal: UIViewController {
     }
     
     @objc func rightButtonBehavior() {
-        dismiss(animated: true, completion: nil)
+		if BusinessRules.checkIfIsPercentageValue(Int64(dodgeView.valueText.text)!) {
+			combatPresenter.editGeneralCombat(newDamage: damageView.valueText.text, newDodge: Int(dodgeView.valueText.text)!)
+			dismiss(animated: true, completion: editingAction)
+		}
+		
     }
     
     private func additionalConfigurations() {
