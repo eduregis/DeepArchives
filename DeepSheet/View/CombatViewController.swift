@@ -102,6 +102,8 @@ class CombatViewController: UIViewController, CombatDelegate {
         button.tintColor = UIColor.ivory
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        
+        generalCombatView.damageView.addTarget(self, action: #selector(triggerCustomDice(_ :)), for: .touchUpInside)
 		
         additionalConfigurations()
     }
@@ -144,7 +146,7 @@ class CombatViewController: UIViewController, CombatDelegate {
 		self.items = combatPresenter.fetchItems()
 		itemsView.updateItems(with: items)
 	}
-	
+    
     private func configureLayout() {
 		mainScrollingView.addSubview(generalCombatView)
 		mainScrollingView.addSubview(headerButtons)
@@ -194,12 +196,12 @@ class CombatViewController: UIViewController, CombatDelegate {
 	@objc func triggerGeneralModal() {
 		self.present(EditCombatModal(action: {
 			self.fetchGeneralCombat()
-		}, self.combatPresenter), animated: true, completion: nil)
+        }, self.generalCombat[0], self.combatPresenter), animated: true, completion: nil)
 	}
 	
 	func fetchGeneralCombat() {
 		self.generalCombat = combatPresenter.fetchGeneralCombat()
-		generalCombatView.updateGeneralCombat(with: generalCombat[0])
+        generalCombatView.updateGeneralCombat(with: generalCombat[0])
 	}
 	
 	// MARK: - Dice Roll Logic
@@ -207,7 +209,7 @@ class CombatViewController: UIViewController, CombatDelegate {
 		attacksView.setAttacksDelegate(with: self)
 	}
 	
-	func triggerDice(diceText: String, diceType: String) {
+    func triggerDice(diceText: String, diceType: String) {
 		diceAlert.rollDice(rollText: diceText, rollType: diceType)
 		
 		UIView.animate(withDuration: 0.2, delay: 0, animations: {
@@ -217,6 +219,16 @@ class CombatViewController: UIViewController, CombatDelegate {
 		
 		print("Presented attack with \(diceText)")
 	}
+    
+    @objc func triggerCustomDice(_ sender: InfoView) {
+        diceAlert.rollCustomDice(rollText: sender.characteristicLabel.text ?? "", rollType: sender.valueLabel.text ?? "")
+        
+        UIView.animate(withDuration: 0.2, delay: 0, animations: {
+            self.diceAlert.layer.opacity = 1
+            self.dimmingOverlay.layer.opacity = 0.6
+        })
+    
+    }
 	
 	@objc func dismissAlert() {
 		UIView.animate(withDuration: 0.2, delay: 0, animations: {

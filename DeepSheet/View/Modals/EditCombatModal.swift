@@ -9,11 +9,14 @@ import UIKit
 
 class EditCombatModal: UIViewController {
     
+    let generalCombat: GeneralCombat
+    
 	let combatPresenter: CombatPresenter
 	
 	var editingAction: (() -> Void)?
 	
-	init(action: @escaping () -> Void, _ presenter: CombatPresenter) {
+    init(action: @escaping () -> Void, _ generalCombatReceived: GeneralCombat, _ presenter: CombatPresenter) {
+        self.generalCombat = generalCombatReceived
 		self.combatPresenter = presenter
 		super.init(nibName: nil, bundle: nil)
 		editingAction = action
@@ -97,8 +100,32 @@ class EditCombatModal: UIViewController {
         return view
     }()
     
+    lazy var dodgeDetail: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .darkIvory
+        label.font = UIFont.josefinSansRegular()
+        label.numberOfLines = 0
+        label.numberOfLines = 0
+        label.isHidden = true
+        label.text = "Percentage out of range."
+        label.textColor = .systemRed
+        return label
+    }()
+    
+    lazy var dodgeStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [dodgeView, dodgeDetail])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 0
+        self.view.addSubview(stack)
+        return stack
+    }()
+    
     lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [damageStack, dodgeView])
+        let stack = UIStackView(arrangedSubviews: [damageStack, dodgeStack])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -115,6 +142,9 @@ class EditCombatModal: UIViewController {
         additionalConfigurations()
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
+        
+        damageView.valueText.text = generalCombat.damageBonus
+        dodgeView.valueText.text = String(generalCombat.dodgeValue)
     }
     
     @objc func leftButtonBehavior() {
@@ -122,11 +152,20 @@ class EditCombatModal: UIViewController {
     }
     
     @objc func rightButtonBehavior() {
-		if BusinessRules.checkIfIsPercentageValue(Int64(dodgeView.valueText.text)!) {
-			combatPresenter.editGeneralCombat(newDamage: damageView.valueText.text, newDodge: Int(dodgeView.valueText.text)!)
-			dismiss(animated: true, completion: editingAction)
-		}
-		
+        if BusinessRules.checkIfIsPercentageValue(Int64(dodgeView.valueText.text)!) {
+            if BusinessRules.checkIfIsDicesIsValid(damageView.valueText.text) {
+                combatPresenter.editGeneralCombat(newDamage: damageView.valueText.text, newDodge: Int(dodgeView.valueText.text)!)
+                dismiss(animated: true, completion: editingAction)
+            } else {
+                damageDetail.textColor = .systemRed
+                damageDetail.shake(count: 4, for: 0.2, withTranslation: 3)
+            }
+            dodgeDetail.isHidden = true
+        } else {
+            dodgeDetail.isHidden = false
+            dodgeDetail.shake(count: 4, for: 0.2, withTranslation: 3)
+        }
+        
     }
     
     private func additionalConfigurations() {
