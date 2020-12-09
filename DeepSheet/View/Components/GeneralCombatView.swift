@@ -23,13 +23,13 @@ class GeneralCombatView: UIView {
     
     // MARK: - Primeira linha
     let damageView: InfoView = {
-        let view = InfoView(characteristic: "Dano", value: "1d4", preValue: "+")
+        let view = InfoView(characteristic: LocalizedStrings.damage, value: "1d4 + 1d6")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     let bodyView: InfoView = {
-        let view = InfoView(characteristic: "Corpo", value: "1", preValue: "+")
+        let view = InfoView(characteristic: "Corpo", value: "1")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

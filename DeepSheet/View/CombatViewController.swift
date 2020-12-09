@@ -95,6 +95,8 @@ class CombatViewController: UIViewController, CombatDelegate {
         button.tintColor = UIColor.ivory
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        
+        generalCombat.damageView.addTarget(self, action: #selector(triggerCustomDice(_ :)), for: .touchUpInside)
 		
         additionalConfigurations()
     }
@@ -137,7 +139,7 @@ class CombatViewController: UIViewController, CombatDelegate {
 		self.items = combatPresenter.fetchItems()
 		itemsView.updateItems(with: items)
 	}
-	
+    
     private func configureLayout() {
 		mainScrollingView.addSubview(generalCombat)
 		mainScrollingView.addSubview(headerButtons)
@@ -194,7 +196,7 @@ class CombatViewController: UIViewController, CombatDelegate {
 		attacksView.setAttacksDelegate(with: self)
 	}
 	
-	func triggerDice(diceText: String, diceType: String) {
+    func triggerDice(diceText: String, diceType: String) {
 		diceAlert.rollDice(rollText: diceText, rollType: diceType)
 		
 		UIView.animate(withDuration: 0.2, delay: 0, animations: {
@@ -204,6 +206,16 @@ class CombatViewController: UIViewController, CombatDelegate {
 		
 		print("Presented attack with \(diceText)")
 	}
+    
+    @objc func triggerCustomDice(_ sender: InfoView) {
+        diceAlert.rollCustomDice(rollText: sender.characteristicLabel.text ?? "", rollType: sender.valueLabel.text ?? "")
+        
+        UIView.animate(withDuration: 0.2, delay: 0, animations: {
+            self.diceAlert.layer.opacity = 1
+            self.dimmingOverlay.layer.opacity = 0.6
+        })
+    
+    }
 	
 	@objc func dismissAlert() {
 		UIView.animate(withDuration: 0.2, delay: 0, animations: {
