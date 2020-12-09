@@ -34,7 +34,7 @@ class TabBarViewController: UITabBarController {
         profileViewControllerItem.title = "Profile"
         profileViewController.tabBarItem = profileViewControllerItem
         
-        let statsViewController = ConfigViewController()
+        let statsViewController = AspectsViewController()
         statsViewController.title = ("Stats")
         statsViewController.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "characteristic-icon"),
                                        selectedImage: UIImage(named: "characteristic-icon"))

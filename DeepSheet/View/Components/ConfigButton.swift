@@ -9,12 +9,18 @@ import UIKit
 
 class ConfigButton: UIButton {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    init() {
+        super.init(frame: .zero)
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 22, weight: .ultraLight, scale: .medium)
+        self.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: imageConfig), for: .normal)
+        self.tintColor = .ivory
+
+
     }
-    */
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }

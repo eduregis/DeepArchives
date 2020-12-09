@@ -13,19 +13,12 @@ class ConfigViewController: UIViewController {
         super.viewDidLoad()
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.setTitle(LocalizedStrings.investigators, for: .normal)
+        button.setTitle("Back", for: .normal)
         button.tintColor = UIColor.ivory
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         self.navigationController?.navigationBar.setNavigationBarStyle()
         view.backgroundColor = .backgroundBlack
-        
-        let configButton = UIButton(type: .system)
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 22, weight: .ultraLight, scale: .medium)
-        configButton.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: imageConfig), for: .normal)
-        configButton.tintColor = .ivory
-        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: configButton)
         
         
         self.hideKeyboardWhenTappedAround()

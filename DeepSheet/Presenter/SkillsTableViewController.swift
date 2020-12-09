@@ -33,6 +33,17 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     var isEditable = false
     
+    lazy var configButton: ConfigButton = {
+        let cfgBtn = ConfigButton()
+        cfgBtn.addTarget(self, action: #selector(goToConfigurations), for: .touchUpInside)
+        return cfgBtn
+    }()
+    
+    @objc func goToConfigurations() {
+        let configScreen = ConfigViewController()
+        self.navigationController?.pushViewController(configScreen, animated: true)
+    }
+    
     lazy var headerView: UIView = {
         let headerView = UIView()
         headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 118)
@@ -152,6 +163,7 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
         button.tintColor = UIColor.ivory
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: configButton)
         self.hideKeyboardWhenTappedAround()
         self.tableView.tableFooterView = UIView()
     }

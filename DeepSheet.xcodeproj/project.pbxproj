@@ -430,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				00E630A9256FD73D00D397C0 /* AdditionCardView.swift */,
+				006C083525813A260068679A /* ConfigButton.swift */,
 				92876D3F2577BCB40071BFE7 /* AttackCardView.swift */,
 				2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */,
 				2EF1EF222567F3A700BE0644 /* CharacteristicView.swift */,
@@ -446,7 +447,6 @@
 				2EF1EFFB256D8A0A00BE0644 /* InfoView.swift */,
 				0040D1FE257DC00700BD35D3 /* ItemCardView.swift */,
 				2E7F67D72577BB0600976C85 /* ProfileComponent.swift */,
-				006C083525813A260068679A /* ConfigButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
