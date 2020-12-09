@@ -11,7 +11,6 @@
 		006C08002580BDCD0068679A /* AspectsStates+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C07FA2580BDCC0068679A /* AspectsStates+CoreDataClass.swift */; };
 		006C08022580BDCD0068679A /* AspectsPoints+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C07FC2580BDCC0068679A /* AspectsPoints+CoreDataClass.swift */; };
 		006C08042580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C07FE2580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift */; };
-		006C080E2580F5A50068679A /* Aspects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C080C2580F5A50068679A /* Aspects+CoreDataClass.swift */; };
 		00E630AA256FD73D00D397C0 /* AdditionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E630A9256FD73D00D397C0 /* AdditionCardView.swift */; };
 		00E630B2256FD95C00D397C0 /* CombatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E630B1256FD95C00D397C0 /* CombatViewController.swift */; };
 		00E630BA256FDB4800D397C0 /* DashedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E630B9256FDB4800D397C0 /* DashedBorder.swift */; };
@@ -148,7 +147,6 @@
 		006C07FA2580BDCC0068679A /* AspectsStates+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AspectsStates+CoreDataClass.swift"; sourceTree = "<group>"; };
 		006C07FC2580BDCC0068679A /* AspectsPoints+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AspectsPoints+CoreDataClass.swift"; sourceTree = "<group>"; };
 		006C07FE2580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AspectsAttributes+CoreDataClass.swift"; sourceTree = "<group>"; };
-		006C080C2580F5A50068679A /* Aspects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aspects+CoreDataClass.swift"; sourceTree = "<group>"; };
 		00E630A9256FD73D00D397C0 /* AdditionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionCardView.swift; sourceTree = "<group>"; };
 		00E630B1256FD95C00D397C0 /* CombatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatViewController.swift; sourceTree = "<group>"; };
 		00E630B9256FDB4800D397C0 /* DashedBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedBorder.swift; sourceTree = "<group>"; };
@@ -351,7 +349,6 @@
 		2EF1EF0C2567EEC300BE0644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				006C080C2580F5A50068679A /* Aspects+CoreDataClass.swift */,
 				006C07FA2580BDCC0068679A /* AspectsStates+CoreDataClass.swift */,
 				006C07FC2580BDCC0068679A /* AspectsPoints+CoreDataClass.swift */,
 				006C07FE2580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift */,
@@ -726,7 +723,6 @@
 				5BB9EC37257BB4D8006E006E /* SkillEnum.swift in Sources */,
 				92CB88E8256FE5D800B94B15 /* CombatDiceDelegate.swift in Sources */,
 				9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */,
-				006C080E2580F5A50068679A /* Aspects+CoreDataClass.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */,
 				5BFC58092571328500B8B232 /* InvestigatorsCollectionViewController.swift in Sources */,

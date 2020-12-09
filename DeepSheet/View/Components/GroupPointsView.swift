@@ -83,7 +83,7 @@ class GroupPointsView: UIView {
 	}
 	
 	// MARK: - Editing Logic
-	func getAllPointsValues() -> [(Int, Int)] {
+	func getAllPointsValues() -> [(Int64, Int64)] {
 		
 		let arr = [
 			luckView.pointsValue,
@@ -109,7 +109,7 @@ class GroupPointsView: UIView {
 		healthView.rewritePoints(is: bool)
 	}
 	
-	func updatePointsValues(with points: [(current: Int, maximum: Int)]) {
+	func updatePointsValues(with points: [(current: Int64, maximum: Int64)]) {
 		
 		luckView.updatePointsDisplay(with: points[0])
 		magicView.updatePointsDisplay(with: points[1])

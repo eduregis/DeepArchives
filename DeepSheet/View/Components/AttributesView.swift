@@ -172,7 +172,7 @@ class AttributesView: UIView {
 		movView.setTextFieldDelegate(with: delegate)
 	}
 	
-	func getAllCharacteristicValues() -> [Int] {
+	func getAllCharacteristicValues() -> [Int64] {
 		let arr = [
 			strView.getCharacteristicValue(),
 			dexView.getCharacteristicValue(),
@@ -203,7 +203,7 @@ class AttributesView: UIView {
 		movView.overwriteCharacteristicValues()
 	}
 	
-	func changeAllCharacteristicValues(with newValues: [Int]) {
+	func changeAllCharacteristicValues(with newValues: [Int64]) {
 		
 		strView.changeCharacteristicValues(with: newValues[0])
 		dexView.changeCharacteristicValues(with: newValues[1])

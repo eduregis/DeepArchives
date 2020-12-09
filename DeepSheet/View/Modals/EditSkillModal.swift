@@ -257,6 +257,9 @@ class EditSkillModal: UIViewController, UITableViewDelegate, UITableViewDataSour
         default:
             break
         }
+        
+        valueDetail.shake(count: 8, for: 1.3, withTranslation: 3)
+        skillNameDetail.shake(count: 8, for: 1.3, withTranslation: 3)
     }
     
     // MARK: - Table View Functions

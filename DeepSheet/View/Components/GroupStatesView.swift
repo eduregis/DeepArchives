@@ -79,5 +79,12 @@ class GroupStatesView: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented, because will not be used on IB")
 	}
+    
+    func setStates(_ states: [Bool]) {
+        self.tempInsView.getFromStates(states[0])
+        self.indefInsView.getFromStates(states[1])
+        self.incapacView.getFromStates(states[2])
+        self.woundView.getFromStates(states[3])
+    }
 	
 }
