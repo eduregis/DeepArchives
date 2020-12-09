@@ -72,7 +72,12 @@ extension InvestigatorsCollectionViewController: UICollectionViewDataSource {
             myCell.set(name: "Creito", occupation: "Dejay", dashed: true)
         } else {
             let inv = investigators[indexPath.row - 1]
-            myCell.set(investigator: inv, dashed: false)
+            if let profile = inv.profile {
+                let image = (profile.image!.isEmpty) ? UIImage(named: "d10-green") : UIImage(data: profile.image ?? Data())
+                myCell.set(investigator: inv, image: image, dashed: false)
+            } else {
+                myCell.set(investigator: inv, image: UIImage(named: "d10-green"), dashed: false)
+            }
         }
         return myCell
     }

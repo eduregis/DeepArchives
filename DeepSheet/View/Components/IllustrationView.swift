@@ -9,8 +9,8 @@ import UIKit
 
 class IllustrationView: UIView {
     
-    lazy var borderView: UIView = {
-        let view = UIView()
+    lazy var borderView: UIButton = {
+        let view = UIButton()
         view.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(view)
         return view
@@ -28,6 +28,7 @@ class IllustrationView: UIView {
     init(image: UIImage) {
         super.init(frame: .zero)
         characterImage.image = image
+        isUserInteractionEnabled = true
         configureLayout()
     }
     

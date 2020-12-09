@@ -245,18 +245,22 @@ class SkillsTableViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func enterEditing() {
         headerButtons.enterEditing()
         additionCard.isHidden = false
+        additionCard.setNeedsDisplay()
+        additionCard.shake(count: 8, for: 0.3, withTranslation: 3)
         isEditable = true
     }
     
     @objc func cancelEditing() {
         isEditable = false
         additionCard.isHidden = true
+        additionCard.setNeedsDisplay()
         headerButtons.endEditing()
     }
     
     @objc func confirmEditing() {
         isEditable = false
         additionCard.isHidden = true
+        additionCard.setNeedsDisplay()
         headerButtons.endEditing()
     }
 

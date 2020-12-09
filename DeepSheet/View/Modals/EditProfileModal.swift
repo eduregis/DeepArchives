@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfileModal: UIViewController {
+class EditProfileModal: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     var actualPage = 0
     var lastPage = 2
@@ -90,7 +90,6 @@ class EditProfileModal: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.distribution = .fillEqually
         stack.spacing = 22
         self.view.addSubview(stack)
         return stack
@@ -161,6 +160,7 @@ class EditProfileModal: UIViewController {
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
         
+        self.characterIllustration.characterImage.image = (profile.image!.isEmpty) ? UIImage(named: "d10-green") : UIImage(data: profile.image ?? Data())
         investigatorView.valueText.text = investigator.name
         occupationView.valueText.text = investigator.occupation
         playerView.valueText.text = profile.playerName
@@ -168,6 +168,8 @@ class EditProfileModal: UIViewController {
         genderView.valueText.text = profile.gender
         addressView.valueText.text = profile.address
         birthPlaceView.valueText.text = profile.birthPlace
+        
+        characterIllustration.borderView.addTarget(self, action: #selector(changeIllustration), for: .touchUpInside)
         
         firstStack.isHidden = false
         secondStack.isHidden = true
@@ -191,6 +193,22 @@ class EditProfileModal: UIViewController {
             actualPage += 1
         }
         atualizeUI()
+    }
+    
+    @objc func changeIllustration () {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let userPickerImage = info[.editedImage] as? UIImage else {
+            return
+        }
+        characterIllustration.characterImage.image = userPickerImage
+        picker.dismiss(animated: true, completion: nil)
     }
     
     func atualizeUI() {
@@ -232,7 +250,7 @@ class EditProfileModal: UIViewController {
     func editProfile() {
         investigatorPresenter.editInvestigator(investigatorView.valueText.text, occupationView.valueText.text, investigator)
         
-        profilePresenter.editProfile(playerView.valueText.text, ageView.valueText.text, genderView.valueText.text, addressView.valueText.text, birthPlaceView.valueText.text, profile)
+        profilePresenter.editProfile(playerView.valueText.text, ageView.valueText.text, genderView.valueText.text, addressView.valueText.text, birthPlaceView.valueText.text, characterIllustration.characterImage.image?.pngData() ?? Data(), profile)
     }
     
     private func configureLayout() {
@@ -250,6 +268,8 @@ class EditProfileModal: UIViewController {
             
             rightButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             rightButton.centerYAnchor.constraint(equalTo: navigationBar.centerYAnchor),
+            
+            characterIllustration.heightAnchor.constraint(equalToConstant: 216),
             
             firstStack.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 30),
             firstStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),

@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController {
     
     func fillInFields() {
         self.profile = profilePresenter.fetchProfile()
+        self.characterIllustration.characterImage.image = (profile.image!.isEmpty) ? UIImage(named: "d10-green") : UIImage(data: profile.image ?? Data())
         self.nameInvestigator.valueText.text = self.investigator.name
         self.occupation.valueText.text = self.investigator.occupation
         self.namePlayer.valueText.text = self.profile.playerName

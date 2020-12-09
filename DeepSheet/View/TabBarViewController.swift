@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
-    let investigator:Investigator
+    let investigator: Investigator
     
     init(_ investigator: Investigator) {
         self.investigator = investigator
