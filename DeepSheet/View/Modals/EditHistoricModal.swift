@@ -140,7 +140,7 @@ class EditHistoricModal: UIViewController {
     // MARK: - Fourth Group
     
     lazy var importantLocalsView: EditModalComponent = {
-        let view = EditModalComponent(titleText: LocalizedStrings.importantPersons, multiline: true)
+        let view = EditModalComponent(titleText: LocalizedStrings.importantLocals, multiline: true)
         return view
     }()
     
