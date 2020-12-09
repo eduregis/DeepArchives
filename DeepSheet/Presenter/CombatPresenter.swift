@@ -150,6 +150,21 @@ class CombatPresenter {
 		}
 	}
 	
+	func updateItem(for modItem: Item, newName: String, newUses: Int, newDescription: String) {
+		
+		let editItem = modItem
+		editItem.name = newName
+		editItem.descript = newDescription
+		editItem.uses = Int64(newUses)
+		editItem.investigator = modItem.investigator
+		
+		do {
+			try dataContext.save()
+		} catch {
+			fatalError("Unable to SAVE ITEM DATA to core data model!")
+		}
+	}
+	
 	func updateItemUses(for modItem: Item, with modUses: Int) {
 		
 		let editItem = modItem

@@ -9,6 +9,23 @@ import UIKit
 
 class EditItemModal: UIViewController {
     
+	let combatPresenter: CombatPresenter
+	
+	var editingAction: (() -> Void)?
+	
+	var editItem: Item
+	
+	init(action: @escaping () -> Void, _ presenter: CombatPresenter, _ editItem: Item) {
+		self.combatPresenter = presenter
+		self.editItem = editItem
+		super.init(nibName: nil, bundle: nil)
+		editingAction = action
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     // MARK: - NavBar
     
     lazy var navigationBar: UIView = {
@@ -82,6 +99,11 @@ class EditItemModal: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         additionalConfigurations()
+		
+		itemNameView.valueText.text = editItem.name
+		useView.valueText.text = "\(editItem.uses)"
+		descriptionView.valueText.text = editItem.descript
+		
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
     }
@@ -91,8 +113,13 @@ class EditItemModal: UIViewController {
     }
     
     @objc func rightButtonBehavior() {
-        dismiss(animated: true, completion: nil)
+		editItem(item: editItem)
+        dismiss(animated: true, completion: editingAction)
     }
+	
+	private func editItem(item: Item) {
+		combatPresenter.updateItem(for: item, newName: itemNameView.valueText.text, newUses: Int(useView.valueText.text)!, newDescription: descriptionView.valueText.text)
+	}
     
     private func additionalConfigurations() {
         configureLayout()

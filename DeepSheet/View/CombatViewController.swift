@@ -121,6 +121,7 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		
 		setCombatDelegates()
 		setTextFieldDelegates(with: self)
+		connectEditItem()
         view.backgroundColor = .backgroundBlack
     }
     
@@ -147,6 +148,7 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		self.items = combatPresenter.fetchItems()
 		itemsView.updateItems(with: items)
 		setTextFieldDelegates(with: self)
+		connectEditItem()
 	}
 	
     private func configureLayout() {
@@ -204,6 +206,29 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 	func fetchGeneralCombat() {
 		self.generalCombat = combatPresenter.fetchGeneralCombat()
 		generalCombatView.updateGeneralCombat(with: generalCombat[0])
+	}
+	
+	// MARK: - Edit Item Logic
+	
+	func connectEditItem() {
+		
+		for item in itemsView.itemStack.arrangedSubviews {
+			let actualItem = item as! ItemCardView
+			actualItem.itemUsesEditButton.addTarget(self, action: #selector(self.presentEditItem(_:)), for: .touchUpInside)
+		}
+	}
+	
+	@objc func presentEditItem(_ sender: UIButton) {
+		
+		let itemCard = sender.superview as! ItemCardView
+		
+		for item in items {
+			if item.name == itemCard.itemNameLabel.text {
+				self.present(EditItemModal(action: {
+					self.fetchItemData()
+				}, self.combatPresenter, item), animated: true, completion: nil)
+			}
+		}
 	}
 	
 	// MARK: - Text Fields Logic
