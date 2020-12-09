@@ -103,7 +103,7 @@ class CombatViewController: UIViewController, CombatDelegate {
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         
-        generalCombat.damageView.addTarget(self, action: #selector(triggerCustomDice(_ :)), for: .touchUpInside)
+        generalCombatView.damageView.addTarget(self, action: #selector(triggerCustomDice(_ :)), for: .touchUpInside)
 		
         additionalConfigurations()
     }
@@ -196,12 +196,12 @@ class CombatViewController: UIViewController, CombatDelegate {
 	@objc func triggerGeneralModal() {
 		self.present(EditCombatModal(action: {
 			self.fetchGeneralCombat()
-		}, self.combatPresenter), animated: true, completion: nil)
+        }, self.generalCombat[0], self.combatPresenter), animated: true, completion: nil)
 	}
 	
 	func fetchGeneralCombat() {
 		self.generalCombat = combatPresenter.fetchGeneralCombat()
-		generalCombatView.updateGeneralCombat(with: generalCombat[0])
+        generalCombatView.updateGeneralCombat(with: generalCombat[0])
 	}
 	
 	// MARK: - Dice Roll Logic

@@ -9,11 +9,14 @@ import UIKit
 
 class EditCombatModal: UIViewController {
     
+    let generalCombat: GeneralCombat
+    
 	let combatPresenter: CombatPresenter
 	
 	var editingAction: (() -> Void)?
 	
-	init(action: @escaping () -> Void, _ presenter: CombatPresenter) {
+    init(action: @escaping () -> Void, _ generalCombatReceived: GeneralCombat, _ presenter: CombatPresenter) {
+        self.generalCombat = generalCombatReceived
 		self.combatPresenter = presenter
 		super.init(nibName: nil, bundle: nil)
 		editingAction = action
@@ -115,6 +118,9 @@ class EditCombatModal: UIViewController {
         additionalConfigurations()
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
+        
+        damageView.valueText.text = generalCombat.damageBonus
+        dodgeView.valueText.text = String(generalCombat.dodgeValue)
     }
     
     @objc func leftButtonBehavior() {
