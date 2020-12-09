@@ -444,6 +444,7 @@ class LocalizedStrings {
         }
     }
 	
+	
 	// MARK: - Strings for Combat
 	
 	static var generalCombatTitle: String {
@@ -656,6 +657,41 @@ class LocalizedStrings {
             return "Confirm"
         }
     }
+	
+	// MARK: - Strings for Dice Alert
+	
+	static var diceRollTitle: String {
+		switch language {
+		case "EN":
+			return "Roll Dice"
+		case "PT":
+			return "Rolar Dados"
+		default:
+			return "Roll Dice"
+		}
+	}
+	
+	static var diceTestName: String {
+		switch language {
+		case "EN":
+			return "Test:"
+		case "PT":
+			return "Testes:"
+		default:
+			return "Test:"
+		}
+	}
+	
+	static var diceRollName: String {
+		switch language {
+		case "EN":
+			return "Roll:"
+		case "PT":
+			return "Rolagem:"
+		default:
+			return "Roll:"
+		}
+	}
     
     // MARK: - Strings for Modals
     
