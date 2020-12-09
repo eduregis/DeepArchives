@@ -114,6 +114,7 @@ class ProfileViewController: UIViewController {
         button.tintColor = UIColor.ivory
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        self.navigationController?.navigationBar.setNavigationBarStyle()
         self.hideKeyboardWhenTappedAround()
         additionalConfigurations()
     }
