@@ -15,7 +15,7 @@ class GroupItemsView: UIView {
 		var label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.font = UIFont.josefinSansBold()
-		label.text = "Items"
+		label.text = LocalizedStrings.itemsTitle
 		label.textAlignment = .center
 		label.textColor = .ivory
 		label.backgroundColor = .clear
@@ -26,7 +26,7 @@ class GroupItemsView: UIView {
 	lazy var addButton: AdditionCardView = {
 		let addCard = AdditionCardView()
 		addCard.translatesAutoresizingMaskIntoConstraints = false
-		addCard.additionCardLabel.text = "Adicionar Item"
+		addCard.additionCardLabel.text = LocalizedStrings.addItemsButton
 		self.addSubview(addCard)
 		return addCard
 	}()

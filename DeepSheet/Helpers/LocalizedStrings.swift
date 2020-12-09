@@ -13,17 +13,68 @@ class LocalizedStrings {
 		UserDefaults.standard.setValue("EN", forKey: "Language")
         return UserDefaults.standard.string(forKey: "Language")!
     }
-    
-    static var strAttribute: String {
-        switch language {
-        case "EN":
-            return "STR"
-        case "PT":
-            return "FOR"
-        default:
-            return "STR"
-        }
-    }
+	
+	// MARK: - Tab Bar Strings
+	
+	static var tabProfileTitle: String {
+		
+		switch language {
+		case "EN":
+			return "Profile"
+		case "PT":
+			return "Perfil"
+		default:
+			return "Profile"
+		}
+	}
+	
+	static var tabStatsTitle: String {
+		
+		switch language {
+		case "EN":
+			return "Stats"
+		case "PT":
+			return "Aspectos"
+		default:
+			return "Stats"
+		}
+	}
+	
+	static var tabSkillsTitle: String {
+		
+		switch language {
+		case "EN":
+			return "Skills"
+		case "PT":
+			return "Perícias"
+		default:
+			return "Skills"
+		}
+	}
+	
+	static var tabCombatTitle: String {
+		
+		switch language {
+		case "EN":
+			return "Combat"
+		case "PT":
+			return "Combate"
+		default:
+			return "Combat"
+		}
+	}
+	
+	static var tabBioTitle: String {
+		
+		switch language {
+		case "EN":
+			return "Bio"
+		case "PT":
+			return "Histórico"
+		default:
+			return "Bio"
+		}
+	}
 	
 	// MARK: - Strings for States View
 	static var statesTitle: String {
@@ -168,6 +219,17 @@ class LocalizedStrings {
 			return "VIDA"
 		default:
 			return "HEALTH"
+		}
+	}
+	
+	static var strAttribute: String {
+		switch language {
+		case "EN":
+			return "STR"
+		case "PT":
+			return "FOR"
+		default:
+			return "STR"
 		}
 	}
     
@@ -384,6 +446,28 @@ class LocalizedStrings {
 	
 	// MARK: - Strings for Combat
 	
+	static var generalCombatTitle: String {
+		switch language {
+		case "EN":
+			return "General"
+		case "PT":
+			return "Geral"
+		default:
+			return "General"
+		}
+	}
+	
+	static var combatBodyTitle: String {
+		switch language {
+		case "EN":
+			return "Body"
+		case "PT":
+			return "Corpo"
+		default:
+			return "Body"
+		}
+	}
+	
 	static var dodgeTitle: String {
 		switch language {
 		case "EN":
@@ -392,6 +476,116 @@ class LocalizedStrings {
 			return "Esquiva"
 		default:
 			return "Dodge"
+		}
+	}
+	
+	static var attacksTitle: String {
+		switch language {
+		case "EN":
+			return "Attacks"
+		case "PT":
+			return "Golpes"
+		default:
+			return "Attacks"
+		}
+	}
+	
+	static var addAttacksButton: String {
+		switch language {
+		case "EN":
+			return "Add Attack"
+		case "PT":
+			return "Adicionar Golpe"
+		default:
+			return "Add Attack"
+		}
+	}
+	
+	static var attackRangeTitle: String {
+		switch language {
+		case "EN":
+			return "Range: "
+		case "PT":
+			return "Alcance: "
+		default:
+			return "Range: "
+		}
+	}
+	
+	static var attackMalfunctionTitle: String {
+		switch language {
+		case "EN":
+			return "Malfunc.: "
+		case "PT":
+			return "Malfunc.: "
+		default:
+			return "Malfunc.: "
+		}
+	}
+	
+	static var attackDiceTitle: String {
+		switch language {
+		case "EN":
+			return "Dice: "
+		case "PT":
+			return "Dado: "
+		default:
+			return "Dice: "
+		}
+	}
+	
+	static var attackNumAttackTitle: String {
+		switch language {
+		case "EN":
+			return "Attacks: "
+		case "PT":
+			return "Ataques: "
+		default:
+			return "Attacks: "
+		}
+	}
+	
+	static var attackAmmoTitle: String {
+		switch language {
+		case "EN":
+			return "Ammo:"
+		case "PT":
+			return "Munição:"
+		default:
+			return "Ammo:"
+		}
+	}
+	
+	static var itemsTitle: String {
+		switch language {
+		case "EN":
+			return "Items"
+		case "PT":
+			return "Itens"
+		default:
+			return "Items"
+		}
+	}
+	
+	static var addItemsButton: String {
+		switch language {
+		case "EN":
+			return "Add Item"
+		case "PT":
+			return "Adicionar Item"
+		default:
+			return "Add Item"
+		}
+	}
+	
+	static var itemUsesTitle: String {
+		switch language {
+		case "EN":
+			return "Uses:"
+		case "PT":
+			return "Usos:"
+		default:
+			return "Uses:"
 		}
 	}
     

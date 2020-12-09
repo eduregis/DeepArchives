@@ -72,7 +72,7 @@ class EditWeaponModal: UIViewController {
     // MARK: - First Group
     
     lazy var weaponNameView: EditModalComponent = {
-        let stack = EditModalComponent(titleText: LocalizedStrings.investigatorName)
+        let stack = EditModalComponent(titleText: LocalizedStrings.editWeaponName)
         return stack
     }()
     

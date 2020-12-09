@@ -305,8 +305,6 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 			self.diceAlert.layer.opacity = 1
 			self.dimmingOverlay.layer.opacity = 0.6
 		})
-		
-		print("Presented attack with \(diceText)")
 	}
 	
 	func triggerDamageDice(attackName: String, diceType: String) {
