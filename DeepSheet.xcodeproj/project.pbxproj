@@ -116,6 +116,7 @@
 		926E0C21257FA39A009B0584 /* GroupItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E0C20257FA39A009B0584 /* GroupItemsView.swift */; };
 		92876D402577BCB40071BFE7 /* AttackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92876D3F2577BCB40071BFE7 /* AttackCardView.swift */; };
 		92C011D82580DD540068FB8C /* Attack+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C011D62580DD540068FB8C /* Attack+CoreDataClass.swift */; };
+		92C011E82580EA760068FB8C /* GeneralCombat+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C011E62580EA760068FB8C /* GeneralCombat+CoreDataClass.swift */; };
 		92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */; };
 		92CB88E3256FE34400B94B15 /* AspectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */; };
 		92CB88E8256FE5D800B94B15 /* CombatDiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CB88E7256FE5D800B94B15 /* CombatDiceDelegate.swift */; };
@@ -231,6 +232,7 @@
 		926E0C20257FA39A009B0584 /* GroupItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItemsView.swift; sourceTree = "<group>"; };
 		92876D3F2577BCB40071BFE7 /* AttackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackCardView.swift; sourceTree = "<group>"; };
 		92C011D62580DD540068FB8C /* Attack+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attack+CoreDataClass.swift"; sourceTree = "<group>"; };
+		92C011E62580EA760068FB8C /* GeneralCombat+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeneralCombat+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = DeepSheet/View/TabBarViewController.swift; sourceTree = SOURCE_ROOT; };
 		92CB88E2256FE34400B94B15 /* AspectsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectsPresenter.swift; sourceTree = "<group>"; };
 		92CB88E7256FE5D800B94B15 /* CombatDiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatDiceDelegate.swift; sourceTree = "<group>"; };
@@ -273,12 +275,12 @@
 				2E7F67A425753BBB00976C85 /* EditHistoricModal.swift */,
 				2E7F6790257524A000976C85 /* EditItemModal.swift */,
 				2E7F676E2570556200976C85 /* EditProfileModal.swift */,
+				2E7F67E5257BB9E100976C85 /* EditSkillModal.swift */,
 				2E7F679A2575282200976C85 /* EditWeaponModal.swift */,
 				2E7F67A9257567A100976C85 /* NewInvestigatorModal.swift */,
 				2E7F678B25751F6F00976C85 /* NewItemModal.swift */,
 				2E7F679F25752D8500976C85 /* NewSkillModal.swift */,
 				2E7F67952575256700976C85 /* NewWeaponModal.swift */,
-				2E7F67E5257BB9E100976C85 /* EditSkillModal.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -353,11 +355,12 @@
 				006C07FC2580BDCC0068679A /* AspectsPoints+CoreDataClass.swift */,
 				006C07FE2580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift */,
 				92C011D62580DD540068FB8C /* Attack+CoreDataClass.swift */,
+				92C011E62580EA760068FB8C /* GeneralCombat+CoreDataClass.swift */,
 				2E7F67F3257E599A00976C85 /* Historic+CoreDataClass.swift */,
+				5BB9EC3F257BBECB006E006E /* Investigator+CoreDataClass.swift */,
+				9211A3B0257FC63E00ADBB8A /* Item+CoreDataClass.swift */,
 				2E7F681F257E9F8100976C85 /* Profile+CoreDataClass.swift */,
 				5BB9EC19257AA522006E006E /* Skill+CoreDataClass.swift */,
-				9211A3B0257FC63E00ADBB8A /* Item+CoreDataClass.swift */,
-				5BB9EC3F257BBECB006E006E /* Investigator+CoreDataClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				2E7F67CD257685DE00976C85 /* InvestigatorCollectionViewCell.swift in Sources */,
 				2E7F67E6257BB9E100976C85 /* EditSkillModal.swift in Sources */,
 				2E7F680A257E626800976C85 /* HistoricPresenter.swift in Sources */,
+				92C011E82580EA760068FB8C /* GeneralCombat+CoreDataClass.swift in Sources */,
 				00E630AA256FD73D00D397C0 /* AdditionCardView.swift in Sources */,
 				5BB9EC37257BB4D8006E006E /* SkillEnum.swift in Sources */,
 				92CB88E8256FE5D800B94B15 /* CombatDiceDelegate.swift in Sources */,

@@ -23,19 +23,20 @@ class GeneralCombatView: UIView {
     
     // MARK: - Primeira linha
     let damageView: InfoView = {
-        let view = InfoView(characteristic: "Dano", value: "1d4", preValue: "+")
+        let view = InfoView(characteristic: LocalizedStrings.damage, value: "1d4")
+        view.valueLabel.textColor = .lightSeaGreen
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     let bodyView: InfoView = {
-        let view = InfoView(characteristic: "Corpo", value: "1", preValue: "+")
+        let view = InfoView(characteristic: "Corpo", value: "1")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     let dodgeView: CharacteristicView = {
-        let view = CharacteristicView(characteristic: LocalizedStrings.intAttribute, value: 50, preValue: "")
+		let view = CharacteristicView(characteristic: LocalizedStrings.dodge, value: 50, preValue: "")
         view.translatesAutoresizingMaskIntoConstraints = false
         view.tag = 9
         return view
@@ -52,9 +53,14 @@ class GeneralCombatView: UIView {
         return stack
     }()
     
-    init() {
+	init(with generalCombat: GeneralCombat) {
+		
         super.init(frame: .zero)
         configureLayout()
+		
+		damageView.valueLabel.text = generalCombat.damageBonus
+		bodyView.valueLabel.text = "\(generalCombat.body)"
+		dodgeView.changeCharacteristicValues(with: Int64(generalCombat.dodgeValue))
     }
     
     required init?(coder: NSCoder) {
@@ -72,4 +78,10 @@ class GeneralCombatView: UIView {
             stack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
+	
+	func updateGeneralCombat(with newGeneral: GeneralCombat) {
+		damageView.valueLabel.text = newGeneral.damageBonus
+		bodyView.valueLabel.text = "\(newGeneral.body)"
+		dodgeView.changeCharacteristicValues(with: Int64(newGeneral.dodgeValue))
+	}
 }
