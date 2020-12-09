@@ -23,6 +23,7 @@ class ProfileComponent: UIView {
         let field = UITextView()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.font = UIFont.systemFont(ofSize: 17.0)
+        field.backgroundColor = .backgroundBlack
         field.textColor = .ivory
         field.isEditable = false
         field.layer.borderWidth = 1
