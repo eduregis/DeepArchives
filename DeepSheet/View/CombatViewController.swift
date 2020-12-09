@@ -102,6 +102,8 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
         button.tintColor = UIColor.ivory
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        
+        generalCombatView.damageView.addTarget(self, action: #selector(triggerCustomDice(_ :)), for: .touchUpInside)
 		
         additionalConfigurations()
     }
@@ -150,7 +152,7 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		setTextFieldDelegates(with: self)
 		connectEditItem()
 	}
-	
+    
     private func configureLayout() {
 		mainScrollingView.addSubview(generalCombatView)
 		mainScrollingView.addSubview(headerButtons)
@@ -200,12 +202,12 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 	@objc func triggerGeneralModal() {
 		self.present(EditCombatModal(action: {
 			self.fetchGeneralCombat()
-		}, self.combatPresenter), animated: true, completion: nil)
+        }, self.generalCombat[0], self.combatPresenter), animated: true, completion: nil)
 	}
 	
 	func fetchGeneralCombat() {
 		self.generalCombat = combatPresenter.fetchGeneralCombat()
-		generalCombatView.updateGeneralCombat(with: generalCombat[0])
+        generalCombatView.updateGeneralCombat(with: generalCombat[0])
 	}
 	
 	// MARK: - Edit Item Logic
@@ -281,6 +283,16 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		
 		print("Presented attack with \(diceText)")
 	}
+    
+    @objc func triggerCustomDice(_ sender: InfoView) {
+        diceAlert.rollCustomDice(rollText: sender.characteristicLabel.text ?? "", rollType: sender.valueLabel.text ?? "")
+        
+        UIView.animate(withDuration: 0.2, delay: 0, animations: {
+            self.diceAlert.layer.opacity = 1
+            self.dimmingOverlay.layer.opacity = 0.6
+        })
+    
+    }
 	
 	@objc func dismissAlert() {
 		UIView.animate(withDuration: 0.2, delay: 0, animations: {

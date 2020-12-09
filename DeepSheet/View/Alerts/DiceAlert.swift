@@ -115,6 +115,33 @@ class DiceAlert: UIView {
         
     }
     
+    func rollCustomDice (rollText: String, rollType: String) {
+        
+        testNameLabel.text = rollText
+        
+        let values = rollType.split(separator: "+")
+        var finalValue = 0
+        
+        for value in values {
+            let str = (String(value).trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
+            let subValues = str.split(separator: "d")
+            if subValues.count > 1 {
+                let rollTimes = Int(subValues[0])
+                var rollResult = Int(subValues[1])
+                rollResult = Int.random(in: 1...rollResult!)
+                finalValue += (rollTimes! * rollResult!)
+            } else {
+                let rollTimes = Int(subValues[0])
+                finalValue + (rollTimes!)
+            }
+        }
+        
+        diceTypeLabel.text = "Roll: \(rollType)"
+        
+        resultLabel.text = "\(finalValue)"
+        
+    }
+    
     func updateFonts(value: UIFont, characteristic: UIFont) {
 //        valueLabel.font = characteristic
 //        characteristicLabel.font = value
