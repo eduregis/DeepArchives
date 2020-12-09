@@ -263,7 +263,6 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		}
 	}
 	
-	// MARK: - Dice Roll Logic
 	func setCombatDelegates() {
 		attacksView.setAttacksDelegate(with: self)
 	}
@@ -273,6 +272,7 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		itemsView.setTextDelegates(with: delegate)
 	}
 	
+	// MARK: - Dice Roll Logic
 	func triggerDice(diceText: String, diceType: String) {
 		diceAlert.rollDice(rollText: diceText, rollType: diceType)
 		
@@ -282,6 +282,15 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 		})
 		
 		print("Presented attack with \(diceText)")
+	}
+	
+	func triggerDamageDice(attackName: String, diceType: String) {
+		diceAlert.rollCustomDice(rollText: attackName ?? "", rollType: diceType ?? "")
+		
+		UIView.animate(withDuration: 0.2, delay: 0, animations: {
+			self.diceAlert.layer.opacity = 1
+			self.dimmingOverlay.layer.opacity = 0.6
+		})
 	}
     
     @objc func triggerCustomDice(_ sender: InfoView) {
