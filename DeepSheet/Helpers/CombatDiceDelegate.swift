@@ -11,4 +11,6 @@ protocol CombatDelegate: NSObjectProtocol {
 	
 	func triggerDice(diceText: String, diceType: String)
 	
+	func triggerDamageDice(attackName: String, diceType: String)
+	
 }

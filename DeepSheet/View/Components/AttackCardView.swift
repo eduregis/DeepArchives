@@ -284,7 +284,7 @@ class AttackCardView: UIView {
 	
 	@objc func rollDamageDice() {
 		print("Damage caused by \(attackLabel.text!)")
-		combatDelegate?.triggerDice(diceText: attackLabel.text!, diceType: damageDiceValue)
+		combatDelegate?.triggerDamageDice(attackName: attackLabel.text!, diceType: damageDiceValue)
 	}
 	
 	lazy var editButton: UIButton = {
@@ -320,7 +320,7 @@ class AttackCardView: UIView {
 		reachLabel.text = "Alcance: \(reach) m"
 		malfuncLabel.text = "Malfunc.: \(malfunction)%"
 		
-		diceLabel.text = "Dado: \(damageDiceValue) + DB"
+		diceLabel.text = "Dado: \(damageDiceValue)"
 		numAttacksLabel.text = "Ataques: \(num)"
 		ammoLabel.text = "Munição:"
 		ammoField.text = "\(ammo)"
@@ -458,5 +458,9 @@ class AttackCardView: UIView {
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	func setAmmoFieldDelegate(with delegate: UITextFieldDelegate) {
+		ammoField.delegate = delegate
 	}
 }

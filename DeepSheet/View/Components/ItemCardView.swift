@@ -139,4 +139,8 @@ class ItemCardView: UIView {
             itemDescriptionTextView.leadingAnchor.constraint(equalTo: stack.leadingAnchor)
         ])
     }
+	
+	func setItemUsesDelegate(with delegate: UITextFieldDelegate) {
+		itemUsesTextField.delegate = delegate
+	}
 }

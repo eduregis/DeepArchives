@@ -9,9 +9,26 @@ import UIKit
 
 class EditWeaponModal: UIViewController {
     
+	let combatPresenter: CombatPresenter
+	
+	var editingAction: (() -> Void)?
+	
+	var editAttack: Attack
+	
     var actualPage = 0
     var lastPage = 2
-    
+	
+	init(action: @escaping () -> Void, _ presenter: CombatPresenter, _ editAttack: Attack) {
+		self.combatPresenter = presenter
+		self.editAttack = editAttack
+		super.init(nibName: nil, bundle: nil)
+		editingAction = action
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     // MARK: - NavBar
     
     lazy var navigationBar: UIView = {
@@ -156,6 +173,14 @@ class EditWeaponModal: UIViewController {
         leftButton.addTarget(self, action: #selector(leftButtonBehavior), for: .touchUpInside)
         rightButton.addTarget(self, action: #selector(rightButtonBehavior), for: .touchUpInside)
         
+		weaponNameView.valueText.text = editAttack.name
+		pointsView.valueText.text = "\(editAttack.chance)"
+		damageView.valueText.text = editAttack.dice
+		rangeView.valueText.text = "\(editAttack.reach)"
+		attackView.valueText.text = "\(editAttack.number)"
+		ammoView.valueText.text = "\(editAttack.ammo)"
+		malfunctionView.valueText.text = "\(editAttack.malfunction)"
+		
         firstStack.isHidden = false
         secondStack.isHidden = true
         thirdStack.isHidden = true
@@ -172,12 +197,26 @@ class EditWeaponModal: UIViewController {
     
     @objc func rightButtonBehavior() {
         if actualPage == lastPage {
-            dismiss(animated: true, completion: nil)
+			editAttack(attack: editAttack)
+            dismiss(animated: true, completion: editingAction)
         } else {
             actualPage += 1
         }
         atualizeUI()
     }
+	
+	private func editAttack(attack: Attack) {
+		combatPresenter.updateAttack(
+			for: attack,
+			newName: weaponNameView.valueText.text,
+			newChance: Int(pointsView.valueText.text)!,
+			newDice: damageView.valueText.text,
+			newReach: Int(rangeView.valueText.text)!,
+			newNum: Int(attackView.valueText.text)!,
+			newAmmo: Int(ammoView.valueText.text)!,
+			newMalfunction: Int(malfunctionView.valueText.text)!
+		)
+	}
     
     func atualizeUI() {
         if actualPage == 0 {

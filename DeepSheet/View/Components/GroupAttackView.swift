@@ -92,6 +92,13 @@ class GroupAttackView: UIView {
 	
 	// MARK: - Logic
 	
+	func setTextDelegates(with delegate: UITextFieldDelegate) {
+		for attack in attacksStack.arrangedSubviews {
+			var actualAttack = attack as! AttackCardView
+			actualAttack.setAmmoFieldDelegate(with: delegate)
+		}
+	}
+	
 	func updateAttacks(with attacks: [Attack], and delegate: CombatDelegate) {
 		
 		for attack in attacksStack.arrangedSubviews {

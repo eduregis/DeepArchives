@@ -136,7 +136,7 @@ class DiceAlert: UIView {
             }
         }
         
-        diceTypeLabel.text = "Roll: \(values)"
+        diceTypeLabel.text = "Roll: \(rollType)"
         
         resultLabel.text = "\(finalValue)"
         
