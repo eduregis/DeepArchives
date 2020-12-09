@@ -381,6 +381,19 @@ class LocalizedStrings {
             return "Roll: d100"
         }
     }
+	
+	// MARK: - Strings for Combat
+	
+	static var dodgeTitle: String {
+		switch language {
+		case "EN":
+			return "Dodge"
+		case "PT":
+			return "Esquiva"
+		default:
+			return "Dodge"
+		}
+	}
     
     // MARK: - Strings for Header Buttons
     
