@@ -35,6 +35,16 @@
         <attribute name="temporarilyInsane" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="aspect" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Aspects" inverseName="aspectsStates" inverseEntity="Aspects"/>
     </entity>
+    <entity name="Attack" representedClassName="Attack" syncable="YES" codeGenerationType="category">
+        <attribute name="ammo" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="chance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dice" optional="YES" attributeType="String"/>
+        <attribute name="malfunction" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="reach" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="attack" inverseEntity="Investigator"/>
+    </entity>
     <entity name="Historic" representedClassName="Historic" syncable="YES" codeGenerationType="category">
         <attribute name="ideology" optional="YES" attributeType="String"/>
         <attribute name="importantLocals" optional="YES" attributeType="String"/>
@@ -51,9 +61,17 @@
     <entity name="Investigator" representedClassName="Investigator" syncable="YES" codeGenerationType="category">
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="occupation" attributeType="String" defaultValueString=""/>
+        <relationship name="attack" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attack" inverseName="investigator" inverseEntity="Attack"/>
         <relationship name="historic" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Historic" inverseName="investigator" inverseEntity="Historic"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="investigator" inverseEntity="Item"/>
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Profile" inverseName="investigator" inverseEntity="Profile"/>
         <relationship name="skills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Skill" inverseName="investigator" inverseEntity="Skill"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="category">
+        <attribute name="descript" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uses" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="item" inverseEntity="Investigator"/>
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="category">
         <attribute name="address" optional="YES" attributeType="String"/>
@@ -78,9 +96,11 @@
         <element name="AspectsPoints" positionX="27" positionY="171" width="128" height="178"/>
         <element name="AspectsStates" positionX="36" positionY="180" width="128" height="118"/>
         <element name="Historic" positionX="9" positionY="99" width="128" height="208"/>
-        <element name="Investigator" positionX="18" positionY="108" width="128" height="118"/>
+        <element name="Investigator" positionX="18" positionY="108" width="128" height="148"/>
+        <element name="Item" positionX="9" positionY="153" width="128" height="103"/>
         <element name="Profile" positionX="18" positionY="171" width="128" height="148"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
         <element name="Aspects" positionX="9" positionY="162" width="128" height="88"/>
+        <element name="Attack" positionX="9" positionY="153" width="128" height="163"/>
     </elements>
 </model>

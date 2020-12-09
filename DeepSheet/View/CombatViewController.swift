@@ -9,6 +9,27 @@ import UIKit
 
 class CombatViewController: UIViewController, CombatDelegate {
 	
+	let investigator: Investigator
+	let combatPresenter: CombatPresenter
+	
+	var items: [Item] = []
+	
+	var attacks: [Attack] = []
+	
+	init(_ inv: Investigator) {
+		self.investigator = inv
+		self.combatPresenter = CombatPresenter(self.investigator)
+		self.items = combatPresenter.fetchItems()
+		self.attacks = combatPresenter.fetchAttacks()
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	// MARK: - Components
+	
 	lazy var headerButtons: HeaderButtons = {
 		let header = HeaderButtons()
 		header.translatesAutoresizingMaskIntoConstraints = false
@@ -23,13 +44,13 @@ class CombatViewController: UIViewController, CombatDelegate {
 	}()
 	
 	lazy var attacksView: GroupAttackView = {
-		let stack = GroupAttackView()
+		let stack = GroupAttackView(with: attacks, and: self)
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		return stack
 	}()
 	
 	lazy var itemsView: GroupItemsView = {
-		let stack = GroupItemsView()
+		let stack = GroupItemsView(with: items)
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		return stack
 	}()
@@ -66,6 +87,7 @@ class CombatViewController: UIViewController, CombatDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.hideKeyboardWhenTappedAround()
+		self.navigationController?.navigationBar.setNavigationBarStyle()
 		
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
@@ -95,12 +117,25 @@ class CombatViewController: UIViewController, CombatDelegate {
     }
     
 	@objc func addAttackButton(_ sender: UITapGestureRecognizer) {
-		attacksView.addAttack()
-		attacksView.setAttacksDelegate(with: self)
+		self.present(NewWeaponModal(action: {
+			self.fetchAttackData()
+		}, self.combatPresenter), animated: true, completion: nil)
+	}
+	
+	func fetchAttackData() {
+		self.attacks = combatPresenter.fetchAttacks()
+		attacksView.updateAttacks(with: attacks, and: self)
 	}
 	
 	@objc func addItemButton(_ sender: UITapGestureRecognizer) {
-		itemsView.addItem()
+		self.present(NewItemModal(action: {
+			self.fetchItemData()
+		}, self.combatPresenter), animated: true, completion: nil)
+	}
+	
+	func fetchItemData() {
+		self.items = combatPresenter.fetchItems()
+		itemsView.updateItems(with: items)
 	}
 	
     private func configureLayout() {

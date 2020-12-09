@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 class AspectsPresenter {
-	
+	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
 	//Remove once Presenter can store and get from Model
 	var tempLuck: (current: Int, maximum: Int) = (0, 0)
 	var tempMagic: (current: Int, maximum: Int) = (0, 0)

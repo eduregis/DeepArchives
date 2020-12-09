@@ -77,8 +77,8 @@ class ItemCardView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(field)
         field.font = UIFont.josefinSansBold17()
-        field.textColor = .ivory
-        field.backgroundColor = .darkGray
+		field.textColor = .backgroundBlack
+		field.backgroundColor = .ivory
         field.textAlignment = .center
         field.layer.borderWidth = 1
         field.layer.cornerRadius = 5
