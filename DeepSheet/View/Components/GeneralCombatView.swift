@@ -23,7 +23,8 @@ class GeneralCombatView: UIView {
     
     // MARK: - Primeira linha
     let damageView: InfoView = {
-        let view = InfoView(characteristic: LocalizedStrings.damage, value: "1d4 + 1d6")
+        let view = InfoView(characteristic: LocalizedStrings.damage, value: "1d4")
+        view.valueLabel.textColor = .lightSeaGreen
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

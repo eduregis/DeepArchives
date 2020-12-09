@@ -13,4 +13,25 @@ class BusinessRules {
         }
         return false
     }
+    
+    static func checkIfIsDicesIsValid(_ value: String) -> Bool {
+        let values = value.split(separator: "+")
+        
+        for value in values {
+            let str = (String(value).trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
+            let subValues = str.split(separator: "d")
+            if subValues.count == 2 {
+                if !String(subValues[0]).isInt && !String(subValues[1]).isInt {
+                    return false
+                }
+            } else if subValues.count == 1 {
+                if !String(subValues[0]).isInt {
+                    return false
+                }
+            } else {
+                return false
+            }
+        }
+        return true
+    }
 }

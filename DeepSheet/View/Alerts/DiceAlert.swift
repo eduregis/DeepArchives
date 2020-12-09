@@ -129,7 +129,7 @@ class DiceAlert: UIView {
                 let rollTimes = Int(subValues[0])
                 var rollResult = Int(subValues[1])
                 rollResult = Int.random(in: 1...rollResult!)
-                finalValue += (rollTimes! + rollResult!)
+                finalValue += (rollTimes! * rollResult!)
             } else {
                 let rollTimes = Int(subValues[0])
                 finalValue + (rollTimes!)
