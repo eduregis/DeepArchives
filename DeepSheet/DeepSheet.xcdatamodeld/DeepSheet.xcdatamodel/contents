@@ -96,16 +96,28 @@
         <attribute name="value" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="investigator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Investigator" inverseName="skills" inverseEntity="Investigator"/>
     </entity>
+    <configuration name="CloudKit" usedWithCloudKit="YES">
+        <memberEntity name="Profile"/>
+        <memberEntity name="Item"/>
+        <memberEntity name="Investigator"/>
+        <memberEntity name="Historic"/>
+        <memberEntity name="GeneralCombat"/>
+        <memberEntity name="Attack"/>
+        <memberEntity name="AspectsStates"/>
+        <memberEntity name="AspectsPoints"/>
+        <memberEntity name="AspectsAttributes"/>
+        <memberEntity name="Skill"/>
+    </configuration>
     <elements>
         <element name="AspectsAttributes" positionX="18" positionY="162" width="128" height="179"/>
         <element name="AspectsPoints" positionX="27" positionY="171" width="128" height="164"/>
         <element name="AspectsStates" positionX="36" positionY="180" width="128" height="104"/>
         <element name="Attack" positionX="9" positionY="153" width="128" height="163"/>
+        <element name="GeneralCombat" positionX="18" positionY="162" width="128" height="103"/>
         <element name="Historic" positionX="9" positionY="99" width="128" height="208"/>
         <element name="Investigator" positionX="18" positionY="108" width="128" height="179"/>
         <element name="Item" positionX="9" positionY="153" width="128" height="103"/>
         <element name="Profile" positionX="18" positionY="171" width="128" height="148"/>
         <element name="Skill" positionX="-27" positionY="18" width="128" height="134"/>
-        <element name="GeneralCombat" positionX="18" positionY="162" width="128" height="103"/>
     </elements>
 </model>
