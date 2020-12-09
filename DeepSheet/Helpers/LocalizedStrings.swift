@@ -10,7 +10,7 @@ import Foundation
 class LocalizedStrings {
 	
     static var language: String {
-		UserDefaults.standard.setValue("EN", forKey: "Language")
+		UserDefaults.standard.setValue("PT", forKey: "Language")
         return UserDefaults.standard.string(forKey: "Language")!
     }
 	
@@ -436,11 +436,11 @@ class LocalizedStrings {
     static var rollDiceD100: String {
         switch language {
         case "EN":
-            return "Roll: d100"
+            return "d100"
         case "PT":
-            return "Rolagem: d100"
+            return "d100"
         default:
-            return "Roll: d100"
+            return "d100"
         }
     }
 	

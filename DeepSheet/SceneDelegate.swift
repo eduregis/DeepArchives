@@ -28,7 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if launchedBefore {
         } else {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
-            UserDefaults.standard.setValue("PT", forKey: "Language")
             UserDefaults.standard.synchronize()
         }
     }
