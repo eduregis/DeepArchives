@@ -122,8 +122,11 @@ class EditCombatModal: UIViewController {
     }
     
     @objc func rightButtonBehavior() {
-		combatPresenter.editGeneralCombat(newDamage: damageView.valueText.text, newDodge: Int(dodgeView.valueText.text)!)
-        dismiss(animated: true, completion: editingAction)
+		if BusinessRules.checkIfIsPercentageValue(Int64(dodgeView.valueText.text)!) {
+			combatPresenter.editGeneralCombat(newDamage: damageView.valueText.text, newDodge: Int(dodgeView.valueText.text)!)
+			dismiss(animated: true, completion: editingAction)
+		}
+		
     }
     
     private func additionalConfigurations() {
