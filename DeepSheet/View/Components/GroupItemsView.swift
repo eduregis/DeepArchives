@@ -50,14 +50,13 @@ class GroupItemsView: UIView {
 		return scroll
 	}()
 	
-	init() {
+	init(with items: [Item]) {
 		super.init(frame: .zero)
-		let items = [
-			ItemCardView(itemName: "Medkit", itemDescription: "Cura as galera tudo", itemUses: 999),
-			ItemCardView(itemName: "Medkit", itemDescription: "Cura as galera tudo", itemUses: 999)
-			]
-		itemStack.addArrangedSubview(items[0])
-		itemStack.addArrangedSubview(items[1])
+		
+		for new in items {
+			var newItem = ItemCardView(itemName: new.name!, itemDescription: new.descript!, itemUses: Int(new.uses))
+			itemStack.addArrangedSubview(newItem)
+		}
 
 		configureLayout()
 	}
@@ -91,9 +90,20 @@ class GroupItemsView: UIView {
 	
 	// MARK: - Logic
 	
-	func addItem() {
-		let item = ItemCardView(itemName: "FOGO", itemDescription: "QUEIMA", itemUses: 100)
-		itemStack.addArrangedSubview(item)
+	func updateItems(with items: [Item]) {
+		
+		for item in itemStack.arrangedSubviews {
+			item.removeFromSuperview()
+		}
+		
+		for new in items {
+			var newItem = ItemCardView(itemName: new.name!, itemDescription: new.descript!, itemUses: Int(new.uses))
+			itemStack.addArrangedSubview(newItem)
+		}
+		
+		print("************************************")
+		print(itemStack.arrangedSubviews)
+		print("************************************")
 	}
 
 }

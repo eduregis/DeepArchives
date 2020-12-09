@@ -9,6 +9,20 @@ import UIKit
 
 class NewItemModal: UIViewController {
     
+	let combatPresenter: CombatPresenter
+	
+	var editingAction: (() -> Void)?
+	
+	init(action: @escaping () -> Void, _ presenter: CombatPresenter) {
+		self.combatPresenter = presenter
+		super.init(nibName: nil, bundle: nil)
+		editingAction = action
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     // MARK: - NavBar
     
     lazy var navigationBar: UIView = {
@@ -91,8 +105,13 @@ class NewItemModal: UIViewController {
     }
     
     @objc func rightButtonBehavior() {
-        dismiss(animated: true, completion: nil)
+		createNewItem()
+        dismiss(animated: true, completion: editingAction)
     }
+	
+	private func createNewItem() {
+		combatPresenter.newItem(name: itemNameView.valueText.text!, description: descriptionView.valueText.text!, uses: Int(useView.valueText.text)!)
+	}
     
     private func additionalConfigurations() {
         configureLayout()
