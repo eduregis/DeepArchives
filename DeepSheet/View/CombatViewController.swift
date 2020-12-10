@@ -36,7 +36,16 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
 	}
 	
 	// MARK: - Components
-	
+    lazy var configButton: ConfigButton = {
+        let cfgBtn = ConfigButton()
+        cfgBtn.addTarget(self, action: #selector(goToConfigurations), for: .touchUpInside)
+        return cfgBtn
+    }()
+    
+    @objc func goToConfigurations() {
+        let configScreen = ConfigViewController()
+        self.navigationController?.pushViewController(configScreen, animated: true)
+    }
 	lazy var headerButtons: HeaderButtons = {
 		let header = HeaderButtons()
 		header.translatesAutoresizingMaskIntoConstraints = false
@@ -95,13 +104,14 @@ class CombatViewController: UIViewController, CombatDelegate, UITextFieldDelegat
         super.viewDidLoad()
 		self.hideKeyboardWhenTappedAround()
 		self.navigationController?.navigationBar.setNavigationBarStyle()
-		
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         button.setTitle(LocalizedStrings.investigators, for: .normal)
         button.tintColor = UIColor.ivory
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: configButton)
+
         
         generalCombatView.damageView.addTarget(self, action: #selector(triggerInfoDice(_ :)), for: .touchUpInside)
 		generalCombatView.dodgeView.addTarget(self, action: #selector(triggerCharDice(_:)), for: .touchUpInside)

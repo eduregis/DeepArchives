@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0040D1FF257DC00700BD35D3 /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0040D1FE257DC00700BD35D3 /* ItemCardView.swift */; };
+		006C082E258135BF0068679A /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C082D258135BF0068679A /* ConfigViewController.swift */; };
+		006C083625813A260068679A /* ConfigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C083525813A260068679A /* ConfigButton.swift */; };
+		00DB3389258158DB0011D7A3 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DB3388258158DB0011D7A3 /* ConfigTableViewCell.swift */; };
 		006C08002580BDCD0068679A /* AspectsStates+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C07FA2580BDCC0068679A /* AspectsStates+CoreDataClass.swift */; };
 		006C08022580BDCD0068679A /* AspectsPoints+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C07FC2580BDCC0068679A /* AspectsPoints+CoreDataClass.swift */; };
 		006C08042580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006C07FE2580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift */; };
@@ -145,6 +148,9 @@
 
 /* Begin PBXFileReference section */
 		0040D1FE257DC00700BD35D3 /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
+		006C082D258135BF0068679A /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		006C083525813A260068679A /* ConfigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigButton.swift; sourceTree = "<group>"; };
+		00DB3388258158DB0011D7A3 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 		006C07FA2580BDCC0068679A /* AspectsStates+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AspectsStates+CoreDataClass.swift"; sourceTree = "<group>"; };
 		006C07FC2580BDCC0068679A /* AspectsPoints+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AspectsPoints+CoreDataClass.swift"; sourceTree = "<group>"; };
 		006C07FE2580BDCD0068679A /* AspectsAttributes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AspectsAttributes+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -379,6 +385,8 @@
 				5BFC57CB256D2CAE00B8B232 /* SkillsTableViewController.swift */,
 				5BFC57D6256D303000B8B232 /* SkillTableViewCell.swift */,
 				92CA9AA3256EF40600CF67D7 /* TabBarViewController.swift */,
+				006C082D258135BF0068679A /* ConfigViewController.swift */,
+				00DB3388258158DB0011D7A3 /* ConfigTableViewCell.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -434,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				00E630A9256FD73D00D397C0 /* AdditionCardView.swift */,
+				006C083525813A260068679A /* ConfigButton.swift */,
 				92876D3F2577BCB40071BFE7 /* AttackCardView.swift */,
 				2EF1EF2A2567F3CA00BE0644 /* AttributesView.swift */,
 				2EF1EF222567F3A700BE0644 /* CharacteristicView.swift */,
@@ -445,9 +454,9 @@
 				9237DFE0256D958400EEAE80 /* GroupStatesView.swift */,
 				2EF1EFF6256D457A00BE0644 /* HeaderButtons.swift */,
 				2EF1EFE2256D34AC00BE0644 /* IllustrationView.swift */,
+				2EF1EFFB256D8A0A00BE0644 /* InfoView.swift */,
 				9227B5C7256F010B00399CCB /* IndvPointsView.swift */,
 				9237DFD8256D8B9E00EEAE80 /* IndvStatesView.swift */,
-				2EF1EFFB256D8A0A00BE0644 /* InfoView.swift */,
 				0040D1FE257DC00700BD35D3 /* ItemCardView.swift */,
 				2E7F67D72577BB0600976C85 /* ProfileComponent.swift */,
 			);
@@ -716,9 +725,11 @@
 				2EF1EF1D2567F33300BE0644 /* CustomColors.swift in Sources */,
 				5BFC57CC256D2CAE00B8B232 /* SkillsTableViewController.swift in Sources */,
 				2E7F67A525753BBB00976C85 /* EditHistoricModal.swift in Sources */,
+				006C082E258135BF0068679A /* ConfigViewController.swift in Sources */,
 				006C08002580BDCD0068679A /* AspectsStates+CoreDataClass.swift in Sources */,
 				2EF1EEDE2567EDE300BE0644 /* DeepSheet.xcdatamodeld in Sources */,
 				2EF1EF2B2567F3CA00BE0644 /* AttributesView.swift in Sources */,
+				00DB3389258158DB0011D7A3 /* ConfigTableViewCell.swift in Sources */,
 				2E7F67CD257685DE00976C85 /* InvestigatorCollectionViewCell.swift in Sources */,
 				2E7F67E6257BB9E100976C85 /* EditSkillModal.swift in Sources */,
 				2E7F680A257E626800976C85 /* HistoricPresenter.swift in Sources */,
@@ -726,6 +737,7 @@
 				00E630AA256FD73D00D397C0 /* AdditionCardView.swift in Sources */,
 				5BB9EC37257BB4D8006E006E /* SkillEnum.swift in Sources */,
 				92CB88E8256FE5D800B94B15 /* CombatDiceDelegate.swift in Sources */,
+				006C083625813A260068679A /* ConfigButton.swift in Sources */,
 				9237DFD9256D8B9E00EEAE80 /* IndvStatesView.swift in Sources */,
 				2EF1EF232567F3A700BE0644 /* CharacteristicView.swift in Sources */,
 				92CA9AA4256EF40600CF67D7 /* TabBarViewController.swift in Sources */,

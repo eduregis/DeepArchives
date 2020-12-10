@@ -12,6 +12,19 @@ class AspectsViewController: UIViewController, UITextFieldDelegate {
     let investigator: Investigator
 
 	var isEditEnabled: Bool = false
+    
+   
+    
+    lazy var configButton: ConfigButton = {
+        let cfgBtn = ConfigButton()
+        cfgBtn.addTarget(self, action: #selector(goToConfigurations), for: .touchUpInside)
+        return cfgBtn
+    }()
+    
+    @objc func goToConfigurations() {
+        let configScreen = ConfigViewController()
+        self.navigationController?.pushViewController(configScreen, animated: true)
+	}
 	
     init(_ inv: Investigator) {
         self.investigator = inv
@@ -92,6 +105,7 @@ class AspectsViewController: UIViewController, UITextFieldDelegate {
         button.tintColor = UIColor.ivory
         button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: configButton)
         self.navigationController?.navigationBar.setNavigationBarStyle()
 		self.hideKeyboardWhenTappedAround()
 		additionalConfigurations()
